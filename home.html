@@ -407,6 +407,63 @@ body{
 .hide-scrollbar::-webkit-scrollbar {
   display: none;                /* Chrome, Safari */
 }
+/* LANDSCAPE POSTER THUMBNAIL */
+.poster-thumb{
+  width:100%;
+  max-width:420px;          /* control thumbnail size */
+  aspect-ratio:16 / 9;      /* landscape ratio */
+  border:1px solid #e5e7eb;
+  border-radius:6px;
+  overflow:hidden;
+  background:#f9fafb;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* IMAGE */
+.poster-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;         /* fills thumbnail properly */
+  display:block;
+}
+/* OUTER WRAPPER – handles spacing */
+.poster-wrapper{
+  padding:12px;                 /* space around poster */
+}
+
+/* POSTER CONTAINER */
+.poster-thumb{
+  width:100%;
+  max-width:520px;              /* desktop size */
+  aspect-ratio:16 / 9;          /* landscape */
+  background:#fff;              /* white frame */
+  border:4px solid #ffffff;     /* white border */
+  border-radius:6px;
+  overflow:hidden;
+  margin:auto;                  /* center on desktop */
+  box-shadow:0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* IMAGE */
+.poster-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* MOBILE TWEAKS */
+@media (max-width:768px){
+  .poster-wrapper{
+    padding:8px;
+  }
+
+  .poster-thumb{
+    max-width:100%;              /* full width on mobile */
+    border-width:3px;
+    border-radius:4px;
+  }
+}
 
 
 </style>
@@ -737,6 +794,22 @@ body{
 </div>
 
 </div>
+
+<!-- POSTER THUMBNAIL -->
+<div class="poster-wrapper">
+  <a href="watches/index.html"
+     target="_self"
+     style="display:block; text-decoration:none;">
+
+    <div class="poster-thumb">
+      <img
+        src="republic.png"
+        alt="Republic Day Deals Poster">
+    </div>
+
+  </a>
+</div>
+
 
 
 
