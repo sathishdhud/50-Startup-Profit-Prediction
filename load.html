@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Loading...</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+
+<style>
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+  .cinzel {
+  font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* PAGE */
+body{
+  height:100vh;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#ffffff;
+  font-family:Arial, Helvetica, sans-serif;
+  overflow:hidden;
+}
+
+/* LOADER WRAPPER */
+.app-loader{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+/* LOGO CONTAINER */
+.logo-wrap{
+  width:140px;
+  height:100px;
+}
+
+/* SVG */
+.logo-svg{
+  width:100%;
+  height:100%;
+}
+
+/* STRAIGHT M STYLE */
+.logo-svg path{
+  fill:none;
+  stroke:#eae8e8;
+  stroke-width:24;              /* 🔥 THICK LETTER */
+  stroke-linecap: square;
+  stroke-linejoin:square;
+
+  stroke-dasharray:420;
+  stroke-dashoffset:420;
+
+  animation: draw 2s ease-in-out infinite;
+}
+
+/* DRAW ANIMATION ONLY (NO MOVE) */
+@keyframes draw{
+  0%{
+    stroke-dashoffset:420;
+    opacity:0.4;
+  }
+  50%{
+    stroke-dashoffset:0;
+    opacity:0.9;
+  }
+  100%{
+    stroke-dashoffset:-420;
+    opacity:0.4;
+  }
+}
+
+/* TEXT */
+.loading-text{
+  margin-top:16px;
+  margin-left: 16px;
+  font-size:14px;
+  color:#f44f08;
+  letter-spacing:10px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="app-loader">
+
+  <div class="logo-wrap">
+    <!-- STRAIGHT M -->
+    <svg class="logo-svg" viewBox="0 0 200 120">
+      <path d="
+        M20 100
+        L20 20
+        L100 80
+        L180 20
+        L180 100
+      "/>
+    </svg>
+  </div>
+
+  <div class="loading-text cinzel">
+        MAANEY
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Flipkart Style Product Listing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+:root{
+  --fk-orange:#ff6a00;
+}
+
+body{
+  background:#f1f3f6;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* PAGE */
+.page-wrapper{
+  background:#fff;
+  border-radius:8px;
+  padding:16px;
+}
+
+/* HEADER BAR */
+.top-bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #eee;
+  padding-bottom:10px;
+  margin-bottom:16px;
+}
+
+/* FILTER SIDEBAR */
+.filters{
+  border-right:1px solid #eee;
+  padding-right:16px;
+}
+.filters h6{
+  font-weight:700;
+  margin:16px 0 8px;
+}
+.filters label{
+  display:block;
+  font-size:14px;
+  margin-bottom:6px;
+}
+
+/* PRODUCT CARD */
+.product-card{
+  background:#fff;
+  padding:10px;
+  border-radius:4px;
+}
+.product-img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+}
+.rating{
+  position:absolute;
+  bottom:10px;
+  left:10px;
+  background:#fa3701;
+  color: #fff;
+  padding:2px 6px;
+  font-size:13px;
+  border-radius:0px;
+  font-weight:600;
+}
+.brand{font-weight:700;font-size:14px;}
+.title{font-size:14px;color:#444;}
+.price{font-weight:700;}
+.old{text-decoration:line-through;color:#999;font-size:13px;}
+.off{color:var(--fk-orange);font-size:13px;font-weight:600;}
+.stock{font-size:13px;color:#ea3903;font-weight:600;}
+
+/* MOBILE CARD */
+@media(max-width:768px){
+  .filters{
+    display:none;
+  }
+  .product-card{
+    display:flex;
+    gap:12px;
+    border-bottom:1px solid #eee;
+  }
+  .product-img{
+    width:110px;
+    height:140px;
+    flex-shrink:0;
+  }
+}
+
+/* MOBILE FILTER DRAWER */
+.mobile-filter{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#fff;
+  border-top-left-radius:16px;
+  border-top-right-radius:16px;
+  padding:16px;
+  max-height:80vh;
+  overflow:auto;
+  display:none;
+  z-index:999;
+}
+.mobile-filter.show{
+  display:block;
+}
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  display:none;
+  z-index:998;
+}
+.overlay.show{
+  display:block;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+</style>
+</head>
+
+<body>
+  <div class="container-fluid top-nav" style="background:#f44f08;">
+  <div class="container">
+
+    <div class="row align-items-center"
+         style="height:40px;"> <!-- CONTROL NAVBAR HEIGHT -->
+
+      <!-- LOGO -->
+      <div class="col-6 col-md-2 d-flex ps-2">
+        <img
+          src="logo.png"
+          alt="Kriya Logo"
+          style="
+            height:40px;
+            width:auto;
+            object-fit:contain;
+          "
+        >
+      </div>
+
+      <!-- SEARCH BAR (DESKTOP) -->
+      <div class="col-md-6 d-none d-md-flex align-items-center">
+        <div
+          class="d-flex align-items-center px-3 w-100"
+          style="
+            height:38px;
+            background:#fff7ed;
+            border-radius:8px;
+          "
+        >
+          <i class="fa fa-search me-2" style="color:#f97316;font-size:14px;"></i>
+          <input
+            type="text"
+            class="form-control border-0 shadow-none p-0 bg-transparent"
+            placeholder="Search for Products, Brands and More"
+            style="font-size:14px;"
+          >
+        </div>
+      </div>
+
+      <!-- RIGHT ACTIONS -->
+      <div class="col-6 col-md-4 d-flex justify-content-end align-items-center gap-3">
+
+        <button
+          class="d-none d-md-inline"
+          style="
+            height:32px;
+            padding:0 14px;
+            background:#ff9800;
+            color:#fff;
+            border:none;
+            border-radius:6px;
+            font-size:14px;
+          "
+          onclick="location.href='login.html'"
+        >
+          Login
+        </button>
+
+        <i class="fa fa-cart-shopping text-white" style="font-size:18px;"></i>
+        <i class="fa fa-bars d-md-none text-white" style="font-size:20px;"></i>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE SEARCH -->
+<div class="container d-md-none mt-2">
+<div class="search-wrap d-flex align-items-center px-3">
+    <i class="fa fa-search me-2"></i>
+
+    <input type="text" class="w-100" placeholder="Search for Products, Brands and More">
+</div>
+</div>
+
+<div class="container-fluid px-2 px-md-3 my-3">
+<div class="page-wrapper">
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div>
+    <strong>DKNY_1010670</strong>
+    <span class="text-muted">(<span id="count"></span> items)</span>
+  </div>
+  <div class="d-flex gap-2">
+    <button class="btn btn-outline-secondary btn-sm d-md-none" onclick="openFilter()">Filters</button>
+    <div class="border px-3 py-2 rounded small d-none d-md-block">
+      Sort by: <strong style="color:var(--fk-orange)">Better Discount</strong>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+
+<!-- DESKTOP FILTERS -->
+<div class="col-lg-2 filters d-none d-md-block">
+  <h6>Category</h6>
+  <label><input type="checkbox" value="Tshirt" class="cat"> Tshirts</label>
+  <label><input type="checkbox" value="Top" class="cat"> Tops</label>
+  <label><input type="checkbox" value="Bra" class="cat"> Bra</label>
+
+  <h6>Color</h6>
+  <label><input type="checkbox" value="Green" class="color"> Green</label>
+  <label><input type="checkbox" value="White" class="color"> White</label>
+
+  <h6>Discount</h6>
+  <label><input type="checkbox" value="50" class="discount"> 50% or more</label>
+</div>
+
+<!-- PRODUCTS -->
+<div class="col-lg-10">
+  <div class="row g-4" id="grid"></div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- MOBILE FILTER -->
+<div class="overlay" id="overlay" onclick="closeFilter()"></div>
+<div class="mobile-filter" id="mobileFilter">
+  <h5>Filters</h5>
+
+  <h6>Category</h6>
+  <label><input type="checkbox" value="Tshirt" class="cat"> Tshirts</label><br>
+  <label><input type="checkbox" value="Top" class="cat"> Tops</label><br>
+  <label><input type="checkbox" value="Bra" class="cat"> Bra</label>
+
+  <h6 class="mt-3">Color</h6>
+  <label><input type="checkbox" value="Green" class="color"> Green</label><br>
+  <label><input type="checkbox" value="White" class="color"> White</label>
+
+  <button class="btn btn-warning w-100 mt-3" style="background-color: #ea3903; color: #ffffff;" onclick="applyFilters();closeFilter()">Apply</button>
+</div>
+
+<script>
+const products = [
+  {
+    brand: "DKNY",
+    title: "Round Neck Typography Printed...",
+    price: 1889,
+    old: 4199,
+    off: 55,
+    cat: "Tshirt",
+    color: "Green",
+    img: "./dkyn/images/image1.png",
+    link: "dkyn/1000123.html",
+    desc:"Soft cotton DKNY T-shirt with bold typography print, offering a stylish everyday look. "
+  },
+  {
+    brand: "DKNY",
+    title: "Short Sleeve Top",
+    price: 1889,
+    old: 4199,
+    off: 55,
+    cat: "Top",
+    color: "White",
+    img: "https://images.unsplash.com/photo-1615873968403-89e068629265",
+    link: "#",
+    desc:"Elevate your casual wardrobe with this DKNY short sleeve top. Crafted from soft fabric, it features a relaxed fit and a versatile design perfect for everyday wear."
+
+  },
+  {
+    brand: "DKNY",
+    title: "Workout Bra",
+    price: 1889,
+    old: 4199,
+    off: 55,
+    cat: "Bra",
+    color: "Green",
+    img: "https://images.unsplash.com/photo-1521335629791-ce4aec67dd47",
+    link: "#",
+    desc:"Experience superior support and comfort with this DKNY workout bra. Designed for active lifestyles, it features moisture-wicking fabric and a secure fit for your most intense workouts."
+  },
+
+  /* ---- NEW RECORDS ---- */
+
+  {
+    brand: "DKNY",
+    title: "Slim Fit Printed T-shirt",
+    price: 1599,
+    old: 3499,
+    off: 54,
+    cat: "Tshirt",
+    color: "White",
+    img: "https://images.unsplash.com/photo-1520975922284-8b456906c813",
+    link: "#",
+    desc:"Stay stylish and comfortable in this DKNY slim fit printed T-shirt. Made from soft cotton, it features a trendy design perfect for casual outings."
+  },
+  {
+    brand: "DKNY",
+    title: "Round Neck Casual Top",
+    price: 1799,
+    old: 3999,
+    off: 55,
+    cat: "Top",
+    color: "Green",
+    img: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
+    link: "#",
+    desc:"Upgrade your wardrobe with this DKNY round neck casual top. Crafted from breathable fabric, it offers a relaxed fit and a versatile style for everyday wear."
+  },
+  {
+    brand: "DKNY",
+    title: "Seamless Sports Bra",
+    price: 2099,
+    old: 4599,
+    off: 54,
+    cat: "Bra",
+    color: "White",
+    img: "https://images.unsplash.com/photo-1593032465171-8c2c6c8d3a6c",
+    link: "#",
+    desc:"Experience ultimate comfort with this DKNY seamless sports bra. Designed for high-impact activities, it provides excellent support and a smooth fit for your workouts."
+  },
+  {
+    brand: "DKNY",
+    title: "Relaxed Fit Lounge T-shirt",
+    price: 1699,
+    old: 3799,
+    off: 55,
+    cat: "Tshirt",
+    color: "Green",
+    img: "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb",
+    link: "#",
+    desc:"Unwind in style with this DKNY relaxed fit lounge T-shirt. Made from soft, breathable fabric, it's perfect for lounging at home or casual outings."
+  },
+  {
+    brand: "DKNY",
+    title: "Sleeveless Training Top",
+    price: 1899,
+    old: 4299,
+    off: 56,
+    cat: "Top",
+    color: "White",
+    img: "https://images.unsplash.com/photo-1519741497674-611481863552",
+    link: "#",
+    desc:"Stay cool during workouts with this DKNY sleeveless training top. Featuring moisture-wicking fabric and a comfortable fit, it's ideal for your fitness routine."
+  },
+  {
+    brand: "DKNY",
+    title: "High Impact Sports Bra",
+    price: 2299,
+    old: 4899,
+    off: 53,
+    cat: "Bra",
+    color: "Green",
+    img: "https://images.unsplash.com/photo-1584467735815-f778f274f1b7",
+    link: "#",
+    desc:"Get maximum support with this DKNY high impact sports bra. Designed for intense workouts, it features adjustable straps and breathable fabric for all-day comfort."
+  },
+  {
+    brand: "DKNY",
+    title: "Logo Print Cotton T-shirt",
+    price: 1999,
+    old: 4499,
+    off: 56,
+    cat: "Tshirt",
+    color: "White",
+    img: "https://images.unsplash.com/photo-1520974735194-6c3b2b5d5a28",
+    link: "#",
+    desc:"Make a statement with this DKNY logo print cotton T-shirt. Crafted from soft fabric, it offers a comfortable fit and a bold design for casual wear."
+  },
+  {
+    brand: "DKNY",
+    title: "Stretch Fit Active Top",
+    price: 1799,
+    old: 3999,
+    off: 55,
+    cat: "Top",
+    color: "Green",
+    img: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e",
+    link: "#",
+    desc:"Enhance your workout wardrobe with this DKNY stretch fit active top. Made from flexible fabric, it provides a comfortable fit and freedom of movement during exercise."
+  },
+  {
+    brand: "DKNY",
+    title: "Medium Support Sports Bra",
+    price: 2199,
+    old: 4699,
+    off: 53,
+    cat: "Bra",
+    color: "White",
+    img: "https://images.unsplash.com/photo-1599058917212-d750089bc07c",
+    link: "#",
+    desc:"Enjoy medium support with this DKNY sports bra. Perfect for everyday activities, it features breathable fabric and a comfortable fit for all-day wear."
+  }
+];
+
+
+function render(list){
+  const grid=document.getElementById("grid");
+  grid.innerHTML="";
+  list.forEach(p=>{
+    grid.innerHTML+=`
+    <div class="col-lg-3 col-md-4 col-12">
+  <div class="product-card position-relative">
+
+    <img src="${p.img}" class="product-img">
+
+    <!-- OFFER BADGE -->
+    <div class="rating">${p.off}% OFF</div>
+
+    <div>
+
+      <div class="brand">${p.brand}</div>
+
+      <!-- TITLE -->
+      <div class="title" style="
+        font-size:14px;
+        font-weight:500;
+        line-height:1.3;
+        margin-top:6px;
+      ">
+        <a href="${p.link}"
+           target="_self"
+           style="
+             text-decoration:none;
+             color:#212121;
+             display:block;
+           "
+           onmouseover="this.style.color='#ff6f00'"
+           onmouseout="this.style.color='#212121'">
+          ${p.title}
+        </a>
+      </div>
+
+      <!-- MOBILE ONLY DESCRIPTION -->
+      <div class="d-block d-md-none"
+           style="
+             font-size:12.5px;
+             color:#666;
+             line-height:1.4;
+             margin-top:4px;
+           ">
+        ${p.desc}
+      </div>
+
+      <!-- PRICE -->
+      <div style="margin-top:6px;">
+        <span class="price">₹${p.price}</span>
+        <span class="old" style="color:#d32f2f;"> ₹${p.old}</span>
+        <span class="off">(${p.off}% OFF)</span>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+`;
+  });
+  document.getElementById("count").innerText=list.length;
+}
+
+function applyFilters(){
+  const cats=[...document.querySelectorAll(".cat:checked")].map(i=>i.value);
+  const colors=[...document.querySelectorAll(".color:checked")].map(i=>i.value);
+
+  const filtered=products.filter(p=>{
+    return (cats.length===0||cats.includes(p.cat)) &&
+           (colors.length===0||colors.includes(p.color));
+  });
+
+  render(filtered);
+}
+
+document.querySelectorAll("input").forEach(i=>{
+  i.addEventListener("change",applyFilters);
+});
+
+function openFilter(){
+  document.getElementById("mobileFilter").classList.add("show");
+  document.getElementById("overlay").classList.add("show");
+}
+function closeFilter(){
+  document.getElementById("mobileFilter").classList.remove("show");
+  document.getElementById("overlay").classList.remove("show");
+}
+
+render(products);
+</script>
+
+</body>
+</html>

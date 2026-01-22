@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DKNY Product – Flipkart Style</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+:root{
+  --fk-orange:#ff5722;
+  --fk-green:#388e3c;
+  --light:#f1f3f6;
+  --border:#e5e7eb;
+}
+
+body{
+  background:var(--light);
+  font-family:Arial, Helvetica, sans-serif;
+  color:#111;
+}
+
+/* ===== COMMON ===== */
+.section-box{
+  background:#fff;
+  border-radius:6px;
+  padding:16px;
+}
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb{
+  font-size:14px;
+  background:none;
+  margin-bottom:10px;
+}
+
+/* ===== IMAGE SLIDER ===== */
+.image-box{
+  position:relative;
+  overflow:hidden;
+  background:#f5f5f5;
+  border-radius:4px;
+}
+.image-box img{
+  width:100%;
+  height:520px;
+  object-fit:cover;
+}
+.slider-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#fff;
+  width:36px;
+  height:60px;
+  border-radius:4px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+.slider-btn.left{left:8px}
+.slider-btn.right{right:8px}
+
+/* ===== PRODUCT INFO ===== */
+.brand{font-size:22px;font-weight:700}
+.subtitle{font-size:16px;color:#555}
+.rating{
+  display:inline-flex;
+  gap:6px;
+  padding:4px 8px;
+  border:1px solid var(--border);
+  border-radius:4px;
+  font-size:14px;
+  margin:10px 0;
+}
+.price{font-size:26px;font-weight:700}
+.mrp{text-decoration:line-through;color:#777;margin-left:8px}
+.off{color:var(--fk-orange);font-weight:600;margin-left:8px}
+.tax{color:var(--fk-green);font-size:14px}
+
+/* ===== SIZE ===== */
+.size-box{
+  width:42px;height:42px;
+  border-radius:50%;
+  border:1px solid #bbb;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:600;
+}
+.size-box.disabled{color:#bbb;text-decoration:line-through}
+.size-box.active{border:2px solid var(--fk-orange)}
+
+/* ===== BUTTONS ===== */
+.btn-bag{
+  background:#ff4400;color:#fff;
+  padding:14px;font-weight:600;border:none;border-radius:4px;
+}
+.btn-wishlist{
+  border:1px solid #bbb;
+  padding:14px;font-weight:600;border-radius:4px;
+}
+
+/* ===== OFFERS ===== */
+.offer-title{font-weight:700;font-size:16px}
+.offer-box ul{padding-left:18px}
+.offer-box li{font-size:14px;margin-bottom:6px}
+.highlight{color:var(--fk-orange);font-weight:700}
+.link{color:#ff3f6c;font-weight:600;font-size:14px;cursor:pointer}
+
+/* ===== PRODUCT DETAILS ===== */
+.details p{font-size:14px;margin-bottom:4px}
+.sub-title{font-weight:700;margin-top:14px}
+
+/* ===== SPEC GRID ===== */
+.spec-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+.spec-grid span{color:#777;font-size:13px}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .image-box img{height:280px}
+  .spec-grid{grid-template-columns:1fr}
+}
+
+.section-box{
+  background:#fff;
+  border-radius:6px;
+  padding:20px;
+  border:1px solid #e5e7eb;
+}
+
+/* HEADERS */
+.offer-title{
+  font-size:16px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+/* ASSURANCE */
+.assurance p{
+  font-size:14px;
+  margin-bottom:6px;
+  color:#2e7d32;
+}
+
+/* BEST PRICE */
+.best-price{
+  font-size:15px;
+  margin:10px 0;
+}
+.highlight{
+  color:#ff5722;
+  font-weight:700;
+}
+
+/* OFFERS LIST */
+.offer-list{
+  padding-left:18px;
+  margin-bottom:10px;
+}
+.offer-list li{
+  font-size:14px;
+  margin-bottom:6px;
+}
+
+/* LINKS */
+.link{
+  color:#ff3f6c;
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+  display:inline-block;
+  margin-top:6px;
+}
+
+/* DETAILS */
+.details{
+  border-left:1px solid #eee;
+  padding-left:20px;
+}
+
+.detail-list{
+  padding-left:18px;
+}
+.detail-list li{
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+/* SUB SECTIONS */
+.sub-title{
+  font-weight:700;
+  margin-top:16px;
+  margin-bottom:6px;
+}
+
+.muted{
+  font-size:14px;
+  color:#555;
+}
+
+/* SPEC GRID */
+.spec-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:8px;
+}
+.spec-grid span{
+  font-size:13px;
+  color:#777;
+  display:block;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .details{
+    border-left:none;
+    padding-left:0;
+    border-top:1px solid #eee;
+    padding-top:16px;
+  }
+  .spec-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+.similar-section{
+  background:#fff;
+  padding:16px;
+  margin-top:20px;
+}
+
+.similar-title{
+  font-size:16px;
+  font-weight:700;
+  margin-bottom:14px;
+}
+
+.similar-row{
+  display:flex;
+  gap:16px;
+  overflow-x:auto;
+}
+
+.similar-row::-webkit-scrollbar{
+  display:none;
+}
+
+/* CARD */
+.similar-card{
+  min-width:220px;
+  border:1px solid #e5e7eb;
+  background:#fff;
+}
+
+.img-wrap{
+  position:relative;
+  background:#f5f5f5;
+}
+
+.img-wrap img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+}
+
+/* RATING BADGE */
+.rating{
+  position:absolute;
+  bottom:8px;
+  left:8px;
+  background:#fff;
+  padding:2px 6px;
+  font-size:12px;
+  border-radius:3px;
+  font-weight:600;
+}
+
+/* INFO */
+.info{
+  padding:10px;
+}
+
+.brand{
+  font-size:14px;
+  font-weight:700;
+}
+
+.name{
+  font-size:13px;
+  color:#444;
+  margin:4px 0;
+}
+
+.price{
+  font-size:14px;
+  font-weight:700;
+}
+
+.old{
+  font-size:12px;
+  text-decoration:line-through;
+  color:#777;
+  margin-left:4px;
+}
+
+.off{
+  font-size:12px;
+  color:#ff5722;
+  margin-left:4px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .img-wrap img{
+    height:240px;
+  }
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="container my-3">
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb">
+Home / Clothing / Women Clothing / Tshirts / <strong>DKNY Tshirts</strong>
+</nav>
+
+<!-- TOP PRODUCT SECTION -->
+<div class="section-box mb-3">
+  <div class="row g-4">
+
+    <!-- IMAGE -->
+    <div class="col-lg-7">
+      <div class="image-box">
+        <img id="sliderImg" src="https://images.unsplash.com/photo-1582582621959-48d27397dc69">
+        <div class="slider-btn left" onclick="prevImg()"><i class="fa fa-chevron-left"></i></div>
+        <div class="slider-btn right" onclick="nextImg()"><i class="fa fa-chevron-right"></i></div>
+      </div>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="col-lg-5">
+      <div class="brand">DKNY</div>
+      <div class="subtitle">Cotton Regular Fit T-shirt</div>
+
+        
+
+      <div>
+        <span class="price">₹1889</span>
+        <span class="mrp">₹4199</span>
+        <span class="off">(55% OFF)</span>
+      </div>
+      <div class="tax">inclusive of all taxes</div>
+
+      <div class="mt-4">
+        <strong>SELECT SIZE</strong>
+        <div class="d-flex gap-2 mt-2">
+          <div class="size-box active">XS</div>
+          <div class="size-box disabled">S</div>
+          <div class="size-box disabled">M</div>
+          <div class="size-box disabled">L</div>
+          <div class="size-box disabled">XL</div>
+        </div>
+        <div class="text-danger small mt-1">1 left</div>
+      </div>
+
+      <div class="row g-2 mt-4">
+        <div class="col-7">
+          <button class="btn-bag w-100"><i class="fa fa-lock me-2"></i>ADD TO BAG</button>
+        </div>
+        <div class="col-5">
+          <button class="btn-wishlist w-100"><i class="fa fa-heart me-2"></i>WISHLIST</button>
+        </div>
+      </div>
+
+      <div class="mt-4">
+        <strong>DELIVERY OPTIONS</strong>
+        <div class="d-flex mt-2">
+          <input class="form-control me-2" placeholder="Enter pincode">
+          <button class="btn btn-outline-danger">Check</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- OFFERS + PRODUCT DETAILS -->
+<div class="section-box mt-4">
+  <div class="row g-4">
+
+    <!-- OFFERS -->
+    <div class="col-lg-6 offer-box">
+
+      <div class="assurance mb-3">
+        <p>✔ 100% Original Products</p>
+        <p>✔ Pay on delivery might be available</p>
+        <p>✔ Easy 3 days returns & exchanges</p>
+      </div>
+
+      <div class="offer-title mt-4">
+        BEST OFFERS <i class="fa fa-tag ms-1"></i>
+      </div>
+
+      <div class="best-price">
+        Best Price: <span class="highlight">₹1,606</span>
+      </div>
+
+      <ul class="offer-list">
+        <li>Coupon code: <strong>MYNTRA300</strong></li>
+        <li>Coupon Discount: ₹283 off (check cart for final savings)</li>
+        <li>Applicable on orders above ₹1,999 (first purchase)</li>
+      </ul>
+
+      <a class="link">View Eligible Products</a>
+
+    </div>
+
+    <!-- PRODUCT DETAILS -->
+    <div class="col-lg-6 details">
+
+      <div class="offer-title">
+        PRODUCT DETAILS <i class="fa fa-file-lines ms-1"></i>
+      </div>
+
+      <ul class="detail-list">
+        <li>Green Tshirt for women</li>
+        <li>Solid pattern, Regular length</li>
+        <li>Round neck, Short sleeves</li>
+        <li>Knitted cotton fabric</li>
+      </ul>
+
+      <div class="sub-title">Size & Fit</div>
+      <p class="muted">Regular Fit | Model height 5'8 wearing size S</p>
+
+      <div class="sub-title">Material & Care</div>
+      <ul class="detail-list">
+        <li>100% Cotton</li>
+        <li>Machine Wash</li>
+        <li>Do not bleach</li>
+        <li>Cool iron</li>
+      </ul>
+
+      <div class="sub-title">Specifications</div>
+      <div class="spec-grid">
+        <div>
+          <span>Fabric</span>
+          Cotton
+        </div>
+        <div>
+          <span>Trend</span>
+          New Basics
+        </div>
+        <div>
+          <span>Fit</span>
+          Regular
+        </div>
+        <div>
+          <span>Length</span>
+          Regular
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<div class="similar-section">
+  <h5 class="similar-title">SIMILAR PRODUCTS</h5>
+
+  <div class="similar-row">
+
+    <!-- CARD 1 -->
+    <div class="similar-card">
+      <div class="img-wrap">
+        <img src="https://rukminim2.flixcart.com/image/500/500/xif0q/t-shirt/a/9/y/-original-imagq3u6nhkzg2zx.jpeg">
+      </div>
+      <div class="info">
+        <div class="brand">DKNY</div>
+        <div class="name">Typography Printed T-shirt</div>
+        <div class="price">
+          Rs. 3307 <span class="old">Rs. 7349</span>
+          <span class="off">(55% OFF)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="similar-card">
+      <div class="img-wrap">
+        <img src="https://rukminim2.flixcart.com/image/500/500/xif0q/t-shirt/p/w/7/-original-imagp9hwff5g9qnn.jpeg">
+      </div>
+      <div class="info">
+        <div class="brand">True Religion</div>
+        <div class="name">Women V-Neck T-shirt</div>
+        <div class="price">Rs. 9499</div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="similar-card">
+      <div class="img-wrap">
+        <span class="rating">3.2 ★</span>
+        <img src="https://rukminim2.flixcart.com/image/500/500/xif0q/t-shirt/b/z/l/-original-imagp9hxjtkvwnhm.jpeg">
+      </div>
+      <div class="info">
+        <div class="brand">True Religion</div>
+        <div class="name">Women Solid Cotton T-shirt</div>
+        <div class="price">
+          Rs. 2819 <span class="old">Rs. 4695</span>
+          <span class="off">(40% OFF)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="similar-card">
+      <div class="img-wrap">
+        <span class="rating">4.2 ★</span>
+        <img src="https://rukminim2.flixcart.com/image/500/500/xif0q/t-shirt/s/j/q/-original-imagq3u7zqz2azpm.jpeg">
+      </div>
+      <div class="info">
+        <div class="brand">DKNY</div>
+        <div class="name">Cotton Regular Fit T-shirt</div>
+        <div class="price">
+          Rs. 2834 <span class="old">Rs. 6299</span>
+          <span class="off">(55% OFF)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="similar-card">
+      <div class="img-wrap">
+        <img src="https://rukminim2.flixcart.com/image/500/500/xif0q/t-shirt/y/5/z/-original-imagq3u7zq3jczkq.jpeg">
+      </div>
+      <div class="info">
+        <div class="brand">DKNY</div>
+        <div class="name">Printed Cotton T-shirt</div>
+        <div class="price">
+          Rs. 2834 <span class="old">Rs. 6299</span>
+          <span class="off">(55% OFF)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="similar-card">
+      <div class="img-wrap">
+        <img src="https://rukminim2.flixcart.com/image/500/500/xif0q/t-shirt/6/w/s/-original-imagq3u6sgf2knhp.jpeg">
+      </div>
+      <div class="info">
+        <div class="brand">DKNY</div>
+        <div class="name">Typography Printed T-shirt</div>
+        <div class="price">
+          Rs. 2834 <span class="old">Rs. 6299</span>
+          <span class="off">(55% OFF)</span>
+        </div>
+      </div>
+    </div>
+
+     <div class="similar-card">
+      <div class="img-wrap">
+        <img src="https://rukminim2.flixcart.com/image/500/500/xif0q/t-shirt/6/w/s/-original-imagq3u6sgf2knhp.jpeg">
+      </div>
+      <div class="info">
+        <div class="brand">DKNY</div>
+        <div class="name">Typography Printed T-shirt</div>
+        <div class="price">
+          Rs. 2834 <span class="old">Rs. 6299</span>
+          <span class="off">(55% OFF)</span>
+        </div>
+      </div>
+    </div>
+
+     <div class="similar-card">
+      <div class="img-wrap">
+        <img src="https://rukminim2.flixcart.com/image/500/500/xif0q/t-shirt/6/w/s/-original-imagq3u6sgf2knhp.jpeg">
+      </div>
+      <div class="info">
+        <div class="brand">DKNY</div>
+        <div class="name">Typography Printed T-shirt</div>
+        <div class="price">
+          Rs. 2834 <span class="old">Rs. 6299</span>
+          <span class="off">(55% OFF)</span>
+        </div>
+      </div>
+    </div>
+
+     <div class="similar-card">
+      <div class="img-wrap">
+        <img src="https://rukminim2.flixcart.com/image/500/500/xif0q/t-shirt/6/w/s/-original-imagq3u6sgf2knhp.jpeg">
+      </div>
+      <div class="info">
+        <div class="brand">DKNY</div>
+        <div class="name">Typography Printed T-shirt</div>
+        <div class="price">
+          Rs. 2834 <span class="old">Rs. 6299</span>
+          <span class="off">(55% OFF)</span>
+        </div>
+      </div>
+    </div>
+
+     <div class="similar-card">
+      <div class="img-wrap">
+        <img src="https://rukminim2.flixcart.com/image/500/500/xif0q/t-shirt/6/w/s/-original-imagq3u6sgf2knhp.jpeg">
+      </div>
+      <div class="info">
+        <div class="brand">DKNY</div>
+        <div class="name">Typography Printed T-shirt</div>
+        <div class="price">
+          Rs. 2834 <span class="old">Rs. 6299</span>
+          <span class="off">(55% OFF)</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</div>
+
+
+
+<script>
+const images=[
+ "https://images.unsplash.com/photo-1582582621959-48d27397dc69",
+ "https://images.unsplash.com/photo-1615873968403-89e068629265",
+ "https://images.unsplash.com/photo-1521335629791-ce4aec67dd47"
+];
+let i=0;
+function nextImg(){i=(i+1)%images.length;sliderImg.src=images[i]}
+function prevImg(){i=(i-1+images.length)%images.length;sliderImg.src=images[i]}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tecno Camon 40 Pro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    background:#fff;
+    color:#111;
+}
+
+/* FULL WIDTH CONTAINER */
+.container-fluid{
+    max-width:1400px;
+}
+
+/* HEADER */
+.product-title{
+    font-size:26px;
+    font-weight:700;
+}
+.compare-btn{
+    background:#ff8c00;
+    color:#fff;
+    border:none;
+    padding:8px 16px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:600;
+}
+
+/* IMAGE CARD */
+.image-wrapper{
+    background:#f8f8f8;
+    border-radius:18px;
+    padding:24px;
+    position:relative;
+    text-align:center;
+}
+.phone-img{
+    max-width:230px;
+}
+
+/* SCORE */
+.score-badge{
+    position:absolute;
+    top:18px;
+    left:18px;
+    background:#2dbf00;
+    color:#fff;
+    font-weight:700;
+    padding:10px 14px;
+    border-radius:8px;
+    font-size:13px;
+    line-height:1.1;
+}
+
+/* VIEW PHOTOS */
+.view-photos{
+    margin-top:16px;
+    width:100%;
+    border:2px solid #ff8c00;
+    background:#fff;
+    color:#ff8c00;
+    padding:10px;
+    border-radius:10px;
+    font-size:14px;
+    font-weight:600;
+}
+
+/* SECTION */
+.section-title{
+    font-size:20px;
+    font-weight:700;
+}
+
+/* BUY SECTION */
+.buy-box{
+    border:1px solid #eee;
+    border-radius:18px;
+    padding:22px;
+}
+
+.store-card{
+    border:1px solid #eaeaea;
+    border-radius:14px;
+    padding:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:100%;
+}
+
+.store-name{
+    font-size:18px;
+    font-weight:700;
+}
+.store-sub{
+    font-size:13px;
+    color:#1a73e8;
+}
+
+.price{
+    font-size:20px;
+    font-weight:700;
+}
+.old-price{
+    font-size:13px;
+    color:#e53935;
+    text-decoration:line-through;
+}
+
+.buy-btn{
+    background:#ffa500;
+    border:none;
+    border-radius:10px;
+    padding:10px 18px;
+    font-size:14px;
+    font-weight:600;
+}
+
+/* PERFORMANCE */
+.star{color:#ffb400}
+.rating-text{
+    color:#43a047;
+    font-weight:600;
+    font-size:14px;
+}
+.spec-text{
+    font-size:15px;
+    margin-bottom:6px;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 991px){
+    .product-title{
+        font-size:22px;
+    }
+
+    .store-card{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:12px;
+    }
+
+    .buy-btn{
+        width:100%;
+        padding:14px;
+        font-size:16px;
+    }
+
+    .price{
+        font-size:22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container-fluid py-4">
+
+<!-- HEADER -->
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="product-title">Tecno Camon 40 Pro</div>
+    <button class="compare-btn">+ Compare</button>
+</div>
+
+<div class="row g-4">
+
+<!-- LEFT IMAGE -->
+<div class="col-lg-4">
+    <div class="image-wrapper">
+        <div class="score-badge">85%<br>Score</div>
+
+        <img src="/mnt/data/7fc8a9bf-4e62-4c5d-893a-11bed56505e1.png"
+             class="img-fluid phone-img"
+             alt="Tecno Camon 40 Pro">
+
+        <button class="view-photos">View All Photos (5)</button>
+    </div>
+</div>
+
+<!-- RIGHT CONTENT -->
+<div class="col-lg-8">
+
+    <!-- KEY SPECS -->
+    <div class="mb-4">
+        <div class="section-title">Key Specs</div>
+        <div class="text-success fw-semibold mt-1">
+            <i class="fa-brands fa-android"></i> Android v15
+        </div>
+    </div>
+
+    <!-- BUY SECTION -->
+    <div class="buy-box mb-4">
+        <div class="section-title mb-3">Buy From Trusted Stores</div>
+
+        <div class="row g-3">
+            <!-- AMAZON -->
+            <div class="col-lg-6">
+                <div class="store-card">
+                    <div>
+                        <div class="store-name">a Amazon</div>
+                        <div class="store-sub">Best Price • Fast Delivery</div>
+                    </div>
+                    <div class="text-end w-100 w-lg-auto">
+                        <div class="price">₹26,998</div>
+                        <div class="old-price">₹29,999</div>
+                        <button class="buy-btn mt-2">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FLIPKART -->
+            <div class="col-lg-6">
+                <div class="store-card">
+                    <div>
+                        <div class="store-name">
+                            <i class="fa-solid fa-bag-shopping text-primary"></i> Flipkart
+                        </div>
+                        <div class="store-sub">Bank Offers Available</div>
+                    </div>
+                    <div class="text-end w-100 w-lg-auto">
+                        <div class="price">₹26,998</div>
+                        <div class="old-price">₹29,999</div>
+                        <button class="buy-btn mt-2">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PERFORMANCE -->
+    <div>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="section-title">
+                <i class="fa-solid fa-gauge-high"></i> Performance
+            </div>
+            <div>
+                <i class="fa-solid fa-star star"></i>
+                <i class="fa-solid fa-star star"></i>
+                <i class="fa-solid fa-star star"></i>
+                <i class="fa-solid fa-star star"></i>
+                <i class="fa-regular fa-star text-muted"></i>
+                <span class="rating-text ms-2">Very Good</span>
+            </div>
+        </div>
+
+        <div class="spec-text fw-semibold">MediaTek Dimensity 7300 Ultimate</div>
+        <div class="spec-text">Octa Core (2.5 GHz + 2 GHz)</div>
+        <div class="spec-text">8 GB RAM</div>
+    </div>
+
+</div>
+</div>
+</div>
+
+</body>
+</html>

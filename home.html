@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Flipkart Responsive Clone</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+<style>
+  .bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+    .dancing-script {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+body{
+    margin:0;
+    background:#f1f3f6;
+    font-family: Roboto, Arial, sans-serif;
+}
+
+/* ================= NAVBAR ================= */
+.top-nav{
+    background:#f44f08;
+    padding:12px 0;
+}
+.logo{
+    font-size:22px;
+    font-weight:700;
+    color:#ffffff;
+}
+.explore{
+    font-size:11px;
+    color:#ffffff;
+}
+.plus{color:#ffc200;font-weight:600}
+
+.search-wrap{
+    background:#f0f5ff;
+    border-radius:8px;
+    height:42px;
+}
+.search-wrap input{
+    border:none;
+    background:transparent;
+    outline:none;
+}
+
+.login-btn{
+    background:#ff7c01;
+    color:#fff;
+    border:none;
+    padding:6px 20px;
+    border-radius:4px;
+    font-weight:500;
+}
+
+/* ================= CATEGORY BAR ================= */
+.category-bar{
+    background:#fff;
+    border: solid 1px #ddd;
+    padding:16px 8px;
+    overflow-x:auto;
+}
+.category-scroll{
+    display:flex;
+    gap:28px;
+    min-width:max-content;
+}
+.category-item{
+    text-align:center;
+    font-size:13px;
+    font-weight:500;
+    min-width:90px;
+}
+.category-item img{
+    width:56px;
+    height:56px;
+    margin-bottom:6px;
+}
+
+/* ================= SECTION SPACING ================= */
+.section-gap{
+    padding:16px 0;
+}
+
+/* ================= BANNER SLIDER ================= */
+.banner-wrapper{
+    background:#fff;
+    padding:16px;
+}
+
+.banner-slider{
+    position:relative;
+    overflow:hidden;
+    border-radius:8px;
+}
+
+.banner-track{
+    display:flex;
+    transition:transform .5s ease;
+}
+
+.banner-slide{
+    min-width:100%;
+    background:linear-gradient(90deg,#ff4d01,#f34a02);
+    height:380px; /* INCREASED HEIGHT */
+    display:flex;
+    align-items:center;
+    padding:24px;
+}
+
+.banner-content{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    width:100%;
+}
+
+.banner-img{
+    background:#fff;
+    padding:8px;
+    border-radius:12px;
+}
+.banner-img img{
+    width:240px;
+}
+
+.banner-text{
+    color:#fff;
+}
+.banner-text h4{font-size:20px}
+.banner-text h2{
+    font-size:38px;
+    font-weight:700;
+}
+.banner-text p{font-size:16px}
+
+.bank-strip{
+    background:#fff;
+    color:#000;
+    padding:8px 14px;
+    border-radius:4px;
+    font-size:14px;
+    display:inline-block;
+    margin-top:12px;
+}
+
+/* ================= SLIDER ARROWS ================= */
+.slider-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:44px;
+    height:88px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:10;
+}
+.slider-arrow.left{
+    left:0;
+    border-radius:0 6px 6px 0;
+}
+.slider-arrow.right{
+    right:0;
+    border-radius:6px 0 0 6px;
+}
+.slider-arrow i{
+    font-size:22px;
+    color:#555;
+}
+
+/* ================= DOTS ================= */
+.dots{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-top:10px;
+}
+.dots span{
+    width:8px;
+    height:8px;
+    background:#ccc;
+    border-radius:50%;
+}
+.dots span.active{
+    width:24px;
+    border-radius:6px;
+    background:#000;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+    .banner-slide{
+        height:320px;
+    }
+    .banner-content{
+        flex-direction:column;
+        text-align:center;
+        gap:20px;
+    }
+    .banner-img img{
+        width:170px;
+    }
+    .banner-text h2{
+        font-size:26px;
+    }
+}
+.deal-section{
+    padding:16px 8px;
+}
+
+/* GRID CARD */
+.deal-card{
+    position:relative;
+    height:220px;
+    border-radius:8px;
+    overflow:hidden;
+  background:linear-gradient(90deg,#ff4d01,#f34a02);
+    color:#fff;
+    padding:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+}
+
+.deal-card img{
+    height: 120px;
+    width: 120px;
+    object-fit: contain;
+}
+
+
+/* TEXT */
+.deal-text{
+    max-width:60%;
+}
+.deal-text small{
+    opacity:.85;
+    font-size:14px;
+}
+.deal-text h5{
+    font-weight:700;
+    margin:6px 0;
+}
+.deal-text h4{
+    font-weight:800;
+}
+
+/* IMAGE */
+.deal-img{
+    position:absolute;
+    right:12px;
+    bottom:10px;
+    max-height:170px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .deal-card{
+        height:200px;
+    }
+    .deal-text{
+        max-width:70%;
+    }
+}
+.featured-section{
+    padding:20px 8px;
+}
+
+/* CARD */
+.brand-card{
+    border-radius:6px;
+    overflow:hidden;
+    background:#fff;
+    height:100%;
+}
+
+/* IMAGE */
+.brand-card img{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+    display:block;
+}
+
+/* ORANGE BAR */
+.brand-footer{
+    background:#f97316; /* Flipkart orange */
+    color:#fff;
+    font-weight:600;
+    font-size:16px;
+    padding:12px 14px;
+}
+
+/* MOBILE SCROLL */
+.brand-row{
+    display:flex;
+    gap:16px;
+    overflow-x:auto;
+}
+.brand-row::-webkit-scrollbar{
+    display:none;
+}
+.brand-row{
+    scrollbar-width:none;
+}
+
+/* FIX CARD WIDTH */
+.brand-col{
+    min-width:280px;
+}
+
+@media(min-width:992px){
+    .brand-row{
+        overflow:visible;
+    }
+    .brand-col{
+        min-width:auto;
+    }
+}
+
+.category-bar{
+    background:#f1f3f6;
+    margin:20px;
+    padding:20px;
+    border-radius:12px;
+}
+
+/* Inner container */
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+/* Scroll wrapper */
+.category-scroll{
+    display:flex;
+    gap:20px;
+    overflow-x:auto;
+    padding:10px 5px;
+    scrollbar-width:none;
+}
+.category-scroll::-webkit-scrollbar{
+    display:none;
+}
+
+/* Each platform item */
+.category-item{
+    min-width:110px;
+    background:#fff;
+    border-radius:12px;
+    padding:15px 10px;
+    text-align:center;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 2px 6px rgba(0,0,0,0.08);
+}
+
+.category-item:hover{
+    transform:translateY(-4px);
+    box-shadow:0 6px 15px rgba(0,0,0,0.12);
+}
+
+/* Platform logo */
+.category-item img{
+    width:60px;
+    height:60px;
+    object-fit:contain;
+    margin-bottom:8px;
+}
+
+/* Platform name */
+.category-item div{
+    font-size:14px;
+    font-weight:600;
+    color:#333;
+}
+.mobile-scroll::-webkit-scrollbar { display: none; }
+.mobile-scroll {
+  scrollbar-width: none;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE & Edge */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari */
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<div class="container-fluid top-nav" style="background:#f44f08;">
+  <div class="container">
+
+    <div class="row align-items-center"
+         style="height:40px;"> <!-- CONTROL NAVBAR HEIGHT -->
+
+      <!-- LOGO -->
+      <div class="col-6 col-md-2 d-flex ps-2">
+        <img
+          src="logo.png"
+          alt="Kriya Logo"
+          style="
+            height:40px;
+            width:auto;
+            object-fit:contain;
+          "
+        >
+      </div>
+
+      <!-- SEARCH BAR (DESKTOP) -->
+      <div class="col-md-6 d-none d-md-flex align-items-center">
+        <div
+          class="d-flex align-items-center px-3 w-100"
+          style="
+            height:38px;
+            background:#fff7ed;
+            border-radius:8px;
+          "
+        >
+          <i class="fa fa-search me-2" style="color:#f97316;font-size:14px;"></i>
+          <input
+            type="text"
+            class="form-control border-0 shadow-none p-0 bg-transparent"
+            placeholder="Search for Products, Brands and More"
+            style="font-size:14px;"
+          >
+        </div>
+      </div>
+
+      <!-- RIGHT ACTIONS -->
+      <div class="col-6 col-md-4 d-flex justify-content-end align-items-center gap-3">
+
+        <button
+          class="d-none d-md-inline"
+          style="
+            height:32px;
+            padding:0 14px;
+            background:#ff9800;
+            color:#fff;
+            border:none;
+            border-radius:6px;
+            font-size:14px;
+          "
+          onclick="location.href='login.html'"
+        >
+          Login
+        </button>
+
+        <i class="fa fa-cart-shopping text-white" style="font-size:18px;"></i>
+        <i class="fa fa-bars d-md-none text-white" style="font-size:20px;"></i>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<!-- MOBILE SEARCH -->
+<div class="container d-md-none mt-2">
+<div class="search-wrap d-flex align-items-center px-3">
+    <i class="fa fa-search me-2"></i>
+
+    <input type="text" class="w-100" placeholder="Search for Products, Brands and More">
+</div>
+</div>
+
+<!-- ================= CATEGORY BAR ================= -->
+<div class="container-fluid my-3 px-2 " style="border: 2px#f34a02;">
+  <div class="bg-white  shadow-sm py-3 px-2 hide-scrollbar">
+
+    <!-- MOBILE: HORIZONTAL SCROLL -->
+    <div class="d-flex d-md-none align-items-center gap-4 overflow-auto px-2">
+
+      <!-- AMAZON (ACTIVE) -->
+      <div class="flex-shrink-0 text-center border border-warning rounded px-3 py-2"
+     style="background:#fff3e6; min-width:140px;">
+
+  <a href="https://www.amazon.in" target="_self">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+         class="img-fluid mb-1"
+         style="max-height:40px; cursor:pointer;"
+         alt="Amazon">
+  </a>
+
+</div>
+
+
+      <div class="flex-shrink-0 text-center" style="min-width:120px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Myntra_Logo.png"
+             class="img-fluid mb-1" style="max-height:40px;">
+        <div class="fw-semibold small">Myntra</div>
+      </div>
+
+      <div class="flex-shrink-0 text-center" style="min-width:120px;">
+        <img src="https://images.moneycontrol.com/static-mcnews/2024/12/20241212055950_flipkart.jpg?impolicy=website&width=1600&height=900"
+             class="img-fluid mb-1" style="max-height:40px;">
+        <div class="fw-semibold small">Flipkart</div>
+      </div>
+
+      <div class="flex-shrink-0 text-center" style="min-width:120px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/AJIO_Logo.png"
+             class="img-fluid mb-1" style="max-height:40px;">
+        <div class="fw-semibold small">Ajio</div>
+      </div>
+
+      <div class="flex-shrink-0 text-center" style="min-width:120px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Meesho_logo.png"
+             class="img-fluid mb-1" style="max-height:40px;">
+        <div class="fw-semibold small">Meesho</div>
+      </div>
+
+      <div class="flex-shrink-0 text-center" style="min-width:120px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Croma_Logo.png"
+             class="img-fluid mb-1" style="max-height:40px;">
+        <div class="fw-semibold small">Croma</div>
+      </div>
+
+    </div>
+
+    <!-- DESKTOP: CENTERED BRAND ROW -->
+<div class="container d-none d-md-block banner-slider my-4">
+  <div class="row justify-content-center align-items-center text-center g-4">
+
+    <!-- AMAZON -->
+    <div class="col-md-2">
+      <a href="https://www.amazon.in" target="_self"
+         style="display:inline-block; cursor:pointer;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+             class="img-fluid"
+             style="max-height:40px;"
+             alt="Amazon">
+      </a>
+    </div>
+
+    <!-- MYNTRA -->
+    <div class="col-md-2">
+      <a href="myntra.html" target="_self"
+         style="display:inline-block; cursor:pointer;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Myntra_Logo.png"
+             class="img-fluid"
+             style="max-height:40px;"
+             alt="Myntra">
+      </a>
+    </div>
+
+    <!-- FLIPKART -->
+    <div class="col-md-2">
+      <a href="https://www.flipkart.com" target="_self"
+         style="display:inline-block; cursor:pointer;">
+        <img src="https://images.moneycontrol.com/static-mcnews/2024/12/20241212055950_flipkart.jpg?impolicy=website&width=1600&height=900"
+             class="img-fluid"
+             style="max-height:40px;"
+             alt="Flipkart">
+      </a>
+    </div>
+
+    <!-- AJIO -->
+    <div class="col-md-2">
+      <a href="https://www.ajio.com" target="_self"
+         style="display:inline-block; cursor:pointer;">
+        <img src="https://play-lh.googleusercontent.com/H_VVVQduGJEUfofF5YPszdTJVqqT46SoY-B9fIGxWHPCBH5gPGDtvbGgs3qebzNFdrS_"
+             class="img-fluid"
+             style="max-height:40px;"
+             alt="AJIO">
+      </a>
+    </div>
+
+    <!-- MEESHO -->
+    <div class="col-md-2">
+      <a href="https://www.meesho.com" target="_self"
+         style="display:inline-block; cursor:pointer;">
+        <img src="https://images.moneycontrol.com/static-mcnews/2023/06/Meesho-682x435.jpg?impolicy=website&width=1600&height=900"
+             class="img-fluid"
+             style="max-height:40px;"
+             alt="Meesho">
+      </a>
+    </div>
+
+    <!-- WOW SKIN SCIENCE -->
+    <div class="col-md-2">
+      <a href="https://www.mywow.in" target="_self"
+         style="display:inline-block; cursor:pointer;">
+        <img src="https://www.freelogovectors.net/wp-content/uploads/2023/01/wow-skin-science-logo-freelogovectors.net_.png"
+             class="img-fluid"
+             style="max-height:40px;"
+             alt="WOW Skin Science">
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- ================= SECTION GAP ================= -->
+<div class="section-gap"></div>
+
+<!-- ================= BANNER SLIDER ================= -->
+<div class="container banner-wrapper">
+
+<div class="banner-slider">
+
+<div class="slider-arrow left" onclick="slide(-1)">
+<i class="fa fa-chevron-left"></i>
+</div>
+
+<div class="slider-arrow right" onclick="slide(1)">
+<i class="fa fa-chevron-right"></i>
+</div>
+
+<div class="banner-track" id="track">
+
+<!-- SLIDE 1 -->
+<div class="banner-slide">
+<div class="banner-content">
+
+<div class="banner-img">
+<img src="https://images.unsplash.com/photo-1582582621959-48d27397dc69">
+</div>
+
+<div class="banner-text">
+<h4 class="bebas-neue-regular">Mattresses</h4>
+<h2>From ₹2,899</h2>
+<p>Wakefit, Sleepyhead & more</p>
+<div class="bank-strip">
+<strong>HDFC BANK</strong> 10% Instant Discount*
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="banner-slide">
+<div class="banner-content">
+
+<div class="banner-img col-lg-3">
+<img src="https://images.unsplash.com/photo-1615873968403-89e068629265">
+</div>
+
+<div class="banner-text col">
+<h4 class="bebas-neue-regular">Sofas & Furniture</h4>
+<h2>Up to 70% Off</h2>
+<p>Top brands & best deals</p>
+<div class="bank-strip">
+<strong>AXIS BANK</strong> Extra Cashback*
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- SLIDE 3 -->
+ <div class="banner-slide">
+<div class="banner-content">
+
+<div class="banner-img">
+<img src="https://images.unsplash.com/photo-1615873968403-89e068629265">
+</div>
+
+<div class="banner-text">
+<h4 class="bebas-neue-regular">Sofas & Furniture</h4>
+<h2>Up to 70% Off</h2>
+<p>Top brands & best deals</p>
+<div class="bank-strip">
+<strong>AXIS BANK</strong> Extra Cashback*
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- SLIDE 4 -->
+ <div class="banner-slide">
+<div class="banner-content">
+
+<div class="banner-img">
+<img src="https://images.unsplash.com/photo-1615873968403-89e068629265">
+</div>
+
+<div class="banner-text">
+<h4 class="bebas-neue-regular">Sofas & Furniture</h4>
+<h2>Up to 70% Off</h2>
+<p>Top brands & best deals</p>
+<div class="bank-strip">
+<strong>AXIS BANK</strong> Extra Cashback*
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="dots">
+<span class="active"></span>
+<span></span>
+</div>
+
+</div>
+
+
+
+<!-- OUTER PAGE BACKGROUND -->
+<!-- GREY BACKGROUND WRAPPER -->
+<div class="container-fluid py-4" style="background:#f1f3f6;">
+
+  <!-- NEAR FULL-WIDTH INNER WRAPPER -->
+  <div class="px-1 px-md-2">
+
+    <!-- WHITE INNER BOX -->
+    <div class="bg-white rounded py-3 px-2 px-md-3">
+
+      <div class="row g-3">
+
+        <!-- LEFT: DEALS -->
+        <div class="col-lg-9">
+
+          <!-- TITLE -->
+          <h4 class="fw-semibold mb-4">Best deals on smartphones</h4>
+
+          <!-- PRODUCTS ROW -->
+          <div class="d-flex gap-4 overflow-auto pb-2">
+
+            <!-- PRODUCT -->
+            <div class="text-center" style="min-width:160px;">
+              <img src="https://img.freepik.com/free-psd/black-friday-mega-sale-social-media-instagram-story-design-template_47987-17922.jpg?semt=ais_hybrid&w=740&q=80" class="img-fluid mb-2">
+              <div class="fw-medium">Apple iPhone 16</div>
+              <div class="fw-bold">From ₹55,999*</div>
+            </div>
+
+           
+
+            
+
+            <div class="text-center" style="min-width:160px;">
+              <img src="https://rukminim2.flixcart.com/image/200/200/vivo-t4x.png" class="img-fluid mb-2">
+              <div class="fw-medium">Vivo T4x 5G</div>
+              <div class="fw-bold">From ₹14,999*</div>
+            </div>
+
+            <div class="text-center" style="min-width:160px;">
+              <img src="https://rukminim2.flixcart.com/image/200/200/poco-c75.png" class="img-fluid mb-2">
+              <div class="fw-medium">Poco C75 5G</div>
+              <div class="fw-bold">Just ₹7,999</div>
+            </div>
+
+            <div class="text-center" style="min-width:160px;">
+              <img src="https://rukminim2.flixcart.com/image/200/200/samsung-galaxy-a3.png" class="img-fluid mb-2">
+              <div class="fw-medium">Samsung Galaxy A3</div>
+              <div class="fw-bold">From ₹17,999</div>
+            </div>
+             <div class="text-center" style="min-width:160px;">
+              <img src="https://rukminim2.flixcart.com/image/200/200/samsung-galaxy-a3.png" class="img-fluid mb-2">
+              <div class="fw-medium">Samsung Galaxy A3</div>
+              <div class="fw-bold">From ₹17,999</div>
+            </div>
+             <div class="text-center" style="min-width:160px;">
+              <img src="https://rukminim2.flixcart.com/image/200/200/samsung-galaxy-a3.png" class="img-fluid mb-2">
+              <div class="fw-medium">Samsung Galaxy A3</div>
+              <div class="fw-bold">From ₹17,999</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- RIGHT: AD BANNER -->
+        <div class="col-lg-3 d-none d-lg-block">
+  <div class="rounded d-flex align-items-center justify-content-center p-2"
+      >
+    <img 
+      src="https://img.freepik.com/free-psd/black-friday-mega-sale-social-media-instagram-story-design-template_47987-17922.jpg?semt=ais_hybrid&w=740&q=80"
+      class="img-fluid rounded"
+      style="max-height:430px;object-fit:cover;width:330px;"
+      alt="Ad Banner">
+  </div>
+</div>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+</div>
+<div class="container-fluid deal-section position-relative">
+
+  <!-- LEFT ARROW -->
+ 
+
+  <!-- RIGHT ARROW -->
+ 
+
+  <!-- DEAL SLIDER -->
+  <div class="container-fluid position-relative py-3">
+
+  <!-- LEFT ARROW -->
+  <div onclick="scrollDeals(-1)"
+       style="
+         position:absolute;
+         left:8px;
+         top:50%;
+         transform:translateY(-50%);
+         width:44px;
+         height:44px;
+         background:#ffffff;
+         border:2px solid #f97316;
+         border-radius:50%;
+         display:flex;
+         align-items:center;
+         justify-content:center;
+         cursor:pointer;
+         z-index:10;
+         box-shadow:0 4px 10px rgba(0,0,0,0.15);
+       ">
+    <i class="fa fa-chevron-left" style="color:#f97316;"></i>
+  </div>
+
+  <!-- RIGHT ARROW -->
+  <div onclick="scrollDeals(1)"
+       style="
+         position:absolute;
+         right:8px;
+         top:50%;
+         transform:translateY(-50%);
+         width:44px;
+         height:44px;
+         background:#ffffff;
+         border:2px solid #f97316;
+         border-radius:50%;
+         display:flex;
+         align-items:center;
+         justify-content:center;
+         cursor:pointer;
+         z-index:10;
+         box-shadow:0 4px 10px rgba(0,0,0,0.15);
+       ">
+
+    <i class="fa fa-chevron-right" style="color:#f97316;"></i>
+  </div>
+
+  <!-- DEAL SCROLLER -->
+  <div id="dealScroller"
+       class="d-flex gap-3 overflow-hidden px-5"
+       style="scroll-behavior:smooth;">
+
+    <!-- CARD 1 -->
+    <div style="min-width:320px;">
+      <div class="deal-card">
+        <div class="deal-text">
+          <small>Instant geysers</small>
+          <h5>Crompton, hindware…</h5>
+          <h4>From ₹1,999</h4>
+        </div>
+        <img src="https://www.freelogovectors.net/wp-content/uploads/2023/01/wow-skin-science-logo-freelogovectors.net_.png" class="deal-img">
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div style="min-width:320px;">
+      <div class="deal-card">
+        <div class="deal-text">
+          <small>prepaids | super coins</small>
+          <h5>Best selling washing machines</h5>
+          <h4>From ₹6,790*</h4>
+        </div>
+        <img src="https://purepng.com/public/uploads/thumbnail//snoop-dogg-jd4.png" class="deal-img">
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div style="min-width:320px;">
+      <div class="deal-card">
+        <div class="deal-text">
+          <small>Best Deal from motorola</small>
+          <h5>edge 60 Fusion (256GB)</h5>
+          <h4>Just ₹19,999*</h4>
+        </div>
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/069/295/266/small_2x/oneplus-black-logo-mobile-company-official-icon-on-transparent-background-free-png.png" class="deal-img">
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div style="min-width:320px;">
+      <div class="deal-card">
+        <div class="deal-text">
+          <small>Top selling soundbars</small>
+          <h5>Feel like theatre vibe</h5>
+          <h4>From ₹3,499</h4>
+        </div>
+        <img src="https://rukminim2.flixcart.com/image/200/200/soundbar.png" class="deal-img">
+      </div>
+    </div>
+
+    <!-- CARD 5 -->
+    <div style="min-width:320px;">
+      <div class="deal-card">
+        <div class="deal-text">
+          <small>Biggest deal of the sale</small>
+          <h5>Apple Macbook M2</h5>
+          <h4>Just ₹64,799</h4>
+        </div>
+        <img src="https://rukminim2.flixcart.com/image/200/200/macbook.png" class="deal-img">
+      </div>
+    </div>
+
+    <!-- CARD 6 -->
+    <div style="min-width:320px;">
+      <div class="deal-card">
+        <div class="deal-text">
+          <small>Deals on earbuds</small>
+          <h5>realme, Goboult & more</h5>
+          <h4>From ₹699</h4>
+        </div>
+        <img src="https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/0a995f7e8c353c78.jpg?q=60"
+             class="deal-img">
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+<!-- SECTION WRAPPER -->
+<div class="container-fluid py-4" style="background:#f1f3f6;">
+  <div class="px-1 px-md-2">
+    <div class="row g-3">
+
+      <!-- LEFT BLOCK -->
+      <div class="col-lg-4 col-md-6">
+        <div class="bg-white p-3 rounded h-100">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-semibold mb-0">Top picks of the sale</h5>
+            <span class="btn  btn-sm rounded-circle">›</span>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="border rounded p-2 h-100 text-center">
+                <img src="https://rukminim2.flixcart.com/image/200/200/electric-cycle.png" class="img-fluid mb-2">
+                <div>Electric Cycle</div>
+                <div class="text-success fw-semibold">Min. 40% Off</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="border rounded p-2 h-100 text-center">
+                <img src="https://rukminim2.flixcart.com/image/200/200/remote-car.png" class="img-fluid mb-2">
+                <div>Remote Control Toy V...</div>
+                <div class="text-success fw-semibold">Min. 50% Off</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="border rounded p-2 h-100 text-center">
+                <img src="https://rukminim2.flixcart.com/image/200/200/home-gym.png" class="img-fluid mb-2">
+                <div>Home Gym Kits</div>
+                <div class="text-success fw-semibold">Min. 60% Off</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="border rounded p-2 h-100 text-center">
+                <img src="https://rukminim2.flixcart.com/image/200/200/kids-bike.png" class="img-fluid mb-2">
+                <div>Kids Ride-on</div>
+                <div class="text-success fw-semibold">Min. 50% Off</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MIDDLE BLOCK -->
+      <div class="col-lg-4 col-md-6">
+        <div class="bg-white p-3 rounded h-100">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-semibold mb-0">Best Gadgets & Appliances</h5>
+            <span class="btn btn-sm rounded-circle">›</span>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="border rounded p-2 h-100 text-center">
+                <img src="https://rukminim2.flixcart.com/image/200/200/earbuds.png" class="img-fluid mb-2">
+                <div>True Wireless</div>
+                <div class="text-success fw-semibold">Min. 50% Off</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="border rounded p-2 h-100 text-center">
+                <img src="https://rukminim2.flixcart.com/image/200/200/watch.png" class="img-fluid mb-2">
+                <div>Wrist Watches</div>
+                <div class="text-success fw-semibold">Min. 90% Off</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="border rounded p-2 h-100 text-center">
+                <img src="https://rukminim2.flixcart.com/image/200/200/neckband.png" class="img-fluid mb-2">
+                <div>Neckbands</div>
+                <div class="text-success fw-semibold">Min. 60% Off</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="border rounded p-2 h-100 text-center">
+                <img src="https://rukminim2.flixcart.com/image/200/200/trimmer.png" class="img-fluid mb-2">
+                <div>Trimmers</div>
+                <div class="text-success fw-semibold">Min. 70% Off</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="border rounded p-2 h-100 text-center">
+                <img src="https://rukminim2.flixcart.com/image/200/200/trimmer.png" class="img-fluid mb-2">
+                <div>Trimmers</div>
+                <div class="text-success fw-semibold">Min. 70% Off</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT BANNER -->
+      <div class="col-lg-4 d-none d-lg-block">
+        <div class="rounded h-100 position-relative overflow-hidden" style="background:#efe4d6;">
+          <div class="p-4">
+            <h3 class="fw-bold text-dark">Shop your<br>fashion Needs</h3>
+            <p class="text-muted">with Latest &<br>Trendy Choices</p>
+            <button class="btn btn-dark mt-2">Shop Now ›</button>
+          </div>
+          <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd47"
+               style="position:absolute;bottom:0;right:0;max-height:85%;"
+               alt="">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="container-fluid py-4" style="background:#f1f3f6;">
+  <div class="px-1 px-md-2">
+
+    <h4 class="fw-semibold mb-3">Featured Brands</h4>
+
+    <!-- MOBILE AUTO SCROLLER -->
+    <div class="d-flex d-md-none gap-3 overflow-hidden"
+         id="brandAutoScroll"
+         style="scroll-behavior:smooth;">
+
+      <div class="brand-card flex-shrink-0" style="width:220px;">
+        <img src="https://rukminim1.flixcart.com/fk-p-flap/900/640/image/813535af81e6036b.png?q=60"
+             style="width:100%;height:140px;object-fit:cover;">
+        <div class="brand-footer">Up to 75% Off</div>
+      </div>
+
+      <div class="brand-card flex-shrink-0" style="width:220px;">
+        <img src="https://rukminim2.flixcart.com/fk-p-flap/480/480/image/nivea-skin.jpg"
+             style="width:100%;height:140px;object-fit:cover;">
+        <div class="brand-footer">Up to 50% Off</div>
+      </div>
+
+      <div class="brand-card flex-shrink-0" style="width:220px;">
+        <img src="https://rukminim2.flixcart.com/fk-p-flap/480/480/image/fire-boltt-glasses.jpg"
+             style="width:100%;height:140px;object-fit:cover;">
+        <div class="brand-footer">Spl. price ₹1,999*</div>
+      </div>
+
+      <div class="brand-card flex-shrink-0" style="width:220px;">
+        <img src="https://rukminim2.flixcart.com/fk-p-flap/480/480/image/tresemme.jpg"
+             style="width:100%;height:140px;object-fit:cover;">
+        <div class="brand-footer">Shop now</div>
+      </div>
+
+    </div>
+
+    <!-- DESKTOP GRID -->
+    <div class="row g-3 d-none d-md-flex">
+
+      <div class="col-lg-3 col-md-6">
+        <div class="brand-card h-100">
+          <img src="https://rukminim1.flixcart.com/fk-p-flap/900/640/image/813535af81e6036b.png?q=60"
+               style="width:100%;height:210px;object-fit:cover;">
+          <div class="brand-footer">Up to 75% Off</div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="brand-card h-100">
+          <img src="https://rukminim2.flixcart.com/fk-p-flap/480/480/image/nivea-skin.jpg"
+               style="width:100%;height:210px;object-fit:cover;">
+          <div class="brand-footer">Up to 50% Off</div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="brand-card h-100">
+          <img src="https://rukminim2.flixcart.com/fk-p-flap/480/480/image/fire-boltt-glasses.jpg"
+               style="width:100%;height:210px;object-fit:cover;">
+          <div class="brand-footer">Spl. price ₹1,999*</div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div class="brand-card h-100">
+          <img src="https://rukminim2.flixcart.com/fk-p-flap/480/480/image/tresemme.jpg"
+               style="width:100%;height:210px;object-fit:cover;">
+          <div class="brand-footer">Shop now</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<script>
+  const scroller = document.getElementById("brandAutoScroll");
+  let scrollPos = 0;
+
+  setInterval(() => {
+    if (!scroller) return;
+    scrollPos += 230;
+    if (scrollPos >= scroller.scrollWidth - scroller.clientWidth) {
+      scrollPos = 0;
+    }
+    scroller.scrollTo({ left: scrollPos, behavior: "smooth" });
+  }, 2500);
+</script>
+
+<!-- ================= SLIDER SCRIPT ================= -->
+<script>
+let index = 0;
+function slide(dir){
+    const track = document.getElementById("track");
+    const slides = track.children.length;
+    index = (index + dir + slides) % slides;
+    track.style.transform = `translateX(-${index * 100}%)`;
+}
+</script>
+<script>
+function scrollDeals(dir){
+  const scroller = document.getElementById("dealScroller");
+  const scrollAmount = 340;
+  scroller.scrollBy({
+    left: dir * scrollAmount,
+    behavior: "smooth"
+  });
+}
+</script>
+</body>
+</html>
