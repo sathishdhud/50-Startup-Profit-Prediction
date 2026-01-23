@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DKNY Round Neck Typography Printed T-Shirt</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap & Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<style>
+.lora {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: bold;
+  color: #000000;
+
+}
+:root{
+  --fk-orange:#ff5722;
+  --fk-green:#388e3c;
+  --light:#f1f3f6;
+  --border:#e5e7eb;
+}
+body{
+  background:var(--light);
+  font-family:Arial, Helvetica, sans-serif;
+  background:url("");
+  background-size:cover;
+  background-attachment: fixed;
+  color:#222;
+
+
+}
+
+/* COMMON */
+.section-box{
+  background:#fff;
+  border-radius:2px;
+  padding:20px;
+  border:1px solid var(--border);
+    background:url("");
+  background-size:cover;
+  background-attachment: fixed;
+  color:#222;
+
+}
+
+/* BREADCRUMB */
+.breadcrumb{
+  background:none;
+  font-size:14px;
+}
+
+/* IMAGE SLIDER */
+.image-box{
+  position:relative;
+  background:#f5f5f5;
+}
+.image-box img{
+  width:100%;
+  height:520px;
+  object-fit:cover;
+}
+.slider-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#fff;
+  width:38px;
+  height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+.slider-btn.left{left:8px}
+.slider-btn.right{right:8px}
+
+/* PRODUCT INFO */
+.brand{font-size:22px;font-weight:700}
+.subtitle{font-size:16px;color:#000000}
+.price{font-size:26px;font-weight:700}
+.mrp{text-decoration:line-through;color:#777;margin-left:8px}
+.off{color:var(--fk-orange);font-weight:600;margin-left:8px}
+.tax{color:var(--fk-green);font-size:14px}
+
+/* SIZE */
+.size-box{
+  width:42px;height:42px;
+  border-radius:50%;
+  border:1px solid #bbb;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:600;
+}
+.size-box.disabled{color:#bbb;text-decoration:line-through}
+.size-box.active{border:2px solid var(--fk-orange)}
+
+/* BUTTONS */
+.btn-bag{
+  background:#ff4400;color:#fff;
+  padding:14px;font-weight:600;border:none;border-radius:4px;
+}
+.btn-wishlist{
+  border:1px solid #bbb;
+  padding:14px;font-weight:600;border-radius:4px;
+}
+
+/* OFFERS */
+.offer-title{font-weight:700;margin-bottom:8px}
+.offer-list li{font-size:14px;margin-bottom:6px}
+.highlight{color:var(--fk-orange);font-weight:700}
+.link{color:#ff3f6c;font-weight:600;font-size:14px;cursor:pointer}
+
+/* DETAILS */
+.details{border-left:1px solid #eee;padding-left:20px}
+.detail-list li{font-size:14px;margin-bottom:5px}
+.sub-title{font-weight:700;margin-top:16px}
+
+/* SPEC GRID */
+.spec-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+.spec-grid span{font-size:13px;color:#777;
+margin-right:6px;}
+
+/* SIMILAR */
+.similar-section{
+  background:#fff;
+  padding:16px;
+  margin-top:20px;
+}
+.similar-row{
+  display:flex;
+  gap:16px;
+  overflow-x:auto;
+}
+.similar-row::-webkit-scrollbar{display:none}
+.similar-card{
+  min-width:220px;
+  border:1px solid var(--border);
+}
+.img-wrap img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+}
+.info{padding:10px}
+.info .brand{font-size:14px}
+.info .name{font-size:13px;color:#444}
+.info .price{font-size:14px}
+
+/* MOBILE */
+@media(max-width:768px){
+  .image-box img{height:280px}
+  .details{border-left:none;padding-left:0;border-top:1px solid #eee;padding-top:16px}
+  .spec-grid{grid-template-columns:1fr}
+}
+
+/* ================= MOBILE IMAGE SLIDER ================= */
+
+.mobile-slider{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  background:#f5f5f5;
+}
+
+.mobile-slider-track{
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+}
+
+.mobile-slider-track::-webkit-scrollbar{
+  display:none;
+}
+
+.mobile-slider-track img{
+  width:100%;
+  height:400px;
+  object-fit:cover;
+  flex-shrink:0;
+  scroll-snap-align:start;
+}
+
+/* DOTS */
+.slider-dots{
+  display:flex;
+  justify-content:center;
+  gap:6px;
+  padding:8px 0;
+  background:#fff;
+}
+
+.slider-dots span{
+  width:6px;
+  height:6px;
+  background:#ccc;
+  border-radius:50%;
+  transition:0.3s;
+}
+
+.slider-dots span.active{
+  background:#ff5722;
+}
+
+/* SMALLER MOBILE */
+@media(max-width:480px){
+  .mobile-slider-track img{
+    height:480px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+<div class="container-fluid top-nav" style="background:#f44f08;">
+  <div class="container">
+
+    <div class="row align-items-center"
+         style="height:40px;"> <!-- CONTROL NAVBAR HEIGHT -->
+
+      <!-- LOGO -->
+      <div class="col-6 col-md-2 d-flex ps-2">
+        <img
+          src="../logo.png"
+          alt="Kriya Logo"
+          style="
+            height:40px;
+            width:auto;
+            object-fit:contain;
+          "
+        >
+      </div>
+
+      <!-- SEARCH BAR (DESKTOP) -->
+      <div class="col-md-6 d-none d-md-flex align-items-center">
+        <div
+          class="d-flex align-items-center px-3 w-100"
+          style="
+            height:38px;
+            background:#fff7ed;
+            border-radius:8px;
+          "
+        >
+          <i class="fa fa-search me-2" style="color:#f97316;font-size:14px;"></i>
+          <input
+            type="text"
+            class="form-control border-0 shadow-none p-0 bg-transparent"
+            placeholder="Search for Products, Brands and More"
+            style="font-size:14px;"
+          >
+        </div>
+      </div>
+
+      <!-- RIGHT ACTIONS -->
+      <div class="col-6 col-md-4 d-flex justify-content-end align-items-center gap-3">
+
+        <button
+          class="d-none d-md-inline"
+          style="
+            height:32px;
+            padding:0 14px;
+            background:#ff9800;
+            color:#fff;
+            border:none;
+            border-radius:6px;
+            font-size:14px;
+          "
+          onclick="location.href='../login.html'"
+        >
+          Login
+        </button>
+
+        <i class="fa fa-cart-shopping text-white" style="font-size:18px;"></i>
+        <i class="fa fa-bars d-md-none text-white" style="font-size:20px;"></i>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE SEARCH -->
+
+
+
+<div class="container my-3">
+
+<nav class="breadcrumb">
+  Home &nbsp;/&nbsp; Watches &nbsp;/&nbsp; Men’s Watches &nbsp;/&nbsp; Analog &nbsp;/&nbsp;
+  <strong>Titan Workwear Black Dial Stainless Steel Watch</strong>
+</nav>
+
+
+<!-- TOP SECTION -->
+<div class="section-box mb-3">
+  <div class="row g-4">
+
+    <!-- IMAGE -->
+    <!-- ================= IMAGE SECTION ================= -->
+    <div class="col-lg-7">
+
+      <!-- ===== DESKTOP SLIDER ===== -->
+      <div class="image-box d-none d-md-block">
+        <img id="sliderImg"
+             src="watch1.jpg"
+             alt="Titan Workwear Black Dial Silver Stainless Steel Analog Watch for Men">
+
+        <div class="slider-btn left" onclick="prevImg()">
+          <i class="fa fa-chevron-left"></i>
+        </div>
+
+        <div class="slider-btn right" onclick="nextImg()">
+          <i class="fa fa-chevron-right"></i>
+        </div>
+      </div>
+
+      <!-- ===== MOBILE SLIDER ===== -->
+      <div class="mobile-slider d-md-none">
+        <div class="mobile-slider-track" id="mobileSlider">
+          <img src="watch1.jpg">
+          <img src="watch2.jpg">
+          <img src="watch3.jpg">
+          <img src="watch4.jpg">
+        </div>
+        <div class="slider-dots" id="sliderDots"></div>
+      </div>
+
+    </div>
+
+    <!-- DETAILS -->
+    <div class="col-lg-5">
+
+      <!-- BRAND -->
+      <div class="brand">TITAN</div>
+
+      <!-- TITLE -->
+      <div class="subtitle lora">
+        Men Workwear Black Dial Silver Stainless Steel Analog Watch
+      </div>
+
+      <!-- PRICE -->
+      <div class="mt-2">
+        <span class="price">₹1,995</span>
+        <span class="mrp">₹3,835</span>
+        <span class="off">(47% OFF)</span>
+      </div>
+
+      <!-- TAX INFO -->
+      <div class="tax">
+        inclusive of all taxes
+      </div>
+
+      <!-- VARIANT INFO -->
+      <div class="mt-4">
+        <strong>WATCH DETAILS</strong>
+        <div class="small mt-2" style="line-height:1.6;">
+          Dial Color: Black<br>
+          Strap: Silver Stainless Steel<br>
+          Display: Analog (Quartz)<br>
+          Water Resistance: 3 ATM
+        </div>
+      </div>
+
+      <!-- BUY / WISHLIST -->
+      <div class="row g-2 mt-4">
+
+        <!-- BUY BUTTON -->
+        <div class="col-7">
+          <a href="https://www.flipkart.com/"
+             style="text-decoration:none; display:block;" target="_blank">
+
+            <div class="btn-bag w-100 text-center"
+                 style="display:flex; align-items:center; justify-content:center;">
+              <i class="fa fa-lock me-2"></i>
+              <span class="d-none d-md-inline">BUY FROM FLIPKART</span>
+              <span class="d-inline d-md-none">FLIPKART</span>
+            </div>
+
+          </a>
+        </div>
+
+        <!-- WISHLIST -->
+        <div class="col-5">
+          <button class="btn-wishlist w-100">
+            <i class="fa fa-heart me-2"></i>WISHLIST
+          </button>
+        </div>
+
+      </div>
+
+      <!-- HIGHLIGHTS -->
+      <div class="mt-3" style="font-size:14px; line-height:1.6;">
+
+        <!-- AUTHENTICITY -->
+        <div class="d-flex align-items-start mb-2" style="gap:10px;">
+          <i class="fa fa-shield-halved"
+             style="color:#bdbdbd; font-size:16px; margin-top:4px;"></i>
+          <div>
+            <div style="font-weight:600;">100% AUTHENTIC</div>
+            <div>
+              Genuine Titan watch with official brand warranty
+            </div>
+          </div>
+        </div>
+
+        <!-- WARRANTY -->
+        <div class="d-flex align-items-start mb-2" style="gap:10px;">
+          <i class="fa fa-certificate"
+             style="color:#bdbdbd; font-size:16px; margin-top:4px;"></i>
+          <div>
+            <div style="font-weight:600;">2 YEARS WARRANTY</div>
+            <div>
+              Manufacturer warranty on watch movement
+            </div>
+          </div>
+        </div>
+
+        <!-- DELIVERY -->
+        <div class="d-flex align-items-start mb-2" style="gap:10px;">
+          <i class="fa fa-truck-fast"
+             style="color:#bdbdbd; font-size:16px; margin-top:4px;"></i>
+          <div>
+            <div style="font-weight:600;">FAST DELIVERY</div>
+            <div>
+              Delivery time varies by location
+            </div>
+          </div>
+        </div>
+
+        <!-- RETURNS -->
+        <div class="d-flex align-items-start" style="gap:10px;">
+          <i class="fa fa-rotate-left"
+             style="color:#bdbdbd; font-size:16px; margin-top:4px;"></i>
+          <div>
+            <div style="font-weight:600;">EASY RETURNS</div>
+            <div>
+              Return policy as per Flipkart guidelines
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<!-- OFFERS + DETAILS -->
+<div class="section-box mt-4">
+  <div class="row g-4">
+
+    <!-- BEST OFFERS -->
+    <div class="col-lg-6">
+      <div class="offer-title">BEST OFFERS ON TITAN MEN’S WATCH</div>
+
+      <!-- MAIN DEAL -->
+      <div class="best-price">
+        Best Price: <span class="highlight">₹1,995</span>
+      </div>
+
+      <ul class="offer-list mt-2">
+        <li>Flat discount available on MRP</li>
+        <li>Additional bank offers on select cards</li>
+        <li>No-cost EMI options available</li>
+        <li>Limited-time deal on Titan Workwear watches</li>
+      </ul>
+
+      <a class="link">View all offers & payment options</a>
+    </div>
+
+    <!-- PRODUCT DETAILS -->
+    <div class="col-lg-6 details">
+
+      <div class="offer-title">PRODUCT DETAILS</div>
+
+      <ul class="detail-list">
+        <li>Men’s analog wrist watch with classic workwear design</li>
+        <li>Black dial with silver stainless steel strap</li>
+        <li>Quartz movement for accurate timekeeping</li>
+        <li>Durable metal case with mineral glass</li>
+        <li>Suitable for office, formal & daily wear</li>
+      </ul>
+
+      <!-- SIZE & FIT -->
+      <div class="sub-title">Dial & Fit</div>
+      <p class="muted">
+        Round Dial | Comfortable Wrist Fit | Standard Men’s Size
+      </p>
+
+      <!-- MATERIAL & CARE -->
+      <div class="sub-title">Material & Care</div>
+      <ul class="detail-list">
+        <li>Stainless steel strap & metal case</li>
+        <li>Mineral glass dial protection</li>
+        <li>Water resistant up to 3 ATM (splash proof)</li>
+        <li>Clean with a soft dry cloth</li>
+      </ul>
+
+      <!-- SPECIFICATIONS -->
+      <div class="sub-title">Specifications</div>
+      <div class="spec-grid">
+        <div>
+          <span>Brand</span>
+          Titan
+        </div>
+        <div>
+          <span>Model</span>
+          Workwear Series
+        </div>
+        <div>
+          <span>Display</span>
+          Analog
+        </div>
+        <div>
+          <span>Movement</span>
+          Quartz
+        </div>
+        <div>
+          <span>Dial Color</span>
+          Black
+        </div>
+        <div>
+          <span>Strap Material</span>
+          Stainless Steel
+        </div>
+        <div>
+          <span>Water Resistance</span>
+          3 ATM
+        </div>
+        <div>
+          <span>Warranty</span>
+          2 Years Manufacturer Warranty
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- SIMILAR -->
+<div class="similar-section">
+  <h5 class="fw-bold mb-3">SIMILAR PRODUCTS</h5>
+
+  <div class="similar-row" id="similarProducts">
+    <!-- Products will be injected here -->
+  </div>
+</div>
+
+
+</div>
+
+<script>
+const images=[
+ "watch1.jpg",
+ "watch2.png",
+ "watch3.png",
+    "watch4.jpg",
+    "watch5.png"
+];
+let i=0;
+function nextImg(){i=(i+1)%images.length;sliderImg.src=images[i]}
+function prevImg(){i=(i-1+images.length)%images.length;sliderImg.src=images[i]}
+</script>
+<script>
+const similarProducts = [
+  {
+    brand: "Titan",
+    name: "Titan Karishma Black Dial Silver Stainless Steel Analog Watch",
+    price: "2,095",
+    mrp: "3,995",
+    img: "images_watches/similar1.jpg",
+    link: "../../gateway.html?to=flipkart&url=https%3A%2F%2Ffktr.in%2FyrI2sop",
+    desc: "Classic Titan Karishma analog watch with black dial and durable stainless steel strap. Ideal for office and formal wear."
+  },
+  {
+    brand: "Titan",
+    name: "Titan Neo Black Dial Leather Strap Analog Watch for Men",
+    price: "2,695",
+    mrp: "4,195",
+    img: "images_watches/similar2.jpg",
+    link: "../../gateway.html?to=flipkart&url=https%3A%2F%2Ffktr.in%2FJ5dRxzc",
+    desc: "Minimalist Titan Neo series watch featuring a black dial and premium leather strap for everyday elegance."
+  },
+  {
+    brand: "Casio",
+    name: "Casio Enticer Black Dial Stainless Steel Analog Watch",
+    price: "1,895",
+    mrp: "2,995",
+    img: "images_watches/similar3.jpg",
+    link: "../../gateway.html?to=flipkart&url=https%3A%2F%2Ffktr.in%2FK4ids6D",
+    desc: "Reliable Casio analog watch with clean dial layout, quartz movement, and stainless steel build."
+  },
+  {
+    brand: "Fastrack",
+    name: "Fastrack Minimalists Black Dial Metal Strap Analog Watch",
+    price: "1,595",
+    mrp: "2,995",
+    img: "images_watches/similar4.jpg",
+    link: "../../gateway.html?to=flipkart&url=https%3A%2F%2Ffktr.in%2Ft2Cehh3",
+    desc: "Trendy Fastrack analog watch with a modern black dial and lightweight metal strap for daily wear."
+  },
+  {
+    brand: "Timex",
+    name: "Timex Classics Black Dial Stainless Steel Analog Watch",
+    price: "2,299",
+    mrp: "3,999",
+    img: "images_watches/similar5.jpg",
+    link: "../../gateway.html?to=flipkart&url=https%3A%2F%2Ffktr.in%2FLrmd7Wj",
+    desc: "Timeless Timex analog watch offering precision quartz movement and a formal stainless steel design."
+  }
+];
+
+const container = document.getElementById("similarProducts");
+
+container.innerHTML = similarProducts.map(p => `
+  <div class="similar-card">
+    <a href="${p.link}"
+       target="_self"
+       style="text-decoration:none; color:inherit; display:block;">
+
+      <div class="img-wrap">
+        <img src="${p.img}" alt="${p.name}">
+      </div>
+
+      <div class="info">
+        <div class="brand">${p.brand}</div>
+        <div class="name">${p.name}</div>
+        <div class="price">
+          ₹${p.price}
+          ${p.mrp ? `<span class="mrp">₹${p.mrp}</span>` : ""}
+        </div>
+      </div>
+
+    </a>
+  </div>
+`).join("");
+</script>
+
+
+</body>
+</html>
