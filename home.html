@@ -817,10 +817,7 @@ body{
 <!-- GREY BACKGROUND WRAPPER -->
 <div class="container-fluid py-4" style="background:#f1f3f6;">
 
-  <!-- NEAR FULL-WIDTH INNER WRAPPER -->
   <div class="px-1 px-md-2">
-
-    <!-- WHITE INNER BOX -->
     <div class="bg-white rounded py-3 px-2 px-md-3">
 
       <div class="row g-3">
@@ -828,66 +825,25 @@ body{
         <!-- LEFT: DEALS -->
         <div class="col-lg-9">
 
-          <!-- TITLE -->
           <h4 class="fw-semibold mb-4">Best deals on smartphones</h4>
 
           <!-- PRODUCTS ROW -->
-          <div class="d-flex gap-4 overflow-auto pb-2">
-
-            <!-- PRODUCT -->
-            <div class="text-center" style="min-width:160px;">
-              <img src="https://img.freepik.com/free-psd/black-friday-mega-sale-social-media-instagram-story-design-template_47987-17922.jpg?semt=ais_hybrid&w=740&q=80" class="img-fluid mb-2">
-              <div class="fw-medium">Apple iPhone 16</div>
-              <div class="fw-bold">From ₹55,999*</div>
-            </div>
-
-           
-
-            
-
-            <div class="text-center" style="min-width:160px;">
-              <img src="https://rukminim2.flixcart.com/image/200/200/vivo-t4x.png" class="img-fluid mb-2">
-              <div class="fw-medium">Vivo T4x 5G</div>
-              <div class="fw-bold">From ₹14,999*</div>
-            </div>
-
-            <div class="text-center" style="min-width:160px;">
-              <img src="https://rukminim2.flixcart.com/image/200/200/poco-c75.png" class="img-fluid mb-2">
-              <div class="fw-medium">Poco C75 5G</div>
-              <div class="fw-bold">Just ₹7,999</div>
-            </div>
-
-            <div class="text-center" style="min-width:160px;">
-              <img src="https://rukminim2.flixcart.com/image/200/200/samsung-galaxy-a3.png" class="img-fluid mb-2">
-              <div class="fw-medium">Samsung Galaxy A3</div>
-              <div class="fw-bold">From ₹17,999</div>
-            </div>
-             <div class="text-center" style="min-width:160px;">
-              <img src="https://rukminim2.flixcart.com/image/200/200/samsung-galaxy-a3.png" class="img-fluid mb-2">
-              <div class="fw-medium">Samsung Galaxy A3</div>
-              <div class="fw-bold">From ₹17,999</div>
-            </div>
-             <div class="text-center" style="min-width:160px;">
-              <img src="https://rukminim2.flixcart.com/image/200/200/samsung-galaxy-a3.png" class="img-fluid mb-2">
-              <div class="fw-medium">Samsung Galaxy A3</div>
-              <div class="fw-bold">From ₹17,999</div>
-            </div>
-
+          <div class="d-flex gap-4 overflow-auto pb-2" id="dealRow">
+            <!-- Products injected here -->
           </div>
+
         </div>
 
         <!-- RIGHT: AD BANNER -->
         <div class="col-lg-3 d-none d-lg-block">
-  <div class="rounded d-flex align-items-center justify-content-center p-2"
-      >
-    <img 
-      src="https://img.freepik.com/free-psd/black-friday-mega-sale-social-media-instagram-story-design-template_47987-17922.jpg?semt=ais_hybrid&w=740&q=80"
-      class="img-fluid rounded"
-      style="max-height:430px;object-fit:cover;width:330px;"
-      alt="Ad Banner">
-  </div>
-</div>
-
+          <div class="rounded d-flex align-items-center justify-content-center p-2">
+            <img 
+              src="https://img.freepik.com/free-psd/black-friday-mega-sale-social-media-instagram-story-design-template_47987-17922.jpg?semt=ais_hybrid&w=740&q=80"
+              class="img-fluid rounded"
+              style="max-height:430px;object-fit:cover;width:330px;"
+              alt="Ad Banner">
+          </div>
+        </div>
 
       </div>
 
@@ -1257,6 +1213,112 @@ function scrollDeals(dir){
     behavior: "smooth"
   });
 }
+</script>
+<script>
+/* ================= PRODUCT DATA ================= */
+const phoneDeals = [
+  {
+    name: "Apple iPhone 16",
+    price: "From ₹55,999*",
+    img: "iphone16.png",
+    link: "#"
+  },
+  {
+    name: "Samsung Galaxy S24",
+    price: "From ₹39,999*",
+    img: "samsung-galaxy-s24.png",
+    link: "#"
+  },
+  {
+    name: "Google Pixel 10",
+    price: "From ₹60,999*",
+    img: "google-pixel-10.png",
+    link: "#"
+  },
+  {
+    name: "Nothing Phone 3A Pro",
+    price: "From ₹27,000*",
+    img: "https://rukminim2.flixcart.com/image/200/200/nothing-phone-3a-pro.png",
+    link: "#"
+  },
+  {
+    name: "Samsung Galaxy A55",
+    price: "From ₹24,000*",
+    img: "https://rukminim2.flixcart.com/image/200/200/samsung-galaxy-a55.png",
+    link: "#"
+  },
+  {
+    name: "OnePlus Nord CE 5",
+    price: "From ₹23,000*",
+    img: "https://rukminim2.flixcart.com/image/200/200/oneplus-nord-ce-5.png",
+    link: "#"
+  },
+  {
+    name: "Motorola G86",
+    price: "From ₹15,999*",
+    img: "https://rukminim2.flixcart.com/image/200/200/motorola-g86.png",
+    link: "#"
+  },
+  {
+    name: "Realme P4",
+    price: "From ₹16,500*",
+    img: "https://rukminim2.flixcart.com/image/200/200/realme-p4.png",
+    link: "#"
+  },
+  {
+    name: "Poco X7 Pro",
+    price: "From ₹20,000*",
+    img: "https://rukminim2.flixcart.com/image/200/200/poco-x7-pro.png",
+    link: "#"
+  },
+  {
+    name: "Redmi Note 14 SE",
+    price: "From ₹12,750*",
+    img: "https://rukminim2.flixcart.com/image/200/200/redmi-note-14-se.png",
+    link: "#"
+  },
+  {
+    name: "Samsung Galaxy M17 5G",
+    price: "From ₹12,999*",
+    img: "https://rukminim2.flixcart.com/image/200/200/samsung-galaxy-m17.png",
+    link: "#"
+  },
+  {
+    name: "Vivo T4x 5G",
+    price: "From ₹14,999*",
+    img: "https://rukminim2.flixcart.com/image/200/200/vivo-t4x.png",
+    link: "#"
+  },
+  {
+    name: "Poco C75 5G",
+    price: "Just ₹7,999",
+    img: "https://rukminim2.flixcart.com/image/200/200/poco-c75.png",
+    link: "#"
+  },
+  {
+    name: "A Plus Nova 5G",
+    price: "From ₹7,000*",
+    img: "https://rukminim2.flixcart.com/image/200/200/a-plus-nova-5g.png",
+    link: "#"
+  }
+];
+
+
+/* ================= RENDER ================= */
+const dealRow = document.getElementById("dealRow");
+
+dealRow.innerHTML = phoneDeals.map(p => `
+  <a href="${p.link}"
+     style="text-decoration:none;color:inherit;">
+
+    <div class="text-center" style="min-width:160px;">
+      <img src="${p.img}" class="img-fluid mb-2">
+      <div class="fw-medium">${p.name}</div>
+      <div class="fw-bold">${p.price}</div>
+    </div>
+
+  </a>
+`).join("");
 </script>
 </body>
 </html>
