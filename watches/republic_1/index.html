@@ -8,7 +8,7 @@
 <!-- Bootstrap & Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../../style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -234,7 +234,7 @@ margin-right:6px;}
       <!-- LOGO -->
       <div class="col-6 col-md-2 d-flex ps-2">
         <img
-          src="../logo.png"
+          src="../../logo.png"
           alt="Kriya Logo"
           style="
             height:40px;
@@ -331,9 +331,11 @@ margin-right:6px;}
       <div class="mobile-slider d-md-none">
         <div class="mobile-slider-track" id="mobileSlider">
           <img src="watch1.jpg">
-          <img src="watch2.jpg">
-          <img src="watch3.jpg">
-          <img src="watch4.jpg">
+          <img src="watch2.png">
+          <img src="watch3.png">
+          <img src="watch4.png">
+          <img src="watch5.png">
+          <img src="watch6.png">
         </div>
         <div class="slider-dots" id="sliderDots"></div>
       </div>
@@ -574,8 +576,9 @@ const images=[
  "watch1.jpg",
  "watch2.png",
  "watch3.png",
-    "watch4.jpg",
-    "watch5.png"
+    "watch4.png",
+    "watch5.png",
+    "watch6.png"
 ];
 let i=0;
 function nextImg(){i=(i+1)%images.length;sliderImg.src=images[i]}
@@ -588,7 +591,7 @@ const similarProducts = [
     name: "Titan Karishma Black Dial Silver Stainless Steel Analog Watch",
     price: "2,095",
     mrp: "3,995",
-    img: "images_watches/similar1.jpg",
+    img: "../images_watches/imagew6.png",
     link: "../../gateway.html?to=flipkart&url=https%3A%2F%2Ffktr.in%2FyrI2sop",
     desc: "Classic Titan Karishma analog watch with black dial and durable stainless steel strap. Ideal for office and formal wear."
   },
@@ -597,7 +600,7 @@ const similarProducts = [
     name: "Titan Neo Black Dial Leather Strap Analog Watch for Men",
     price: "2,695",
     mrp: "4,195",
-    img: "images_watches/similar2.jpg",
+    img: "../images_watches/imagew1.jpg",
     link: "../../gateway.html?to=flipkart&url=https%3A%2F%2Ffktr.in%2FJ5dRxzc",
     desc: "Minimalist Titan Neo series watch featuring a black dial and premium leather strap for everyday elegance."
   },
@@ -606,7 +609,7 @@ const similarProducts = [
     name: "Casio Enticer Black Dial Stainless Steel Analog Watch",
     price: "1,895",
     mrp: "2,995",
-    img: "images_watches/similar3.jpg",
+    img: "../images_watches/imagew4.png",
     link: "../../gateway.html?to=flipkart&url=https%3A%2F%2Ffktr.in%2FK4ids6D",
     desc: "Reliable Casio analog watch with clean dial layout, quartz movement, and stainless steel build."
   },
@@ -615,16 +618,16 @@ const similarProducts = [
     name: "Fastrack Minimalists Black Dial Metal Strap Analog Watch",
     price: "1,595",
     mrp: "2,995",
-    img: "images_watches/similar4.jpg",
+    img: "../images_watches/imagew2.png",
     link: "../../gateway.html?to=flipkart&url=https%3A%2F%2Ffktr.in%2Ft2Cehh3",
     desc: "Trendy Fastrack analog watch with a modern black dial and lightweight metal strap for daily wear."
   },
   {
-    brand: "Timex",
-    name: "Timex Classics Black Dial Stainless Steel Analog Watch",
+    brand: "Casio",
+    name: "edifice Black Dial Black Leather Band Analog Watch",
     price: "2,299",
     mrp: "3,999",
-    img: "images_watches/similar5.jpg",
+    img: "../images_watches/imagew8.png",
     link: "../../gateway.html?to=flipkart&url=https%3A%2F%2Ffktr.in%2FLrmd7Wj",
     desc: "Timeless Timex analog watch offering precision quartz movement and a formal stainless steel design."
   }
