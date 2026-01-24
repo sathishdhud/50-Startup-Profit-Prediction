@@ -662,10 +662,11 @@ margin-right:6px;}
         <div class="mobile-slider-track" id="mobileSlider">
           <img src="image1.jpg">
           <img src="image2.jpg">
+           <img src="image5.png">
+          <img src="image6.jpg">
           <img src="image3.jpg">
           <img src="image4.jpg">
-          <img src="image5.png">
-          <img src="image6.jpg">
+         
         </div>
         <div class="slider-dots" id="sliderDots"></div>
       </div>
@@ -1326,10 +1327,11 @@ margin-right:6px;}
 const images=[
  "./image1.jpg",
  "image2.jpg",
+  "./image5.png",
+    "./image6.jpg",
  "./image3.jpg",
-    "./image4.jpg",
-    "./image5.png",
-    "./image6.jpg"
+    "./image4.jpg"
+   
 ];
 let i=0;
 function nextImg(){i=(i+1)%images.length;sliderImg.src=images[i]}
