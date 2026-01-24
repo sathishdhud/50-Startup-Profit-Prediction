@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+User-agent: GPTBot
+Allow: /
+
 Sitemap: https://maaney.store/sitemap.xml
+
