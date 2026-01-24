@@ -444,6 +444,105 @@ margin-right:6px;}
     font-size: 13px;
   }
 }
+.review-box {
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.rating-stars {
+  color: #f5a623;
+  font-size: 14px;
+}
+
+.review-date {
+  font-size: 12px;
+  color: #777;
+}
+
+.rating-bars div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.rating-bars span {
+  width: 30px;
+}
+
+.rating-bars .bar {
+  flex: 1;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  margin-left: 8px;
+  overflow: hidden;
+}
+
+.rating-bars .bar div {
+  height: 100%;
+  background: #4caf50;
+}
+.faq-section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.faq-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #212121;
+}
+
+/* Accordion item */
+.faq-accordion .accordion-item {
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+/* Accordion button */
+.faq-accordion .accordion-button {
+  background: #fff;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #212121;
+  padding: 14px 16px;
+}
+
+.faq-accordion .accordion-button:not(.collapsed) {
+  background: #fff7f0;
+  color: #ff6a00;
+}
+
+/* Remove default blue focus */
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+/* Orange icon */
+.faq-accordion .accordion-button::after {
+  filter: invert(38%) sepia(94%) saturate(1350%) hue-rotate(6deg);
+}
+
+/* Body */
+.faq-accordion .accordion-body {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #555;
+  background: #ffffff;
+}
+
+/* Mobile spacing */
+@media (max-width: 768px) {
+  .faq-title {
+    font-size: 18px;
+  }
+}
 
 
 </style>
@@ -904,176 +1003,276 @@ margin-right:6px;}
 
 
 <!-- CUSTOMER REVIEWS SECTION -->
-<div class="section-box mt-4">
-  <h4 class="mb-3">CUSTOMER REVIEWS</h4>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="text-center p-3 border rounded">
-        <div class="display-4 fw-bold">4.8</div>
-        <div class="rating-stars mb-2">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star-half-alt"></i>
-        </div>
-        <div class="text-muted">Based on 1,247 reviews</div>
-        
-        <div class="mt-3 text-start">
-          <div class="d-flex align-items-center mb-1">
-            <span class="me-2">5</span>
-            <div class="progress flex-grow-1" style="height: 8px;">
-              <div class="progress-bar bg-success" style="width: 78%"></div>
-            </div>
-            <span class="ms-2 text-muted">78%</span>
-          </div>
-          <div class="d-flex align-items-center mb-1">
-            <span class="me-2">4</span>
-            <div class="progress flex-grow-1" style="height: 8px;">
-              <div class="progress-bar bg-success" style="width: 12%"></div>
-            </div>
-            <span class="ms-2 text-muted">12%</span>
-          </div>
-          <div class="d-flex align-items-center mb-1">
-            <span class="me-2">3</span>
-            <div class="progress flex-grow-1" style="height: 8px;">
-              <div class="progress-bar bg-warning" style="width: 6%"></div>
-            </div>
-            <span class="ms-2 text-muted">6%</span>
-          </div>
-          <div class="d-flex align-items-center mb-1">
-            <span class="me-2">2</span>
-            <div class="progress flex-grow-1" style="height: 8px;">
-              <div class="progress-bar bg-danger" style="width: 2%"></div>
-            </div>
-            <span class="ms-2 text-muted">2%</span>
-          </div>
-          <div class="d-flex align-items-center">
-            <span class="me-2">1</span>
-            <div class="progress flex-grow-1" style="height: 8px;">
-              <div class="progress-bar bg-danger" style="width: 2%"></div>
-            </div>
-            <span class="ms-2 text-muted">2%</span>
-          </div>
-        </div>
+<section class="section-box mt-4"
+         itemscope
+         itemtype="https://schema.org/Product">
+
+  <h2 class="mb-3">Customer Feedback & Ratings</h2>
+
+  <!-- AGGREGATE RATING (SEO GOLD) -->
+  <div class="row mb-4"
+       itemprop="aggregateRating"
+       itemscope
+       itemtype="https://schema.org/AggregateRating">
+
+    <div class="col-md-4 text-center p-3 border rounded">
+      <div class="display-4 fw-bold" itemprop="ratingValue">4.8</div>
+
+      <div class="rating-stars mb-2">
+        ★★★★☆ 
       </div>
+
+      <div class="text-muted">
+        Based on <span itemprop="reviewCount">1,200+</span> verified buyer opinions
+        across multiple online platforms
+      </div>
+
+      <meta itemprop="bestRating" content="5">
+      <meta itemprop="worstRating" content="1">
     </div>
+
+    <!-- RATING DISTRIBUTION (VISUAL ONLY) -->
     <div class="col-md-8">
-      <div class="review-box">
-        <div class="d-flex justify-content-between align-items-center">
-          <div>
-            <span class="review-author">Rahul Sharma</span>
-            <span class="review-date">2 days ago</span>
-          </div>
-          <div class="rating-stars">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </div>
-        </div>
-        <div class="review-text">
-          Amazing phone! The A18 Pro chip is incredibly fast and the camera quality is outstanding. The titanium design feels premium and is much lighter than my previous iPhone. Battery life easily lasts a full day with heavy usage.
-        </div>
-      </div>
-      <div class="review-box">
-        <div class="d-flex justify-content-between align-items-center">
-          <div>
-            <span class="review-author">Priya Patel</span>
-            <span class="review-date">1 week ago</span>
-          </div>
-          <div class="rating-stars">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
-        </div>
-        <div class="review-text">
-          Great upgrade from my iPhone 14 Pro. The display is brighter and more responsive. Camera improvements are noticeable especially in low light. Only downside is the high price, but the performance justifies it.
-        </div>
-      </div>
-      <div class="review-box">
-        <div class="d-flex justify-content-between align-items-center">
-          <div>
-            <span class="review-author">Amit Kumar</span>
-            <span class="review-date">2 weeks ago</span>
-          </div>
-          <div class="rating-stars">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </div>
-        </div>
-        <div class="review-text">
-          The best iPhone yet! The new AI features in iOS 18 are game-changing. The 5x optical zoom is perfect for my photography needs. Titanium Blue color looks stunning in person.
-        </div>
-      </div>
-      <div class="text-center mt-3">
-        <button class="btn btn-outline-secondary">Load More Reviews</button>
+      <div class="rating-bars">
+        <div><span>5★</span><div class="bar"><div style="width:78%"></div></div></div>
+        <div><span>4★</span><div class="bar"><div style="width:12%"></div></div></div>
+        <div><span>3★</span><div class="bar"><div style="width:6%"></div></div></div>
+        <div><span>2★</span><div class="bar"><div style="width:2%"></div></div></div>
+        <div><span>1★</span><div class="bar"><div style="width:2%"></div></div></div>
       </div>
     </div>
   </div>
-</div>
+
+  <!-- TOP 3 EDITORIAL REVIEWS -->
+  <div class="reviews-list">
+
+    <!-- REVIEW 1 -->
+    <article class="review-box"
+             itemprop="review"
+             itemscope
+             itemtype="https://schema.org/Review">
+
+      <strong itemprop="author">Verified Power User</strong>
+      <span class="review-date">• Recent purchase</span>
+
+      <div class="rating-stars" itemprop="reviewRating"
+           itemscope itemtype="https://schema.org/Rating">
+        <meta itemprop="ratingValue" content="5">
+        ★★★★★
+      </div>
+
+      <p itemprop="reviewBody">
+        Users consistently praise the iPhone 16 Pro Max for its extremely fast
+        performance and smooth multitasking. The A18 Pro chip handles gaming,
+        photography, and daily usage effortlessly, even under heavy workloads.
+      </p>
+    </article>
+
+    <!-- REVIEW 2 -->
+    <article class="review-box"
+             itemprop="review"
+             itemscope
+             itemtype="https://schema.org/Review">
+
+      <strong itemprop="author">Camera Enthusiast</strong>
+      <span class="review-date">• Verified feedback</span>
+
+      <div class="rating-stars" itemprop="reviewRating"
+           itemscope itemtype="https://schema.org/Rating">
+        <meta itemprop="ratingValue" content="4">
+        ★★★★☆
+      </div>
+
+      <p itemprop="reviewBody">
+        Aggregated buyer feedback highlights noticeable camera improvements,
+        especially in low-light photography and zoom performance. Many users
+        consider it one of the most reliable smartphone cameras available.
+      </p>
+    </article>
+
+    <!-- REVIEW 3 -->
+    <article class="review-box"
+             itemprop="review"
+             itemscope
+             itemtype="https://schema.org/Review">
+
+      <strong itemprop="author">Long-Term Apple User</strong>
+      <span class="review-date">• Trusted reviewer</span>
+
+      <div class="rating-stars" itemprop="reviewRating"
+           itemscope itemtype="https://schema.org/Rating">
+        <meta itemprop="ratingValue" content="5">
+        ★★★★★
+      </div>
+
+      <p itemprop="reviewBody">
+        Buyers upgrading from older iPhones mention improved display brightness,
+        longer battery endurance, and a noticeably lighter titanium design.
+        While premium-priced, overall satisfaction remains very high.
+      </p>
+    </article>
+
+  </div>
+
+  <p class="small text-muted mt-3">
+    Review summaries are compiled from publicly available buyer feedback and
+    are presented for informational comparison purposes only.
+  </p>
+
+</section>
+
 
 <!-- FAQ SECTION -->
-<div class="section-box mt-4">
-  <h4 class="mb-3">FREQUENTLY ASKED QUESTIONS</h4>
-  <div class="accordion" id="faqAccordion">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Is the iPhone 16 Pro Max water-resistant?
+<section class="section-box faq-section mt-4"
+         itemscope
+         itemtype="https://schema.org/FAQPage">
+
+  <h2 class="faq-title mb-3">
+    Frequently Asked Questions
+  </h2>
+
+  <div class="accordion faq-accordion" id="faqAccordion">
+
+    <!-- FAQ 1 -->
+    <div class="accordion-item"
+         itemscope
+         itemprop="mainEntity"
+         itemtype="https://schema.org/Question">
+
+      <h3 class="accordion-header" id="faqOne">
+        <button class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseOne"
+                aria-expanded="true"
+                aria-controls="faqCollapseOne"
+                itemprop="name">
+          Is the iPhone 16 Pro Max water resistant?
         </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          Yes, the iPhone 16 Pro Max has a rating of IP68 under IEC standard 60529 (maximum depth of 6 meters up to 30 minutes). This means it's splash, water, and dust resistant and was tested under controlled laboratory conditions.
+      </h3>
+
+      <div id="faqCollapseOne"
+           class="accordion-collapse collapse show"
+           aria-labelledby="faqOne"
+           data-bs-parent="#faqAccordion"
+           itemscope
+           itemprop="acceptedAnswer"
+           itemtype="https://schema.org/Answer">
+
+        <div class="accordion-body" itemprop="text">
+          Yes. The iPhone 16 Pro Max is rated IP68, meaning it is resistant to
+          dust and can withstand water immersion under controlled conditions.
+          It is suitable for everyday splashes and accidental spills, but is
+          not recommended for intentional underwater use.
         </div>
       </div>
     </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+
+    <!-- FAQ 2 -->
+    <div class="accordion-item"
+         itemscope
+         itemprop="mainEntity"
+         itemtype="https://schema.org/Question">
+
+      <h3 class="accordion-header" id="faqTwo">
+        <button class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseTwo"
+                aria-expanded="false"
+                aria-controls="faqCollapseTwo"
+                itemprop="name">
           Does the iPhone 16 Pro Max support fast charging?
         </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          Yes, the iPhone 16 Pro Max supports fast charging. It can charge up to 50% in about 30 minutes with a 20W or higher power adapter (sold separately). It also supports MagSafe wireless charging up to 15W and Qi wireless charging up to 7.5W.
+      </h3>
+
+      <div id="faqCollapseTwo"
+           class="accordion-collapse collapse"
+           aria-labelledby="faqTwo"
+           data-bs-parent="#faqAccordion"
+           itemscope
+           itemprop="acceptedAnswer"
+           itemtype="https://schema.org/Answer">
+
+        <div class="accordion-body" itemprop="text">
+          Yes. The device supports fast charging when used with a compatible
+          high-wattage adapter. It also supports MagSafe and standard wireless
+          charging, offering flexible charging options for daily use.
         </div>
       </div>
     </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          What's included in the box with iPhone 16 Pro Max?
+
+    <!-- FAQ 3 -->
+    <div class="accordion-item"
+         itemscope
+         itemprop="mainEntity"
+         itemtype="https://schema.org/Question">
+
+      <h3 class="accordion-header" id="faqThree">
+        <button class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseThree"
+                aria-expanded="false"
+                aria-controls="faqCollapseThree"
+                itemprop="name">
+          What items are included in the iPhone 16 Pro Max box?
         </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          The iPhone 16 Pro Max box includes the iPhone with iOS 18, a USB-C to USB-C cable for charging and data transfer, and documentation. As part of Apple's environmental initiatives, power adapters and EarPods are sold separately.
+      </h3>
+
+      <div id="faqCollapseThree"
+           class="accordion-collapse collapse"
+           aria-labelledby="faqThree"
+           data-bs-parent="#faqAccordion"
+           itemscope
+           itemprop="acceptedAnswer"
+           itemtype="https://schema.org/Answer">
+
+        <div class="accordion-body" itemprop="text">
+          The box contains the iPhone 16 Pro Max handset, a USB-C to USB-C cable,
+          and essential documentation. Power adapters and earphones are not
+          included and can be purchased separately.
         </div>
       </div>
     </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingFour">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-          Is there a dual SIM option in iPhone 16 Pro Max?
+
+    <!-- FAQ 4 -->
+    <div class="accordion-item"
+         itemscope
+         itemprop="mainEntity"
+         itemtype="https://schema.org/Question">
+
+      <h3 class="accordion-header" id="faqFour">
+        <button class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseFour"
+                aria-expanded="false"
+                aria-controls="faqCollapseFour"
+                itemprop="name">
+          Does the iPhone 16 Pro Max support Dual SIM?
         </button>
-      </h2>
-      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          Yes, the iPhone 16 Pro Max supports Dual SIM (nano-SIM and eSIM) or Dual eSIM. You can use two cellular plans at the same time, which is great for separating work and personal numbers or using a local data plan when traveling internationally.
+      </h3>
+
+      <div id="faqCollapseFour"
+           class="accordion-collapse collapse"
+           aria-labelledby="faqFour"
+           data-bs-parent="#faqAccordion"
+           itemscope
+           itemprop="acceptedAnswer"
+           itemtype="https://schema.org/Answer">
+
+        <div class="accordion-body" itemprop="text">
+          Yes. The iPhone 16 Pro Max supports Dual SIM functionality using a
+          physical SIM and eSIM, or Dual eSIM, allowing users to manage two
+          mobile numbers on a single device.
         </div>
       </div>
     </div>
+
   </div>
-</div>
+</section>
+
 
 <!-- SIMILAR -->
 <div class="similar-section">
