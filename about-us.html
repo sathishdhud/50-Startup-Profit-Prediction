@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About Us | Maaney – Smart Online Shopping Platform</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ================= SEO CORE ================= -->
+<meta name="description" content="Learn about Maaney – a modern ecommerce discovery platform helping users explore, compare, and shop confidently across trusted online marketplaces.">
+<meta name="keywords" content="About Maaney, ecommerce platform India, product discovery website, online shopping comparison">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://maaney.store/about-us">
+
+<!-- Open Graph -->
+<meta property="og:title" content="About Maaney – Smart Online Shopping">
+<meta property="og:description" content="Discover Maaney’s journey, values, and mission to make online shopping simpler, transparent, and reliable.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://maaney.store/about-us">
+<meta property="og:image" content="https://picsum.photos/seed/maaneyabout/1200/400.jpg">
+
+<!-- Bootstrap & Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+:root{
+  --orange:#f44f08;
+  --light:#f1f3f6;
+  --border:#e5e7eb;
+}
+body{
+  background:#fad1ce;
+  font-family:Arial, Helvetica, sans-serif;
+  color:#222;
+}
+
+/* COMMON */
+.section-box{
+  background:#fff;
+  border:1px solid var(--border);
+  padding:24px;
+  margin-bottom:24px;
+}
+
+/* HERO */
+.hero-section{
+  height:420px;
+  background:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url('https://picsum.photos/seed/maaneyabout/1200/400.jpg');
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+}
+.hero-section h1{
+  font-size:42px;
+  font-weight:800;
+}
+.hero-section p{
+  max-width:720px;
+  font-size:18px;
+}
+
+/* VALUES */
+.value-icon{
+  font-size:36px;
+  color:var(--orange);
+  margin-bottom:10px;
+}
+.value-title{
+  font-weight:700;
+}
+
+/* TEAM */
+.team-image{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid var(--light);
+}
+
+/* TIMELINE */
+.timeline{
+  position:relative;
+  padding-left:30px;
+}
+.timeline::before{
+  content:'';
+  position:absolute;
+  left:8px;
+  top:0;
+  width:2px;
+  height:100%;
+  background:var(--border);
+}
+.timeline-item{
+  position:relative;
+  margin-bottom:30px;
+}
+.timeline-dot{
+  width:14px;
+  height:14px;
+  background:var(--orange);
+  border-radius:50%;
+  position:absolute;
+  left:-30px;
+  top:6px;
+}
+.timeline-date{
+  font-weight:700;
+  color:var(--orange);
+}
+
+/* CONTACT */
+.contact-icon{
+  font-size:20px;
+  color:var(--orange);
+  width:30px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero-section h1{font-size:28px;}
+  .hero-section p{font-size:15px;}
+}
+
+/* ================= AFFILIATE MARQUEE ================= */
+
+.affiliate-section{
+  background:#fff;
+}
+
+.affiliate-marquee{
+  overflow:hidden;
+  width:100%;
+  position:relative;
+}
+
+.affiliate-track{
+  display:flex;
+  align-items:center;
+  gap:50px;
+  animation:affiliateScroll 5s linear infinite;
+}
+
+.affiliate-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:max-content;
+}
+
+.affiliate-item img{
+  height:38px;
+  width:auto;
+  object-fit:contain;
+}
+
+.affiliate-item span{
+  font-size:15px;
+  font-weight:600;
+  color:#333;
+}
+
+/* Animation */
+@keyframes affiliateScroll{
+  0%{
+    transform:translateX(0);
+  }
+  100%{
+    transform:translateX(-50%);
+  }
+}
+
+/* Mobile Optimization */
+@media(max-width:768px){
+  .affiliate-item img{
+    height:32px;
+  }
+  .affiliate-item span{
+    font-size:14px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= TOP NAV ================= -->
+<div class="container-fluid" style="background:var(--orange);">
+  <div class="container py-2 d-flex align-items-center justify-content-between">
+    <img src="../../logo.png" alt="Maaney Logo" style="height:38px">
+    <div class="d-none d-md-flex gap-3 text-white">
+      <i class="fa fa-cart-shopping"></i>
+      <i class="fa fa-bars"></i>
+    </div>
+  </div>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero-section">
+  <div>
+    <h1>Our Story</h1>
+    <p>
+      Maaney was built with a simple idea — to help people make confident
+      online shopping decisions through clarity, trust, and transparency.
+    </p>
+  </div>
+</section>
+
+<div class="container my-4">
+
+<!-- ================= ABOUT ================= -->
+<section class="section-box">
+  <div class="row g-4 align-items-center">
+    <div class="col-lg-6">
+      <h2>The Maaney Journey</h2>
+      <p>
+        Maaney started as a small initiative focused on simplifying how people
+        discover products online. Over time, it evolved into a comprehensive
+        ecommerce discovery platform that brings product information, pricing
+        insights, and trusted buying options together in one place.
+      </p>
+      <p>
+        Our focus has always been on long-term trust rather than quick sales.
+        We continuously improve content accuracy, platform usability, and
+        transparency across all listings.
+      </p>
+    </div>
+    <div class="col-lg-6">
+      <img src="https://picsum.photos/seed/maaneyteam/600/350.jpg"
+           alt="Maaney Team"
+           class="img-fluid rounded">
+    </div>
+  </div>
+</section>
+
+<!-- ================= VALUES ================= -->
+<section class="section-box">
+  <h2 class="text-center mb-4">Our Mission & Values</h2>
+  <div class="row g-4 text-center">
+    <div class="col-md-4">
+      <div class="value-icon"><i class="fa fa-gem"></i></div>
+      <div class="value-title">Quality Content</div>
+      <p>Accurate, updated, and user-friendly product information.</p>
+    </div>
+    <div class="col-md-4">
+      <div class="value-icon"><i class="fa fa-shield-halved"></i></div>
+      <div class="value-title">Trust & Transparency</div>
+      <p>Clear affiliate disclosures and verified seller links.</p>
+    </div>
+    <div class="col-md-4">
+      <div class="value-icon"><i class="fa fa-lightbulb"></i></div>
+      <div class="value-title">Innovation</div>
+      <p>Constant improvement through technology and data-driven insights.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AFFILIATE PLATFORMS ================= -->
+<div class="section-box mb-4 affiliate-section">
+  <h2 class="text-center mb-2">Our Affiliate & Partner Platforms</h2>
+  <p class="text-center text-muted mb-4">
+    Maaney Store partners with trusted ecommerce platforms to help users
+    discover genuine products, best prices, and reliable purchase options.
+  </p>
+
+  <div class="affiliate-marquee">
+    <div class="affiliate-track">
+
+      <!-- Amazon -->
+      <div class="affiliate-item">
+        <img src="images/amazon.png" alt="Amazon Affiliate">
+        <span>Amazon</span>
+      </div>
+
+      <!-- Flipkart -->
+      <div class="affiliate-item">
+        <img src="images/flipkart.png" alt="Flipkart Affiliate">
+        <span>Flipkart</span>
+      </div>
+
+      <!-- Myntra -->
+      <div class="affiliate-item">
+        <img src="https://avatars.githubusercontent.com/u/3213662?s=280&v=4" alt="Myntra Affiliate">
+        <span>Myntra</span>
+      </div>
+
+      <!-- Ajio -->
+      <div class="affiliate-item">
+        <img src="images/ajio.png" alt="Ajio Affiliate">
+        <span>AJIO</span>
+      </div>
+
+      <!-- Meesho -->
+      <div class="affiliate-item">
+        <img src="images/meesho.png" alt="Meesho Affiliate">
+        <span>Meesho</span>
+      </div>
+
+      <!-- Croma -->
+      <div class="affiliate-item">
+        <img src="images/croma.png" alt="Croma Affiliate">
+        <span>Croma</span>
+      </div>
+
+      <!-- Samsung -->
+      <div class="affiliate-item">
+        <img src="images/samsung.png" alt="Samsung Official Store">
+        <span>Samsung Store</span>
+      </div>
+
+      <!-- Apple -->
+      <div class="affiliate-item">
+        <img src="images/apple.png" alt="Apple Official Store">
+        <span>Apple Store</span>
+      </div>
+
+      <!-- DUPLICATE FOR SMOOTH LOOP -->
+      <div class="affiliate-item">
+        <img src="images/amazon.png" alt="Amazon Affiliate">
+        <span>Amazon</span>
+      </div>
+
+      <div class="affiliate-item">
+        <img src="images/flipkart.png" alt="Flipkart Affiliate">
+        <span>Flipkart</span>
+      </div>
+
+    </div>
+  </div>
+
+  <p class="small text-muted text-center mt-3">
+    Maaney Store may earn a commission through affiliate links.
+    Prices and availability are subject to change.
+  </p>
+</div>
+
+
+<!-- ================= TEAM ================= -->
+<section class="section-box">
+  <h2 class="text-center mb-4">Our Team</h2>
+  <div class="row text-center">
+    <div class="col-md-3">
+      <img src="https://picsum.photos/seed/maaneyceo/180/180.jpg" class="team-image">
+      <h6 class="mt-2">Platform Lead</h6>
+      <p class="text-muted small">Strategy & Vision</p>
+    </div>
+    <div class="col-md-3">
+      <img src="https://picsum.photos/seed/maaneytech/180/180.jpg" class="team-image">
+      <h6 class="mt-2">Technology Head</h6>
+      <p class="text-muted small">Engineering & AI</p>
+    </div>
+    <div class="col-md-3">
+      <img src="https://picsum.photos/seed/maaneydesign/180/180.jpg" class="team-image">
+      <h6 class="mt-2">Design Lead</h6>
+      <p class="text-muted small">User Experience</p>
+    </div>
+    <div class="col-md-3">
+      <img src="https://picsum.photos/seed/maaneygrowth/180/180.jpg" class="team-image">
+      <h6 class="mt-2">Growth Manager</h6>
+      <p class="text-muted small">Marketing & Outreach</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TIMELINE ================= -->
+<section class="section-box">
+  <h2 class="text-center mb-4">Our Growth Timeline</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <span class="timeline-dot"></span>
+      <div class="timeline-date">2019</div>
+      <p>Concept and foundation of Maaney platform.</p>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-dot"></span>
+      <div class="timeline-date">2021</div>
+      <p>Expanded categories and improved mobile experience.</p>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-dot"></span>
+      <div class="timeline-date">2023</div>
+      <p>Reached a growing community of informed online shoppers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section-box">
+  <h2 class="text-center mb-4">Get in Touch</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <p>
+        For feedback, partnerships, or support, feel free to reach out.
+        We value every message and continuously improve based on user input.
+      </p>
+      <p><i class="fa fa-envelope contact-icon"></i> hello@maaney.store</p>
+      <p><i class="fa fa-phone contact-icon"></i> +91 9XXXX XXXXX</p>
+      <p><i class="fa fa-map-marker-alt contact-icon"></i> India</p>
+    </div>
+    <div class="col-md-6">
+      <div class="ratio ratio-16x9">
+        <iframe src="https://www.google.com/maps?q=India&output=embed"
+                loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-dark text-white py-4">
+  <div class="container text-center">
+    <p class="mb-1">&copy; 2026 Maaney. All rights reserved.</p>
+    <p class="small text-white-50">
+      Maaney participates in affiliate programs. Prices and availability
+      may change without notice.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
