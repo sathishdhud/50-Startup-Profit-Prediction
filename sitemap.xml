@@ -25,6 +25,13 @@
     <priority>0.5</priority>
   </url>
 
+  <url>
+    <loc>https://maaney.store/about-us</loc>
+    <lastmod>2026-01-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Product Page -->
   <url>
     <loc>https://maaney.store/dkyn/1000123.html</loc>

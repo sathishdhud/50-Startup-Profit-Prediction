@@ -17,7 +17,6 @@
 <meta property="og:description" content="Discover Maaney’s journey, values, and mission to make online shopping simpler, transparent, and reliable.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://maaney.store/about-us">
-<meta property="og:image" content="https://picsum.photos/seed/maaneyabout/1200/400.jpg">
 
 <!-- Bootstrap & Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +31,7 @@
   --border:#e5e7eb;
 }
 body{
-  background:#f0cecc;
+  background:var(--light);
   font-family:Arial, Helvetica, sans-serif;
   color:#222;
 }
@@ -48,16 +47,16 @@ body{
 /* HERO */
 .hero-section{
   height:420px;
-  background:
-    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
-    url('https://img.freepik.com/free-photo/shopping-concept-close-up-portrait-young-beautiful-attractive-redhair-girl-smiling-looking-camera_1258-118763.jpg?semt=ais_hybrid&w=740&q=80');
-  background-size:cover;
+  background:var(--orange);
+ background-size:cover;
   background-position:center;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
   color:#fff;
+    padding:80px 20px;
+    margin: 20px;
 }
 
 @media (max-width:768px){
@@ -68,7 +67,7 @@ body{
 
     background-size:contain;      /* 🔥 Show FULL image */
     background-position:center top;
-    background-color:#000;  
+    background-color:var(--orange);  
     background-repeat:no-repeat;      /* Fill empty space */
   }
 }
