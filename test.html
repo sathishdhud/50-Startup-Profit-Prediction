@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button id="btn">Play / Generate Audio</button>
+<br><br>
+
+<audio id="a" controls type="audio/mpeg"></audio>
+
+<div class="maaney">Samsung Galaxy S24 5G</div>
+<div class="maaney">Premium AMOLED Display</div>
+<div class="maaney">Galaxy AI Powered</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+/* ================= CONFIG ================= */
+
+const SUPABASE_URL = "https://nzgtmshbyasptrvygfgh.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im56Z3Rtc2hieWFzcHRydnlnZmdoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI2MjU4ODEsImV4cCI6MjA3ODIwMTg4MX0.w9xxto-enEiKhk9H3vYeZkrQwFurH2hzElAhYhDJ1sc";
+
+const ELEVEN_KEY = "sk_da5de606c1165b46a51afa6b8358bdd47a9a41b8e59b1ec9";
+const VOICE = "S9GPGBaMND8XWwwzxQXp";
+
+const BUCKET = "maaney";
+const FILE = "audio.mp3";
+
+/* ========================================= */
+
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+/* Combine maaney text */
+function getMaaneyText(){
+  return [...document.querySelectorAll('.maaney')]
+    .map(e => e.innerText.trim())
+    .join(" ");
+}
+
+/* Create folder slug from first maaney element */
+function getFolderName(){
+  const title = document.querySelector('.maaney')?.innerText || "product";
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g,"-")
+    .replace(/(^-|-$)/g,"");
+}
+
+/* Check if audio exists in folder */
+async function audioExists(path){
+  const { data } = await supabaseClient.storage
+    .from(BUCKET)
+    .list(path, { search: FILE });
+
+  return data && data.length > 0;
+}
+
+async function play(){
+
+  const audio = document.getElementById("a");
+  const folder = getFolderName();
+  const path = `${folder}/${FILE}`;
+
+  try {
+
+    // 1️⃣ If already uploaded → play
+    if(await audioExists(folder)){
+      const { data } = supabaseClient.storage.from(BUCKET).getPublicUrl(path);
+      audio.src = data.publicUrl + "?t=" + Date.now();
+      audio.play();
+      return;
+    }
+
+    // 2️⃣ Generate MP3 from ElevenLabs
+    const text = getMaaneyText();
+
+    const r = await fetch(
+      `https://api.elevenlabs.io/v1/text-to-speech/${VOICE}?output_format=mp3_44100_128`,
+      {
+        method:"POST",
+        headers:{
+          "xi-api-key": ELEVEN_KEY,
+          "Content-Type":"application/json",
+          "Accept":"audio/mpeg"
+        },
+        body: JSON.stringify({
+          text,
+          model_id: "eleven_multilingual_v2"
+        })
+      }
+    );
+
+    if(!r.ok){
+      const err = await r.text();
+      console.error("ElevenLabs error:", err);
+      alert("ElevenLabs failed");
+      return;
+    }
+
+    const buffer = await r.arrayBuffer();
+    const blob = new Blob([buffer], { type:"audio/mpeg" });
+
+    // 3️⃣ Upload into folder/audio.mp3
+    const { error } = await supabaseClient.storage
+      .from(BUCKET)
+      .upload(path, blob,{
+        upsert:true,
+        contentType:"audio/mpeg"
+      });
+
+    if(error){
+      console.error("Supabase upload error:", error);
+      alert("Upload failed");
+      return;
+    }
+
+    // 4️⃣ Play uploaded audio
+    const { data } = supabaseClient.storage.from(BUCKET).getPublicUrl(path);
+    audio.src = data.publicUrl + "?t=" + Date.now();
+    audio.play();
+
+  } catch(e){
+    console.error(e);
+    alert("Check console");
+  }
+}
+
+document.getElementById("btn").addEventListener("click", play);
+</script>
+
+</body>
+</html>

@@ -6,6 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+
 <!-- SEO Meta Tags -->
 <meta name="description" content="Buy Samsung Galaxy S24 5G with 256GB storage in Onyx Black. Features 6.2-inch Dynamic AMOLED 2X display, 50MP triple camera, Galaxy AI, Exynos 2400 / Snapdragon 8 Gen 3 processor, and all-day battery life. Free delivery and easy returns.">
 
@@ -573,6 +575,48 @@ margin-right:6px;}
   border-left: 4px solid #ff6a00;
   color: #212121;
 }
+.voice-box{
+  max-width:600px;
+  padding:20px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  background:#fafafa;
+}
+
+#playBtn{
+ 
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  
+  color:rgb(255, 98, 0);
+  font-size:16px;
+   margin-bottom: 10px;
+}
+.audio-wrapper{
+
+  margin:0px 0;
+}
+
+.audio-btn{
+  width:20px;
+  height:20px;
+  border-radius:50%;
+ 
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  position:relative;
+}
+
+.audio-btn i{
+  font-size:26px;
+}
+
+.audio-btn.playing{
+  animation: spin 2s linear infinite;
+}
 
 
 
@@ -648,6 +692,16 @@ margin-right:6px;}
   Home &nbsp;/&nbsp; Electronics &nbsp;/&nbsp; Mobiles &nbsp;/&nbsp; Samsung &nbsp;/&nbsp;
   <strong>Galaxy S24 5G</strong>
 </nav>
+<div class="audio-wrapper">
+  <div id="playBtn" class="audio-btn">
+    <i id="icon" class="fa-solid fa-play"></i>
+  </div>
+
+  <audio id="a"></audio>
+</div>
+
+
+
 
 <!-- TOP SECTION -->
 <div class="section-box mb-3">
@@ -692,15 +746,15 @@ margin-right:6px;}
 
   <!-- BRAND -->
   <meta itemprop="brand" content="Samsung">
-  <div class="brand">SAMSUNG</div>
+  <div class="brand">SAMSUNG </div>
 
   <!-- PRODUCT TITLE -->
-  <h1 class="subtitle lora" itemprop="name">
-    Samsung Galaxy S24 5G (8GB, 256GB, Onyx Black)
+  <h1 class="subtitle lora maaney" itemprop="name">
+    Samsung Galaxy S24 5G
   </h1>
 
   <!-- UNIQUE PRODUCT OVERVIEW -->
-  <p class="small text-muted mt-2" itemprop="description">
+  <p class="small text-muted mt-2 maaney" itemprop="description">
     The Samsung Galaxy S24 5G is a compact flagship smartphone designed for users
     who want premium performance, intelligent AI features, and a stunning AMOLED
     display in a refined form factor. Powered by the Exynos 2400 / Snapdragon 8 Gen 3
@@ -713,7 +767,7 @@ margin-right:6px;}
        itemprop="offers"
        itemscope
        itemtype="https://schema.org/Offer">
-    <span class="price">₹<span itemprop="price">42,999</span></span>
+    <span class="price maaney">₹<span itemprop="price">42,999</span></span>
     <span class="mrp">₹74,999</span>
     <span class="off">(42% OFF)</span>
 
@@ -728,7 +782,7 @@ margin-right:6px;}
   </div>
 
   <!-- TECHNICAL SPECIFICATIONS -->
-  <div class="mt-4">
+  <div class="mt-4 maaney">
     <h2 class="h6">Technical Specifications</h2>
     <ul class="small mt-2" style="line-height:1.7;">
       <li><strong>Display:</strong> 6.2-inch Dynamic AMOLED 2X, FHD+, 120Hz</li>
@@ -838,7 +892,7 @@ margin-right:6px;}
 
   <!-- SECTION HEADING -->
   <h2 id="key-features-title"
-      class="section-title mb-3"
+      class="section-title mb-3 maaney"
       itemprop="name">
     Key Features of Samsung Galaxy S24 5G
   </h2>
@@ -859,7 +913,7 @@ margin-right:6px;}
       <div class="icon-wrap">
         <i class="fa fa-microchip"></i>
       </div>
-      <h3>Flagship-Level Performance</h3>
+      <h3 class="maaney">Flagship-Level Performance</h3>
       <p>
         Powered by the Exynos 2400 or Snapdragon 8 Gen 3 processor (region-based),
         the Galaxy S24 5G delivers fast app launches, smooth multitasking, and
@@ -872,7 +926,7 @@ margin-right:6px;}
       <div class="icon-wrap">
         <i class="fa fa-camera"></i>
       </div>
-      <h3>AI-Enhanced Triple Camera System</h3>
+      <h3 class="maaney">AI-Enhanced Triple Camera System</h3>
       <p>
         The 50MP triple rear camera setup uses Samsung’s advanced image processing
         and Galaxy AI to produce sharp photos, improved night shots, and detailed
@@ -885,7 +939,7 @@ margin-right:6px;}
       <div class="icon-wrap">
         <i class="fa fa-mobile-screen"></i>
       </div>
-      <h3>Dynamic AMOLED 2X Display</h3>
+      <h3 class="maaney">Dynamic AMOLED 2X Display</h3>
       <p>
         Featuring a 6.2-inch Dynamic AMOLED 2X panel with a 120Hz adaptive refresh
         rate, the display offers excellent brightness, vivid colors, and smooth
@@ -898,7 +952,7 @@ margin-right:6px;}
       <div class="icon-wrap">
         <i class="fa fa-brain"></i>
       </div>
-      <h3>Galaxy AI & Smart Features</h3>
+      <h3 class="maaney">Galaxy AI & Smart Features</h3>
       <p>
         Integrated Galaxy AI tools enhance daily tasks with intelligent photo
         editing, real-time assistance, and smarter device interactions,
@@ -911,7 +965,7 @@ margin-right:6px;}
       <div class="icon-wrap">
         <i class="fa fa-battery-full"></i>
       </div>
-      <h3>Reliable All-Day Battery</h3>
+      <h3 class="maaney">Reliable All-Day Battery</h3>
       <p>
         A 4000mAh battery optimized by Samsung’s software ensures dependable
         all-day usage, with fast wired and wireless charging support for
@@ -993,7 +1047,8 @@ margin-right:6px;}
     </div>
 
     <!-- PRODUCT DETAILS -->
-    <div class="col-lg-6 details">
+    <div class="col-lg-6 details maaney"
+         itemprop="description">
 
       <h3 class="offer-title">Product Overview</h3>
 
@@ -1185,7 +1240,7 @@ margin-right:6px;}
         ★★★★★
       </div>
 
-      <p itemprop="reviewBody">
+      <p itemprop="reviewBody maaney">
         Customer feedback frequently highlights the Galaxy S24 5G for its smooth
         everyday performance and compact flagship design. Users report fast app
         response, fluid multitasking, and consistent performance even during
@@ -1210,7 +1265,7 @@ margin-right:6px;}
         ★★★★☆
       </div>
 
-      <p itemprop="reviewBody">
+      <p itemprop="reviewBody maaney">
         Reviews indicate strong satisfaction with the triple camera setup,
         especially daylight photography, portrait shots, and stabilized video
         recording. Low-light results are described as reliable and improved
@@ -1461,12 +1516,13 @@ margin-right:6px;}
 
 <script>
 const images=[
- "./image1.jpg",
- "image2.jpg",
-  "./image5.png",
-    "./image6.jpg",
- "./image3.jpg",
-    "./image4.jpg"
+ "./galaxys24_1.jpg",
+ "./galaxys24_2.jpg",
+  "./galaxys24_3.jpg",
+    "",
+  "./galaxys24_4.jpg",
+  "./galaxys24_5.jpg",    
+  "./galaxys24_6.jpg"
    
 ];
 let i=0;
@@ -1563,7 +1619,7 @@ container.innerHTML = similarProducts.map(p => `
 
       <div class="info">
         <div class="brand">${p.brand}</div>
-        <div class="name">${p.name}</div>
+        <div class="name maaney">${p.name}</div>
         <div class="price">
           ₹${p.price}
           ${p.mrp ? `<span class="mrp">₹${p.mrp}</span>` : ""}
@@ -1574,6 +1630,155 @@ container.innerHTML = similarProducts.map(p => `
   </div>
 `).join("");
 </script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+/* ================= CONFIG ================= */
+
+const SUPABASE_URL = "https://nzgtmshbyasptrvygfgh.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im56Z3Rtc2hieWFzcHRydnlnZmdoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI2MjU4ODEsImV4cCI6MjA3ODIwMTg4MX0.w9xxto-enEiKhk9H3vYeZkrQwFurH2hzElAhYhDJ1sc";
+
+const ELEVEN_KEY = "sk_da5de606c1165b46a51afa6b8358bdd47a9a41b8e59b1ec9";
+const VOICE = "S9GPGBaMND8XWwwzxQXp";
+
+const BUCKET = "maaney";
+const FILE = "audio.mp3";
+
+/* ========================================= */
+
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+/* Combine maaney text */
+function getMaaneyText(){
+  return [...document.querySelectorAll('.maaney')]
+    .map(e => e.innerText.trim())
+    .join(" ");
+}
+
+/* Create folder slug from first maaney element */
+function getFolderName(){
+  const title = document.querySelector('.maaney')?.innerText || "product";
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g,"-")
+    .replace(/(^-|-$)/g,"");
+}
+
+/* Check if audio exists in folder */
+async function audioExists(path){
+  const { data } = await supabaseClient.storage
+    .from(BUCKET)
+    .list(path, { search: FILE });
+
+  return data && data.length > 0;
+}
+
+async function play(){
+
+  const audio = document.getElementById("a");
+  const folder = getFolderName();
+  const path = `${folder}/${FILE}`;
+
+  try {
+
+    // 1️⃣ If already uploaded → play
+    if(await audioExists(folder)){
+      const { data } = supabaseClient.storage.from(BUCKET).getPublicUrl(path);
+      audio.src = data.publicUrl + "?t=" + Date.now();
+      audio.play();
+      return;
+    }
+
+    // 2️⃣ Generate MP3 from ElevenLabs
+    const text = getMaaneyText();
+
+    const r = await fetch(
+      `https://api.elevenlabs.io/v1/text-to-speech/${VOICE}?output_format=mp3_44100_128`,
+      {
+        method:"POST",
+        headers:{
+          "xi-api-key": ELEVEN_KEY,
+          "Content-Type":"application/json",
+          "Accept":"audio/mpeg"
+        },
+        body: JSON.stringify({
+          text,
+          model_id: "eleven_multilingual_v2"
+        })
+      }
+    );
+
+    if(!r.ok){
+      const err = await r.text();
+      console.error("ElevenLabs error:", err);
+      alert("ElevenLabs failed");
+      return;
+    }
+
+    const buffer = await r.arrayBuffer();
+    const blob = new Blob([buffer], { type:"audio/mpeg" });
+
+    // 3️⃣ Upload into folder/audio.mp3
+    const { error } = await supabaseClient.storage
+      .from(BUCKET)
+      .upload(path, blob,{
+        upsert:true,
+        contentType:"audio/mpeg"
+      });
+
+    if(error){
+      console.error("Supabase upload error:", error);
+      alert("Upload failed");
+      return;
+    }
+
+    // 4️⃣ Play uploaded audio
+    const { data } = supabaseClient.storage.from(BUCKET).getPublicUrl(path);
+    audio.src = data.publicUrl + "?t=" + Date.now();
+    audio.play();
+
+  } catch(e){
+    console.error(e);
+    alert("Check console");
+  }
+}
+
+const playBtn = document.getElementById("playBtn");
+const icon = document.getElementById("icon");
+const audio = document.getElementById("a");
+
+let started = false;
+
+playBtn.addEventListener("click", async () => {
+
+  if(!started){
+    started = true;
+    await play();
+    icon.className = "fa-solid fa-pause";
+    playBtn.classList.add("playing");
+    return;
+  }
+
+  if(audio.paused){
+    audio.play();
+    icon.className = "fa-solid fa-pause";
+    playBtn.classList.add("playing");
+  }else{
+    audio.pause();
+    icon.className = "fa-solid fa-play";
+    playBtn.classList.remove("playing");
+  }
+});
+
+audio.onended = ()=>{
+  icon.className = "fa-solid fa-play";
+  playBtn.classList.remove("playing");
+};
+
+</script>
+
 
 </body>
 </html>
