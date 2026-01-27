@@ -561,7 +561,92 @@ margin-right:6px;}
   color: #212121;
 }
 
+/* Translation Dropdown Styles */
+.translate-dropdown {
+  position: relative;
+  display: inline-block;
+}
 
+.translate-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.translate-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.translate-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  width: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+  display: none;
+}
+
+.translate-menu.show {
+  display: block;
+}
+
+.translate-menu-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.translate-menu-item:hover {
+  background: #f5f5f5;
+}
+
+.translate-menu-item.active {
+  background: #f0f0f0;
+  font-weight: 600;
+}
+
+.lang-flag {
+  width: 18px;
+  height: 12px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.translate-divider {
+  height: 1px;
+  background: #eee;
+  margin: 5px 0;
+}
+
+#google_translate_element {
+  display: none;
+}
+
+/* Mobile adjustments for translate button */
+@media (max-width: 767px) {
+  .translate-menu {
+    right: -10px;
+    width: 180px;
+  }
+}
 
 </style>
 </head>
@@ -620,6 +705,87 @@ margin-right:6px;}
         >
           Login
         </button>
+        
+        <!-- TRANSLATE BUTTON -->
+        <div class="translate-dropdown">
+          <button class="translate-btn" id="translateBtn">
+            <i class="fa fa-globe"></i>
+            <span class="d-none d-md-inline">Translate</span>
+            <i class="fa fa-chevron-down"></i>
+          </button>
+          <div class="translate-menu" id="translateMenu">
+            <div class="translate-menu-item" data-lang="en">
+              <img src="https://flagcdn.com/w20/us.png" alt="English" class="lang-flag">
+              English
+            </div>
+            <div class="translate-menu-item" data-lang="hi">
+              <img src="https://flagcdn.com/w20/in.png" alt="Hindi" class="lang-flag">
+              हिन्दी (Hindi)
+            </div>
+            <div class="translate-menu-item" data-lang="bn">
+              <img src="https://flagcdn.com/w20/bd.png" alt="Bengali" class="lang-flag">
+              বাংলা (Bengali)
+            </div>
+            <div class="translate-menu-item" data-lang="te">
+              <img src="https://flagcdn.com/w20/in.png" alt="Telugu" class="lang-flag">
+              తెలుగు (Telugu)
+            </div>
+            <div class="translate-menu-item" data-lang="mr">
+              <img src="https://flagcdn.com/w20/in.png" alt="Marathi" class="lang-flag">
+              मराठी (Marathi)
+            </div>
+            <div class="translate-menu-item" data-lang="ta">
+              <img src="https://flagcdn.com/w20/lk.png" alt="Tamil" class="lang-flag">
+              தமிழ் (Tamil)
+            </div>
+            <div class="translate-menu-item" data-lang="ur">
+              <img src="https://flagcdn.com/w20/pk.png" alt="Urdu" class="lang-flag">
+              اردو (Urdu)
+            </div>
+            <div class="translate-menu-item" data-lang="gu">
+              <img src="https://flagcdn.com/w20/in.png" alt="Gujarati" class="lang-flag">
+              ગુજરાતી (Gujarati)
+            </div>
+            <div class="translate-menu-item" data-lang="kn">
+              <img src="https://flagcdn.com/w20/in.png" alt="Kannada" class="lang-flag">
+              ಕನ್ನಡ (Kannada)
+            </div>
+            <div class="translate-menu-item" data-lang="ml">
+              <img src="https://flagcdn.com/w20/in.png" alt="Malayalam" class="lang-flag">
+              മലയാളം (Malayalam)
+            </div>
+            <div class="translate-menu-item" data-lang="pa">
+              <img src="https://flagcdn.com/w20/in.png" alt="Punjabi" class="lang-flag">
+              ਪੰਜਾਬੀ (Punjabi)
+            </div>
+            <div class="translate-divider"></div>
+            <div class="translate-menu-item" data-lang="es">
+              <img src="https://flagcdn.com/w20/es.png" alt="Spanish" class="lang-flag">
+              Español (Spanish)
+            </div>
+            <div class="translate-menu-item" data-lang="fr">
+              <img src="https://flagcdn.com/w20/fr.png" alt="French" class="lang-flag">
+              Français (French)
+            </div>
+            <div class="translate-menu-item" data-lang="de">
+              <img src="https://flagcdn.com/w20/de.png" alt="German" class="lang-flag">
+              Deutsch (German)
+            </div>
+            <div class="translate-menu-item" data-lang="zh-CN">
+              <img src="https://flagcdn.com/w20/cn.png" alt="Chinese" class="lang-flag">
+              中文 (Chinese)
+            </div>
+            <div class="translate-menu-item" data-lang="ja">
+              <img src="https://flagcdn.com/w20/jp.png" alt="Japanese" class="lang-flag">
+              日本語 (Japanese)
+            </div>
+            <div class="translate-menu-item" data-lang="ar">
+              <img src="https://flagcdn.com/w20/sa.png" alt="Arabic" class="lang-flag">
+              العربية (Arabic)
+            </div>
+          </div>
+        </div>
+        
         <i class="fa fa-cart-shopping text-white" style="font-size:18px;"></i>
         <i class="fa fa-bars d-md-none text-white" style="font-size:20px;"></i>
       </div>
@@ -738,7 +904,7 @@ margin-right:6px;}
       the iPhone 16 Pro Max is widely chosen for its consistent camera
       output, extended software updates, and optimized performance.
       While competing Android flagships may offer faster charging or
-      different camera hardware, Apple’s ecosystem and long-term
+      different camera hardware, Apple's ecosystem and long-term
       reliability remain key reasons buyers prefer this model.
     </p>
   </div>
@@ -827,7 +993,7 @@ margin-right:6px;}
       </div>
       <h3>A18 Pro Performance Chip</h3>
       <p>
-        Built on Apple’s advanced architecture, the A18 Pro chip delivers smooth
+        Built on Apple's advanced architecture, the A18 Pro chip delivers smooth
         multitasking, console-level gaming, and efficient AI processing for demanding
         everyday use.
       </p>
@@ -941,7 +1107,7 @@ margin-right:6px;}
           refresh rate technology.
         </li>
         <li>
-          Powered by Apple’s A18 Pro chip for smooth performance
+          Powered by Apple's A18 Pro chip for smooth performance
           and long-term software support.
         </li>
         <li>
@@ -962,7 +1128,7 @@ margin-right:6px;}
       </p>
 
       <!-- IN THE BOX -->
-      <h4 class="sub-title">What’s Included in the Box</h4>
+      <h4 class="sub-title">What's Included in the Box</h4>
       <ul class="detail-list">
         <li>iPhone 16 Pro Max (Titanium Blue)</li>
         <li>USB-C to USB-C charging cable</li>
@@ -1320,6 +1486,9 @@ margin-right:6px;}
 
 </div>
 
+<!-- Hidden Google Translate Element -->
+<div id="google_translate_element"></div>
+
 <!-- Bootstrap JS Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -1331,7 +1500,6 @@ const images=[
     "./image6.jpg",
  "./image3.jpg",
     "./image4.jpg"
-   
 ];
 let i=0;
 function nextImg(){i=(i+1)%images.length;sliderImg.src=images[i]}
@@ -1436,6 +1604,65 @@ container.innerHTML = similarProducts.map(p => `
     </a>
   </div>
 `).join("");
+</script>
+
+<!-- Google Translate Script -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,hi,bn,te,mr,ta,ur,gu,kn,ml,pa,es,fr,de,zh-CN,ja,ar',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+// Translation dropdown functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const translateBtn = document.getElementById('translateBtn');
+  const translateMenu = document.getElementById('translateMenu');
+  const menuItems = document.querySelectorAll('.translate-menu-item');
+  
+  // Toggle dropdown
+  translateBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    translateMenu.classList.toggle('show');
+  });
+  
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function() {
+    translateMenu.classList.remove('show');
+  });
+  
+  // Handle language selection
+  menuItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const langCode = this.getAttribute('data-lang');
+      
+      // Remove active class from all items
+      menuItems.forEach(i => i.classList.remove('active'));
+      
+      // Add active class to selected item
+      this.classList.add('active');
+      
+      // Trigger Google Translate
+      const selectField = document.querySelector('.goog-te-combo');
+      if (selectField) {
+        selectField.value = langCode;
+        selectField.dispatchEvent(new Event('change'));
+      }
+      
+      // Close menu
+      translateMenu.classList.remove('show');
+    });
+  });
+  
+  // Set English as default active language
+  document.querySelector('.translate-menu-item[data-lang="en"]').classList.add('active');
+});
 </script>
 
 </body>
