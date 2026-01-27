@@ -689,6 +689,59 @@ font-size:14px;
 .compare-card li{
 margin-bottom:4px;
 }
+.maaney-footer{
+position:relative;
+background:url('https://t3.ftcdn.net/jpg/07/05/46/60/360_F_705466029_ud7yhGnh8VhnSDvCQPZ2Q22uqF0gRFIh.jpg') center/cover no-repeat;
+color:#eee;
+margin-top:40px;
+}
+
+
+.footer-overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.8);
+}
+
+.footer-content{position:relative}
+
+.footer-title{color:#fff;font-size:15px}
+
+.footer-text{font-size:14px;color:#bbb}
+
+.footer-list{list-style:none;padding:0;font-size:14px;line-height:2}
+
+.footer-list a{color:#bbb;text-decoration:none}
+
+.footer-social{display:flex;gap:14px;margin-top:10px}
+
+.footer-social a{color:#fff;font-size:18px}
+
+.footer-mail{font-size:13px;color:#aaa;margin-top:10px}
+
+.footer-hr{border-color:#333;margin:20px 0}
+
+.footer-copy{font-size:13px;color:#aaa}
+
+.mobile-block{
+border-top:1px solid #333;
+padding:10px 0;
+}
+
+.mobile-block summary{
+color:#fff;
+font-size:14px;
+font-weight:600;
+cursor:pointer;
+}
+
+.mobile-block a{
+display:block;
+color:#bbb;
+font-size:13px;
+margin-top:6px;
+text-decoration:none;
+}
 
 
 
@@ -1889,77 +1942,118 @@ storage variants, and availability.
 
 </div>
 <!-- ================= FOOTER ================= -->
-<footer style="
-background:#111 url('https://img.freepik.com/premium-vector/black-texture-background-abstract-black-background-black-pattern_672416-233.jpg?semt=ais_hybrid&w=740&q=80') center/cover no-repeat;
-color:#eee;
-margin-top:40px;
-">
+<footer class="maaney-footer">
 
+<!-- Overlay -->
+<div class="footer-overlay"></div>
 
-  <div class="container py-4">
+<div class="container footer-content py-4">
 
-    <div class="row g-4">
+  <!-- DESKTOP FOOTER -->
+  <div class="row g-4 d-none d-md-flex">
 
-      <!-- BRAND -->
-      <div class="col-md-3">
-        <img src="../../logo.png" style="height:40px;margin-bottom:10px;">
-        <p style="font-size:14px;color:#bbb;">
-          Maaney Store helps you compare smartphones, explore detailed specifications,
-          and discover the best online deals with AI-powered summaries and smart
-          product comparisons.
-        </p>
-      </div>
-
-      <!-- QUICK LINKS -->
-      <div class="col-md-3">
-        <h6 style="color:#fff;">Quick Links</h6>
-        <ul style="list-style:none;padding:0;font-size:14px;line-height:2;">
-          <li><a href="/" style="color:#bbb;text-decoration:none;">Home</a></li>
-          <li><a href="/mobiles" style="color:#bbb;text-decoration:none;">Mobile Phones</a></li>
-          <li><a href="/electronics" style="color:#bbb;text-decoration:none;">Electronics</a></li>
-          <li><a href="/about-us" style="color:#bbb;text-decoration:none;">About Us</a></li>
-          <li><a href="/contact-us" style="color:#bbb;text-decoration:none;">Contact</a></li>
-        </ul>
-      </div>
-
-      <!-- SUPPORT -->
-      <div class="col-md-3">
-        <h6 style="color:#fff;">Support</h6>
-        <ul style="list-style:none;padding:0;font-size:14px;line-height:2;">
-          <li><a href="/privacy-policy" style="color:#bbb;text-decoration:none;">Privacy Policy</a></li>
-          <li><a href="/terms-use" style="color:#bbb;text-decoration:none;">Terms of Use</a></li>
-          <li><a href="/disclaimer" style="color:#bbb;text-decoration:none;">Disclaimer</a></li>
-          <li><a href="/return-policy" style="color:#bbb;text-decoration:none;">Return Policy</a></li>
-          <li><a href="/sitemap.xml" style="color:#bbb;text-decoration:none;">Sitemap</a></li>
-        </ul>
-      </div>
-
-      <!-- SOCIAL -->
-      <div class="col-md-3">
-        <h6 style="color:#fff;">Follow Us</h6>
-
-        <div style="display:flex;gap:12px;margin-top:10px;">
-          <a href="#" style="color:#fff;font-size:18px;"><i class="fab fa-facebook"></i></a>
-          <a href="#" style="color:#fff;font-size:18px;"><i class="fab fa-instagram"></i></a>
-          <a href="#" style="color:#fff;font-size:18px;"><i class="fab fa-twitter"></i></a>
-          <a href="#" style="color:#fff;font-size:18px;"><i class="fab fa-youtube"></i></a>
-        </div>
-
-        <p style="font-size:13px;color:#aaa;margin-top:10px;">
-          Email: support@maaney.store
-        </p>
-
-      </div>
-
+    <!-- BRAND -->
+    <div class="col-md-3">
+      <img src="../../logo.png" style="height:40px;margin-bottom:10px;">
+      <p class="footer-text">
+        Maaney Store helps you compare smartphones, explore detailed specifications,
+        and discover the best online deals with AI-powered summaries and smart
+        product comparisons.
+      </p>
     </div>
 
-    <hr style="border-color:#333;">
+    <!-- QUICK LINKS -->
+    <div class="col-md-3">
+      <h6 class="footer-title">Quick Links</h6>
+      <ul class="footer-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/mobiles">Mobile Phones</a></li>
+        <li><a href="/electronics">Electronics</a></li>
+        <li><a href="/about-us">About Us</a></li>
+        <li><a href="/contact-us">Contact</a></li>
+      </ul>
+    </div>
 
-    <div class="text-center" style="font-size:13px;color:#aaa;">
-      © <span id="year"></span> Maaney Store. All Rights Reserved.
+    <!-- SUPPORT -->
+    <div class="col-md-3">
+      <h6 class="footer-title">Support</h6>
+      <ul class="footer-list">
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
+        <li><a href="/terms-use">Terms of Use</a></li>
+        <li><a href="/disclaimer">Disclaimer</a></li>
+        <li><a href="/return-policy">Return Policy</a></li>
+        <li><a href="/sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="col-md-3">
+      <h6 class="footer-title">Follow Us</h6>
+
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+
+      <p class="footer-mail">
+        Email: support@maaney.store
+      </p>
     </div>
 
   </div>
+
+  <!-- MOBILE FOOTER -->
+  <div class="d-md-none">
+
+    <div class="text-center mb-3">
+      <img src="../../logo.png" style="height:36px;">
+      <p class="footer-text mt-2">
+        Compare smartphones and find best deals with Maaney Store.
+      </p>
+    </div>
+
+    <details class="mobile-block">
+      <summary>Quick Links</summary>
+      <a href="/">Home</a>
+      <a href="/mobiles">Mobile Phones</a>
+      <a href="/electronics">Electronics</a>
+      <a href="/about-us">About Us</a>
+      <a href="/contact-us">Contact</a>
+    </details>
+
+    <details class="mobile-block">
+      <summary>Support</summary>
+      <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/terms-use">Terms of Use</a>
+      <a href="/disclaimer">Disclaimer</a>
+      <a href="/return-policy">Return Policy</a>
+      <a href="/sitemap.xml">Sitemap</a>
+    </details>
+
+    <div class="text-center mt-3">
+      <div class="footer-social justify-content-center">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+
+      <p class="footer-mail mt-2">
+        support@maaney.store
+      </p>
+    </div>
+
+  </div>
+
+  <hr class="footer-hr">
+
+  <div class="text-center footer-copy">
+    © <span id="year"></span> Maaney Store. All Rights Reserved.
+  </div>
+
+</div>
 
 </footer>
 
