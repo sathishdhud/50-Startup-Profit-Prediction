@@ -196,7 +196,6 @@ body{
     font-size:15px;
   }
 }
-
 </style>
 </head>
 
@@ -211,14 +210,14 @@ body{
         <h2 id="leftTitle">Login</h2>
         <p id="leftDesc">Get access to your Orders, Wishlist and Recommendations</p>
       </div>
-      <img src="logo.png" alt="Logo">
+      <img src="https://picsum.photos/seed/logo123/200/100.jpg" alt="Logo">
     </div>
 
     <div class="auth-right">
       <div id="loginForm">
         <h5>Enter Email / Mobile number</h5>
-        <input class="form-control mb-4" placeholder="Email or Mobile Number">
-        <button class="btn-main w-100 mb-3">Request OTP</button>
+        <input class="form-control mb-4" placeholder="Email or Mobile Number" id="email">
+        <button class="btn-main w-100 mb-3" onclick="sendOTP()">Request OTP</button>
         <div class="text-center">
           <span class="link" onclick="showRegister()">New here? Create an account</span>
         </div>
@@ -226,10 +225,10 @@ body{
 
       <div id="registerForm" class="hidden">
         <h5>Create Account</h5>
-        <input class="form-control mb-3" placeholder="Full Name">
-        <input class="form-control mb-3" placeholder="Email">
-        <input class="form-control mb-3" placeholder="Mobile">
-        <button class="btn-main w-100 mb-3">Create Account</button>
+        <input class="form-control mb-3" placeholder="Full Name" id="registerName">
+        <input class="form-control mb-3" placeholder="Email" id="registerEmail">
+        <input class="form-control mb-3" placeholder="Mobile" id="registerMobile">
+        <button class="btn-main w-100 mb-3" onclick="register()">Create Account</button>
         <div class="text-center">
           <span class="link" onclick="showLogin()">Back to Login</span>
         </div>
@@ -244,7 +243,7 @@ body{
   <div class="mobile-wrapper">
 
     <div class="mobile-header">
-      <img src="logo.png">
+      <img src="https://picsum.photos/seed/logo123/200/100.jpg">
       <h2 id="mTitle">Login</h2>
       <p id="mDesc">Access orders, wishlist & offers</p>
     </div>
@@ -252,18 +251,18 @@ body{
     <div class="mobile-form">
 
       <div id="mLogin">
-        <input class="form-control mb-3" placeholder="Email or Mobile Number">
-        <button class="btn-main w-100 mb-3" onclick="location.href='home.html'">Request OTP</button>
+        <input class="form-control mb-3" placeholder="Email or Mobile Number" id="mEmail">
+        <button class="btn-main w-100 mb-3" onclick="sendOTP()">Request OTP</button>
         <div class="text-center">
           <span class="link" onclick="showMobileRegister()">Create new account</span>
         </div>
       </div>
 
       <div id="mRegister" class="hidden">
-        <input class="form-control mb-3" placeholder="Full Name">
-        <input class="form-control mb-3" placeholder="Email">
-        <input class="form-control mb-3" placeholder="Mobile">
-        <button class="btn-main w-100 mb-3" onclick="location.href='home.html'">Create Account</button>
+        <input class="form-control mb-3" placeholder="Full Name" id="mRegisterName">
+        <input class="form-control mb-3" placeholder="Email" id="mRegisterEmail">
+        <input class="form-control mb-3" placeholder="Mobile" id="mRegisterMobile">
+        <button class="btn-main w-100 mb-3" onclick="register()">Create Account</button>
         <div class="text-center">
           <span class="link" onclick="showMobileLogin()">Back to Login</span>
         </div>
@@ -297,6 +296,136 @@ function showMobileLogin(){
   mLogin.classList.remove("hidden");
   mTitle.innerText="Login";
   mDesc.innerText="Access orders, wishlist & offers";
+}
+</script>
+<script>
+const API="https://maaney-backend.onrender.com";
+
+function getVal(id){
+  return document.getElementById(id)?.value.trim() || "";
+}
+
+// Check if we're on mobile or desktop
+function isMobile() {
+  return window.innerWidth <= 768;
+}
+
+/* REGISTER */
+async function register(){
+  let name, email, mobile;
+  
+  if (isMobile()) {
+    name = getVal("mRegisterName");
+    email = getVal("mRegisterEmail");
+    mobile = getVal("mRegisterMobile");
+  } else {
+    name = getVal("registerName");
+    email = getVal("registerEmail");
+    mobile = getVal("registerMobile");
+  }
+
+  if(!name || !email || !mobile){
+    alert("All fields are required");
+    return;
+  }
+
+  try {
+    const res = await fetch(API+"/register", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({name, email, mobile})
+    });
+
+    const data = await res.json();
+    
+    if(res.ok) {
+      alert("Registration successful! Please check your email for verification.");
+      if (isMobile()) {
+        showMobileLogin();
+      } else {
+        showLogin();
+      }
+    } else {
+      alert("Registration failed: " + (data.message || "Unknown error"));
+    }
+  } catch (error) {
+    console.error("Registration error:", error);
+    alert("Registration failed: Server error");
+  }
+}
+
+/* LOGIN */
+async function sendOTP(){
+  let email;
+  
+  if (isMobile()) {
+    email = getVal("mEmail");
+  } else {
+    email = getVal("email");
+  }
+
+  if(!email){
+    alert("Enter email or mobile number");
+    return;
+  }
+
+  try {
+    // Show loading state
+    const button = event.target;
+    const originalText = button.textContent;
+    button.textContent = "Sending OTP...";
+    button.disabled = true;
+
+    // First send OTP
+    const otpRes = await fetch(API+"/send-otp", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({email})
+    });
+
+    const otpData = await otpRes.json();
+    
+    if (!otpRes.ok) {
+      throw new Error(otpData.message || "Failed to send OTP");
+    }
+
+    // Get OTP from user
+    const otp = prompt("Enter OTP sent to " + email);
+    
+    if (!otp) {
+      button.textContent = originalText;
+      button.disabled = false;
+      return;
+    }
+
+    // Verify OTP
+    const verifyRes = await fetch(API+"/verify-otp", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({email, otp})
+    });
+
+    const verifyData = await verifyRes.json();
+    
+    if(verifyRes.ok) {
+      // Store token if returned
+      if (verifyData.token) {
+        localStorage.setItem('authToken', verifyData.token);
+      }
+      alert("Login successful!");
+      window.location.href = "home.html";
+    } else {
+      alert("Invalid OTP: " + (verifyData.message || "Please try again"));
+    }
+  } catch (error) {
+    console.error("Login error:", error);
+    alert("Login failed: " + error.message);
+  } finally {
+    // Reset button state
+    const button = event.target;
+    button.textContent = "Request OTP";
+    button.disabled = false;
+  }
 }
 </script>
 
