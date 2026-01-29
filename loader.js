@@ -1,9 +1,18 @@
+
 (function(){
+
   const loader = document.createElement("div");
   loader.id = "maaney-loader";
 
   loader.innerHTML = `
-    <img src="./logo.png" id="maaney-logo">
+    <div id="maaney-box">
+      <div id="maaney-logo">
+  <img src="./logo.png" alt="Maaney Logo">
+</div>
+
+      <div class="maaney-spinner"></div>
+      <div class="maaney-text">Loading...</div>
+    </div>
   `;
 
   document.body.appendChild(loader);
@@ -14,82 +23,128 @@
   #maaney-loader{
     position:fixed;
     inset:0;
+    background:#000;
     display:flex;
     justify-content:center;
     align-items:center;
     z-index:999999;
+    overflow:hidden;
+  }
 
-    background:linear-gradient(90deg,#000,#ff7a00,#000);
-    background-size:300% 100%;
-    animation:bgmove 4s infinite linear;
+  #maaney-box{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    transform:scale(.6);
+    opacity:0;
+    animation:zoomIn .6s ease forwards;
   }
 
   #maaney-logo{
-    width:160px;
-    animation: maaneyZoom 1.2s ease forwards;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    letter-spacing:3px;
+    font-weight:600;
+    font-size:22px;
   }
 
-  /* Logo zoom ONCE */
+  .maaney-spinner,
+  .maaney-text{
+    opacity:0;
+  }
 
-  @keyframes maaneyZoom{
-    0%{
-      transform:scale(.5);
-      opacity:0;
-    }
-    100%{
+  .maaney-spinner{
+    width:34px;
+    height:34px;
+    border:3px solid rgba(255,255,255,.25);
+    border-top:3px solid #ff7a00;
+    border-radius:50%;
+    animation:spin .7s linear infinite;
+  }
+
+  .maaney-text{
+    color:#fff;
+    font-family:Arial;
+    font-size:13px;
+    letter-spacing:1px;
+  }
+
+  @keyframes zoomIn{
+    to{
       transform:scale(1);
       opacity:1;
     }
   }
 
-  /* Background left → right forever */
+  @keyframes spin{
+    to{transform:rotate(360deg);}
+  }
+
+  /* Background animation */
+
+  #maaney-loader.bgmove{
+    background:linear-gradient(
+  90deg,
+  #ff6a00,
+  #ff8c1a,
+  #ffb347,
+  #ff8c1a,
+  #ff6a00
+);
+
+    background-size:300% 100%;
+    animation:bgmove 2s linear infinite;
+  }
 
   @keyframes bgmove{
-    0%{background-position:0% 50%;}
-    100%{background-position:100% 50%;}
+    from{background-position:0% 50%;}
+    to{background-position:100% 50%;}
   }
+    #maaney-logo img{
+  width:160px;
+  max-width:70vw;
+  animation:maaneyPulse 1.2s ease forwards;
+}
+
+/* Zoom in once */
+
+@keyframes maaneyPulse{
+  from{
+    transform:scale(.6);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
 
   `;
 
   document.head.appendChild(style);
 
-  // Wait for ALL assets
-  function waitForImages(){
-    const imgs = document.images;
-    let loaded = 0;
+  // Step 2 – start background after zoom
+  setTimeout(()=>{
+    loader.classList.add("bgmove");
+  },600);
 
-    return new Promise(resolve=>{
-      if(!imgs.length) resolve();
+  // Step 3 – show spinner + text
+  setTimeout(()=>{
+    document.querySelector(".maaney-spinner").style.opacity=1;
+    document.querySelector(".maaney-text").style.opacity=1;
+  },1000);
 
-      for(let img of imgs){
-        if(img.complete){
-          loaded++;
-          if(loaded === imgs.length) resolve();
-        }else{
-          img.addEventListener("load",check);
-          img.addEventListener("error",check);
-        }
-      }
+  // Normal load exit
+  window.addEventListener("load",()=>{
 
-      function check(){
-        loaded++;
-        if(loaded === imgs.length) resolve();
-      }
-    });
-  }
-
-  Promise.all([
-    new Promise(r=>window.addEventListener("load",r)),
-    waitForImages(),
-    document.fonts ? document.fonts.ready : Promise.resolve()
-  ]).then(()=>{
-
-    loader.style.transition="opacity .6s ease";
+    loader.style.transition="opacity .4s ease";
     loader.style.opacity="0";
 
     setTimeout(()=>{
       loader.remove();
-    },600);
+    },400);
 
   });
 
