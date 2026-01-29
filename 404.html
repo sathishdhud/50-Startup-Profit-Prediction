@@ -10,81 +10,94 @@
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
+<!-- Lottie -->
+<script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
+
 <style>
+
+*{box-sizing:border-box}
+
 body{
 margin:0;
 font-family:Arial,Helvetica,sans-serif;
 background:#f6f7fb;
+min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-min-height:100vh;
 }
 
-.card{
+/* WRAPPER */
+
+.wrapper{
 background:#fff;
-max-width:460px;
-width:100%;
-padding:40px 30px;
-border-radius:18px;
+max-width:1000px;
+width:95%;
+border-radius:2px;
 box-shadow:0 20px 50px rgba(0,0,0,.08);
-text-align:center;
+display:grid;
+grid-template-columns:1fr 1fr;
+overflow:hidden;
+}
+
+/* LEFT */
+
+.left{
+padding:50px;
+display:flex;
+flex-direction:column;
+justify-content:center;
 }
 
 .logo{
-height:42px;
-margin-bottom:18px;
+height:40px;
+margin-bottom:20px;
 }
 
 .code{
-font-size:96px;
+font-size:88px;
 font-weight:900;
 color:#ff5722;
-line-height:1;
 }
 
 .title{
 font-size:22px;
 font-weight:700;
-margin-top:10px;
 color:#111;
+margin-top:5px;
 }
 
 .desc{
 font-size:14px;
 color:#666;
-margin-top:8px;
 line-height:1.6;
+margin-top:8px;
 }
 
 .btn-home{
 margin-top:22px;
-display:inline-block;
 background:#ff5722;
 color:#fff;
 padding:12px 26px;
-border-radius:30px;
+border-radius:2px;
 text-decoration:none;
 font-weight:600;
-transition:.2s;
-}
-
-.btn-home:hover{
-background:#e64a19;
+width:max-content;
 }
 
 .search{
 margin-top:20px;
 display:flex;
 border:1px solid #eee;
-border-radius:30px;
+border-radius:2px;
 overflow:hidden;
+max-width:320px;
 }
 
 .search input{
 flex:1;
 border:none;
-padding:10px 16px;
+padding:10px 14px;
 font-size:14px;
 outline:none;
 }
@@ -93,29 +106,76 @@ outline:none;
 border:none;
 background:#ff5722;
 color:#fff;
-padding:0 18px;
+padding:0 16px;
 cursor:pointer;
 }
 
-.footer-text{
+.footer{
 margin-top:20px;
 font-size:12px;
 color:#aaa;
 }
 
-@media(max-width:480px){
-.card{margin:20px}
-.code{font-size:72px}
+/* RIGHT */
+
+.right{
+background:#fff7f0;
+display:flex;
+align-items:center;
+justify-content:center;
 }
+
+#lottie{
+width:320px;
+height:320px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.wrapper{
+grid-template-columns:1fr;
+}
+
+.right{
+padding:30px 0;
+}
+
+.left{
+padding:30px 25px;
+text-align:center;
+align-items:center;
+}
+
+.search{
+width:100%;
+}
+
+.btn-home{
+width:100%;
+text-align:center;
+}
+
+.code{
+font-size:64px;
+}
+
+}
+
 </style>
 
 </head>
 
 <body>
 
-<div class="card">
+<div class="wrapper">
 
-<img src="logo.png" class="logo" alt="Maaney Store">
+<!-- LEFT -->
+
+<div class="left">
+
+<img src="logo.png" class="logo">
 
 <div class="code">404</div>
 
@@ -127,22 +187,38 @@ Let’s get you back to discovering the best tech deals.
 </p>
 
 <a href="/" class="btn-home">
-<i class="fa fa-arrow-left"></i> Back to Home
+← Back to Home
 </a>
 
 <div class="search">
-<input type="text" placeholder="Search smartphones, brands...">
+<input placeholder="Search smartphones, brands...">
 <button><i class="fa fa-search"></i></button>
 </div>
 
-<div class="footer-text">
+<div class="footer">
 © <span id="year"></span> Maaney Store
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="right">
+<div id="lottie"></div>
 </div>
 
 </div>
 
 <script>
 document.getElementById("year").innerText=new Date().getFullYear();
+
+lottie.loadAnimation({
+container: document.getElementById("lottie"),
+renderer: "svg",
+loop: true,
+autoplay: true,
+path: "error.json"   // your lottie file
+});
 </script>
 
 </body>
