@@ -7,7 +7,7 @@
   loader.id = "maaney-loader";
 
   loader.innerHTML = `
-    <img src="/logo.png" id="maaney-logo">
+    <img src="./logo.png" id="maaney-logo">
   `;
 
   document.body.appendChild(loader);
