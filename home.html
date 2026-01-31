@@ -64,6 +64,13 @@
 <link rel="manifest" href="./site.webmanifest" />
 
 <style>
+  .lazy{
+  filter:blur(12px);
+  transition:.4s;
+}
+.lazy.loaded{
+  filter:none;
+}
   .bebas-neue-regular {
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
@@ -860,6 +867,7 @@ Explore Republic Day special offers on watches and accessories. Discover trendin
 <div class="poster-thumb">
 
 <img
+  class="lazy"
   src="republic.png"
   loading="lazy"
   decoding="async"
@@ -993,7 +1001,7 @@ Browse trending online deals on geysers, washing machines, smartphones, soundbar
 <h3>Crompton & Hindware</h3>
 <p class="fw-semibold">From ₹1,999</p>
 </div>
-<img src="https://www.freelogovectors.net/wp-content/uploads/2023/01/wow-skin-science-logo-freelogovectors.net_.png"
+<img class="lazy" src="https://www.freelogovectors.net/wp-content/uploads/2023/01/wow-skin-science-logo-freelogovectors.net_.png"
 loading="lazy" decoding="async"
 width="160" height="120"
 class="deal-img"
@@ -1009,7 +1017,7 @@ alt="Instant geysers from Crompton and Hindware">
 <h3>Best selling washing machines</h3>
 <p class="fw-semibold">From ₹6,790*</p>
 </div>
-<img src="https://purepng.com/public/uploads/thumbnail//snoop-dogg-jd4.png"
+<img class="lazy" src="https://purepng.com/public/uploads/thumbnail//snoop-dogg-jd4.png"
 loading="lazy" decoding="async"
 width="160" height="120"
 class="deal-img"
@@ -1025,7 +1033,7 @@ alt="Top washing machine deals online">
 <h3>Edge 60 Fusion (256GB)</h3>
 <p class="fw-semibold">Just ₹19,999*</p>
 </div>
-<img src="https://static.vecteezy.com/system/resources/thumbnails/069/295/266/small_2x/oneplus-black-logo-mobile-company-official-icon-on-transparent-background-free-png.png"
+<img class="lazy" src="https://static.vecteezy.com/system/resources/thumbnails/069/295/266/small_2x/oneplus-black-logo-mobile-company-official-icon-on-transparent-background-free-png.png"
 loading="lazy" decoding="async"
 width="160" height="120"
 class="deal-img"
@@ -1041,7 +1049,7 @@ alt="Motorola Edge 60 Fusion smartphone offer">
 <h3>Home theatre experience</h3>
 <p class="fw-semibold">From ₹3,499</p>
 </div>
-<img src="https://rukminim2.flixcart.com/image/200/200/soundbar.png"
+<img class="lazy" src="https://rukminim2.flixcart.com/image/200/200/soundbar.png"
 loading="lazy" decoding="async"
 width="160" height="120"
 class="deal-img"
@@ -1057,7 +1065,7 @@ alt="Soundbar deals for home entertainment">
 <h3>Apple MacBook M2</h3>
 <p class="fw-semibold">Just ₹64,799</p>
 </div>
-<img src="https://rukminim2.flixcart.com/image/200/200/macbook.png"
+<img class="lazy" src="https://rukminim2.flixcart.com/image/200/200/macbook.png"
 loading="lazy" decoding="async"
 width="160" height="120"
 class="deal-img"
@@ -1073,7 +1081,7 @@ alt="Apple MacBook M2 laptop deal">
 <h3>realme, Goboult & more</h3>
 <p class="fw-semibold">From ₹699</p>
 </div>
-<img src="https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/0a995f7e8c353c78.jpg?q=60"
+<img class="lazy" src="https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/0a995f7e8c353c78.jpg?q=60"
 loading="lazy" decoding="async"
 width="160" height="120"
 class="deal-img"
@@ -1360,7 +1368,7 @@ dealRow.innerHTML = phoneDeals.map(p => `
      style="text-decoration:none;color:inherit;">
 
     <div class="text-center" style="min-width:160px;">
-      <img src="${p.img}" class="img-fluid mb-2">
+      <img class="lazy" src="${p.img}" class="img-fluid mb-2">
       <div class="fw-medium">${p.name}</div>
       <div class="fw-bold">${p.price}</div>
     </div>
@@ -1369,6 +1377,11 @@ dealRow.innerHTML = phoneDeals.map(p => `
 `).join("");
 </script>
 <script src="./loader.js"></script>
+  <script>
+document.querySelectorAll(".lazy").forEach(img=>{
+  img.onload=()=>img.classList.add("loaded");
+});
+  </script>
 
 </body>
 </html>
