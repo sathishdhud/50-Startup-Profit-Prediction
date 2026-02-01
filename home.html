@@ -1,525 +1,792 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="./loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maaney – Discover Best Deals on Mobiles, Electronics & More</title>
   
-<title>Maaney – Discover Best Deals on Mobiles, Electronics & More</title>
-
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<meta name="description" content="Maaney helps you discover the best online deals on mobiles, electronics, fashion, and home products. Compare prices across top marketplaces and save money every day.">
-
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
-
-<link rel="canonical" href="https://maaney.store/">
-
-<!-- DNS PREFETCH (Speed Boost) -->
-<link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
-<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-
-<!-- PRECONNECT -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-
-<!-- SOCIAL SEO -->
-<meta property="og:title" content="Maaney – Discover Best Deals Online">
-<meta property="og:description" content="Find trending products and best online prices across India.">
-<meta property="og:url" content="https://maaney.store/">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://maaney.store/favicon-96x96.png">
-
-<meta name="twitter:card" content="summary_large_image">
-
-<!-- THEME -->
-<meta name="theme-color" content="#ff6a00">
-
-<!-- GOOGLE FONTS (NON BLOCKING) -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
-
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap">
-
-<!-- BOOTSTRAP (ASYNC LOAD) -->
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
-<!-- FONT AWESOME (ASYNC LOAD) -->
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
-<noscript>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-</noscript>
-
-<link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-<link rel="shortcut icon" href="./favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="Maaney" />
-<link rel="manifest" href="./site.webmanifest" />
-
-<style>
-  .bebas-neue-regular {
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-
-}
+  <meta name="description" content="Maaney helps you discover the best online deals on mobiles, electronics, fashion, and home products. Compare prices across top marketplaces and save money every day.">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  
+  <link rel="canonical" href="https://maaney.store/">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  
+  <!-- DNS PREFETCH (Speed Boost) -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  
+  <!-- PRECONNECT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  
+  <!-- SOCIAL SEO -->
+  <meta property="og:title" content="Maaney – Discover Best Deals Online">
+  <meta property="og:description" content="Find trending products and best online prices across India.">
+  <meta property="og:url" content="https://maaney.store/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://maaney.store/favicon-96x96.png">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- THEME -->
+  <meta name="theme-color" content="#ff6a00">
+  
+  <!-- GOOGLE FONTS (NON BLOCKING) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+  
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap">
+  
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="icon" type="image/png" href="./favicon.ico" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="shortcut icon" href="./favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Maaney" />
+  
+  <style>
+    .bebas-neue-regular {
+      font-family: "Bebas Neue", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
 
     .dancing-script {
-  font-family: "Dancing Script", cursive;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-body{
-    margin:0;
-    background:#f1f3f6;
-    font-family: Roboto, Arial, sans-serif;
-}
-
-/* ================= NAVBAR ================= */
-.top-nav{
-    background:#f44f08;
-    padding:12px 0;
-}
-.logo{
-    font-size:22px;
-    font-weight:700;
-    color:#ffffff;
-}
-.explore{
-    font-size:11px;
-    color:#ffffff;
-}
-.plus{color:#ffc200;font-weight:600}
-
-.search-wrap{
-    background:#f0f5ff;
-    border-radius:8px;
-    height:42px;
-}
-.search-wrap input{
-    border:none;
-    background:transparent;
-    outline:none;
-}
-
-.login-btn{
-    background:#ff7c01;
-    color:#fff;
-    border:none;
-    padding:6px 20px;
-    border-radius:4px;
-    font-weight:500;
-}
-
-/* ================= CATEGORY BAR ================= */
-.category-bar{
-    background:#fff;
-    border: solid 1px #ddd;
-    padding:16px 8px;
-    overflow-x:auto;
-}
-.category-scroll{
-    display:flex;
-    gap:28px;
-    min-width:max-content;
-}
-.category-item{
-    text-align:center;
-    font-size:13px;
-    font-weight:500;
-    min-width:90px;
-}
-.category-item img{
-    width:56px;
-    height:56px;
-    margin-bottom:6px;
-}
-
-/* ================= SECTION SPACING ================= */
-.section-gap{
-    padding:16px 0;
-}
-
-/* ================= BANNER SLIDER ================= */
-.banner-wrapper{
-    background:#fff;
-    padding:16px;
-}
-
-.banner-slider{
-    position:relative;
-    overflow:hidden;
-    border-radius:8px;
-}
-
-.banner-track{
-    display:flex;
-    transition:transform .5s ease;
-}
-
-.banner-slide{
-    min-width:100%;
-    background:linear-gradient(90deg,#ff4d01,#f34a02);
-    height:380px; /* INCREASED HEIGHT */
-    display:flex;
-    align-items:center;
-    padding:24px;
-}
-
-.banner-content{
-    display:flex;
-    align-items:center;
-    gap:40px;
-    width:100%;
-}
-
-.banner-img{
-    background:#fff;
-    padding:8px;
-    border-radius:12px;
-}
-.banner-img img{
-    width:240px;
-}
-
-.banner-text{
-    color:#fff;
-}
-.banner-text h4{font-size:20px}
-.banner-text h2{
-    font-size:38px;
-    font-weight:700;
-}
-.banner-text p{font-size:16px}
-
-.bank-strip{
-    background:#fff;
-    color:#000;
-    padding:8px 14px;
-    border-radius:4px;
-    font-size:14px;
-    display:inline-block;
-    margin-top:12px;
-}
-
-/* ================= SLIDER ARROWS ================= */
-.slider-arrow{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    width:44px;
-    height:88px;
-    background:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    cursor:pointer;
-    z-index:10;
-}
-.slider-arrow.left{
-    left:0;
-    border-radius:0 6px 6px 0;
-}
-.slider-arrow.right{
-    right:0;
-    border-radius:6px 0 0 6px;
-}
-.slider-arrow i{
-    font-size:22px;
-    color:#555;
-}
-
-/* ================= DOTS ================= */
-.dots{
-    display:flex;
-    justify-content:center;
-    gap:8px;
-    margin-top:10px;
-}
-.dots span{
-    width:8px;
-    height:8px;
-    background:#ccc;
-    border-radius:50%;
-}
-.dots span.active{
-    width:24px;
-    border-radius:6px;
-    background:#000;
-}
-
-/* ================= MOBILE ================= */
-@media(max-width:768px){
-    .banner-slide{
-        height:320px;
+      font-family: "Dancing Script", cursive;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
     }
+    
+    body{
+      margin:0;
+      background:#ffffff;
+      font-family: Roboto, Arial, sans-serif;
+    }
+
+    /* ================= NAVBAR ================= */
+    .top-nav{
+      background:#f44f08;
+      padding:12px 0;
+    }
+    
+    .logo{
+      font-size:22px;
+      font-weight:700;
+      color:#ffffff;
+    }
+    
+    .explore{
+      font-size:11px;
+      color:#ffffff;
+    }
+    
+    .plus{color:#ffc200;font-weight:600}
+
+    .search-wrap{
+      background:#f0f5ff;
+      border-radius:8px;
+      height:42px;
+    }
+    
+    .search-wrap input{
+      border:none;
+      background:transparent;
+      outline:none;
+    }
+
+    .login-btn{
+      background:#ff7c01;
+      color:#fff;
+      border:none;
+      padding:6px 20px;
+      border-radius:4px;
+      font-weight:500;
+    }
+
+    /* ================= CATEGORY SLIDER SECTION ================= */
+    .category-slider-section {
+      background: #fff;
+      padding: 20px 0;
+      border-bottom: 1px solid #f0f0f0;
+      position: relative;
+    }
+
+    .category-slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 0 15px;
+    }
+
+    .category-slider-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #212121;
+      margin: 0;
+    }
+
+    .view-all-link {
+      color: #2874f0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.3s ease;
+    }
+
+    .view-all-link:hover {
+      color: #1a5fbf;
+      text-decoration: underline;
+    }
+
+    .category-slider-container {
+      position: relative;
+      overflow: hidden;
+      padding: 0 40px;
+    }
+
+    .category-slider-wrapper {
+      display: flex;
+      transition: transform 0.5s ease;
+      gap: 16px;
+    }
+
+    .category-slide {
+      flex: 0 0 auto;
+      width: 140px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .category-slide:hover {
+      transform: translateY(-5px);
+    }
+
+    .category-image-container {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 12px;
+      background: #f5f5f5;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .category-slide:hover .category-image-container {
+      border-color: #ff6a00;
+      box-shadow: 0 4px 12px rgba(255, 106, 0, 0.3);
+    }
+
+    .category-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .category-slide:hover .category-image {
+      transform: scale(1.1);
+    }
+
+    .category-name {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .category-slide:hover .category-name {
+      color: #ff6a00;
+    }
+
+    /* Slider Navigation Arrows */
+    .category-slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .category-slider-arrow:hover {
+      background: #ff6a00;
+      border-color: #ff6a00;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(255, 106, 0, 0.3);
+    }
+
+    .category-slider-arrow.prev {
+      left: 5px;
+    }
+
+    .category-slider-arrow.next {
+      right: 5px;
+    }
+
+    .category-slider-arrow i {
+      font-size: 16px;
+      color: #666;
+      transition: color 0.3s ease;
+    }
+
+    .category-slider-arrow:hover i {
+      color: #fff;
+    }
+
+    /* Hide arrows on mobile */
+    @media (max-width: 768px) {
+      .category-slider-arrow {
+        display: none;
+      }
+      .category-slider-container {
+        padding: 0 15px;
+      }
+      .category-slide {
+        width: 100px;
+      }
+      .category-image-container {
+        width: 100px;
+        height: 100px;
+      }
+      .category-name {
+        font-size: 12px;
+      }
+    }
+
+    /* ================= CATEGORY BAR ================= */
+    .category-bar{
+      background:#fff;
+      border: solid 1px #ddd;
+      padding:16px 8px;
+      overflow-x:auto;
+    }
+    
+    .category-scroll{
+      display:flex;
+      gap:28px;
+      min-width:max-content;
+    }
+    
+    .category-item-scroll{
+      text-align:center;
+      font-size:13px;
+      font-weight:500;
+      min-width:90px;
+    }
+    
+    .category-item-scroll img{
+      width:56px;
+      height:56px;
+      margin-bottom:6px;
+    }
+
+    /* ================= SECTION SPACING ================= */
+    .section-gap{
+      padding:16px 0;
+    }
+
+    /* ================= BANNER SLIDER ================= */
+    .banner-wrapper{
+      background:#fff;
+      padding:16px;
+    }
+
+    .banner-slider{
+      position:relative;
+      overflow:hidden;
+      border-radius:8px;
+    }
+
+    .banner-track{
+      display:flex;
+      transition:transform .5s ease;
+    }
+
+    .banner-slide{
+      min-width:100%;
+      background:linear-gradient(90deg,#ff4d01,#f34a02);
+      height:380px;
+      display:flex;
+      align-items:center;
+      padding:24px;
+    }
+
     .banner-content{
+      display:flex;
+      align-items:center;
+      gap:40px;
+      width:100%;
+    }
+
+    .banner-img{
+      background:#fff;
+      padding:8px;
+      border-radius:12px;
+    }
+    
+    .banner-img img{
+      width:240px;
+    }
+
+    .banner-text{
+      color:#fff;
+    }
+    
+    .banner-text h4{font-size:20px}
+    
+    .banner-text h2{
+      font-size:38px;
+      font-weight:700;
+    }
+    
+    .banner-text p{font-size:16px}
+
+    .bank-strip{
+      background:#fff;
+      color:#000;
+      padding:8px 14px;
+      border-radius:4px;
+      font-size:14px;
+      display:inline-block;
+      margin-top:12px;
+    }
+
+    /* ================= SLIDER ARROWS ================= */
+    .slider-arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:44px;
+      height:88px;
+      background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      z-index:10;
+    }
+    
+    .slider-arrow.left{
+      left:0;
+      border-radius:0 6px 6px 0;
+    }
+    
+    .slider-arrow.right{
+      right:0;
+      border-radius:6px 0 0 6px;
+    }
+    
+    .slider-arrow i{
+      font-size:22px;
+      color:#555;
+    }
+
+    /* ================= DOTS ================= */
+    .dots{
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      margin-top:10px;
+    }
+    
+    .dots span{
+      width:8px;
+      height:8px;
+      background:#ccc;
+      border-radius:50%;
+    }
+    
+    .dots span.active{
+      width:24px;
+      border-radius:6px;
+      background:#000;
+    }
+
+    /* ================= MOBILE ================= */
+    @media(max-width:768px){
+      .banner-slide{
+        height:320px;
+      }
+      
+      .banner-content{
         flex-direction:column;
         text-align:center;
         gap:20px;
-    }
-    .banner-img img{
+      }
+      
+      .banner-img img{
         width:170px;
-    }
-    .banner-text h2{
+      }
+      
+      .banner-text h2{
         font-size:26px;
+      }
     }
-}
-.deal-section{
-    padding:16px 8px;
-}
+    
+    .deal-section{
+      padding:16px 8px;
+    }
 
-/* GRID CARD */
-.deal-card{
-    position:relative;
-    height:220px;
-    border-radius:8px;
-    overflow:hidden;
-  background:linear-gradient(90deg,#ff4d01,#f34a02);
-    color:#fff;
-    padding:18px;
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-}
-
-.deal-card img{
-    height: 120px;
-    width: 120px;
-    object-fit: contain;
-}
-
-
-/* TEXT */
-.deal-text{
-    max-width:60%;
-}
-.deal-text small{
-    opacity:.85;
-    font-size:14px;
-}
-.deal-text h5{
-    font-weight:700;
-    margin:6px 0;
-}
-.deal-text h4{
-    font-weight:800;
-}
-
-/* IMAGE */
-.deal-img{
-    position:absolute;
-    right:12px;
-    bottom:10px;
-    max-height:170px;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
+    /* GRID CARD */
     .deal-card{
-        height:200px;
+      position:relative;
+      height:220px;
+      border-radius:8px;
+      overflow:hidden;
+      background:linear-gradient(90deg,#ff4d01,#f34a02);
+      color:#fff;
+      padding:18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
     }
+
+    .deal-card img{
+      height: 120px;
+      width: 120px;
+      object-fit: contain;
+    }
+
+    /* TEXT */
     .deal-text{
+      max-width:60%;
+    }
+    
+    .deal-text small{
+      opacity:.85;
+      font-size:14px;
+    }
+    
+    .deal-text h5{
+      font-weight:700;
+      margin:6px 0;
+    }
+    
+    .deal-text h4{
+      font-weight:800;
+    }
+
+    /* IMAGE */
+    .deal-img{
+      position:absolute;
+      right:12px;
+      bottom:10px;
+      max-height:170px;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .deal-card{
+        height:200px;
+      }
+      
+      .deal-text{
         max-width:70%;
+      }
     }
-}
-.featured-section{
-    padding:20px 8px;
-}
+    
+    .featured-section{
+      padding:20px 8px;
+    }
 
-/* CARD */
-.brand-card{
-    border-radius:6px;
-    overflow:hidden;
-    background:#fff;
-    height:100%;
-}
+    /* CARD */
+    .brand-card{
+      border-radius:6px;
+      overflow:hidden;
+      background:#fff;
+      height:100%;
+    }
 
-/* IMAGE */
-.brand-card img{
-    width:100%;
-    height:210px;
-    object-fit:cover;
-    display:block;
-}
+    /* IMAGE */
+    .brand-card img{
+      width:100%;
+      height:210px;
+      object-fit:cover;
+      display:block;
+    }
 
-/* ORANGE BAR */
-.brand-footer{
-    background:#f97316; /* Flipkart orange */
-    color:#fff;
-    font-weight:600;
-    font-size:16px;
-    padding:12px 14px;
-}
+    /* ORANGE BAR */
+    .brand-footer{
+      background:#f97316;
+      color:#fff;
+      font-weight:600;
+      font-size:16px;
+      padding:12px 14px;
+    }
 
-/* MOBILE SCROLL */
-.brand-row{
-    display:flex;
-    gap:16px;
-    overflow-x:auto;
-}
-.brand-row::-webkit-scrollbar{
-    display:none;
-}
-.brand-row{
-    scrollbar-width:none;
-}
-
-/* FIX CARD WIDTH */
-.brand-col{
-    min-width:280px;
-}
-
-@media(min-width:992px){
+    /* MOBILE SCROLL */
     .brand-row{
-        overflow:visible;
+      display:flex;
+      gap:16px;
+      overflow-x:auto;
     }
+    
+    .brand-row::-webkit-scrollbar{
+      display:none;
+    }
+    
+    .brand-row{
+      scrollbar-width:none;
+    }
+
+    /* FIX CARD WIDTH */
     .brand-col{
-        min-width:auto;
+      min-width:280px;
     }
-}
 
-.category-bar{
-    background:#f1f3f6;
-    margin:20px;
-    padding:20px;
-    border-radius:12px;
-}
+    @media(min-width:992px){
+      .brand-row{
+        overflow:visible;
+      }
+      
+      .brand-col{
+        min-width:auto;
+      }
+    }
 
-/* Inner container */
-.container{
-    max-width:1200px;
-    margin:auto;
-}
+    .category-bar{
+      background:#f1f3f6;
+      margin:20px;
+      padding:20px;
+      border-radius:12px;
+    }
 
-/* Scroll wrapper */
-.category-scroll{
-    display:flex;
-    gap:20px;
-    overflow-x:auto;
-    padding:10px 5px;
-    scrollbar-width:none;
-}
-.category-scroll::-webkit-scrollbar{
-    display:none;
-}
+    /* Inner container */
+    .container{
+      max-width:1200px;
+      margin:auto;
+    }
 
-/* Each platform item */
-.category-item{
-    min-width:110px;
-    background:#fff;
-    border-radius:12px;
-    padding:15px 10px;
-    text-align:center;
-    cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 2px 6px rgba(0,0,0,0.08);
-}
+    /* Scroll wrapper */
+    .category-scroll{
+      display:flex;
+      gap:20px;
+      overflow-x:auto;
+      padding:10px 5px;
+      scrollbar-width:none;
+    }
+    
+    .category-scroll::-webkit-scrollbar{
+      display:none;
+    }
 
-.category-item:hover{
-    transform:translateY(-4px);
-    box-shadow:0 6px 15px rgba(0,0,0,0.12);
-}
+    /* Each platform item */
+    .category-item-scroll{
+      min-width:110px;
+      background:#fff;
+      border-radius:12px;
+      padding:15px 10px;
+      text-align:center;
+      cursor:pointer;
+      transition:0.3s;
+      box-shadow:0 2px 6px rgba(0,0,0,0.08);
+    }
 
-/* Platform logo */
-.category-item img{
-    width:60px;
-    height:60px;
-    object-fit:contain;
-    margin-bottom:8px;
-}
+    .category-item-scroll:hover{
+      transform:translateY(-4px);
+      box-shadow:0 6px 15px rgba(0,0,0,0.12);
+    }
 
-/* Platform name */
-.category-item div{
-    font-size:14px;
-    font-weight:600;
-    color:#333;
-}
-.mobile-scroll::-webkit-scrollbar { display: none; }
-.mobile-scroll {
-  scrollbar-width: none;
-}
+    /* Platform logo */
+    .category-item-scroll img{
+      width:60px;
+      height:60px;
+      object-fit:contain;
+      margin-bottom:8px;
+    }
 
-.hide-scrollbar {
-  scrollbar-width: none;        /* Firefox */
-  -ms-overflow-style: none;     /* IE & Edge */
-}
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;                /* Chrome, Safari */
-}
-/* LANDSCAPE POSTER THUMBNAIL */
-.poster-thumb{
-  width:100%;
-  max-width:420px;          /* control thumbnail size */
-  aspect-ratio:16 / 9;      /* landscape ratio */
-  border:1px solid #e5e7eb;
-  border-radius:6px;
-  overflow:hidden;
-  background:#f9fafb;
-  box-shadow:0 4px 12px rgba(0,0,0,0.08);
-}
+    /* Platform name */
+    .category-item-scroll div{
+      font-size:14px;
+      font-weight:600;
+      color:#333;
+    }
+    
+    .mobile-scroll::-webkit-scrollbar { display: none; }
+    .mobile-scroll {
+      scrollbar-width: none;
+    }
 
-/* IMAGE */
-.poster-thumb img{
-  width:100%;
-  height:100%;
-  object-fit:cover;         /* fills thumbnail properly */
-  display:block;
-}
-/* OUTER WRAPPER – handles spacing */
-.poster-wrapper{
-  padding:12px;                 /* space around poster */
-}
+    .hide-scrollbar {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    
+    /* LANDSCAPE POSTER THUMBNAIL */
+    .poster-thumb{
+      width:100%;
+      max-width:420px;
+      aspect-ratio:16 / 9;
+      border:1px solid #e5e7eb;
+      border-radius:6px;
+      overflow:hidden;
+      background:#f9fafb;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }
 
-/* POSTER CONTAINER */
-.poster-thumb{
-  width:100%;
-  max-width:520px;              /* desktop size */
-  aspect-ratio:16 / 9;          /* landscape */
-  background:#fff;              /* white frame */
-  border:4px solid #ffffff;     /* white border */
-  border-radius:6px;
-  overflow:hidden;
-  margin:auto;                  /* center on desktop */
-  box-shadow:0 6px 18px rgba(0,0,0,0.12);
-}
+    /* IMAGE */
+    .poster-thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    
+    /* OUTER WRAPPER – handles spacing */
+    .poster-wrapper{
+      padding:12px;
+    }
 
-/* IMAGE */
-.poster-thumb img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
+    /* POSTER CONTAINER */
+    .poster-thumb{
+      width:100%;
+      max-width:520px;
+      aspect-ratio:16 / 9;
+      background:#fff;
+      border:4px solid #ffffff;
+      border-radius:6px;
+      overflow:hidden;
+      margin:auto;
+      box-shadow:0 6px 18px rgba(0,0,0,0.12);
+    }
 
-/* MOBILE TWEAKS */
-@media (max-width:768px){
-  .poster-wrapper{
-    padding:8px;
-  }
+    /* IMAGE */
+    .poster-thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
 
-  .poster-thumb{
-    max-width:100%;              /* full width on mobile */
-    border-width:3px;
-    border-radius:4px;
-  }
-}
+    /* MOBILE TWEAKS */
+    @media (max-width:768px){
+      .poster-wrapper{
+        padding:8px;
+      }
 
+      .poster-thumb{
+        max-width:100%;
+        border-width:3px;
+        border-radius:4px;
+      }
+    }
+    
+    .product-card{
+      border:1px solid #e3e8ee;
+      border-radius:20px;
+      padding:15px;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+    }
 
-</style>
+    /* IMAGE */
+    .product-img{
+      background:#f4f4f4;
+      border-radius:14px;
+      aspect-ratio:1/1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .product-img img{
+      max-width:100%;
+      max-height:100%;
+      object-fit:contain;
+    }
+
+    /* BADGE */
+    .off-badge{
+      position:absolute;
+      top:10px;
+      left:10px;
+      background:#e0002a;
+      color:white;
+      font-size:12px;
+      padding:4px 8px;
+      border-radius:4px;
+    }
+
+    /* ICONS */
+    .hover-icons{
+      position:absolute;
+      bottom:10px;
+      left:50%;
+      transform:translateX(-50%);
+      display:flex;
+      gap:12px;
+    }
+
+    .hover-icons i{
+      background:white;
+      border:1px solid #ddd;
+      border-radius:8px;
+      padding:6px 8px;
+    }
+
+    /* TEXT */
+    .title{font-weight:600;margin-top:12px;font-size:15px;flex:1}
+    .stars{color:#ffb400;font-size:14px}
+
+    .price{font-weight:700}
+    .old{text-decoration:line-through;color:#999;margin-left:6px}
+    .discount{color:red;font-size:13px;margin-left:6px}
+
+    /* CART */
+    .cart-row{display:flex;gap:10px;margin-top:12px}
+    .wish{
+      width:42px;height:42px;border-radius:50%;
+      border:1px solid #dbe2ea;
+      display:flex;align-items:center;justify-content:center;
+    }
+
+    .addcart{
+      flex:1;background:#ff5500;color:white;
+      border:none;border-radius:10px;padding:10px;
+    }
+
+    /* MOBILE */
+    @media(max-width:576px){
+      .product-card{padding:10px}
+      .title{font-size:14px}
+    }
+  </style>
   
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5811636573059605"
-     crossorigin="anonymous"></script>
-   
-
+       crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -527,20 +794,13 @@ body{
 <!-- ================= NAVBAR ================= -->
 <div class="container-fluid top-nav" style="background:#f44f08;">
   <div class="container">
-
-    <div class="row align-items-center"
-         style="height:40px;"> <!-- CONTROL NAVBAR HEIGHT -->
-
+    <div class="row align-items-center" style="height:40px;">
       <!-- LOGO -->
       <div class="col-6 col-md-2 d-flex ps-2">
         <img
-          src="logo.png"
-          alt="Kriya Logo"
-          style="
-            height:40px;
-            width:auto;
-            object-fit:contain;
-          "
+          src="./logo.png"
+          alt="Maaney Logo"
+          style="height:40px; width:auto; object-fit:contain;"
         >
       </div>
 
@@ -548,11 +808,7 @@ body{
       <div class="col-md-6 d-none d-md-flex align-items-center">
         <div
           class="d-flex align-items-center px-3 w-100"
-          style="
-            height:38px;
-            background:#fff7ed;
-            border-radius:8px;
-          "
+          style="height:38px; background:#fff7ed; border-radius:8px;"
         >
           <i class="fa fa-search me-2" style="color:#f97316;font-size:14px;"></i>
           <input
@@ -566,18 +822,9 @@ body{
 
       <!-- RIGHT ACTIONS -->
       <div class="col-6 col-md-4 d-flex justify-content-end align-items-center gap-3">
-
         <button
           class="d-none d-md-inline"
-          style="
-            height:32px;
-            padding:0 14px;
-            background:#ff9800;
-            color:#fff;
-            border:none;
-            border-radius:6px;
-            font-size:14px;
-          "
+          style="height:32px; padding:0 14px; background:#ff9800; color:#fff; border:none; border-radius:6px; font-size:14px;"
           onclick="location.href='login.html'"
         >
           Login
@@ -585,545 +832,576 @@ body{
 
         <i class="fa fa-cart-shopping text-white" style="font-size:18px;"></i>
         <i class="fa fa-bars d-md-none text-white" style="font-size:20px;"></i>
-
       </div>
-
     </div>
   </div>
 </div>
 
-
-
 <!-- MOBILE SEARCH -->
 <div class="container d-md-none mt-2">
-<div class="search-wrap d-flex align-items-center px-3">
+  <div class="search-wrap d-flex align-items-center px-3">
     <i class="fa fa-search me-2"></i>
-
     <input type="text" class="w-100" placeholder="Search for Products, Brands and More">
+  </div>
 </div>
-</div>
+
+<!-- ================= CATEGORY SLIDER SECTION ================= -->
+<section class="category-slider-section" aria-label="Shop by Category">
+  <div class="container">
+    <div class="category-slider-header">
+      <h2 class="category-slider-title">Shop by Category</h2>
+      <a href="#" class="view-all-link">
+        View All
+        <i class="fas fa-chevron-right"></i>
+      </a>
+    </div>
+    
+    <div class="category-slider-container">
+      <!-- Previous Arrow -->
+      <div class="category-slider-arrow prev" onclick="slideCategories('prev')">
+        <i class="fas fa-chevron-left"></i>
+      </div>
+      
+      <!-- Next Arrow -->
+      <div class="category-slider-arrow next" onclick="slideCategories('next')">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+      
+      <!-- Category Slider Wrapper -->
+      <div class="category-slider-wrapper" id="categorySlider">
+        <!-- Category 1: Electronics -->
+        <div class="category-slide" onclick="handleCategoryClick('electronics')">
+          <div class="category-image-container">
+            <img src="./categories/image1.png" alt="Electronics" class="category-image">
+          </div>
+          <p class="category-name">Electronics</p>
+        </div>
+        
+        <!-- Category 2: Fashion -->
+        <div class="category-slide" onclick="handleCategoryClick('fashion')">
+          <div class="category-image-container">
+            <img src="./categories/image2.png" alt="Fashion" class="category-image">
+          </div>
+          <p class="category-name">Fashion</p>
+        </div>
+        
+        <!-- Category 3: Home & Kitchen -->
+        <div class="category-slide" onclick="handleCategoryClick('home')">
+          <div class="category-image-container">
+            <img src="https://picsum.photos/seed/homekitchen/140/140.jpg" alt="Home & Kitchen" class="category-image">
+          </div>
+          <p class="category-name">Home & Kitchen</p>
+        </div>
+        
+        <!-- Category 4: Appliances -->
+        <div class="category-slide" onclick="handleCategoryClick('appliances')">
+          <div class="category-image-container">
+            <img src="https://picsum.photos/seed/appliances/140/140.jpg" alt="Appliances" class="category-image">
+          </div>
+          <p class="category-name">Appliances</p>
+        </div>
+        
+        <!-- Category 5: Travel -->
+        <div class="category-slide" onclick="handleCategoryClick('travel')">
+          <div class="category-image-container">
+            <img src="https://picsum.photos/seed/travel/140/140.jpg" alt="Travel" class="category-image">
+          </div>
+          <p class="category-name">Travel</p>
+        </div>
+        
+        <!-- Category 6: Beauty -->
+        <div class="category-slide" onclick="handleCategoryClick('beauty')">
+          <div class="category-image-container">
+            <img src="https://picsum.photos/seed/beauty/140/140.jpg" alt="Beauty" class="category-image">
+          </div>
+          <p class="category-name">Beauty</p>
+        </div>
+        
+        <!-- Category 7: Sports -->
+        <div class="category-slide" onclick="handleCategoryClick('sports')">
+          <div class="category-image-container">
+            <img src="https://picsum.photos/seed/sports/140/140.jpg" alt="Sports" class="category-image">
+          </div>
+          <p class="category-name">Sports</p>
+        </div>
+        
+        <!-- Category 8: Books -->
+        <div class="category-slide" onclick="handleCategoryClick('books')">
+          <div class="category-image-container">
+            <img src="https://picsum.photos/seed/books/140/140.jpg" alt="Books" class="category-image">
+          </div>
+          <p class="category-name">Books</p>
+        </div>
+        
+        <!-- Category 9: Toys -->
+        <div class="category-slide" onclick="handleCategoryClick('toys')">
+          <div class="category-image-container">
+            <img src="https://picsum.photos/seed/toys/140/140.jpg" alt="Toys" class="category-image">
+          </div>
+          <p class="category-name">Toys</p>
+        </div>
+        
+        <!-- Category 10: Furniture -->
+        <div class="category-slide" onclick="handleCategoryClick('furniture')">
+          <div class="category-image-container">
+            <img src="https://picsum.photos/seed/furniture/140/140.jpg" alt="Furniture" class="category-image">
+          </div>
+          <p class="category-name">Furniture</p>
+        </div>
+        
+        <!-- Category 11: Grocery -->
+        <div class="category-slide" onclick="handleCategoryClick('grocery')">
+          <div class="category-image-container">
+            <img src="https://picsum.photos/seed/grocery/140/140.jpg" alt="Grocery" class="category-image">
+          </div>
+          <p class="category-name">Grocery</p>
+        </div>
+        
+        <!-- Category 12: Offers -->
+        <div class="category-slide" onclick="handleCategoryClick('offers')">
+          <div class="category-image-container">
+            <img src="https://picsum.photos/seed/offers/140/140.jpg" alt="Top Offers" class="category-image">
+          </div>
+          <p class="category-name">Top Offers</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ================= CATEGORY BAR ================= -->
 <section class="container-fluid my-3 px-2" aria-label="Top Online Shopping Partners">
+  <div class="bg-white shadow-sm py-3 px-2 hide-scrollbar">
+    <!-- UNIQUE SEO TEXT (VISIBLE TO GOOGLE, LIGHT FOR USERS) -->
+    <p class="visually-hidden">
+      Maaney helps users discover trending products and compare prices across Amazon, Myntra, Flipkart, AJIO, Meesho, and WOW Skin Science. Explore fashion, electronics, beauty, and home essentials in one place.
+    </p>
 
-<div class="bg-white shadow-sm py-3 px-2 hide-scrollbar">
+    <!-- MOBILE SCROLL -->
+    <div class="d-flex d-md-none align-items-center gap-4 overflow-auto px-2">
+      <div class="flex-shrink-0 text-center" style="min-width:140px">
+        <a href="https://www.amazon.in" title="Shop on Amazon via Maaney">
+          <img src="./brands/amazon.png"
+               loading="lazy" decoding="async"
+               width="120" height="40"
+               class="img-fluid"
+               alt="Amazon Online Shopping">
+        </a>
+      </div>
 
-<!-- UNIQUE SEO TEXT (VISIBLE TO GOOGLE, LIGHT FOR USERS) -->
-<p class="visually-hidden">
-Maaney helps users discover trending products and compare prices across Amazon, Myntra, Flipkart, AJIO, Meesho, and WOW Skin Science. Explore fashion, electronics, beauty, and home essentials in one place.
-</p>
+      <div class="flex-shrink-0 text-center" style="min-width:120px">
+        <a href="/women-tops-under-2000" title="Myntra Fashion Deals">
+          <img src="https://picsum.photos/seed/myntra/120/40.jpg"
+               loading="lazy" decoding="async"
+               width="120" height="40"
+               class="img-fluid"
+               alt="Myntra Fashion Store">
+        </a>
+      </div>
 
-<!-- MOBILE SCROLL -->
-<div class="d-flex d-md-none align-items-center gap-4 overflow-auto px-2">
+      <div class="flex-shrink-0 text-center" style="min-width:120px">
+        <img src="https://picsum.photos/seed/flipkart/120/40.jpg"
+             loading="lazy" decoding="async"
+             width="120" height="40"
+             class="img-fluid"
+             alt="Flipkart Online Store">
+      </div>
 
-<div class="flex-shrink-0 text-center" style="min-width:140px">
-<a href="https://www.amazon.in" title="Shop on Amazon via Maaney">
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
-loading="lazy" decoding="async"
-width="120" height="40"
-class="img-fluid"
-alt="Amazon Online Shopping">
-</a>
-</div>
+      <div class="flex-shrink-0 text-center" style="min-width:120px">
+        <img src="https://picsum.photos/seed/ajio/120/40.jpg"
+             loading="lazy" decoding="async"
+             width="120" height="40"
+             class="img-fluid"
+             alt="AJIO Fashion">
+      </div>
 
-<div class="flex-shrink-0 text-center" style="min-width:120px">
-<a href="/women-tops-under-2000" title="Myntra Fashion Deals">
-<img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Myntra_Logo.png"
-loading="lazy" decoding="async"
-width="120" height="40"
-class="img-fluid"
-alt="Myntra Fashion Store">
-</a>
-</div>
+      <div class="flex-shrink-0 text-center" style="min-width:120px">
+        <img src="https://picsum.photos/seed/meesho/120/40.jpg"
+             loading="lazy" decoding="async"
+             width="120" height="40"
+             class="img-fluid"
+             alt="Meesho Shopping App">
+      </div>
+    </div>
 
-<div class="flex-shrink-0 text-center" style="min-width:120px">
-<img src="https://images.moneycontrol.com/static-mcnews/2024/12/20241212055950_flipkart.jpg"
-loading="lazy" decoding="async"
-width="120" height="40"
-class="img-fluid"
-alt="Flipkart Online Store">
-</div>
+    <!-- DESKTOP -->
+    <div class="container d-none d-md-block my-4">
+      <div class="row justify-content-center align-items-center text-center g-4">
+        <div class="col-md-2">
+          <a href="https://www.amazon.in" title="Amazon Deals">
+            <img loading="lazy" decoding="async" width="120" height="40"
+                 src="https://picsum.photos/seed/amazon/120/40.jpg"
+                 class="img-fluid"
+                 alt="Amazon India">
+          </a>
+        </div>
 
-<div class="flex-shrink-0 text-center" style="min-width:120px">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/69/AJIO_Logo.png"
-loading="lazy" decoding="async"
-width="120" height="40"
-class="img-fluid"
-alt="AJIO Fashion">
-</div>
+        <div class="col-md-2">
+          <a href="/women-tops-under-2000" title="Myntra Offers">
+            <img loading="lazy" decoding="async" width="120" height="40"
+                 src="https://picsum.photos/seed/myntra/120/40.jpg"
+                 class="img-fluid"
+                 alt="Myntra Clothing">
+          </a>
+        </div>
 
-<div class="flex-shrink-0 text-center" style="min-width:120px">
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Meesho_logo.png"
-loading="lazy" decoding="async"
-width="120" height="40"
-class="img-fluid"
-alt="Meesho Shopping App">
-</div>
+        <div class="col-md-2">
+          <a href="https://www.flipkart.com" title="Flipkart Shopping">
+            <img loading="lazy" decoding="async" width="120" height="40"
+                 src="https://picsum.photos/seed/flipkart/120/40.jpg"
+                 class="img-fluid"
+                 alt="Flipkart India">
+          </a>
+        </div>
 
-</div>
+        <div class="col-md-2">
+          <a href="https://www.ajio.com" title="AJIO Fashion">
+            <img loading="lazy" decoding="async" width="120" height="40"
+                 src="https://picsum.photos/seed/ajio/120/40.jpg"
+                 class="img-fluid"
+                 alt="AJIO Store">
+          </a>
+        </div>
 
-<!-- DESKTOP -->
-<div class="container d-none d-md-block my-4">
-<div class="row justify-content-center align-items-center text-center g-4">
+        <div class="col-md-2">
+          <a href="https://www.meesho.com" title="Meesho Deals">
+            <img loading="lazy" decoding="async" width="120" height="40"
+                 src="https://picsum.photos/seed/meesho/120/40.jpg"
+                 class="img-fluid"
+                 alt="Meesho Marketplace">
+          </a>
+        </div>
 
-<div class="col-md-2">
-<a href="https://www.amazon.in" title="Amazon Deals">
-<img loading="lazy" decoding="async" width="120" height="40"
-src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
-class="img-fluid"
-alt="Amazon India">
-</a>
-</div>
-
-<div class="col-md-2">
-<a href="/women-tops-under-2000" title="Myntra Offers">
-<img loading="lazy" decoding="async" width="120" height="40"
-src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Myntra_Logo.png"
-class="img-fluid"
-alt="Myntra Clothing">
-</a>
-</div>
-
-<div class="col-md-2">
-<a href="https://www.flipkart.com" title="Flipkart Shopping">
-<img loading="lazy" decoding="async" width="120" height="40"
-src="https://images.moneycontrol.com/static-mcnews/2024/12/20241212055950_flipkart.jpg"
-class="img-fluid"
-alt="Flipkart India">
-</a>
-</div>
-
-<div class="col-md-2">
-<a href="https://www.ajio.com" title="AJIO Fashion">
-<img loading="lazy" decoding="async" width="120" height="40"
-src="https://play-lh.googleusercontent.com/H_VVVQduGJEUfofF5YPszdTJVqqT46SoY-B9fIGxWHPCBH5gPGDtvbGgs3qebzNFdrS_"
-class="img-fluid"
-alt="AJIO Store">
-</a>
-</div>
-
-<div class="col-md-2">
-<a href="https://www.meesho.com" title="Meesho Deals">
-<img loading="lazy" decoding="async" width="120" height="40"
-src="https://images.moneycontrol.com/static-mcnews/2023/06/Meesho-682x435.jpg"
-class="img-fluid"
-alt="Meesho Marketplace">
-</a>
-</div>
-
-<div class="col-md-2">
-<a href="https://www.mywow.in" title="WOW Skin Science">
-<img loading="lazy" decoding="async" width="120" height="40"
-src="https://www.freelogovectors.net/wp-content/uploads/2023/01/wow-skin-science-logo-freelogovectors.net_.png"
-class="img-fluid"
-alt="WOW Skin Science Products">
-</a>
-</div>
-
-</div>
-</div>
-
-</div>
+        <div class="col-md-2">
+          <a href="https://www.mywow.in" title="WOW Skin Science">
+            <img loading="lazy" decoding="async" width="120" height="40"
+                 src="https://picsum.photos/seed/wow/120/40.jpg"
+                 class="img-fluid"
+                 alt="WOW Skin Science Products">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-
-
-
-
-
-
-
 
 <!-- ================= SECTION GAP ================= -->
 <div class="section-gap"></div>
 
 <!-- ================= BANNER SLIDER ================= -->
 <div class="container banner-wrapper">
+  <div class="banner-slider">
+    <div class="slider-arrow left" onclick="slide(-1)">
+      <i class="fa fa-chevron-left"></i>
+    </div>
 
-<div class="banner-slider">
+    <div class="slider-arrow right" onclick="slide(1)">
+      <i class="fa fa-chevron-right"></i>
+    </div>
 
-<div class="slider-arrow left" onclick="slide(-1)">
-<i class="fa fa-chevron-left"></i>
-</div>
+    <div class="banner-track" id="track">
+      <!-- SLIDE 1 -->
+      <div class="banner-slide">
+        <div class="banner-content">
+          <div class="banner-img">
+            <img src="https://picsum.photos/seed/amazonsale/240/200.jpg" alt="Amazon Republic Day Sale electronics and smartphones India">
+          </div>
+          <div class="banner-text">
+            <h4 class="bebas-neue-regular">Amazon Republic Day Sale</h4>
+            <h2>Up to 80% Off Deals</h2>
+            <p>Save big on electronics, fashion, home appliances & smartphones</p>
+            <div class="bank-strip">
+              <strong>SBI & HDFC</strong> Extra Instant Bank Discounts*
+            </div>
+          </div>
+        </div>
+      </div>
 
-<div class="slider-arrow right" onclick="slide(1)">
-<i class="fa fa-chevron-right"></i>
-</div>
+      <!-- SLIDE 2 -->
+      <div class="banner-slide">
+        <div class="banner-content">
+          <div class="banner-img col-lg-3">
+            <img src="https://picsum.photos/seed/fashiondeals/240/200.jpg" alt="Up to 90% off deals fashion and gadgets online India">
+          </div>
+          <div class="banner-text col">
+            <h4 class="bebas-neue-regular">Top Online Deals India</h4>
+            <h2>Up to 90% OFF</h2>
+            <p>Massive discounts on fashion, beauty & tech this week</p>
+            <div class="bank-strip">
+              <strong>DEAL ALERT</strong> Verified Mega Sale Offers*
+            </div>
+          </div>
+        </div>
+      </div>
 
-<div class="banner-track" id="track">
+      <!-- SLIDE 3 -->
+      <div class="banner-slide">
+        <div class="banner-content">
+          <div class="banner-img">
+            <img src="https://picsum.photos/seed/flipkartsale/240/200.jpg" alt="Flipkart GOAT sale smartphones laptops home appliances">
+          </div>
+          <div class="banner-text">
+            <h4 class="bebas-neue-regular">Flipkart GOAT Sale</h4>
+            <h2>Up to 80% ON Gadgets</h2>
+            <p>Smartphones, TVs, laptops & home appliance deals</p>
+            <div class="bank-strip">
+              <strong>AXIS & ICICI</strong> Extra Card Offers*
+            </div>
+          </div>
+        </div>
+      </div>
 
-<!-- SLIDE 1 -->
-<div class="banner-slide">
-<div class="banner-content">
+      <!-- SLIDE 4 -->
+      <div class="banner-slide">
+        <div class="banner-content">
+          <div class="banner-img">
+            <img src="https://picsum.photos/seed/meeshosale/240/200.jpg" alt="Meesho First Sunday Maha Sale discounts India">
+          </div>
+          <div class="banner-text">
+            <h4 class="bebas-neue-regular">Meesho First Sunday Sale</h4>
+            <h2>Up to 90% OFF</h2>
+            <p>Electronics, fashion, kitchen & home décor mega offers</p>
+            <div class="bank-strip">
+              <strong>CASHBACK & DEALS</strong> App Exclusive Discounts*
+            </div>
+          </div>
+        </div>
+      </div>
 
-<div class="banner-img">
-<img src="https://images.unsplash.com/photo-1582582621959-48d27397dc69">
-</div>
+      <!-- SLIDE 5 -->
+      <div class="banner-slide">
+        <div class="banner-content">
+          <div class="banner-img">
+            <img src="https://picsum.photos/seed/dailydeals/240/200.jpg" alt="Daily online deals discount India deals aggregator">
+          </div>
+          <div class="banner-text">
+            <h4 class="bebas-neue-regular">Daily Deals & Coupons</h4>
+            <h2>Hot Offers Every Day</h2>
+            <p>Electronics, fashion & essentials with coupon codes</p>
+            <div class="bank-strip">
+              <strong>SMART SAVERS</strong> Extra Cashback & Discounts*
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="banner-text">
-<h4 class="bebas-neue-regular">Mattresses</h4>
-<h2>From ₹2,899</h2>
-<p>Wakefit, Sleepyhead & more</p>
-<div class="bank-strip">
-<strong>HDFC BANK</strong> 10% Instant Discount*
+  <div class="dots" id="dots">
+    <span class="active"></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </div>
-</div>
-
-</div>
-</div>
-
-<!-- SLIDE 2 -->
-<div class="banner-slide">
-<div class="banner-content">
-
-<div class="banner-img col-lg-3">
-<img src="https://images.unsplash.com/photo-1615873968403-89e068629265">
-</div>
-
-<div class="banner-text col">
-<h4 class="bebas-neue-regular">Sofas & Furniture</h4>
-<h2>Up to 70% Off</h2>
-<p>Top brands & best deals</p>
-<div class="bank-strip">
-<strong>AXIS BANK</strong> Extra Cashback*
-</div>
-</div>
-
-</div>
-</div>
-
-<!-- SLIDE 3 -->
- <div class="banner-slide">
-<div class="banner-content">
-
-<div class="banner-img">
-<img src="https://images.unsplash.com/photo-1615873968403-89e068629265">
-</div>
-
-<div class="banner-text">
-<h4 class="bebas-neue-regular">Sofas & Furniture</h4>
-<h2>Up to 70% Off</h2>
-<p>Top brands & best deals</p>
-<div class="bank-strip">
-<strong>AXIS BANK</strong> Extra Cashback*
-</div>
-</div>
-
-</div>
-</div>
-
-<!-- SLIDE 4 -->
- <div class="banner-slide">
-<div class="banner-content">
-
-<div class="banner-img">
-<img src="https://images.unsplash.com/photo-1615873968403-89e068629265">
-</div>
-
-<div class="banner-text">
-<h4 class="bebas-neue-regular">Sofas & Furniture</h4>
-<h2>Up to 70% Off</h2>
-<p>Top brands & best deals</p>
-<div class="bank-strip">
-<strong>AXIS BANK</strong> Extra Cashback*
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-
-</div>
-
-<div class="dots">
-<span class="active"></span>
-<span></span>
-</div>
-
-</div>
-
-
 
 <!-- POSTER THUMBNAIL -->
 <section class="poster-wrapper" aria-label="Republic Day Shopping Offers">
+  <!-- UNIQUE SEO TEXT -->
+  <p class="visually-hidden">
+    Explore Republic Day special offers on watches and accessories. Discover trending styles and best online prices curated by Maaney for smart shoppers across India.
+  </p>
 
-<!-- UNIQUE SEO TEXT -->
-<p class="visually-hidden">
-Explore Republic Day special offers on watches and accessories. Discover trending styles and best online prices curated by Maaney for smart shoppers across India.
-</p>
-
-<a href="watches/index.html"
-   target="_self"
-   title="Republic Day Watch Deals – Shop Now"
-   style="display:block; text-decoration:none;">
-
-<div class="poster-thumb">
-
-<img
-  src="republic.png"
-  loading="lazy"
-  decoding="async"
-  width="800"
-  height="450"
-  alt="Republic Day watch deals poster showing special festive offers">
-
-</div>
-
-</a>
+  <a href="watches/index.html"
+     target="_self"
+     title="Republic Day Watch Deals – Shop Now"
+     style="display:block; text-decoration:none;">
+    <div class="poster-thumb">
+      <img src="https://picsum.photos/seed/watches/520/293.jpg" alt="Republic Day Watch Deals">
+    </div>
+  </a>
 </section>
 
-
-
-
-
-<!-- OUTER PAGE BACKGROUND -->
 <!-- GREY BACKGROUND WRAPPER -->
 <div class="container-fluid py-4" style="background:#f1f3f6;">
-
   <div class="px-1 px-md-2">
     <div class="bg-white rounded py-3 px-2 px-md-3">
-
       <div class="row g-3">
-
         <!-- LEFT: DEALS -->
         <div class="col-lg-9">
-
           <h4 class="fw-semibold mb-4">Best deals on smartphones</h4>
-
           <!-- PRODUCTS ROW -->
           <div class="d-flex gap-4 overflow-auto pb-2" id="dealRow">
             <!-- Products injected here -->
           </div>
-
         </div>
-
         <!-- RIGHT: AD BANNER -->
         <div class="col-lg-3 d-none d-lg-block">
           <div class="d-flex align-items-center justify-content-center p-2">
             <img 
-              src="republic-ad-banner.png"
+              src="https://picsum.photos/seed/republicad/300/430.jpg"
               class="img-fluid"
               style="max-height:430px;object-fit:cover;width:300px;"
               alt="Ad Banner">
           </div>
         </div>
-
       </div>
-
     </div>
   </div>
 </div>
 
-
-</div>
+<!-- DEAL SLIDER -->
 <div class="container-fluid deal-section position-relative">
-
-  <!-- LEFT ARROW -->
- 
-
-  <!-- RIGHT ARROW -->
- 
-
-  <!-- DEAL SLIDER -->
-  <div class="container-fluid position-relative py-3">
-
   <!-- LEFT ARROW -->
   <div onclick="scrollDeals(-1)"
-       style="
-         position:absolute;
-         left:8px;
-         top:50%;
-         transform:translateY(-50%);
-         width:44px;
-         height:44px;
-         background:#ffffff;
-         border:2px solid #f97316;
-         border-radius:50%;
-         display:flex;
-         align-items:center;
-         justify-content:center;
-         cursor:pointer;
-         z-index:10;
-         box-shadow:0 4px 10px rgba(0,0,0,0.15);
-       ">
+       style="position:absolute; left:8px; top:50%; transform:translateY(-50%); width:44px; height:44px; background:#ffffff; border:2px solid #f97316; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:10; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
     <i class="fa fa-chevron-left" style="color:#f97316;"></i>
   </div>
 
   <!-- RIGHT ARROW -->
   <div onclick="scrollDeals(1)"
-       style="
-         position:absolute;
-         right:8px;
-         top:50%;
-         transform:translateY(-50%);
-         width:44px;
-         height:44px;
-         background:#ffffff;
-         border:2px solid #f97316;
-         border-radius:50%;
-         display:flex;
-         align-items:center;
-         justify-content:center;
-         cursor:pointer;
-         z-index:10;
-         box-shadow:0 4px 10px rgba(0,0,0,0.15);
-       ">
-
+       style="position:absolute; right:8px; top:50%; transform:translateY(-50%); width:44px; height:44px; background:#ffffff; border:2px solid #f97316; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:10; box-shadow:0 4px 10px rgba(0,0,0,0.15);">
     <i class="fa fa-chevron-right" style="color:#f97316;"></i>
   </div>
 
   <!-- DEAL SCROLLER -->
   <section aria-label="Trending Deals and Offers" class="container my-3">
+    <!-- UNIQUENESS SEO TEXT -->
+    <p class="visually-hidden">
+      Browse trending online deals on geysers, washing machines, smartphones, soundbars, laptops, and earbuds. Maaney curates the best offers from top brands to help you shop smarter and save more.
+    </p>
 
-<!-- UNIQUENESS SEO TEXT -->
-<p class="visually-hidden">
-Browse trending online deals on geysers, washing machines, smartphones, soundbars, laptops, and earbuds. Maaney curates the best offers from top brands to help you shop smarter and save more.
-</p>
+    <div id="dealScroller"
+         class="d-flex gap-3 overflow-hidden px-3"
+         role="list"
+         style="scroll-behavior:smooth;">
+      <!-- CARD 1 -->
+      <article style="min-width:320px;" role="listitem">
+        <div class="deal-card">
+          <div class="deal-text">
+            <small>Instant geysers</small>
+            <h3>Crompton & Hindware</h3>
+            <p class="fw-semibold">From ₹1,999</p>
+          </div>
+          <img src="https://picsum.photos/seed/geyser/160/120.jpg"
+               loading="lazy" decoding="async"
+               width="160" height="120"
+               class="deal-img"
+               alt="Instant geysers from Crompton and Hindware">
+        </div>
+      </article>
 
-<div id="dealScroller"
-     class="d-flex gap-3 overflow-hidden px-3"
-     role="list"
-     style="scroll-behavior:smooth;">
+      <!-- CARD 2 -->
+      <article style="min-width:320px;" role="listitem">
+        <div class="deal-card">
+          <div class="deal-text">
+            <small>Prepaid offers & super coins</small>
+            <h3>Best selling washing machines</h3>
+            <p class="fw-semibold">From ₹6,790*</p>
+          </div>
+          <img src="https://picsum.photos/seed/washing/160/120.jpg"
+               loading="lazy" decoding="async"
+               width="160" height="120"
+               class="deal-img"
+               alt="Top washing machine deals online">
+        </div>
+      </article>
 
-<!-- CARD 1 -->
-<article style="min-width:320px;" role="listitem">
-<div class="deal-card">
-<div class="deal-text">
-<small>Instant geysers</small>
-<h3>Crompton & Hindware</h3>
-<p class="fw-semibold">From ₹1,999</p>
-</div>
-<img src="https://www.freelogovectors.net/wp-content/uploads/2023/01/wow-skin-science-logo-freelogovectors.net_.png"
-loading="lazy" decoding="async"
-width="160" height="120"
-class="deal-img"
-alt="Instant geysers from Crompton and Hindware">
-</div>
-</article>
+      <!-- CARD 3 -->
+      <article style="min-width:320px;" role="listitem">
+        <div class="deal-card">
+          <div class="deal-text">
+            <small>Motorola special deal</small>
+            <h3>Edge 60 Fusion (256GB)</h3>
+            <p class="fw-semibold">Just ₹19,999*</p>
+          </div>
+          <img src="https://picsum.photos/seed/motorola/160/120.jpg"
+               loading="lazy" decoding="async"
+               width="160" height="120"
+               class="deal-img"
+               alt="Motorola Edge 60 Fusion smartphone offer">
+        </div>
+      </article>
 
-<!-- CARD 2 -->
-<article style="min-width:320px;" role="listitem">
-<div class="deal-card">
-<div class="deal-text">
-<small>Prepaid offers & super coins</small>
-<h3>Best selling washing machines</h3>
-<p class="fw-semibold">From ₹6,790*</p>
-</div>
-<img src="https://purepng.com/public/uploads/thumbnail//snoop-dogg-jd4.png"
-loading="lazy" decoding="async"
-width="160" height="120"
-class="deal-img"
-alt="Top washing machine deals online">
-</div>
-</article>
+      <!-- CARD 4 -->
+      <article style="min-width:320px;" role="listitem">
+        <div class="deal-card">
+          <div class="deal-text">
+            <small>Top selling soundbars</small>
+            <h3>Home theatre experience</h3>
+            <p class="fw-semibold">From ₹3,499</p>
+          </div>
+          <img src="https://picsum.photos/seed/soundbar/160/120.jpg"
+               loading="lazy" decoding="async"
+               width="160" height="120"
+               class="deal-img"
+               alt="Soundbar deals for home entertainment">
+        </div>
+      </article>
 
-<!-- CARD 3 -->
-<article style="min-width:320px;" role="listitem">
-<div class="deal-card">
-<div class="deal-text">
-<small>Motorola special deal</small>
-<h3>Edge 60 Fusion (256GB)</h3>
-<p class="fw-semibold">Just ₹19,999*</p>
-</div>
-<img src="https://static.vecteezy.com/system/resources/thumbnails/069/295/266/small_2x/oneplus-black-logo-mobile-company-official-icon-on-transparent-background-free-png.png"
-loading="lazy" decoding="async"
-width="160" height="120"
-class="deal-img"
-alt="Motorola Edge 60 Fusion smartphone offer">
-</div>
-</article>
+      <!-- CARD 5 -->
+      <article style="min-width:320px;" role="listitem">
+        <div class="deal-card">
+          <div class="deal-text">
+            <small>Biggest sale deal</small>
+            <h3>Apple MacBook M2</h3>
+            <p class="fw-semibold">Just ₹64,799</p>
+          </div>
+          <img src="https://picsum.photos/seed/macbook/160/120.jpg"
+               loading="lazy" decoding="async"
+               width="160" height="120"
+               class="deal-img"
+               alt="Apple MacBook M2 laptop deal">
+        </div>
+      </article>
 
-<!-- CARD 4 -->
-<article style="min-width:320px;" role="listitem">
-<div class="deal-card">
-<div class="deal-text">
-<small>Top selling soundbars</small>
-<h3>Home theatre experience</h3>
-<p class="fw-semibold">From ₹3,499</p>
+      <!-- CARD 6 -->
+      <article style="min-width:320px;" role="listitem">
+        <div class="deal-card">
+          <div class="deal-text">
+            <small>Deals on earbuds</small>
+            <h3>realme, Goboult & more</h3>
+            <p class="fw-semibold">From ₹699</p>
+          </div>
+          <img src="https://picsum.photos/seed/earbuds/160/120.jpg"
+               loading="lazy" decoding="async"
+               width="160" height="120"
+               class="deal-img"
+               alt="Wireless earbuds best price offers">
+        </div>
+      </article>
+    </div>
+  </section>
 </div>
-<img src="https://rukminim2.flixcart.com/image/200/200/soundbar.png"
-loading="lazy" decoding="async"
-width="160" height="120"
-class="deal-img"
-alt="Soundbar deals for home entertainment">
-</div>
-</article>
 
-<!-- CARD 5 -->
-<article style="min-width:320px;" role="listitem">
-<div class="deal-card">
-<div class="deal-text">
-<small>Biggest sale deal</small>
-<h3>Apple MacBook M2</h3>
-<p class="fw-semibold">Just ₹64,799</p>
-</div>
-<img src="https://rukminim2.flixcart.com/image/200/200/macbook.png"
-loading="lazy" decoding="async"
-width="160" height="120"
-class="deal-img"
-alt="Apple MacBook M2 laptop deal">
-</div>
-</article>
-
-<!-- CARD 6 -->
-<article style="min-width:320px;" role="listitem">
-<div class="deal-card">
-<div class="deal-text">
-<small>Deals on earbuds</small>
-<h3>realme, Goboult & more</h3>
-<p class="fw-semibold">From ₹699</p>
-</div>
-<img src="https://rukminim1.flixcart.com/fk-p-flap/1040/560/image/0a995f7e8c353c78.jpg?q=60"
-loading="lazy" decoding="async"
-width="160" height="120"
-class="deal-img"
-alt="Wireless earbuds best price offers">
-</div>
-</article>
-
-</div>
-</section>
-
-</div>
-</div>
 <!-- SECTION WRAPPER -->
 <div class="container-fluid py-4" style="background:#f1f3f6;">
   <div class="px-1 px-md-2">
     <div class="row g-3">
-
       <!-- LEFT BLOCK -->
       <div class="col-lg-4 col-md-6">
         <div class="bg-white p-3 rounded h-100">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h5 class="fw-semibold mb-0">Top picks of the sale</h5>
-            <span class="btn  btn-sm rounded-circle">›</span>
+            <span class="btn btn-sm rounded-circle">›</span>
           </div>
 
           <div class="row g-3">
             <div class="col-6">
               <div class="border rounded p-2 h-100 text-center">
-                <img src="https://rukminim2.flixcart.com/image/200/200/electric-cycle.png" class="img-fluid mb-2">
+                <img src="https://picsum.photos/seed/cycle/150/150.jpg" class="img-fluid mb-2">
                 <div>Electric Cycle</div>
                 <div class="text-success fw-semibold">Min. 40% Off</div>
               </div>
             </div>
             <div class="col-6">
               <div class="border rounded p-2 h-100 text-center">
-                <img src="https://rukminim2.flixcart.com/image/200/200/remote-car.png" class="img-fluid mb-2">
+                <img src="https://picsum.photos/seed/toy/150/150.jpg" class="img-fluid mb-2">
                 <div>Remote Control Toy V...</div>
                 <div class="text-success fw-semibold">Min. 50% Off</div>
               </div>
             </div>
             <div class="col-6">
               <div class="border rounded p-2 h-100 text-center">
-                <img src="https://rukminim2.flixcart.com/image/200/200/home-gym.png" class="img-fluid mb-2">
+                <img src="https://picsum.photos/seed/gym/150/150.jpg" class="img-fluid mb-2">
                 <div>Home Gym Kits</div>
                 <div class="text-success fw-semibold">Min. 60% Off</div>
               </div>
             </div>
             <div class="col-6">
               <div class="border rounded p-2 h-100 text-center">
-                <img src="https://rukminim2.flixcart.com/image/200/200/kids-bike.png" class="img-fluid mb-2">
+                <img src="https://picsum.photos/seed/kids/150/150.jpg" class="img-fluid mb-2">
                 <div>Kids Ride-on</div>
                 <div class="text-success fw-semibold">Min. 50% Off</div>
               </div>
@@ -1143,35 +1421,35 @@ alt="Wireless earbuds best price offers">
           <div class="row g-3">
             <div class="col-6">
               <div class="border rounded p-2 h-100 text-center">
-                <img src="https://rukminim2.flixcart.com/image/200/200/earbuds.png" class="img-fluid mb-2">
+                <img src="https://picsum.photos/seed/earbuds2/150/150.jpg" class="img-fluid mb-2">
                 <div>True Wireless</div>
                 <div class="text-success fw-semibold">Min. 50% Off</div>
               </div>
             </div>
             <div class="col-6">
               <div class="border rounded p-2 h-100 text-center">
-                <img src="https://rukminim2.flixcart.com/image/200/200/watch.png" class="img-fluid mb-2">
+                <img src="https://picsum.photos/seed/watch/150/150.jpg" class="img-fluid mb-2">
                 <div>Wrist Watches</div>
                 <div class="text-success fw-semibold">Min. 90% Off</div>
               </div>
             </div>
             <div class="col-6">
               <div class="border rounded p-2 h-100 text-center">
-                <img src="https://rukminim2.flixcart.com/image/200/200/neckband.png" class="img-fluid mb-2">
+                <img src="https://picsum.photos/seed/neckband/150/150.jpg" class="img-fluid mb-2">
                 <div>Neckbands</div>
                 <div class="text-success fw-semibold">Min. 60% Off</div>
               </div>
             </div>
             <div class="col-6">
               <div class="border rounded p-2 h-100 text-center">
-                <img src="https://rukminim2.flixcart.com/image/200/200/trimmer.png" class="img-fluid mb-2">
+                <img src="https://picsum.photos/seed/trimmer/150/150.jpg" class="img-fluid mb-2">
                 <div>Trimmers</div>
                 <div class="text-success fw-semibold">Min. 70% Off</div>
               </div>
             </div>
             <div class="col-6">
               <div class="border rounded p-2 h-100 text-center">
-                <img src="https://rukminim2.flixcart.com/image/200/200/trimmer.png" class="img-fluid mb-2">
+                <img src="https://picsum.photos/seed/trimmer2/150/150.jpg" class="img-fluid mb-2">
                 <div>Trimmers</div>
                 <div class="text-success fw-semibold">Min. 70% Off</div>
               </div>
@@ -1188,57 +1466,78 @@ alt="Wireless earbuds best price offers">
             <p class="text-muted">with Latest &<br>Trendy Choices</p>
             <button class="btn btn-dark mt-2">Shop Now ›</button>
           </div>
-          <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd47"
+          <img src="https://picsum.photos/seed/fashion/300/400.jpg"
                style="position:absolute;bottom:0;right:0;max-height:85%;"
-               alt="">
+               alt="Fashion Banner">
         </div>
       </div>
-
     </div>
   </div>
 </div>
+
+<div class="container-fluid px-3 px-md-4 mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+    <h3><b>Our Products</b></h3>
+
+    <div class="dropdown">
+      <button class="btn btn-outline-secondary dropdown-toggle rounded-pill px-4"
+              id="filterBtn"
+              data-bs-toggle="dropdown">
+        All Products
+      </button>
+
+      <ul class="dropdown-menu shadow">
+        <li><a class="dropdown-item" onclick="setFilter('all','All Products')">All Products</a></li>
+        <li><a class="dropdown-item" onclick="setFilter('medical','Medical Device')">Medical Device</a></li>
+        <li><a class="dropdown-item" onclick="setFilter('firstaid','First Aid')">First Aid</a></li>
+        <li><a class="dropdown-item" onclick="setFilter('diabetic','Diabetic Care')">Diabetic Care</a></li>
+        <li><a class="dropdown-item" onclick="setFilter('herbal','Herbal')">Herbal</a></li>
+        <li><a class="dropdown-item" onclick="setFilter('health','Health Care')">Health Care</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row g-3 g-md-4" id="products"></div>
+</div>
+
 <div class="container-fluid py-4" style="background:#f1f3f6;">
   <div class="px-1 px-md-2">
-
     <h4 class="fw-semibold mb-3">Featured Brands</h4>
 
     <!-- MOBILE AUTO SCROLLER -->
     <div class="d-flex d-md-none gap-3 overflow-hidden"
          id="brandAutoScroll"
          style="scroll-behavior:smooth;">
-
       <div class="brand-card flex-shrink-0" style="width:220px;">
-        <img src="https://rukminim1.flixcart.com/fk-p-flap/900/640/image/813535af81e6036b.png?q=60"
+        <img src="https://picsum.photos/seed/brand1/220/140.jpg"
              style="width:100%;height:140px;object-fit:cover;">
         <div class="brand-footer">Up to 75% Off</div>
       </div>
 
       <div class="brand-card flex-shrink-0" style="width:220px;">
-        <img src="https://rukminim2.flixcart.com/fk-p-flap/480/480/image/nivea-skin.jpg"
+        <img src="https://picsum.photos/seed/brand2/220/140.jpg"
              style="width:100%;height:140px;object-fit:cover;">
         <div class="brand-footer">Up to 50% Off</div>
       </div>
 
       <div class="brand-card flex-shrink-0" style="width:220px;">
-        <img src="https://rukminim2.flixcart.com/fk-p-flap/480/480/image/fire-boltt-glasses.jpg"
+        <img src="https://picsum.photos/seed/brand3/220/140.jpg"
              style="width:100%;height:140px;object-fit:cover;">
         <div class="brand-footer">Spl. price ₹1,999*</div>
       </div>
 
       <div class="brand-card flex-shrink-0" style="width:220px;">
-        <img src="https://rukminim2.flixcart.com/fk-p-flap/480/480/image/tresemme.jpg"
+        <img src="https://picsum.photos/seed/brand4/220/140.jpg"
              style="width:100%;height:140px;object-fit:cover;">
         <div class="brand-footer">Shop now</div>
       </div>
-
     </div>
 
     <!-- DESKTOP GRID -->
     <div class="row g-3 d-none d-md-flex">
-
       <div class="col-lg-3 col-md-6">
         <div class="brand-card h-100">
-          <img src="https://rukminim1.flixcart.com/fk-p-flap/900/640/image/813535af81e6036b.png?q=60"
+          <img src="https://picsum.photos/seed/brand1/300/210.jpg"
                style="width:100%;height:210px;object-fit:cover;">
           <div class="brand-footer">Up to 75% Off</div>
         </div>
@@ -1246,7 +1545,7 @@ alt="Wireless earbuds best price offers">
 
       <div class="col-lg-3 col-md-6">
         <div class="brand-card h-100">
-          <img src="https://rukminim2.flixcart.com/fk-p-flap/480/480/image/nivea-skin.jpg"
+          <img src="https://picsum.photos/seed/brand2/300/210.jpg"
                style="width:100%;height:210px;object-fit:cover;">
           <div class="brand-footer">Up to 50% Off</div>
         </div>
@@ -1254,7 +1553,7 @@ alt="Wireless earbuds best price offers">
 
       <div class="col-lg-3 col-md-6">
         <div class="brand-card h-100">
-          <img src="https://rukminim2.flixcart.com/fk-p-flap/480/480/image/fire-boltt-glasses.jpg"
+          <img src="https://picsum.photos/seed/brand3/300/210.jpg"
                style="width:100%;height:210px;object-fit:cover;">
           <div class="brand-footer">Spl. price ₹1,999*</div>
         </div>
@@ -1262,21 +1561,243 @@ alt="Wireless earbuds best price offers">
 
       <div class="col-lg-3 col-md-6">
         <div class="brand-card h-100">
-          <img src="https://rukminim2.flixcart.com/fk-p-flap/480/480/image/tresemme.jpg"
+          <img src="https://picsum.photos/seed/brand4/300/210.jpg"
                style="width:100%;height:210px;object-fit:cover;">
           <div class="brand-footer">Shop now</div>
         </div>
       </div>
-
     </div>
-
   </div>
 </div>
 
-
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+  // Category Slider Variables
+  let categoryPosition = 0;
+  const categorySlider = document.getElementById('categorySlider');
+  const categorySlideWidth = 156; // 140px width + 16px gap
+  const maxCategoryPosition = Math.max(0, categorySlider.children.length - Math.floor(categorySlider.parentElement.offsetWidth / categorySlideWidth));
+
+  // Category Slider Functions
+  function slideCategories(direction) {
+    if (direction === 'next') {
+      categoryPosition = Math.min(categoryPosition + 1, maxCategoryPosition);
+    } else {
+      categoryPosition = Math.max(categoryPosition - 1, 0);
+    }
+    updateCategorySlider();
+  }
+
+  function updateCategorySlider() {
+    const offset = -categoryPosition * categorySlideWidth;
+    categorySlider.style.transform = `translateX(${offset}px)`;
+    
+    // Update arrow visibility
+    const prevArrow = document.querySelector('.category-slider-arrow.prev');
+    const nextArrow = document.querySelector('.category-slider-arrow.next');
+    
+    prevArrow.style.opacity = categoryPosition === 0 ? '0.3' : '1';
+    prevArrow.style.cursor = categoryPosition === 0 ? 'not-allowed' : 'pointer';
+    
+    nextArrow.style.opacity = categoryPosition >= maxCategoryPosition ? '0.3' : '1';
+    nextArrow.style.cursor = categoryPosition >= maxCategoryPosition ? 'not-allowed' : 'pointer';
+  }
+
+  // Touch/Swipe support for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  categorySlider.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  categorySlider.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+      slideCategories('next'); // Swipe left
+    }
+    if (touchEndX > touchStartX + 50) {
+      slideCategories('prev'); // Swipe right
+    }
+  }
+
+  // Initialize arrow visibility
+  window.addEventListener('load', updateCategorySlider);
+  window.addEventListener('resize', () => {
+    const newMaxPosition = Math.max(0, categorySlider.children.length - Math.floor(categorySlider.parentElement.offsetWidth / categorySlideWidth));
+    if (categoryPosition > newMaxPosition) {
+      categoryPosition = newMaxPosition;
+      updateCategorySlider();
+    }
+  });
+
+  // Category click handler
+  function handleCategoryClick(category) {
+    console.log('Category clicked:', category);
+    // You can redirect to category page or filter products
+    // For example: window.location.href = `/category/${category}`;
+    // Or show a message
+    alert(`Browsing ${category} category`);
+    return false;
+  }
+
+  /* ================= SLIDER SCRIPT ================= */
+  let index = 0;
+  const track = document.getElementById("track");
+  const dots = document.getElementById("dots");
+  const slides = track.children.length;
+  
+  function slide(dir) {
+    index = (index + dir + slides) % slides;
+    track.style.transform = `translateX(-${index * 100}%)`;
+    
+    // Update dots
+    const dotElements = dots.querySelectorAll("span");
+    dotElements.forEach((dot, i) => {
+      if (i === index) {
+        dot.classList.add("active");
+      } else {
+        dot.classList.remove("active");
+      }
+    });
+  }
+  
+  // Auto-advance slider
+  setInterval(() => {
+    slide(1);
+  }, 5000);
+  
+  function scrollDeals(dir) {
+    const scroller = document.getElementById("dealScroller");
+    const scrollAmount = 340;
+    scroller.scrollBy({
+      left: dir * scrollAmount,
+      behavior: "smooth"
+    });
+  }
+  
+  /* ================= PRODUCT DATA ================= */
+  const phoneDeals = [
+    {
+      name: "Apple iPhone 16",
+      price: "From ₹55,999*",
+      img: "https://picsum.photos/seed/iphone16/160/160.jpg",
+      link: "#"
+    },
+    {
+      name: "Samsung Galaxy S24",
+      price: "From ₹39,999*",
+      img: "https://picsum.photos/seed/galaxys24/160/160.jpg",
+      link: "#"
+    },
+    {
+      name: "Google Pixel 10",
+      price: "From ₹60,999*",
+      img: "https://picsum.photos/seed/pixel10/160/160.jpg",
+      link: "#"
+    },
+    {
+      name: "Nothing Phone 3A Pro",
+      price: "From ₹27,000*",
+      img: "https://picsum.photos/seed/nothing3a/160/160.jpg",
+      link: "#"
+    },
+    {
+      name: "Samsung Galaxy A55",
+      price: "From ₹24,000*",
+      img: "https://picsum.photos/seed/galaxya55/160/160.jpg",
+      link: "#"
+    },
+    {
+      name: "OnePlus Nord CE 5",
+      price: "From ₹23,000*",
+      img: "https://picsum.photos/seed/nordce5/160/160.jpg",
+      link: "#"
+    }
+  ];
+
+  /* ================= RENDER ================= */
+  const dealRow = document.getElementById("dealRow");
+
+  dealRow.innerHTML = phoneDeals.map(p => `
+    <a href="${p.link}" style="text-decoration:none;color:inherit;">
+      <div class="text-center" style="min-width:160px;">
+        <img src="${p.img}" class="img-fluid mb-2">
+        <div class="fw-medium">${p.name}</div>
+        <div class="fw-bold">${p.price}</div>
+      </div>
+    </a>
+  `).join("");
+
+  /* PRODUCT DATA */
+  const products = [
+    {img:"https://picsum.photos/seed/product1/200/200.jpg",title:"Omega-3 Heart Support",price:27.49,old:39.99,cat:"health"},
+    {img:"https://picsum.photos/seed/product2/200/200.jpg",title:"Vitamin C Tablets",price:27.49,old:39.99,cat:"health"},
+    {img:"https://picsum.photos/seed/product3/200/200.jpg",title:"Infrared Thermometer",price:27.49,old:39.99,cat:"medical"},
+    {img:"https://picsum.photos/seed/product4/200/200.jpg",title:"Hand Sanitizer",price:27.49,old:39.99,cat:"firstaid"},
+    {img:"https://picsum.photos/seed/product5/200/200.jpg",title:"Vitamin B12 Capsules",price:27.49,old:39.99,cat:"diabetic"},
+    {img:"https://picsum.photos/seed/product6/200/200.jpg",title:"Neem Herbal Extract",price:27.49,old:39.99,cat:"herbal"},
+    {img:"https://picsum.photos/seed/product7/200/200.jpg",title:"Digital Blood Pressure Monitor",price:27.49,old:39.99,cat:"medical"},
+    {img:"https://picsum.photos/seed/product8/200/200.jpg",title:"Aloe Vera Gel",price:27.49,old:39.99,cat:"herbal"},
+    {img:"https://picsum.photos/seed/product9/200/200.jpg",title:"First Aid Kit",price:27.49,old:39.99,cat:"firstaid"},
+    {img:"https://picsum.photos/seed/product10/200/200.jpg",title:"Glucose Meter",price:27.49,old:39.99,cat:"diabetic"},
+    {img:"https://picsum.photos/seed/product11/200/200.jpg",title:"Multivitamin Gummies",price:27.49,old:39.99,cat:"health"},
+    {img:"https://picsum.photos/seed/product12/200/200.jpg",title:"Herbal Sleep Aid",price:27.49,old:39.99,cat:"herbal"},
+  ];
+
+  const grid = document.getElementById("products");
+
+  /* RENDER */
+  function render(list) {
+    grid.innerHTML = list.map(p => `
+      <div class="col-6 col-md-4 col-xl-2">
+        <div class="product-card">
+          <div class="product-img">
+            <span class="off-badge">15% OFF</span>
+            <img src="${p.img}">
+            <div class="hover-icons">
+              <i class="bi bi-heart"></i>
+              <i class="bi bi-arrow-repeat"></i>
+              <i class="bi bi-eye"></i>
+            </div>
+          </div>
+          <div class="title">${p.title}</div>
+          <div class="stars">★★★★☆ <span class="text-muted">(189)</span></div>
+          <div>
+            <span class="price">$${p.price}</span>
+            <span class="old">$${p.old}</span>
+            <span class="discount">10% OFF</span>
+          </div>
+          <div class="cart-row">
+            <div class="wish"><i class="bi bi-heart"></i></div>
+            <button class="addcart"><i class="bi bi-cart"></i> View</button>
+          </div>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  /* FILTER */
+  function filterProducts(cat) {
+    if(cat === "all") render(products);
+    else render(products.filter(p => p.cat === cat));
+  }
+
+  /* DROPDOWN */
+  function setFilter(cat, label) {
+    document.getElementById("filterBtn").innerText = label;
+    filterProducts(cat);
+  }
+
+  /* INIT */
+  render(products);
+
+  /* BRAND AUTO SCROLL */
   const scroller = document.getElementById("brandAutoScroll");
   let scrollPos = 0;
 
@@ -1289,86 +1810,6 @@ alt="Wireless earbuds best price offers">
     scroller.scrollTo({ left: scrollPos, behavior: "smooth" });
   }, 2500);
 </script>
-
-<!-- ================= SLIDER SCRIPT ================= -->
-<script>
-let index = 0;
-function slide(dir){
-    const track = document.getElementById("track");
-    const slides = track.children.length;
-    index = (index + dir + slides) % slides;
-    track.style.transform = `translateX(-${index * 100}%)`;
-}
-</script>
-<script>
-function scrollDeals(dir){
-  const scroller = document.getElementById("dealScroller");
-  const scrollAmount = 340;
-  scroller.scrollBy({
-    left: dir * scrollAmount,
-    behavior: "smooth"
-  });
-}
-</script>
-<script>
-/* ================= PRODUCT DATA ================= */
-const phoneDeals = [
-  {
-    name: "Apple iPhone 16",
-    price: "From ₹55,999*",
-    img: "iphone16.png",
-    link: "#"
-  },
-  {
-    name: "Samsung Galaxy S24",
-    price: "From ₹39,999*",
-    img: "samsung-galaxy-s24.png",
-    link: "#"
-  },
-  {
-    name: "Google Pixel 10",
-    price: "From ₹60,999*",
-    img: "google-pixel-10.png",
-    link: "#"
-  },
-  {
-    name: "Nothing Phone 3A Pro",
-    price: "From ₹27,000*",
-    img: "Nothing-phone-3a-pro.png",
-    link: "#"
-  },
-  {
-    name: "Samsung Galaxy A55",
-    price: "From ₹24,000*",
-    img: "samsung-galaxy-a55.png",
-    link: "#"
-  },
-  {
-    name: "OnePlus Nord CE 5",
-    price: "From ₹23,000*",
-    img: "Oneplus Nord CE 5.png",
-    link: "#"
-  }
-];
-
-
-/* ================= RENDER ================= */
-const dealRow = document.getElementById("dealRow");
-
-dealRow.innerHTML = phoneDeals.map(p => `
-  <a href="${p.link}"
-     style="text-decoration:none;color:inherit;">
-
-    <div class="text-center" style="min-width:160px;">
-      <img src="${p.img}" class="img-fluid mb-2">
-      <div class="fw-medium">${p.name}</div>
-      <div class="fw-bold">${p.price}</div>
-    </div>
-
-  </a>
-`).join("");
-</script>
-<script src="./loader.js"></script>
 
 </body>
 </html>
