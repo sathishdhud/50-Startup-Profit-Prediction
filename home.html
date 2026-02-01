@@ -870,7 +870,7 @@
       <!-- Category Slider Wrapper -->
       <div class="category-slider-wrapper" id="categorySlider">
         <!-- Category 1: Electronics -->
-        <div class="category-slide" onclick="handleCategoryClick('electronics')">
+        <div class="category-slide" onclick="handleCategoryClick('electronic')">
           <div class="category-image-container">
             <img src="./categories/image1.png" alt="Electronics" class="category-image">
           </div>
@@ -1642,7 +1642,8 @@
     // You can redirect to category page or filter products
     // For example: window.location.href = `/category/${category}`;
     // Or show a message
-    alert(`Browsing ${category} category`);
+    window.location.href = `categories/${category}`;
+
     return false;
   }
 
