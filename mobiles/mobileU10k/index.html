@@ -59,6 +59,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -71,6 +72,14 @@ body{
 
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.dongle-regular {
+  font-family: "Dongle", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size:large;
+}
+
 .oswald {
   font-family: "Oswald", sans-serif;
   font-optical-sizing: auto;
@@ -360,27 +369,27 @@ body{
 <!-- DESKTOP FILTERS -->
 <aside class="col-lg-2 filters d-none d-md-block">
 
-  <h6 class="fw-bold">Network Type</h6>
+  <h6 class="fw-bold cabin-font-700">Network Type</h6>
   <label><input type="checkbox" value="5G" class="network"> 5G Smartphones</label><br>
   <label><input type="checkbox" value="4G" class="network"> 4G Smartphones</label>
 
-  <h6 class="fw-bold mt-3">Brand</h6>
+  <h6 class="fw-bold mt-3 cabin-font-700">Brand</h6>
   <label><input type="checkbox" value="POCO" class="brand"> POCO</label><br>
   <label><input type="checkbox" value="Samsung" class="brand"> Samsung</label><br>
   <label><input type="checkbox" value="Redmi" class="brand"> Redmi</label><br>
   <label><input type="checkbox" value="Moto" class="brand"> Motorola</label><br>
   <label><input type="checkbox" value="Lava" class="brand"> Lava</label>
 
-  <h6 class="fw-bold mt-3">Battery Capacity</h6>
+  <h6 class="fw-bold mt-3 cabin-font-700">Battery Capacity</h6>
   <label><input type="checkbox" value="5000" class="battery"> 5000mAh & Above</label><br>
   <label><input type="checkbox" value="6000" class="battery"> 6000mAh & Above</label>
 
-  <h6 class="fw-bold mt-3">Price Range</h6>
+  <h6 class="fw-bold mt-3 cabin-font-700">Price Range</h6>
   <label><input type="checkbox" value="7000" class="price"> Under ₹7,000</label><br>
   <label><input type="checkbox" value="9000" class="price"> Under ₹9,000</label><br>
   <label><input type="checkbox" value="10000" class="price"> Under ₹10,000</label>
 
-  <h6 class="fw-bold mt-3">Special Deals</h6>
+  <h6 class="fw-bold mt-3 cabin-font-700">Special Deals</h6>
   <label><input type="checkbox" value="20" class="discount"> 20% Discount or More</label>
 
   <!-- SEO helper -->
@@ -394,7 +403,7 @@ body{
 <div class="col-lg-10">
 
   <!-- Category Intro -->
-  <p class="small text-muted mb-3">
+  <p class="small text-muted mb-3 dongle-regular">
     Browse affordable smartphones under ₹10,000 with fast processors, large displays and long battery life. Compare models and choose your perfect budget mobile.
   </p>
 
@@ -408,17 +417,17 @@ body{
 </div>
 
 <!-- MOBILE FILTER -->
-<div class="overlay" id="overlay" onclick="closeFilter()"></div>
+<div class="overlay cabin-font-700" id="overlay" onclick="closeFilter()"></div>
 <div class="mobile-filter" id="mobileFilter">
-  <h5 class="fw-bold">Filter Budget Smartphones</h5>
+  <h5 class="fw-bold cabin-font-700">Filter Budget Smartphones</h5>
 
   <!-- Network -->
-  <h6 class="mt-2">Network Type</h6>
+  <h6 class="mt-2 cabin-font-600">Network Type</h6>
   <label><input type="checkbox" value="5G" class="network"> 5G Smartphones</label><br>
   <label><input type="checkbox" value="4G" class="network"> 4G Smartphones</label>
 
   <!-- Brand -->
-  <h6 class="mt-3">Brand</h6>
+  <h6 class="mt-3 cabin-font-600">Brand</h6>
   <label><input type="checkbox" value="POCO" class="brand"> POCO</label><br>
   <label><input type="checkbox" value="Samsung" class="brand"> Samsung</label><br>
   <label><input type="checkbox" value="Redmi" class="brand"> Redmi</label><br>
@@ -426,18 +435,18 @@ body{
   <label><input type="checkbox" value="Lava" class="brand"> Lava</label>
 
   <!-- Battery -->
-  <h6 class="mt-3">Battery Capacity</h6>
+  <h6 class="mt-3 cabin-font-600">Battery Capacity</h6>
   <label><input type="checkbox" value="5000" class="battery"> 5000mAh & Above</label><br>
   <label><input type="checkbox" value="6000" class="battery"> 6000mAh & Above</label>
 
   <!-- Price -->
-  <h6 class="mt-3">Price Range</h6>
+  <h6 class="mt-3 cabin-font-600">Price Range</h6>
   <label><input type="checkbox" value="7000" class="price"> Under ₹7,000</label><br>
   <label><input type="checkbox" value="9000" class="price"> Under ₹9,000</label><br>
   <label><input type="checkbox" value="10000" class="price"> Under ₹10,000</label>
 
   <!-- Deals -->
-  <h6 class="mt-3">Deals</h6>
+  <h6 class="mt-3 cabin-font-600">Deals</h6>
   <label><input type="checkbox" value="20" class="discount"> 20% Discount or More</label>
 
   <!-- CTA -->
@@ -652,10 +661,13 @@ function render(list){
       </div>
       <hr style="
 border:none;
-height:2px;
-background:linear-gradient(to right,transparent,#ff6f00,transparent);
-margin:10px 0;
+height:3px;
+width:100%;
+border-radius:10px;
+background:#ff8c2b;
+margin:12px 0;
 ">
+
 
       <!-- MOBILE ONLY DESCRIPTION -->
       <div class="d-block d-md-none cabin-font-600"
