@@ -58,4 +58,11 @@
     <priority>0.7</priority>
   </url>
 
+   <url>
+    <loc>https://maaney.store/categories/electronic/electronics.html</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
