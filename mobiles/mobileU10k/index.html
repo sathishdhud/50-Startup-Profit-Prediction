@@ -468,8 +468,8 @@ const products = [
 {
 brand:"POCO",
 title:"POCO M7 5G Budget Smartphone (120Hz Display)",
-price:11499,
-old:12999,
+price:"11,499",
+old:"12,999",
 off:12,
 cat:"Mobile",
 color:"Black",
@@ -481,66 +481,66 @@ desc:"6.88″ 120Hz HD+ Display | Qualcomm Snapdragon 4 Gen 2 Processor | 6GB/8G
 {
 brand:"Samsung",
 title:"Samsung Galaxy M06 5G Entry Level Smartphone",
-price:9299,
-old:12999,
-off:28,
+price:"10,621",
+old:"13,999",
+off:24,
 cat:"Mobile",
 color:"Blue",
-img:"https://via.placeholder.com/300?text=Samsung+M06+5G",
+img:"./samsung-m06.png",
 link:"mobiles/samsung-m06-5g.html",
-desc:"Galaxy M06 5G offers Samsung’s trusted build quality with modern 5G support. Ideal for daily calling, browsing and streaming with clean software experience and dependable battery life."
+desc:"6.70″ HD+ PLS LCD Display | MediaTek Dimensity 6300 Octa-Core Processor | 4GB/6GB RAM | 64GB/128GB Storage | Dual 5G Nano-SIM | 50MP + 2MP Dual Rear Cameras | 8MP Front Camera | 5000mAh Battery with 25W Fast Charging | Android 15 with One UI Core | Wi-Fi, Bluetooth 5.3, GPS & 3.5mm Jack"
 },
 
 {
 brand:"Redmi",
 title:"Redmi A4 5G Affordable Performance Phone",
-price:8599,
-old:10999,
-off:22,
+price:"9,678",
+old:"10,999",
+off:12,
 cat:"Mobile",
 color:"Green",
-img:"https://via.placeholder.com/300?text=Redmi+A4+5G",
+img:"./redmi-a4-5g.png",
 link:"mobiles/redmi-a4-5g.html",
-desc:"Redmi A4 5G balances price and usability with smooth UI, large display and efficient processor. A smart pick for first-time smartphone users looking to enter the 5G ecosystem."
+desc:"6.88″ HD+ 120Hz IPS LCD Display | Qualcomm Snapdragon 4s Gen 2 Octa-Core | 4GB/6GB RAM | 64GB/128GB Storage | Android 14 with HyperOS | 50MP Rear Camera | 5MP Front Camera | 5160mAh Battery with 18W Fast Charging | Dual 5G SIM | Expandable Storage up to 1TB"
 },
 
 {
 brand:"POCO",
 title:"POCO C75 5G Large Display Smartphone",
-price:8299,
-old:10999,
-off:25,
+price:"8,499",
+old:"10,999",
+off:23,
 cat:"Mobile",
 color:"Grey",
-img:"https://via.placeholder.com/300?text=POCO+C75+5G",
+img:"./poco-m75-5g.png",
 link:"mobiles/poco-c75-5g.html",
-desc:"POCO C75 5G features a spacious screen, clean design and practical camera setup. Built for everyday tasks like social media, online classes and entertainment."
+desc:"6.88″ HD+ 120 Hz IPS LCD Display | Qualcomm Snapdragon 4s Gen 2 Octa-Core Processor | 4 GB RAM | 64 GB/128 GB Storage | Expandable up to 1 TB | 50 MP Dual Rear Camera | 5 MP Front Camera | 5160 mAh Battery | Android 14 with HyperOS | Dual-SIM 5G Connectivity"
 },
 
 {
 brand:"Motorola",
 title:"Moto G06 Power Long Battery Smartphone",
-price:7199,
-old:8999,
+price:"7,999",
+old:"9,999",
 off:20,
 cat:"Mobile",
 color:"Red",
-img:"https://via.placeholder.com/300?text=Moto+G06+Power",
+img:"./moto-g06-5g.png",
 link:"mobiles/moto-g06-power.html",
-desc:"Moto G06 Power focuses on long battery endurance and clutter-free Android experience. Perfect for users who need dependable backup throughout the day."
+desc:"6.5″ HD+ IPS LCD Display | Unisoc T720 Octa-Core Processor | 4GB RAM | 64GB/128GB Storage | 6000mAh Massive Battery | 50MP Dual Rear Camera | 8MP Front Camera | Android 14 | Dual SIM 4G Connectivity | Side-Mounted Fingerprint Sensor"
 },
 
 {
 brand:"Lava",
 title:"Lava Storm Play 5G Made-in-India Smartphone",
-price:8999,
-old:13499,
-off:33,
+price:"10,473",
+old:"13,499",
+off:22,
 cat:"Mobile",
 color:"Grey",
-img:"https://via.placeholder.com/300?text=Lava+Storm+Play+5G",
+img:"./lava-storm-play-5g.png",
 link:"mobiles/lava-storm-play-5g.html",
-desc:"Lava Storm Play 5G brings powerful processing and modern design at a budget price. Suitable for gaming, video streaming and multitasking with Indian brand reliability."
+desc:"6.78″ Full HD+ 120Hz Display | MediaTek Dimensity 7050 Octa-Core Processor | 8GB/12GB RAM | 128GB/256GB Storage | 64MP Triple Rear Camera | 16MP Front Camera | 5000mAh Battery with 33W Fast Charging | Dual 5G SIM | Android 14 | Side Fingerprint Sensor."
 },
 
 {
@@ -633,7 +633,7 @@ function render(list){
     <img src="${p.img}" class="product-img">
 
     <!-- OFFER BADGE -->
-    <div class="rating">${p.off}% OFF</div>
+    
 
     <div>
 
