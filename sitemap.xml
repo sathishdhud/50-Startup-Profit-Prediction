@@ -59,10 +59,34 @@
   </url>
 
    <url>
-    <loc>https://maaney.store/categories/electronic/electronics.html</loc>
+    <loc>https://maaney.store/categories/electronic</loc>
     <lastmod>2026-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-
+ <url>
+    <loc>https://maaney.store/mobiles/mobileU10k</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+   <url>
+    <loc>https://maaney.store/mobiles/poco-m7-5g</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+   <url>
+    <loc>https://maaney.store/mobiles/samsung-mo6</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+   <url>
+    <loc>https://maaney.store/mobiles/redmi-a4-5g</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
