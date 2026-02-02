@@ -650,6 +650,12 @@ function render(list){
           ${p.title}
         </a>
       </div>
+      <hr style="
+border:none;
+height:2px;
+background:linear-gradient(to right,transparent,#ff6f00,transparent);
+margin:10px 0;
+">
 
       <!-- MOBILE ONLY DESCRIPTION -->
       <div class="d-block d-md-none cabin-font-600"
@@ -665,6 +671,7 @@ function render(list){
       <!-- PRICE -->
       <div style="margin-top:6px;">
         <span class="price special-gothic-expanded-one-regular">₹${p.price}</span>
+
         <span class="old special-gothic-expanded-one-regular" style="color:#DC0000;"> ₹${p.old}</span>
         <span class="off">(${p.off}% OFF)</span>
       </div>
