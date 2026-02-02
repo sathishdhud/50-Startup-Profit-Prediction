@@ -76,6 +76,22 @@ body{
   font-variation-settings:"wdth" 100;
 }
 
+.cabin-font-700{ 
+  font-family: "Cabin", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings:"wdth" 100;
+}
+.cabin-font-700-bold{
+    font-family: "Cabin", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: large;
+    font-style: bold;
+    font-variation-settings:"wdth" 200;
+}
+
 /* PAGE */
 .page-wrapper{
   background:#ffffff;
@@ -580,14 +596,15 @@ function render(list){
 
     <div>
 
-      <div class="brand">${p.brand}</div>
+      <div class="brand cabin-font-700-bold">${p.brand}</div>
 
       <!-- TITLE -->
-      <div class="title" style="
+      <div class="title cabin-font-700" style="
         font-size:14px;
         font-weight:500;
         line-height:1.3;
         margin-top:6px;
+        color:#212121;
       ">
         <a href="${p.link}"
            target="_self"
