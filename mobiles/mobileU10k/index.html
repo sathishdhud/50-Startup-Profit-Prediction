@@ -57,7 +57,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -74,6 +75,12 @@ body{
   font-family: "Oswald", sans-serif;
   font-optical-sizing: auto;
   font-weight: 600;
+  font-style: normal;
+}
+
+.special-gothic-expanded-one-regular {
+  font-family: "Special Gothic Expanded One", sans-serif;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -327,9 +334,16 @@ body{
   <div class="d-flex gap-2 align-items-center">
 
     <!-- Mobile Filter -->
-    <button class="btn btn-outline-secondary btn-sm d-md-none" onclick="openFilter()">
-      Filters
-    </button>
+    <button onclick="openFilter()" class="d-md-none" style="
+  border:none;
+  color:rgb(255, 95, 2);
+  padding:6px 10px;
+  border-radius:6px;
+ 
+">
+  <i class="fa-solid fa-sliders"></i>
+</button>
+
 
     <!-- Sort Info -->
     <div class="border px-3 py-2 rounded small d-none d-md-block">
@@ -650,8 +664,8 @@ function render(list){
 
       <!-- PRICE -->
       <div style="margin-top:6px;">
-        <span class="price">₹${p.price}</span>
-        <span class="old" style="color:#d32f2f;"> ₹${p.old}</span>
+        <span class="price special-gothic-expanded-one-regular">₹${p.price}</span>
+        <span class="old special-gothic-expanded-one-regular" style="color:#DC0000;"> ₹${p.old}</span>
         <span class="off">(${p.off}% OFF)</span>
       </div>
 
