@@ -89,4 +89,21 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+    <url>
+      <loc>https://maaney.store/mobiles/poco-c75</loc>
+      <lastmod>2026-02-02</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+  </url>
+    <url>
+      <loc>https://maaney.store/mobiles/lava-storm-play-5g</loc>
+      <lastmod>2026-02-02</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+  </url>
+    <url>
+      <loc>https://maaney.store/mobiles/moto-g06</loc>
+      <lastmod>2026-02-02</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
 </urlset>
