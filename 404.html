@@ -9,6 +9,10 @@
 <meta name="robots" content="noindex, follow">
 <meta  name="theme-color" content="#fff">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
 <!-- Lottie -->
 <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
 
@@ -17,6 +21,23 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
+}
+
+
+.jost {
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.merriweather {
+  font-family: "Merriweather", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 html,body{
@@ -135,7 +156,7 @@ body{
     <div id="lottie"></div>
 
     <!-- Text -->
-    <div class="title">Oops! This page isn’t here</div>
+    <div class="title jost">Oops! This page isn’t here</div>
 
     <div class="desc">
       Looks like the page was moved or removed.
