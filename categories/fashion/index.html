@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Maaney Fashion - Online Shopping for Clothing, Footwear & Accessories</title>
+
+<meta name="description" content="Shop online for the latest fashion: men's clothing, women's dresses, footwear, watches and accessories. Best prices and fast delivery at Maaney Store.">
+
+<meta name="keywords" content="online fashion store, buy clothes, mens fashion, womens fashion, footwear, accessories, india fashion, maaney store">
+
+<meta name="author" content="Maaney Store">
+
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="theme-color" content="#ff8c2b">
+
+<link rel="canonical" href="https://maaney.store/fashion">
+
+<!-- Geo targeting -->
+<meta name="geo.region" content="IN">
+<meta name="geo.placename" content="India">
+
+<!-- Theme -->
+<meta name="theme-color" content="#111111">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Maaney Fashion - Best Deals on Style">
+<meta property="og:description" content="Discover the latest fashion trends and accessories at unbeatable prices.">
+<meta property="og:url" content="https://maaney.store/fashion">
+<meta property="og:site_name" content="Maaney Store">
+<meta property="og:image" content="https://maaney.store/assets/fashion-cover.jpg">
+
+<!-- Favicon -->
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/747/747376.png" type="image/x-icon">
+
+<!-- Performance -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+<!-- CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --fk-orange:#ff6a00;
+  --brand-bg: #fff8f2;
+}
+
+body{
+  background: linear-gradient(135deg, #ff8c2b, #ff5f00);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.dongle-regular {
+  font-family: "Dongle", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size:large;
+}
+
+.oswald {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.special-gothic-expanded-one-regular {
+  font-family: "Special Gothic Expanded One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lexend{
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cabin-font-600{ 
+  font-family: "Cabin", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:"wdth" 100;
+}
+
+.cabin-font-700{ 
+  font-family: "Cabin", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings:"wdth" 100;
+}
+.cabin-font-700-bold{
+    font-family: "Cabin", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: large;
+    font-style: bold;
+    font-variation-settings:"wdth" 200;
+}
+
+/* PAGE */
+.page-wrapper{
+  background:#ffffff;
+  border-radius:5px 5px 20px 20px;
+  padding:16px;
+  box-shadow:0 2px 12px rgba(0,0,0,.07);
+  flex: 1; /* Pushes footer down */
+}
+
+/* HEADER BAR */
+.top-bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #eee;
+  padding-bottom:10px;
+  margin-bottom:16px;
+}
+
+/* FILTER SIDEBAR */
+.filters{
+  border-right:1px solid #eee;
+  padding-right:16px;
+}
+.filters h6{
+  font-weight:700;
+  margin:16px 0 8px;
+}
+.filters label{
+  display:block;
+  font-size:14px;
+  margin-bottom:6px;
+}
+.search-wrap{
+    background-color: #ffffff;
+}
+
+/* PRODUCT CARD */
+.product-card{
+  background:#fff;
+  padding:10px;
+  border-radius:4px;
+  transition: transform 0.2s;
+  border:1px solid #f0f0f0;
+}
+
+.product-img{
+  width:100%;
+  height:200px;
+  object-fit:contain;
+  padding: 10px;
+  background: #fafafa;
+}
+
+/* HOME PAGE SECTIONS STYLES */
+.hero-banner {
+   
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+}
+.hero-text h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+}
+.hero-text p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.hero-btn {
+    background: var(--fk-orange);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+}
+
+.hero-img {
+    max-width: 240px;
+    height: auto;
+}
+
+/* CATEGORY SECTION */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 8px;
+}
+.section-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    color: #333;
+    font-size: 1.1rem;
+    position: relative;
+}
+
+
+.cat-row {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+.cat-row::-webkit-scrollbar { display: none; }
+
+.cat-item {
+    min-width: 100px;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.2s;
+    border: 1px solid transparent;
+}
+
+.cat-icon {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    font-size: 24px;
+    color: var(--fk-orange);
+}
+.cat-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+}
+
+/* FLASH SALE */
+.flash-sale-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    -webkit-overflow-scrolling: touch;
+}
+.flash-card {
+    min-width: 160px;
+    background: #fff;
+    
+    border-radius: 6px;
+    padding: 10px;
+    text-align: center;
+}
+.flash-img {
+    width: 100%;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+.flash-timer {
+    background: #ffe0cc;
+    color: var(--fk-orange);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+/* STYLES FROM PREVIOUS */
+.rating{
+  position:absolute;
+  bottom:10px;
+  left:10px;
+  background:#fa3701;
+  color: #fff;
+  padding:2px 6px;
+  font-size:13px;
+  border-radius:0px;
+  font-weight:600;
+}
+.brand{font-weight:700;font-size:14px;}
+.title{font-size:14px;color:#444;}
+.price{font-weight:700;}
+.old{text-decoration:line-through;color:#999;font-size:13px;}
+.off{color:var(--fk-orange);font-size:13px;font-weight:600;}
+.stock{font-size:13px;color:#ea3903;font-weight:600;}
+
+/* MOBILE CARD */
+@media(max-width:768px){
+  .filters{
+    display:none;
+  }
+  .product-card{
+    display:flex;
+    gap:12px;
+    border-bottom:1px solid #eee;
+  }
+  .product-img{
+    width:120px;
+    height:120px;
+    flex-shrink:0;
+  }
+  .hero-banner {
+      flex-direction: column;
+      text-align: center;
+  }
+  .hero-img {
+      max-width: 240px;
+      margin-top: 10px;
+  }
+}
+
+
+
+/* MOBILE FILTER DRAWER */
+.mobile-filter{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#fff;
+  border-top-left-radius:16px;
+  border-top-right-radius:16px;
+  padding:16px;
+  max-height:80vh;
+  overflow:auto;
+  display:none;
+  z-index:999;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+}
+.mobile-filter.show{
+  display:block;
+}
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  display:none;
+  z-index:998;
+}
+.overlay.show{
+  display:block;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+/* FOOTER */
+.maaney-footer {
+    background: #111111;
+    color: #fff;
+    padding: 40px 0 20px;
+    margin-top: 30px;
+    font-family: 'Lexend', sans-serif;
+    border-radius: 20px 20px 0 0;
+}
+.footer-title {
+    color: #ff8c2b;
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+.footer-link {
+    display: block;
+    color: #bbb;
+    text-decoration: none;
+    margin-bottom: 8px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.footer-bottom {
+    border-top: 1px solid #333;
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #777;
+}
+</style>
+</head>
+
+<body>
+  <!-- TOP NAV -->
+  <div class="container-fluid top-nav" style="background:#ff8c2b;">
+  <div class="container">
+    <div class="row align-items-center" style="height:40px;">
+      <!-- LOGO -->
+      <div class="col-6 col-md-2 d-flex ps-2">
+        <img
+          src="https://maaney.store/logo.png"
+          onerror="this.src='https://cdn-icons-png.flaticon.com/512/747/747376.png'"
+          alt="Maaney Fashion Logo"
+          style="height:32px; width:auto; object-fit:contain;"
+        >
+      </div>
+
+      <!-- SEARCH BAR (DESKTOP) -->
+      <div class="col-md-6 d-none d-md-flex align-items-center">
+        <div class="d-flex align-items-center px-3 w-100" style="height:38px; background:#ffffff; border-radius:8px;">
+          <i class="fa fa-search me-2" style="color:#f97316;font-size:14px;"></i>
+          <input
+            type="text"
+            class="form-control border-0 shadow-none p-0 bg-transparent"
+            placeholder="Search Clothing, Brands and More"
+            style="font-size:14px;"
+          >
+        </div>
+      </div>
+
+      <!-- RIGHT ACTIONS -->
+      <div class="col-6 col-md-4 d-flex justify-content-end align-items-center gap-3">
+        <button class="d-none d-md-inline" style="height:32px; padding:0 14px; background:#ff9800; color:#fff; border:none; border-radius:6px; font-size:14px; font-weight:600;" onclick="location.href='#'">Login</button>
+        <i class="fa fa-cart-shopping text-white" style="font-size:18px; cursor:pointer;"></i>
+        <i class="fa fa-bars d-md-none text-white" style="font-size:20px;"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE SEARCH -->
+<div class="container d-md-none mt-2">
+<div class="search-wrap d-flex align-items-center px-3" style="border-radius:8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+    <i class="fa fa-search me-2" style="color:#f97316;"></i>
+    <input type="text" class="w-100 border-0" style="outline:none;" placeholder="Search Clothing, Brands...">
+</div>
+</div>
+
+<div class="container-fluid px-2 px-md-3 my-3">
+<div class="page-wrapper">
+
+<!-- TOP BAR -->
+<div class="top-bar d-flex justify-content-between align-items-center flex-wrap gap-2">
+  <div>
+    <h1 class="h5 mb-0 fw-bold oswald">
+      Welcome to Maaney Fashion
+    </h1>
+    <span class="text-muted small lexend">
+      Discover Best Styles • <span id="count"></span> products trending
+    </span>
+  </div>
+  <div class="d-flex gap-2 align-items-center">
+    <!-- Mobile Filter Trigger -->
+    <button onclick="openFilter()" class="d-md-none" style="border:none; color:rgb(255, 95, 2); padding:6px 10px; border-radius:6px;">
+      <i class="fa-solid fa-sliders"></i>
+    </button>
+    <!-- Sort Info -->
+    <div class="border px-3 py-2 rounded small d-none d-md-block">
+      View: <strong style="color:var(--fk-orange)">Trending Now</strong>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+
+<!-- SIDEBAR (Fashion Filters) -->
+<aside class="col-lg-2 filters d-none d-md-block">
+  <h6 class="fw-bold cabin-font-700">Gender</h6>
+  <label><input type="checkbox" value="Men" class="network"> Men</label><br>
+  <label><input type="checkbox" value="Women" class="network"> Women</label><br>
+  <label><input type="checkbox" value="Kids" class="network"> Kids</label><br>
+
+  <h6 class="fw-bold mt-3 cabin-font-700">Category</h6>
+  <label><input type="checkbox" value="Footwear" class="network"> Footwear</label><br>
+  <label><input type="checkbox" value="Accessories" class="network"> Accessories</label><br>
+  <label><input type="checkbox" value="Watches" class="network"> Watches</label><br>
+
+  <h6 class="fw-bold mt-3 cabin-font-700">Brand</h6>
+  <label><input type="checkbox" value="Nike" class="brand"> Nike</label><br>
+  <label><input type="checkbox" value="Levis" class="brand"> Levi's</label><br>
+  <label><input type="checkbox" value="Zara" class="brand"> Zara</label><br>
+  <label><input type="checkbox" value="H&M" class="brand"> H&M</label>
+
+  <h6 class="fw-bold mt-3 cabin-font-700">Price Range</h6>
+  <label><input type="checkbox" value="500" class="price"> Under ₹500</label><br>
+  <label><input type="checkbox" value="1000" class="price"> Under ₹1,000</label><br>
+  <label><input type="checkbox" value="2000" class="price"> Under ₹2,000</label>
+
+  <p class="small text-muted mt-3">Filter the trending styles below.</p>
+</aside>
+
+<!-- MAIN CONTENT AREA -->
+<div class="col-lg-10">
+
+  <!-- SECTION 1: HERO BANNER -->
+  <div class="hero-banner">
+    <div class="hero-text">
+        <h2>Big Fashion Festival</h2>
+        <p>Up to 50% off on Top Brands & Seasonal Styles. Limited time offer.</p>
+        
+    </div>
+    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=500&q=80" alt="Fashion Sale" class="hero-img img-fluid">
+  </div>
+
+  <!-- SECTION 2: CATEGORIES -->
+  <div class="section-header">
+      <h5 class="section-title">Shop by Category</h5>
+  </div>
+  <div class="cat-row">
+      <a href="#" style="text-decoration:none;color:inherit;display:block;">
+          <div class="cat-item">
+            <div class="cat-icon"><i class="fa fa-tshirt"></i></div>
+            <div class="cat-name">Men</div>
+          </div>
+      </a>
+      <div class="cat-item">
+          <div class="cat-icon"><i class="fa fa-female"></i></div>
+          <div class="cat-name">Women</div>
+      </div>
+      <div class="cat-item">
+          <div class="cat-icon"><i class="fa fa-shoe-prints"></i></div>
+          <div class="cat-name">Footwear</div>
+      </div>
+      <div class="cat-item">
+          <div class="cat-icon"><i class="fa fa-gem"></i></div>
+          <div class="cat-name">Jewelry</div>
+      </div>
+      <div class="cat-item">
+          <div class="cat-icon"><i class="fa fa-clock"></i></div>
+          <div class="cat-name">Watches</div>
+      </div>
+      <div class="cat-item">
+          <div class="cat-icon"><i class="fa fa-glasses"></i></div>
+          <div class="cat-name">Sunglasses</div>
+      </div>
+  </div>
+
+  <!-- SECTION 3: FLASH SALE -->
+  <div class="section-header">
+      <h5 class="section-title">Flash Sale <span class="flash-timer">Ends in 04h 23m</span></h5>
+  </div>
+  <div class="flash-sale-container">
+      <div class="flash-card">
+          <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80" class="flash-img">
+          <div style="font-size:12px; font-weight:600;">Polo Shirt</div>
+          <div style="color:green; font-weight:bold; font-size:13px;">₹499</div>
+      </div>
+      <div class="flash-card">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80" class="flash-img">
+          <div style="font-size:12px; font-weight:600;">Red Sneakers</div>
+          <div style="color:green; font-weight:bold; font-size:13px;">₹1,299</div>
+      </div>
+      <div class="flash-card">
+          <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500&q=80" class="flash-img">
+          <div style="font-size:12px; font-weight:600;">Analog Watch</div>
+          <div style="color:green; font-weight:bold; font-size:13px;">₹2,499</div>
+      </div>
+      <div class="flash-card">
+          <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500&q=80" class="flash-img">
+          <div style="font-size:12px; font-weight:600;">Sunglasses</div>
+          <div style="color:green; font-weight:bold; font-size:13px;">₹999</div>
+      </div>
+  </div>
+
+  <!-- SECTION 4: TRENDING PRODUCTS (The Grid) -->
+  <div class="section-header">
+      <h5 class="section-title">Trending Now</h5>
+  </div>
+  
+  <p class="small text-muted mb-3 dongle-regular">
+    Browse the most popular fashion items chosen by our users this week.
+  </p>
+
+  <div class="row g-4" id="grid"></div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- MOBILE FILTER -->
+<div class="overlay cabin-font-700" id="overlay" onclick="closeFilter()"></div>
+<div class="mobile-filter" id="mobileFilter">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="fw-bold cabin-font-700 mb-0">Filter</h5>
+    <i class="fa fa-times" onclick="closeFilter()" style="cursor:pointer; color:#777;"></i>
+  </div>
+  <!-- Category -->
+  <h6 class="mt-2 cabin-font-600">Gender</h6>
+  <label><input type="checkbox" value="Men" class="network"> Men</label><br>
+  <label><input type="checkbox" value="Women" class="network"> Women</label><br>
+  <label><input type="checkbox" value="Kids" class="network"> Kids</label><br>
+  
+  <!-- Brand -->
+  <h6 class="mt-3 cabin-font-600">Brand</h6>
+  <label><input type="checkbox" value="Nike" class="brand"> Nike</label><br>
+  <label><input type="checkbox" value="Levis" class="brand"> Levi's</label><br>
+  <label><input type="checkbox" value="Zara" class="brand"> Zara</label><br>
+
+  <!-- Price -->
+  <h6 class="mt-3 cabin-font-600">Price Range</h6>
+  <label><input type="checkbox" value="500" class="price"> Under ₹500</label><br>
+  <label><input type="checkbox" value="1000" class="price"> Under ₹1,000</label><br>
+
+  <button class="btn btn-warning w-100 mt-3" style="background-color:#ea3903;color:#ffffff; border:none;" onclick="applyFilters();closeFilter()">Apply</button>
+</div>
+
+<!-- FOOTER -->
+<footer class="maaney-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="d-flex align-items-center gap-2 mb-3">
+             <i class="fa fa-bolt" style="color:#ff8c2b; font-size:24px;"></i>
+             <h5 class="mb-0 fw-bold" style="color:white;">Maaney Fashion</h5>
+        </div>
+        <p style="color:#bbb; font-size:14px; line-height:1.6;">
+          Your one-stop destination for trendy fashion. We offer the latest styles in clothing, footwear, and accessories at the best prices.
+        </p>
+      </div>
+      <div class="col-6 col-md-2 mb-4">
+        <h6 class="footer-title">Shop</h6>
+        <a href="#" class="footer-link">Men</a>
+        <a href="#" class="footer-link">Women</a>
+        <a href="#" class="footer-link">Kids</a>
+        <a href="#" class="footer-link">Footwear</a>
+      </div>
+      <div class="col-6 col-md-2 mb-4">
+        <h6 class="footer-title">Support</h6>
+        <a href="#" class="footer-link">Help Center</a>
+        <a href="#" class="footer-link">Returns</a>
+        <a href="#" class="footer-link">Contact Us</a>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h6 class="footer-title">Stay Connected</h6>
+        <div class="d-flex gap-3 mb-3">
+            <a href="#" class="text-white"><i class="fab fa-facebook fa-lg"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-instagram fa-lg"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-twitter fa-lg"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+        © <span id="year"></span> Maaney Fashion. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+// FASHION DATA
+const products = [
+{
+brand:"Nike",
+title:"Nike Air Max 270 Sneakers (Black/White)",
+price:"9,999",
+old:"14,995",
+off:33,
+cat:"Footwear",
+color:"Black",
+img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80",
+link:"#",
+desc:"Large Air Max 270 unit | Breathable Mesh Upper | Foam Midsole | Rubber Outsole | Comfortable Fit"
+},
+{
+brand:"Levi's",
+title:"Levi's 511 Slim Fit Jeans (Blue)",
+price:"2,499",
+old:"3,999",
+off:37,
+cat:"Men",
+color:"Blue",
+img:"https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?w=500&q=80",
+link:"#",
+desc:"98% Cotton, 2% Elastane | Slim Fit | Stretch Fabric | Classic 5-Pocket Design | Medium Wash"
+},
+{
+brand:"Zara",
+title:"Zara Floral Print Maxi Dress",
+price:"3,490",
+old:"4,990",
+off:30,
+cat:"Women",
+color:"Multi",
+img:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500&q=80",
+link:"#",
+desc:"Viscose Blend | V-Neck | Short Sleeves | Flowy Silhouette | Machine Washable"
+},
+{
+brand:"Fossil",
+title:"Fossil Grant Chronograph Watch",
+price:"8,995",
+old:"12,995",
+off:30,
+cat:"Watches",
+color:"Brown",
+img:"https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=500&q=80",
+link:"#",
+desc:"Analogue Display | Brown Leather Strap | 44mm Case | Water Resistant | Date Window"
+},
+{
+brand:"Ray-Ban",
+title:"Ray-Ban Aviator Sunglasses (Gold)",
+price:"7,900",
+old:"9,900",
+off:20,
+cat:"Accessories",
+color:"Gold",
+img:"https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500&q=80",
+link:"#",
+desc:"Classic Aviator Shape | Gradient Crystal Lenses | Gold Metal Frame | 100% UV Protection"
+},
+{
+brand:"H&M",
+title:"H&M Regular Fit T-Shirt (Pack of 3)",
+price:"999",
+old:"1,499",
+off:33,
+cat:"Men",
+color:"Assorted",
+img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80",
+link:"#",
+desc:"100% Cotton | Crew Neck | Short Sleeves | Soft Fabric | Regular Fit"
+},
+{
+brand:"Puma",
+title:"Puma RS-X Retro Sneakers",
+price:"4,599",
+old:"6,999",
+off:34,
+cat:"Footwear",
+color:"Multi",
+img:"https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=500&q=80",
+link:"#",
+desc:"Retro Running Style | Chunky Sole | Mesh & Synthetic Upper | Lace-up Closure | Soft Foam"
+},
+{
+brand:"Mango",
+title:"Mango Crossbody Handbag (Beige)",
+price:"1,990",
+old:"2,990",
+off:33,
+cat:"Women",
+color:"Beige",
+img:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500&q=80",
+link:"#",
+desc:"Synthetic Material | Adjustable Strap | Main Compartment | Inner Zip Pocket | Chic Design"
+}
+];
+
+function render(list){
+  const grid=document.getElementById("grid");
+  grid.innerHTML="";
+  
+  if(list.length === 0) {
+      grid.innerHTML = `<div class="col-12 text-center py-5">
+        <h5 class="text-muted">No products found.</h5>
+      </div>`;
+      document.getElementById("count").innerText="0";
+      return;
+  }
+
+  list.forEach(p=>{
+    grid.innerHTML+=`
+    <div class="col-lg-3 col-md-4 col-12">
+  <div class="product-card position-relative">
+
+    <img src="${p.img}" class="product-img" onerror="this.src='https://via.placeholder.com/300?text=Image'">
+    <div style="position:absolute; top:10px; right:10px; background:#28a745; color:white; padding:2px 6px; font-size:11px; border-radius:2px; font-weight:600;">
+      Trending
+    </div>
+    <div>
+      <div class="brand cabin-font-700-bold">${p.brand}</div>
+      <div class="title cabin-font-700" style="font-size:14px; font-weight:500; line-height:1.3; margin-top:6px; color:#212121;">
+        <a href="${p.link}" target="_self" style="text-decoration:none; color:#212121; display:block;" onmouseover="this.style.color='#ff6f00'" onmouseout="this.style.color='#212121'">
+          ${p.title}
+        </a>
+      </div>
+      <hr style="border:none; height:3px; width:100%; border-radius:10px; background:#ff8c2b; margin:12px 0;">
+      <div class="d-block d-md-none cabin-font-600" style="font-size:12.5px; color:262626; line-height:1.4; margin-top:4px;">
+        ${p.desc}
+      </div>
+      <div style="margin-top:6px;">
+        <span class="price special-gothic-expanded-one-regular">₹${p.price}</span>
+        <span class="old special-gothic-expanded-one-regular" style="color:#DC0000;"> ₹${p.old}</span>
+        <span class="off">(${p.off}% OFF)</span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+  });
+  document.getElementById("count").innerText=list.length;
+}
+
+function applyFilters(){
+  const categories = [...document.querySelectorAll(".network:checked")].map(i=>i.value);
+  const brands   = [...document.querySelectorAll(".brand:checked")].map(i=>i.value);
+  const prices   = [...document.querySelectorAll(".price:checked")].map(i=>parseInt(i.value));
+
+  const filtered = products.filter(p => {
+    // Check Gender (network class)
+    const catOK = categories.length===0 || categories.includes(p.cat);
+    
+    // Check Brand
+    const brandOK = brands.length===0 || brands.includes(p.brand);
+    
+    // Check Price
+    const priceOK = prices.length===0 || prices.some(pr => {
+        const numericPrice = parseInt(p.price.replace(/,/g, ''));
+        return numericPrice <= pr;
+    });
+    return catOK && brandOK && priceOK;
+  });
+
+  render(filtered);
+}
+
+document.querySelectorAll("input").forEach(i=> i.addEventListener("change", applyFilters));
+
+function openFilter(){
+  document.getElementById("mobileFilter").classList.add("show");
+  document.getElementById("overlay").classList.add("show");
+}
+function closeFilter(){
+  document.getElementById("mobileFilter").classList.remove("show");
+  document.getElementById("overlay").classList.remove("show");
+}
+
+document.getElementById("year").innerText = new Date().getFullYear();
+render(products);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
