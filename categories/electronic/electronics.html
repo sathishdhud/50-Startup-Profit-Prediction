@@ -52,6 +52,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
+<link href="../../style.css" rel="stylesheet">
 
 <style>
 :root{
@@ -538,7 +539,7 @@ body{
     <div class="hero-text">
         <h2>Big Tech Festival</h2>
         <p>Up to 40% off on Laptops & Smartphones. Limited time offer.</p>
-        <a href="#grid" class="hero-btn">Shop Now</a>
+        
     </div>
     <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=500&q=80" alt="Tech Sale" class="hero-img img-fluid">
   </div>
@@ -646,45 +647,7 @@ body{
 </div>
 
 <!-- FOOTER -->
-<footer class="maaney-footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 mb-4">
-        <div class="d-flex align-items-center gap-2 mb-3">
-             <i class="fa fa-bolt" style="color:#ff8c2b; font-size:24px;"></i>
-             <h5 class="mb-0 fw-bold" style="color:white;">Maaney Electronics</h5>
-        </div>
-        <p style="color:#bbb; font-size:14px; line-height:1.6;">
-          Your trusted destination for the latest electronics in India.
-        </p>
-      </div>
-      <div class="col-6 col-md-2 mb-4">
-        <h6 class="footer-title">Shop</h6>
-        <a href="#" class="footer-link">Mobiles</a>
-        <a href="#" class="footer-link">Laptops</a>
-        <a href="#" class="footer-link">TVs</a>
-        <a href="#" class="footer-link">Audio</a>
-      </div>
-      <div class="col-6 col-md-2 mb-4">
-        <h6 class="footer-title">Support</h6>
-        <a href="#" class="footer-link">Help Center</a>
-        <a href="#" class="footer-link">Returns</a>
-        <a href="#" class="footer-link">Contact Us</a>
-      </div>
-      <div class="col-md-4 mb-4">
-        <h6 class="footer-title">Stay Connected</h6>
-        <div class="d-flex gap-3 mb-3">
-            <a href="#" class="text-white"><i class="fab fa-facebook fa-lg"></i></a>
-            <a href="#" class="text-white"><i class="fab fa-instagram fa-lg"></i></a>
-            <a href="#" class="text-white"><i class="fab fa-twitter fa-lg"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-        © <span id="year"></span> Maaney Electronics. All rights reserved.
-    </div>
-  </div>
-</footer>
+
 
 <script>
 const products = [
@@ -860,9 +823,10 @@ function closeFilter(){
   document.getElementById("overlay").classList.remove("show");
 }
 
-document.getElementById("year").innerText = new Date().getFullYear();
+
 render(products);
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../footer.js" ></script>
 </body>
 </html>
