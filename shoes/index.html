@@ -690,42 +690,7 @@ document.getElementById("count").innerText = products.length;
 
 </script>
 <script src="../footer.js"></script>
-<script>
-   const themeMeta = document.getElementById("themeColor");
-const bottomFooter = document.getElementById("bottomFooter");
 
-// Colors
-const topColor = "#ffffff";     // Top browser bar
-const bottomColor = "#000000"; // Bottom footer
-
-function syncThemeColor(){
-
-  // When user reaches bottom area OR footer visible
-  if(
-    bottomFooter &&
-    window.innerHeight + window.scrollY >= document.body.offsetHeight - 120
-  ){
-    themeMeta.setAttribute("content", bottomColor);
-  } 
-  else {
-    themeMeta.setAttribute("content", topColor);
-  }
-
-}
-
-// Run on load + scroll
-window.addEventListener("load", syncThemeColor);
-window.addEventListener("scroll", syncThemeColor);
-
-// Optional: when footer tapped
-if(bottomFooter){
-  bottomFooter.addEventListener("click", ()=>{
-    themeMeta.setAttribute("content", bottomColor);
-  });
-}
-
-
-</script>
 
 </body>
 </html>
