@@ -21,6 +21,7 @@
 html,body{
   width:100%;
   height:100%;
+  overflow:hidden;
 }
 
 body{
@@ -32,12 +33,13 @@ body{
 .page{
   min-height:100vh;
   display:flex;
-  align-items:center;
+  align-items:flex-start;
   justify-content:center;
 }
 
 /* Center stack */
 .stack{
+  margin-top:30px; /* moves everything slightly up */
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -47,40 +49,40 @@ body{
 
 /* Logo */
 .logo{
-  height:46px;
+  height:72px;        /* increased */
   margin-bottom:12px;
 }
 
 /* Lottie */
 #lottie{
-  width:320px;
-  height:320px;
+  width:420px;       /* increased */
+  height:420px;
 }
 
 /* Title */
 .title{
-  margin-top:8px;
-  font-size:26px;
-  font-weight:700;
+  margin-top:10px;
+  font-size:32px;    /* increased */
+  font-weight:800;
   color:#111;
 }
 
 /* Description */
 .desc{
-  margin-top:6px;
-  font-size:15px;
+  margin-top:8px;
+  font-size:17px;    /* increased */
   color:#555;
-  max-width:420px;
-  line-height:1.5;
+  max-width:480px;
+  line-height:1.6;
 }
 
 /* Home link */
 .home-link{
-  margin-top:14px;
+  margin-top:16px;
   color:#ea3903;
   text-decoration:none;
-  font-weight:600;
-  font-size:15px;
+  font-weight:700;
+  font-size:17px;   /* increased */
 }
 
 .home-link:hover{
@@ -90,21 +92,29 @@ body{
 /* Mobile */
 @media(max-width:768px){
 
+.stack{
+  margin-top:20px;
+}
+
 .logo{
-  height:38px;
+  height:56px;
 }
 
 #lottie{
-  width:240px;
-  height:240px;
+  width:300px;
+  height:300px;
 }
 
 .title{
-  font-size:22px;
+  font-size:24px;
 }
 
 .desc{
-  font-size:14px;
+  font-size:15px;
+}
+
+.home-link{
+  font-size:16px;
 }
 
 }
