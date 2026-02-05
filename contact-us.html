@@ -3,53 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <title>Contact Us | Maaney</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Get in touch with Maaney customer support. Find our contact information, office location, and connect with our team.">
-<meta name="keywords" content="Contact Maaney, Maaney customer support, Maaney contact information, Maaney office address">
+
+<!-- Primary SEO -->
+<meta name="description" content="Get in touch with Maaney customer support. Contact our team for help, feedback, or business queries. Founded by Dhuda Sathish.">
+<meta name="keywords" content="Contact Maaney, Maaney customer support, Maaney contact information, Maaney office address, Dhuda Sathish, Founder of Maaney">
 <link rel="canonical" href="https://maaney.store/contact-us">
 <meta name="theme-color" content="#ff5722">
 
+<!-- Author / Founder -->
+<meta name="author" content="Dhuda Sathish">
+<meta name="creator" content="Dhuda Sathish">
+
 <!-- Open Graph -->
 <meta property="og:title" content="Contact Us | Maaney">
-<meta property="og:description" content="Get in touch with Maaney customer support. Find our contact information, office location, and connect with our team.">
+<meta property="og:description" content="Contact Maaney for support or business queries. Founded by Dhuda Sathish.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://maaney.store/contact-us">
 <meta property="og:image" content="https://maaney.store/images/maaney-contact-og.jpg">
+<meta property="og:site_name" content="Maaney">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Contact Us | Maaney">
-<meta name="twitter:description" content="Get in touch with Maaney customer support. Find our contact information, office location, and connect with our team.">
+<meta name="twitter:description" content="Reach Maaney customer support. Founded by Dhuda Sathish.">
 <meta name="twitter:image" content="https://maaney.store/images/maaney-contact-og.jpg">
 
-<!-- Schema.org structured data -->
+<!-- Schema.org Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ContactPage",
-  "name": "Contact Us - Maaney",
-  "description": "Contact Maaney for any queries, feedback, or support. Find our contact information, office location, and connect with our team.",
-  "url": "https://maaney.store/contact-us",
-  "mainEntity": {
-    "@type": "Organization",
-    "name": "Maaney",
-    "url": "https://maaney.store",
-    "logo": "https://maaney.store/logo.png",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+91 9XXXX XXXXX",
-      "contactType": "customer service",
-      "email": "hello@maaney.store",
-      "availableLanguage": ["English", "Hindi"]
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "@id": "https://maaney.store/contact-us",
+      "name": "Contact Us - Maaney",
+      "url": "https://maaney.store/contact-us",
+      "description": "Contact Maaney for queries, feedback, or support."
     },
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "India",
-      "addressLocality": "Mumbai",
-      "addressRegion": "Maharashtra",
-      "streetAddress": "123 Business Park, Tech Street"
+    {
+      "@type": "Organization",
+      "@id": "https://maaney.store/#organization",
+      "name": "Maaney",
+      "url": "https://maaney.store",
+      "logo": "https://maaney.store/logo.png",
+      "founder": {
+        "@type": "Person",
+        "name": "Dhuda Sathish",
+        "jobTitle": "Founder",
+        "url": "https://maaney.store",
+        "sameAs": [
+          "https://www.linkedin.com",
+          "https://github.com"
+        ]
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91 9XXXX XXXXX",
+        "contactType": "customer service",
+        "email": "hello@maaney.store",
+        "availableLanguage": ["English", "Hindi"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Business Park, Tech Street",
+        "addressLocality": "Mumbai",
+        "addressRegion": "Maharashtra",
+        "addressCountry": "India"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://maaney.store/#founder",
+      "name": "Dhuda Sathish",
+      "jobTitle": "Founder of Maaney",
+      "worksFor": {
+        "@id": "https://maaney.store/#organization"
+      }
     }
-  }
+  ]
 }
 </script>
 
