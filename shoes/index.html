@@ -691,27 +691,39 @@ document.getElementById("count").innerText = products.length;
 </script>
 <script src="../footer.js"></script>
 <script>
-    const themeMeta = document.getElementById("themeColor");
+   const themeMeta = document.getElementById("themeColor");
+const bottomFooter = document.getElementById("bottomFooter");
 
 // Colors
-const topColor = "#ea3903";     // header / top
-const bottomColor = "#0f172a"; // bottom footer
+const topColor = "#ea3903";     // Top browser bar
+const bottomColor = "#0f172a"; // Bottom footer
 
-function syncTheme(){
+function syncThemeColor(){
 
-  // If scrolled near bottom
-  if(window.innerHeight + window.scrollY >= document.body.offsetHeight - 80){
+  // When user reaches bottom area OR footer visible
+  if(
+    bottomFooter &&
+    window.innerHeight + window.scrollY >= document.body.offsetHeight - 120
+  ){
     themeMeta.setAttribute("content", bottomColor);
-  }
-  else{
+  } 
+  else {
     themeMeta.setAttribute("content", topColor);
   }
 
 }
 
-// Run on scroll + load
-window.addEventListener("scroll", syncTheme);
-window.addEventListener("load", syncTheme);
+// Run on load + scroll
+window.addEventListener("load", syncThemeColor);
+window.addEventListener("scroll", syncThemeColor);
+
+// Optional: when footer tapped
+if(bottomFooter){
+  bottomFooter.addEventListener("click", ()=>{
+    themeMeta.setAttribute("content", bottomColor);
+  });
+}
+
 
 </script>
 

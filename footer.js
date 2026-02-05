@@ -63,7 +63,7 @@ text-decoration:none;
   const year = new Date().getFullYear();
 
   const footerHTML = `
-<footer class="maaney-footer poppins-regular" style="
+<footer class="maaney-footer poppins-regular " id="bottomFooter" style="
 background:
 linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)),
 url('https://img.freepik.com/premium-vector/black-texture-background-abstract-black-background-black-pattern_672416-233.jpg')
