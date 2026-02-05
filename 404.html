@@ -24,27 +24,29 @@ html,body{
 }
 
 body{
-  background:#ffffff;
-  overflow:hidden;
   font-family:Arial,Helvetica,sans-serif;
+  background:#fff;
 }
 
-/* Fullscreen container */
+/* Main wrapper */
 .page{
   position:relative;
   width:100%;
   height:100%;
+  overflow:hidden;
 }
 
-/* Lottie full screen */
+/* Lottie background (light) */
 #lottie{
   position:absolute;
   inset:0;
   width:100%;
   height:100%;
+  opacity:.25;          /* makes lottie subtle */
+  pointer-events:none; /* click-through */
 }
 
-/* Overlay content */
+/* Foreground content */
 .overlay{
   position:absolute;
   inset:0;
@@ -54,22 +56,22 @@ body{
   justify-content:center;
   text-align:center;
   padding:20px;
-  background:rgba(255,255,255,.85);
 }
 
 /* Logo */
 .logo{
   height:46px;
-  margin-bottom:18px;
+  margin-bottom:16px;
 }
 
-/* Text */
+/* Title */
 .title{
   font-size:26px;
   font-weight:700;
   color:#111;
 }
 
+/* Description */
 .desc{
   margin-top:8px;
   font-size:15px;
@@ -78,19 +80,26 @@ body{
   line-height:1.5;
 }
 
-/* Button */
-.btn{
-  margin-top:20px;
-  background:#ea3903;
-  color:#fff;
-  padding:12px 28px;
-  border-radius:6px;
+/* Home link */
+.home-link{
+  margin-top:18px;
+  color:#ea3903;
   text-decoration:none;
   font-weight:600;
+  font-size:15px;
+}
+
+/* Hover */
+.home-link:hover{
+  text-decoration:underline;
 }
 
 /* Mobile */
 @media(max-width:768px){
+
+.logo{
+  height:38px;
+}
 
 .title{
   font-size:22px;
@@ -98,10 +107,6 @@ body{
 
 .desc{
   font-size:14px;
-}
-
-.logo{
-  height:38px;
 }
 
 }
@@ -113,22 +118,22 @@ body{
 
 <div class="page">
 
-  <!-- Lottie Background -->
+  <!-- Lottie -->
   <div id="lottie"></div>
 
-  <!-- Overlay Content -->
+  <!-- Content -->
   <div class="overlay">
 
-    <img src="https://maaney.store/logo.png" class="logo">
+    <img src="https://maaney.store/white_logo.png" class="logo" alt="Maaney Store">
 
-    <div class="title">Oops! Page Not Found</div>
+    <div class="title">Oops! This page isn’t here</div>
 
     <div class="desc">
-      The page you’re looking for doesn’t exist or may have been moved.
-      Explore our latest deals and smart comparisons on Maaney Store.
+      Looks like the page was moved or removed.
+      You can continue exploring smart deals and comparisons on Maaney Store.
     </div>
 
-    <a href="/" class="btn">Go Back Home</a>
+    <a href="/" class="home-link">← Back to Home</a>
 
   </div>
 
@@ -140,7 +145,7 @@ lottie.loadAnimation({
   renderer: "svg",
   loop: true,
   autoplay: true,
-  path: "error.json"
+  path: "error.json"   // your lottie file
 });
 </script>
 
