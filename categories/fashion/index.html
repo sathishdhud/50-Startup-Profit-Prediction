@@ -52,6 +52,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
 
 <style>
 :root{
@@ -639,101 +640,50 @@ body{
 // FASHION DATA
 const products = [
 {
-brand:"Nike",
-title:"Nike Air Max 270 Sneakers (Black/White)",
-price:"9,999",
-old:"14,995",
-off:33,
-cat:"Footwear",
-color:"Black",
-img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80",
-link:"#",
-desc:"Large Air Max 270 unit | Breathable Mesh Upper | Foam Midsole | Rubber Outsole | Comfortable Fit"
+brand:"Abros",
+title:"Abros Draco Lightweight Casual Sneakers for Men",
+price:"1,019",
+old:"1,199",
+off:15,
+cat:"Shoes",
+type:"Sneakers",
+material:"Mesh",
+color:"Grey",
+img:"./abros-draco.png",
+link:"./abros-draco.png",
+desc:"Breathable mesh upper | EVA cushioned sole | Lace-up closure | Lightweight daily-wear sneakers | Suitable for casual walking and everyday use | Comfortable insole | Flexible outsole | Ideal for budget buyers"
 },
+
 {
-brand:"Levi's",
-title:"Levi's 511 Slim Fit Jeans (Blue)",
-price:"2,499",
-old:"3,999",
-off:37,
-cat:"Men",
-color:"Blue",
-img:"https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?w=500&q=80",
-link:"#",
-desc:"98% Cotton, 2% Elastane | Slim Fit | Stretch Fabric | Classic 5-Pocket Design | Medium Wash"
+brand:"RunSeven",
+title:"RUN SEVEN Soft Insole Slip Resistant Walking Sneakers",
+price:"782",
+old:"3,599",
+off:78,
+cat:"Shoes",
+type:"Walking",
+material:"PU",
+color:"Green",
+img:"./runseven-insole.png",
+link:"./runseven-insole.png",
+desc:"PU synthetic upper | Soft cushioned insole | Slip-resistant sole | Lace-up design | Comfortable walking sneakers | Lightweight build | Everyday casual footwear | Value-for-money budget shoes"
 },
+
 {
-brand:"Zara",
-title:"Zara Floral Print Maxi Dress",
-price:"3,490",
-old:"4,990",
-off:30,
-cat:"Women",
-color:"Multi",
-img:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500&q=80",
-link:"#",
-desc:"Viscose Blend | V-Neck | Short Sleeves | Flowy Silhouette | Machine Washable"
-},
-{
-brand:"Fossil",
-title:"Fossil Grant Chronograph Watch",
-price:"8,995",
-old:"12,995",
-off:30,
-cat:"Watches",
-color:"Brown",
-img:"https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=500&q=80",
-link:"#",
-desc:"Analogue Display | Brown Leather Strap | 44mm Case | Water Resistant | Date Window"
-},
-{
-brand:"Ray-Ban",
-title:"Ray-Ban Aviator Sunglasses (Gold)",
-price:"7,900",
-old:"9,900",
-off:20,
-cat:"Accessories",
-color:"Gold",
-img:"https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500&q=80",
-link:"#",
-desc:"Classic Aviator Shape | Gradient Crystal Lenses | Gold Metal Frame | 100% UV Protection"
-},
-{
-brand:"H&M",
-title:"H&M Regular Fit T-Shirt (Pack of 3)",
-price:"999",
-old:"1,499",
-off:33,
-cat:"Men",
-color:"Assorted",
-img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80",
-link:"#",
-desc:"100% Cotton | Crew Neck | Short Sleeves | Soft Fabric | Regular Fit"
-},
-{
-brand:"Puma",
-title:"Puma RS-X Retro Sneakers",
-price:"4,599",
-old:"6,999",
-off:34,
-cat:"Footwear",
-color:"Multi",
-img:"https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=500&q=80",
-link:"#",
-desc:"Retro Running Style | Chunky Sole | Mesh & Synthetic Upper | Lace-up Closure | Soft Foam"
-},
-{
-brand:"Mango",
-title:"Mango Crossbody Handbag (Beige)",
-price:"1,990",
-old:"2,990",
-off:33,
-cat:"Women",
-color:"Beige",
-img:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500&q=80",
-link:"#",
-desc:"Synthetic Material | Adjustable Strap | Main Compartment | Inner Zip Pocket | Chic Design"
+brand:"RunSeven",
+title:"RUN SEVEN Lightweight Trendy Outdoor Training Sneakers",
+price:"875",
+old:"3,899",
+off:78,
+cat:"Shoes",
+type:"Casual",
+material:"Mesh",
+color:"Grey",
+img:"./runseven-light.png",
+link:"https://www.flipkart.com/run-seven-lightweight-comfort-summer-trendy-walking-outdoor-stylish-training-sneakers-men/p/itm8e77ad3100dd6",
+desc:"Breathable mesh upper | Memory foam comfort | Lightweight sole | Stylish outdoor sneakers | Suitable for walking and casual training | Flexible grip outsole | Trendy everyday footwear"
 }
+
 ];
 
 function render(list){
