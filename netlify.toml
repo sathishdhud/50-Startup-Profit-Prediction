@@ -2,3 +2,8 @@
   for = "/sitemap.xml"
   [headers.values]
     Content-Type = "application/xml"
+[[headers]]
+  for = "/error.json"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET"
