@@ -22,7 +22,7 @@
 <meta name="geo.placename" content="India">
 
 <!-- Theme -->
-<meta name="theme-color" content="#ff8c2b">
+<meta name="theme-color" content="#ff8c2b" id="themeColor">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -686,8 +686,34 @@ function closeFilter(){
 render(products);
 document.getElementById("count").innerText = products.length;
 
+
+
 </script>
 <script src="../footer.js"></script>
+<script>
+    const themeMeta = document.getElementById("themeColor");
+
+// Colors
+const topColor = "#ea3903";     // header / top
+const bottomColor = "#0f172a"; // bottom footer
+
+function syncTheme(){
+
+  // If scrolled near bottom
+  if(window.innerHeight + window.scrollY >= document.body.offsetHeight - 80){
+    themeMeta.setAttribute("content", bottomColor);
+  }
+  else{
+    themeMeta.setAttribute("content", topColor);
+  }
+
+}
+
+// Run on scroll + load
+window.addEventListener("scroll", syncTheme);
+window.addEventListener("load", syncTheme);
+
+</script>
 
 </body>
 </html>
