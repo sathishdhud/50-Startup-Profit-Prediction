@@ -197,13 +197,17 @@
         .image-box {
             position: relative;
             background: #f5f5f5;
+            text-align: center;
+            
         }
         
-        .image-box img {
-            width: 100%;
-            height: 520px;
-            object-fit: cover;
-        }
+     .image-box img {
+    width: 80%;          /* reduce width */
+    max-width: 900px;   /* limit desktop size */
+    height: auto;
+    max-height: 500px;  /* reduce height */
+    object-fit: contain;
+}
         
         .slider-btn {
             position: absolute;
@@ -368,13 +372,16 @@
             display: none;
         }
         
-        .mobile-slider-track img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            flex-shrink: 0;
-            scroll-snap-align: start;
-        }
+           .mobile-slider-track img {
+    width: 90%;
+    height: auto;
+    max-height: 280px;
+    object-fit: contain;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    margin: 0 auto;
+    display: block;
+}
         
         /* DOTS */
         .slider-dots {
@@ -900,7 +907,7 @@ text-decoration:none;
 
       <!-- DESKTOP SLIDER -->
       <div class="image-box d-none d-md-block">
-        <img id="sliderImg" src="./moto-g06-power-main.png" alt="Motorola Moto G06 Power front view smartphone">
+        <img id="sliderImg" src="./image1.png" alt="Motorola Moto G06 Power front view smartphone">
         <div class="slider-btn left" onclick="prevImg()">
           <i class="fa fa-chevron-left"></i>
         </div>
@@ -912,10 +919,13 @@ text-decoration:none;
       <!-- MOBILE SLIDER -->
       <div class="mobile-slider d-md-none">
         <div class="mobile-slider-track" id="mobileSlider">
-          <img src="./g06-1.png">
-          <img src="./g06-2.png">
-          <img src="./g06-3.png">
-          <img src="./g06-4.png">
+          <img src="./image1.png">
+          <img src="./image2.png">
+          <img src="./image3.png">
+          <img src="./image4.png">
+          <img src="./image5.png">
+          <img src="./image6.png">
+          <img src="./image7.png">
         </div>
         <div class="slider-dots" id="sliderDots"></div>
       </div>
@@ -1781,7 +1791,10 @@ document.getElementById("year").innerText=new Date().getFullYear();
             "./image1.png",
             "./image2.png",
             "./image3.png",
-            "./image4.png"
+            "./image4.png",
+            "./image5.png",
+            "./image6.png",
+            "./image7.png"
         ];
         let i = 0;
         
