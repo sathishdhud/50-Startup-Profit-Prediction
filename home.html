@@ -837,7 +837,7 @@
     /* IMAGE */
     .product-img{
       background:#f4f4f4;
-      border-radius:14px;
+      border-radius:5px;
       aspect-ratio:1/1;
       display:flex;
       align-items:center;
@@ -2201,11 +2201,7 @@ desc:"6.6″ HD+ IPS LCD Display | MediaTek Dimensity 6020 Octa-Core Processor |
           <div class="product-img">
             <span class="off-badge poppins-regular">${p.off}% OFF</span>
             <img src="${p.img}">
-            <div class="hover-icons">
-              <i class="bi bi-heart"></i>
-              <i class="bi bi-arrow-repeat"></i>
-              <i class="bi bi-eye"></i>
-            </div>
+           
           </div>
           <div class="title poppins-regular">
             <a href="${p.link}" style="text-decoration:none;color:#000;font-weight:600;">
@@ -2253,6 +2249,19 @@ desc:"6.6″ HD+ IPS LCD Display | MediaTek Dimensity 6020 Octa-Core Processor |
     scroller.scrollTo({ left: scrollPos, behavior: "smooth" });
   }, 2500);
 </script>
+<script>
+function randomLightColor() {
+  const r = Math.floor(200 + Math.random() * 55);
+  const g = Math.floor(200 + Math.random() * 55);
+  const b = Math.floor(200 + Math.random() * 55);
+  return `rgb(${r},${g},${b})`;
+}
+
+document.querySelectorAll('.product-img').forEach(img=>{
+  img.style.background = randomLightColor();
+});
+</script>
+
 
 </body>
 </html>
