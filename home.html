@@ -2033,21 +2033,164 @@ document.getElementById("year").innerText=new Date().getFullYear();
 
   /* PRODUCT DATA */
   const products = [
-    {img:"https://picsum.photos/seed/product1/200/200.jpg",title:"Omega-3 Heart Support",price:27.49,old:39.99,cat:"health"},
-    {img:"https://picsum.photos/seed/product2/200/200.jpg",title:"Vitamin C Tablets",price:27.49,old:39.99,cat:"health"},
-    {img:"https://picsum.photos/seed/product3/200/200.jpg",title:"Infrared Thermometer",price:27.49,old:39.99,cat:"medical"},
-    {img:"https://picsum.photos/seed/product4/200/200.jpg",title:"Hand Sanitizer",price:27.49,old:39.99,cat:"firstaid"},
-    {img:"https://picsum.photos/seed/product5/200/200.jpg",title:"Vitamin B12 Capsules",price:27.49,old:39.99,cat:"diabetic"},
-    {img:"https://picsum.photos/seed/product6/200/200.jpg",title:"Neem Herbal Extract",price:27.49,old:39.99,cat:"herbal"},
-    {img:"https://picsum.photos/seed/product7/200/200.jpg",title:"Digital Blood Pressure Monitor",price:27.49,old:39.99,cat:"medical"},
-    {img:"https://picsum.photos/seed/product8/200/200.jpg",title:"Aloe Vera Gel",price:27.49,old:39.99,cat:"herbal"},
-    {img:"https://picsum.photos/seed/product9/200/200.jpg",title:"First Aid Kit",price:27.49,old:39.99,cat:"firstaid"},
-    {img:"https://picsum.photos/seed/product10/200/200.jpg",title:"Glucose Meter",price:27.49,old:39.99,cat:"diabetic"},
-    {img:"https://picsum.photos/seed/product11/200/200.jpg",title:"Multivitamin Gummies",price:27.49,old:39.99,cat:"health"},
-    {img:"https://picsum.photos/seed/product12/200/200.jpg",title:"Herbal Sleep Aid",price:27.49,old:39.99,cat:"herbal"},
-  ];
+{
+brand:"POCO",
+title:"POCO M7 5G Budget Smartphone (120Hz Display)",
+price:"11,499",
+old:"12,999",
+off:12,
+cat:"Mobile",
+color:"Black",
+img:"./mobiles/mobileU10k/p.png",
+link:"../poco-m7-5g",
+desc:"6.88″ 120Hz HD+ Display | Qualcomm Snapdragon 4 Gen 2 Processor | 6GB/8GB RAM | 128GB Storage | Expandable up to 1TB | 5160mAh Battery | 50MP Rear Camera | 8MP Front Camera | Android 14 with HyperOS | Dual SIM 5G Connectivity"
+},
 
-  const grid = document.getElementById("products");
+{
+brand:"Samsung",
+title:"Samsung Galaxy M06 5G Entry Level Smartphone",
+price:"10,621",
+old:"13,999",
+off:24,
+cat:"Mobile",
+color:"Blue",
+img:"./mobiles/mobileU10k/samsung-m06.png",
+link:"../samsung-mo6",
+desc:"6.70″ HD+ PLS LCD Display | MediaTek Dimensity 6300 Octa-Core Processor | 4GB/6GB RAM | 64GB/128GB Storage | Dual 5G Nano-SIM | 50MP + 2MP Dual Rear Cameras | 8MP Front Camera | 5000mAh Battery with 25W Fast Charging | Android 15 with One UI Core | Wi-Fi, Bluetooth 5.3, GPS & 3.5mm Jack"
+},
+
+{
+brand:"Redmi",
+title:"Redmi A4 5G Affordable Performance Phone",
+price:"9,678",
+old:"10,999",
+off:12,
+cat:"Mobile",
+color:"Green",
+img:"./mobiles/mobileU10k/redmi-a4-5g.png",
+link:"../redmi-a4-5g",
+desc:"6.88″ HD+ 120Hz IPS LCD Display | Qualcomm Snapdragon 4s Gen 2 Octa-Core | 4GB/6GB RAM | 64GB/128GB Storage | Android 14 with HyperOS | 50MP Rear Camera | 5MP Front Camera | 5160mAh Battery with 18W Fast Charging | Dual 5G SIM | Expandable Storage up to 1TB"
+},
+
+{
+brand:"POCO",
+title:"POCO C75 5G Large Display Smartphone",
+price:"8,499",
+old:"10,999",
+off:23,
+cat:"Mobile",
+color:"Grey",
+img:"./mobiles/mobileU10k/poco-m75-5g.png",
+link:"../poco-c75",
+desc:"6.88″ HD+ 120 Hz IPS LCD Display | Qualcomm Snapdragon 4s Gen 2 Octa-Core Processor | 4 GB RAM | 64 GB/128 GB Storage | Expandable up to 1 TB | 50 MP Dual Rear Camera | 5 MP Front Camera | 5160 mAh Battery | Android 14 with HyperOS | Dual-SIM 5G Connectivity"
+},
+
+{
+brand:"Motorola",
+title:"Moto G06 Power Long Battery Smartphone",
+price:"7,999",
+old:"9,999",
+off:20,
+cat:"Mobile",
+color:"Red",
+img:"./mobiles/mobileU10k/moto-g06-5g.png",
+link:"../moto-go6",
+desc:"6.5″ HD+ IPS LCD Display | Unisoc T720 Octa-Core Processor | 4GB RAM | 64GB/128GB Storage | 6000mAh Massive Battery | 50MP Dual Rear Camera | 8MP Front Camera | Android 14 | Dual SIM 4G Connectivity | Side-Mounted Fingerprint Sensor"
+},
+
+{
+brand:"Lava",
+title:"Lava Storm Play 5G Made-in-India Smartphone",
+price:"10,473",
+old:"13,499",
+off:22,
+cat:"Mobile",
+color:"Grey",
+img:"./mobiles/mobileU10k/lava-storm-play-5g.png",
+link:"https://fktr.in/oSjtMi6",
+desc:"6.78″ Full HD+ 120Hz Display | MediaTek Dimensity 7050 Octa-Core Processor | 8GB/12GB RAM | 128GB/256GB Storage | 64MP Triple Rear Camera | 16MP Front Camera | 5000mAh Battery with 33W Fast Charging | Dual 5G SIM | Android 14 | Side Fingerprint Sensor."
+},
+
+{
+brand:"Oppo",
+title:"Oppo A3X 5G Stylish Budget Mobile",
+price:"15,999",
+old:"15,999",
+off:0,
+cat:"Mobile",
+color:"Silver",
+img:"./mobiles/mobileU10k/oppo-a3x-5g.png",
+link:"https://fktr.in/meABz01",
+desc:"6.67″ HD+ 120Hz IPS LCD Display | MediaTek Dimensity 6300 Octa-Core Processor | 4GB/6GB RAM | 64GB/128GB Storage | 50MP Dual Rear Camera | 8MP Front Camera | 5100mAh Battery with Fast Charging | Android 14 with ColorOS | Dual SIM 5G Connectivity | Side-Mounted Fingerprint Sensor"
+},
+
+{
+brand:"Redmi",
+title:"Redmi 13C 5G Feature Rich Smartphone",
+price:"11,483",
+old:"17,999",
+off:36,
+cat:"Mobile",
+color:"Blue",
+img:"./mobiles/mobileU10k/redmi-13c-5g.png",
+link:"https://fktr.in/UxzcxMz",
+desc:"6.74″ HD+ 90Hz Display | MediaTek Dimensity 6100+ Octa-Core Processor | 4GB/6GB/8GB RAM | 128GB Storage | 50MP Rear Camera | 5MP Front Camera | 5000mAh Battery with 18W Fast Charging | Android with HyperOS | Dual SIM 5G Connectivity | Side-Mounted Fingerprint Sensor | Expandable Storage"
+},
+
+{
+brand:"Samsung",
+title:"Samsung Galaxy A07 4G Daily Use Phone",
+price:"7,986",
+old:"10,499",
+off:24,
+cat:"Mobile",
+color:"Black",
+img:"./mobiles/mobileU10k/galaxy-a07-5g.png",
+link:"https://fktr.in/BUnzaCs",
+desc:"6.7″ HD+ PLS LCD Display | MediaTek Helio G85 Octa-Core Processor | 4GB/6GB RAM | 64GB/128GB Storage | 50MP Dual Rear Camera | 8MP Front Camera | 5000mAh Battery with 25W Fast Charging | Android with One UI Core | Dual SIM 4G LTE | Side-Mounted Fingerprint Sensor | Expandable Storage"
+},
+
+{
+brand:"Infinix",
+title:"Infinix Smart 10 Budget Friendly Smartphone",
+price:"7,999",
+old:"8,999",
+off:11,
+cat:"Mobile",
+color:"Green",
+img:"./mobiles/mobileU10k/infinix-smart-10.png",
+link:"https://fktr.in/NiRhI58",
+desc:"6.6″ HD+ IPS LCD Display | Unisoc Octa-Core Processor | 4GB RAM | 64GB Storage | 13MP Dual Rear Camera | 8MP Front Camera | 5000mAh Battery | Android (Go Edition) | Dual SIM 4G LTE | Face Unlock | Expandable Storage"
+},
+
+{
+brand:"Vivo",
+title:"Vivo Y19s 5G Compact Performance Phone",
+price:"12,499",
+old:"14,999",
+off:17,
+cat:"Mobile",
+color:"Gold",
+img:"./mobiles/mobileU10k/vivo-y19-series.png",
+link:"https://fktr.in/bAc9WsI",
+desc:"6.38″ HD+ IPS LCD Display | MediaTek Helio G85 Octa-Core Processor | 4GB RAM | 64GB Storage | 50MP Dual Rear Camera | 8MP Front Camera | 5000mAh Battery with 18W Fast Charging | Android 14 with Funtouch OS | Dual SIM 5G Connectivity | Side-Mounted Fingerprint Sensor"
+},
+
+{
+brand:"Tecno",
+title:"Tecno Spark Go 5G Entry Level Smartphone",
+price:"10,999",
+old:"11,999",
+off:8,
+cat:"Mobile",
+color:"Blue",
+img:"./mobiles/mobileU10k/techno-spark-go-5g.png",
+link:"https://fktr.in/N0ZDxeD",
+desc:"6.6″ HD+ IPS LCD Display | MediaTek Dimensity 6020 Octa-Core Processor | 4GB RAM | 64GB Storage | 50MP Rear Camera | 8MP Front Camera | 5000mAh Battery | Android with HiOS | Dual SIM 5G Connectivity | Side-Mounted Fingerprint Sensor | Expandable Storage"
+}
+];
+
+ const grid = document.getElementById("products");
 
   /* RENDER */
   function render(list) {
