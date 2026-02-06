@@ -755,6 +755,20 @@
             100% { transform: rotate(360deg); }
         }
 
+        .product-img-box{
+  width:100%;
+  height:200px;
+  overflow:hidden;
+  border-radius:8px;
+}
+
+.product-img-box img{
+  width:100%;
+  height:100%;
+  object-fit:contain;   /* IMPORTANT */
+  display:block;
+}
+
         .maaney-footer{
 position:relative;
 color:#eee;
@@ -1802,72 +1816,71 @@ document.getElementById("year").innerText=new Date().getFullYear();
             });
         });
         
-        // Similar products data
-       const similarProducts = [
+         const similarProducts = [
     {
-        brand: "Redmi",
-        name: "",
-        price: "₹8,499–₹9,999",
+        brand: "Xiaomi",
+        name: "Redmi A4 5G",
+        price: "₹7,999–₹8,999",
         mrp: "₹10,999",
-        img: "./redmi-a4-5g.png",
-        link: "#",
-        desc: "Affordable 5G phone featuring a large 6.88″ 120Hz HD+ display, Snapdragon 4s Gen 2-class processor, 50MP dual camera, and 5160mAh battery — ideal for everyday use in India."
+        img: "../redmi-a4-5g/image1.png",
+        link: "#", // e.g., "https://www.flipkart.com/redmi-a4-5g-...html"
+        desc: "Budget-ready 5G smartphone with a large 6.88″ 120Hz display, Snapdragon 4s Gen 2-level chipset, 5160mAh battery, and reliable camera performance — an everyday performer under ₹9,000 in India."
     },
     {
         brand: "POCO",
-        name: "",
-        price: "₹8,499",
+        name: "POCO C75 5G",
+        price: "₹8,499–₹9,299",
         mrp: "₹10,999",
-        img: "./poco-c75-5g.png",
-        link: "#",
-        desc: "Budget-friendly 5G smartphone with a large HD+ display, Snapdragon-class 4s processor, solid battery life, and reliable everyday performance — one of the best value picks under ₹9,000."
+        img: "../poco-c75/image1.png",
+        link: "#", // e.g., "https://www.flipkart.com/poco-c75-5g-...html"
+        desc: "Value-focused 5G smartphone featuring a smooth 120Hz HD+ display, Snapdragon-class 4s chipset, solid battery life and lightweight software — a strong choice for users seeking balance under ₹9,000."
     },
     {
         brand: "Samsung",
-        name: "",
+        name: "Samsung Galaxy M06 5G",
         price: "₹8,999–₹11,499",
         mrp: "₹13,999",
-        img: "./samsung-m06.png",
-        link: "#",
-        desc: "Reliable 5G smartphone with MediaTek Dimensity 6300 processor, 6.7″ HD+ display, 50MP camera, and 5000mAh battery — balanced performance with Samsung’s software polish."
+        img: "../samsung-mo6/image1.png",
+        link: "#", // e.g., "https://www.flipkart.com/samsung-galaxy-m06-5g-...html"
+        desc: "Dependable 5G smartphone with MediaTek Dimensity 6300 processor, 6.7″ HD+ display, 50MP camera, and 5000mAh battery. Offers Samsung’s clean One UI experience with wide network compatibility."
     },
     {
         brand: "Motorola",
-        name: "",
-        price: "₹7,999",
+        name: "Moto G06 Power",
+        price: "₹7,199–₹7,999",
         mrp: "₹9,999",
-        img: "./moto-g06-power.png",
-        link: "#",
-        desc: "Smartphone focused on long battery life with a massive 7000mAh cell, dependable everyday performance, and stable software — great choice for heavy use and extended uptime."
+        img: "../moto-go6/image1.png",
+        link: "#", // e.g., "https://www.flipkart.com/moto-g06-power-...html"
+        desc: "Strong battery-centric smartphone with a massive 7000mAh cell, 120Hz large display and Helio G81 performance. Ideal for long screen time, steady daily use and efficient software experience."
     },
     {
         brand: "Lava",
-        name: "",
+        name: "Lava Storm Play 5G",
         price: "₹10,499–₹11,999",
         mrp: "₹13,499",
-        img: "./lava-storm-play-5g.png",
-        link: "#",
-        desc: "Made-in-India 5G smartphone with a large display, capable performance, and solid hardware package for everyday use without breaking the budget."
+        img: "../mobileU10k/lava-storm-play-5g.png",
+        link: "#", // e.g., "https://www.flipkart.com/lava-storm-play-5g-...html"
+        desc: "Made-in-India 5G smartphone combining a vibrant large display and capable system performance with a reliable battery for daily tasks. Good choice for users who want strong hardware in the mid-budget range."
     },
     {
         brand: "Infinix",
-        name: "",
+        name: "Infinix Smart 10 5G",
         price: "₹7,599–₹8,999",
         mrp: "₹8,999",
-        img: "./infinix-smart-10.png",
-        link: "#",
-        desc: "Entry-level smartphone with a decent display, 5G readiness in select models, and solid performance for basic daily tasks at a competitive price."
+        img: "../mobileU10k/infinix-smart-10.png",
+        link: "#", // e.g., "https://www.flipkart.com/infinix-smart-10-5g-...html"
+        desc: "Entry-level 5G smartphone with a smooth display, decent battery life and solid daily performance. A good pick for basic users who want 5G readiness without spending much."
     }
 ];
-
-        const container = document.getElementById("similarProducts");
+const container = document.getElementById("similarProducts");
         
-        container.innerHTML = similarProducts.map(p => `
+         container.innerHTML = similarProducts.map(p => `
             <div class="similar-card" style="min-width:220px; border:1px solid var(--border); color:black; border-radius:8px; overflow:hidden; margin-bottom:16px;">
                 <a href="${p.link}" target="_self" style="text-decoration:none; color:inherit; display:block;">
-                    <div class="img-wrap">
-                        <img src="${p.img}" alt="${p.name}" style="width:100%; height:200px; object-fit:cover;">
-                    </div>
+                    <div class="product-img-box">
+  <img src="${p.img}" alt="${p.name}">
+</div>
+
                     <div class="info" style="padding:10px;">
                         <div class="brand cabin-font-600">${p.brand}</div>
                         <div class="name maaney cabin-font-700" style="font-size:14px; margin:5px 0;">${p.name}</div>

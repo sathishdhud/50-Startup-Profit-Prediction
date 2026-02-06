@@ -797,6 +797,19 @@ font-size:13px;
 margin-top:6px;
 text-decoration:none;
 }
+.product-img-box{
+  width:100%;
+  height:200px;
+  overflow:hidden;
+  border-radius:8px;
+}
+
+.product-img-box img{
+  width:100%;
+  height:100%;
+  object-fit:contain;   /* IMPORTANT */
+  display:block;
+}
 
     </style>
 </head>
@@ -887,7 +900,7 @@ text-decoration:none;
 
       <!-- DESKTOP SLIDER -->
       <div class="image-box d-none d-md-block">
-        <img id="sliderImg" src="./redmi-a4-5g-main.png" alt="Redmi A4 5G smartphone front view">
+        <img id="sliderImg" src="./image1.png" alt="Redmi A4 5G smartphone front view">
         <div class="slider-btn left" onclick="prevImg()">
           <i class="fa fa-chevron-left"></i>
         </div>
@@ -1813,72 +1826,71 @@ document.getElementById("year").innerText=new Date().getFullYear();
             });
         });
         
-        // Similar products data
-        const similarProducts = [
+         const similarProducts = [
     {
-        brand: "Redmi",
+        brand: "Xiaomi",
         name: "Redmi A4 5G",
-        price: "₹7,499–₹8,999",
+        price: "₹7,999–₹8,999",
         mrp: "₹10,999",
-        img: "./redmi-a4-5g.png",
-        link: "https://www.flipkart.com/redmi-a4-5g-starry-black-128-gb/p/itm980ca694ad058",
-        desc: "One of India’s most affordable 5G smartphones with a spacious 6.88″ 120Hz HD+ display, Snapdragon 4s Gen 2 chipset, 50MP camera system, 5160mAh battery, and expandable storage — great balance of features for everyday use."
+        img: "../redmi-a4-5g/image1.png",
+        link: "#", // e.g., "https://www.flipkart.com/redmi-a4-5g-...html"
+        desc: "Budget-ready 5G smartphone with a large 6.88″ 120Hz display, Snapdragon 4s Gen 2-level chipset, 5160mAh battery, and reliable camera performance — an everyday performer under ₹9,000 in India."
     },
     {
         brand: "POCO",
         name: "POCO C75 5G",
         price: "₹8,499–₹9,299",
         mrp: "₹10,999",
-        img: "./poco-c75-5g.png",
-        link: "https://www.flipkart.com/poco-c75-5g-midnight-black-128-gb/p/itm12345abcde", // hypothetical link; replace with live URL
-        desc: "Budget-oriented 5G smartphone featuring a 6.88″ HD+ screen, Snapdragon smartphone-class performance, 50MP dual camera setup, and reliable all-day battery life — strong value pick under ₹10,000."
+        img: "../poco-c75/image1.png",
+        link: "#", // e.g., "https://www.flipkart.com/poco-c75-5g-...html"
+        desc: "Value-focused 5G smartphone featuring a smooth 120Hz HD+ display, Snapdragon-class 4s chipset, solid battery life and lightweight software — a strong choice for users seeking balance under ₹9,000."
     },
     {
         brand: "Samsung",
         name: "Samsung Galaxy M06 5G",
         price: "₹8,999–₹11,499",
         mrp: "₹13,999",
-        img: "./samsung-m06.png",
-        link: "https://www.flipkart.com/samsung-m06-5g-sage-green-128-gb/p/itmcafa42dadc15c",
-        desc: "Reliable 5G smartphone with MediaTek Dimensity 6300, 6.7″ HD+ PLS LCD display, 50MP rear camera, 5000mAh battery with fast charging, and Samsung’s One UI — balanced performance backed by trusted brand support."
+        img: "../samsung-mo6/image1.png",
+        link: "#", // e.g., "https://www.flipkart.com/samsung-galaxy-m06-5g-...html"
+        desc: "Dependable 5G smartphone with MediaTek Dimensity 6300 processor, 6.7″ HD+ display, 50MP camera, and 5000mAh battery. Offers Samsung’s clean One UI experience with wide network compatibility."
     },
     {
         brand: "Motorola",
         name: "Moto G06 Power",
-        price: "₹7,999–₹8,499",
+        price: "₹7,199–₹7,999",
         mrp: "₹9,999",
-        img: "./moto-g06-power.png",
-        link: "https://www.flipkart.com/motorola-moto-g06-power-onyx-black-64-gb/p/itm12345zyxwv",
-        desc: "Smartphone focused on exceptional battery life with a massive 7000mAh battery, dependable daily performance, and clean Android-based experience — ideal for heavy usage and long uptime without frequent charging."
+        img: "../moto-go6/image1.png",
+        link: "#", // e.g., "https://www.flipkart.com/moto-g06-power-...html"
+        desc: "Strong battery-centric smartphone with a massive 7000mAh cell, 120Hz large display and Helio G81 performance. Ideal for long screen time, steady daily use and efficient software experience."
     },
     {
         brand: "Lava",
         name: "Lava Storm Play 5G",
         price: "₹10,499–₹11,999",
         mrp: "₹13,499",
-        img: "./lava-storm-play-5g.png",
-        link: "https://www.flipkart.com/lava-storm-play-5g/p/itmf1a2a3b4c5d6e7",
-        desc: "Made-in-India 5G smartphone with a large display, capable performance from a 5G-ready chipset, solid camera hardware, and robust battery — suited for users seeking local brand value and reliable everyday performance."
+        img: "../mobileU10k/lava-storm-play-5g.png",
+        link: "#", // e.g., "https://www.flipkart.com/lava-storm-play-5g-...html"
+        desc: "Made-in-India 5G smartphone combining a vibrant large display and capable system performance with a reliable battery for daily tasks. Good choice for users who want strong hardware in the mid-budget range."
     },
     {
         brand: "Infinix",
         name: "Infinix Smart 10 5G",
         price: "₹7,599–₹8,999",
         mrp: "₹8,999",
-        img: "./infinix-smart-10-5g.png",
-        link: "https://www.flipkart.com/infinix-smart-10-5g/p/itmabcdefgh1234567",
-        desc: "Entry-level 5G smartphone with a vivid display, sufficient performance for daily apps and social media, and competitive pricing — ideal for cost-conscious buyers looking for basic 5G features."
+        img: "../mobileU10k/infinix-smart-10.png",
+        link: "#", // e.g., "https://www.flipkart.com/infinix-smart-10-5g-...html"
+        desc: "Entry-level 5G smartphone with a smooth display, decent battery life and solid daily performance. A good pick for basic users who want 5G readiness without spending much."
     }
 ];
-
-        const container = document.getElementById("similarProducts");
+const container = document.getElementById("similarProducts");
         
-        container.innerHTML = similarProducts.map(p => `
+         container.innerHTML = similarProducts.map(p => `
             <div class="similar-card" style="min-width:220px; border:1px solid var(--border); color:black; border-radius:8px; overflow:hidden; margin-bottom:16px;">
                 <a href="${p.link}" target="_self" style="text-decoration:none; color:inherit; display:block;">
-                    <div class="img-wrap">
-                        <img src="${p.img}" alt="${p.name}" style="width:100%; height:200px; object-fit:cover;">
-                    </div>
+                    <div class="product-img-box">
+  <img src="${p.img}" alt="${p.name}">
+</div>
+
                     <div class="info" style="padding:10px;">
                         <div class="brand cabin-font-600">${p.brand}</div>
                         <div class="name maaney cabin-font-700" style="font-size:14px; margin:5px 0;">${p.name}</div>

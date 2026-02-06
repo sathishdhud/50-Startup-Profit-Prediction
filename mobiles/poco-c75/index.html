@@ -247,7 +247,7 @@
             position: relative;
             background: #f5f5f5;
             text-align: center;
-            min-height: 200px;
+            
         }
         
      .image-box img {
@@ -853,6 +853,20 @@ color:#bbb;
 font-size:13px;
 margin-top:6px;
 text-decoration:none;
+}
+
+.product-img-box{
+  width:100%;
+  height:200px;
+  overflow:hidden;
+  border-radius:8px;
+}
+
+.product-img-box img{
+  width:100%;
+  height:100%;
+  object-fit:contain;   /* IMPORTANT */
+  display:block;
 }
 
     </style>
@@ -1654,127 +1668,9 @@ text-decoration:none;
     </div>
     
     <!-- Footer -->
-    <footer class="maaney-footer" style="
-background:url('https://img.freepik.com/premium-vector/black-texture-background-abstract-black-background-black-pattern_672416-233.jpg?semt=ais_hybrid&w=740&q=80') center/cover no-repeat;
-color:#eee;
-margin-top:40px;">
+    
 
-<!-- Overlay -->
-<div class="footer-overlay"></div>
 
-<div class="container footer-content py-4">
-
-  <!-- DESKTOP FOOTER -->
-  <div class="row g-4 d-none d-md-flex">
-
-    <!-- BRAND -->
-    <div class="col-md-3">
-      <img src="./logo.png" style="height:40px;margin-bottom:10px;">
-      <p class="footer-text">
-        Maaney Store helps you compare smartphones, explore detailed specifications,
-        and discover the best online deals with AI-powered summaries and smart
-        product comparisons.
-      </p>
-    </div>
-
-    <!-- QUICK LINKS -->
-    <div class="col-md-3">
-      <h6 class="footer-title">Quick Links</h6>
-      <ul class="footer-list">
-        <li><a href="/">Home</a></li>
-        <li><a href="../../mobiles">Mobile Phones</a></li>
-        <li><a href="/electronics">Electronics</a></li>
-        <li><a href="/about-us">About Us</a></li>
-        <li><a href="/contact-us">Contact</a></li>
-      </ul>
-    </div>
-
-    <!-- SUPPORT -->
-    <div class="col-md-3">
-      <h6 class="footer-title">Support</h6>
-      <ul class="footer-list">
-        <li><a href="/privacy-policy">Privacy Policy</a></li>
-        <li><a href="/terms-use">Terms of Use</a></li>
-        <li><a href="/disclaimer">Disclaimer</a></li>
-        <li><a href="/return-policy">Return Policy</a></li>
-        <li><a href="/sitemap.xml">Sitemap</a></li>
-      </ul>
-    </div>
-
-    <!-- SOCIAL -->
-    <div class="col-md-3">
-      <h6 class="footer-title">Follow Us</h6>
-
-      <div class="footer-social">
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-      </div>
-
-      <p class="footer-mail">
-        Email: support@maaney.store
-      </p>
-    </div>
-
-  </div>
-
-  <!-- MOBILE FOOTER -->
-  <div class="d-md-none">
-
-    <div class="text-center mb-3">
-      <img src="./logo.png" style="height:36px;">
-      <p class="footer-text mt-2 share-tech-regular">
-        Compare smartphones and find best deals with Maaney Store.
-      </p>
-    </div>
-
-    <details class="mobile-block">
-      <summary>Quick Links</summary>
-      <a href="/">Home</a>
-      <a href="/mobiles">Mobile Phones</a>
-      <a href="/electronics">Electronics</a>
-      <a href="/about-us">About Us</a>
-      <a href="/contact-us">Contact</a>
-    </details>
-
-    <details class="mobile-block">
-      <summary>Support</summary>
-      <a href="/privacy-policy">Privacy Policy</a>
-      <a href="/terms-use">Terms of Use</a>
-      <a href="/disclaimer">Disclaimer</a>
-      <a href="/return-policy">Return Policy</a>
-      <a href="/sitemap.xml">Sitemap</a>
-    </details>
-
-    <div class="text-center mt-3">
-      <div class="footer-social justify-content-center">
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-      </div>
-
-      <p class="footer-mail mt-2">
-        support@maaney.store
-      </p>
-    </div>
-
-  </div>
-
-  <hr class="footer-hr">
-
-  <div class="text-center footer-copy">
-    © <span id="year"></span> Maaney Store. All Rights Reserved.
-  </div>
-
-</div>
-
-</footer>
-
-<script>
-document.getElementById("year").innerText=new Date().getFullYear();
-</script>
     
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -1827,71 +1723,71 @@ document.getElementById("year").innerText=new Date().getFullYear();
         });
         
         // Similar products data
-        const similarProducts = [
+         const similarProducts = [
+    {
+        brand: "Xiaomi",
+        name: "Redmi A4 5G",
+        price: "₹7,999–₹8,999",
+        mrp: "₹10,999",
+        img: "../redmi-a4-5g/image1.png",
+        link: "#", // e.g., "https://www.flipkart.com/redmi-a4-5g-...html"
+        desc: "Budget-ready 5G smartphone with a large 6.88″ 120Hz display, Snapdragon 4s Gen 2-level chipset, 5160mAh battery, and reliable camera performance — an everyday performer under ₹9,000 in India."
+    },
     {
         brand: "POCO",
         name: "POCO C75 5G",
-        price: "₹8,499*",
+        price: "₹8,499–₹9,299",
         mrp: "₹10,999",
-        img: "./poco-c75-5g.png",
-        link: "#",
-        desc: "Budget 5G smartphone with a 6.88″ 120Hz display, Snapdragon 4s Gen 2 processor, and 5160mAh battery — great value under ₹10,000." // specs from Flipkart listings
-    },
-    {
-        brand: "Xiaomi Redmi",
-        name: "Redmi A4 5G",
-        price: "₹8,499–₹9,499*",
-        mrp: "₹10,999",
-        img: "./redmi-a4-5g.png",
-        link: "#",
-        desc: "Affordable 5G device with Snapdragon chipset, large display, and balanced all-round performance in the budget segment." // comparison sources
+        img: "../poco-c75/image1.png",
+        link: "#", // e.g., "https://www.flipkart.com/poco-c75-5g-...html"
+        desc: "Value-focused 5G smartphone featuring a smooth 120Hz HD+ display, Snapdragon-class 4s chipset, solid battery life and lightweight software — a strong choice for users seeking balance under ₹9,000."
     },
     {
         brand: "Samsung",
         name: "Samsung Galaxy M06 5G",
-        price: "₹9,999*",
-        mrp: "₹12,299",
-        img: "./samsung-m06-5g.png",
-        link: "#",
-        desc: "Reliable 5G smartphone from Samsung offering solid design and everyday performance in the budget segment." // popular budget 5G option
+        price: "₹8,999–₹11,499",
+        mrp: "₹13,999",
+        img: "../samsung-mo6/image1.png",
+        link: "#", // e.g., "https://www.flipkart.com/samsung-galaxy-m06-5g-...html"
+        desc: "Dependable 5G smartphone with MediaTek Dimensity 6300 processor, 6.7″ HD+ display, 50MP camera, and 5000mAh battery. Offers Samsung’s clean One UI experience with wide network compatibility."
     },
     {
         brand: "Motorola",
         name: "Moto G06 Power",
-        price: "₹7,999",
+        price: "₹7,199–₹7,999",
         mrp: "₹9,999",
-        img: "./moto-g06-power.png",
-        link: "#",
-        desc: "Battery-focused smartphone with a large 7000mAh cell, decent performance and long lasting endurance." // specs and positioning
+        img: "../moto-go6/image1.png",
+        link: "#", // e.g., "https://www.flipkart.com/moto-g06-power-...html"
+        desc: "Strong battery-centric smartphone with a massive 7000mAh cell, 120Hz large display and Helio G81 performance. Ideal for long screen time, steady daily use and efficient software experience."
     },
     {
         brand: "Lava",
         name: "Lava Storm Play 5G",
-        price: "₹10,473*",
+        price: "₹10,499–₹11,999",
         mrp: "₹13,499",
-        img: "./lava-storm-play-5g.png",
-        link: "#",
-        desc: "Made-in-India 5G smartphone with competitive specs and support for modern connectivity features." // general web data
+        img: "../mobileU10k/lava-storm-play-5g.png",
+        link: "#", // e.g., "https://www.flipkart.com/lava-storm-play-5g-...html"
+        desc: "Made-in-India 5G smartphone combining a vibrant large display and capable system performance with a reliable battery for daily tasks. Good choice for users who want strong hardware in the mid-budget range."
     },
     {
-        brand: "Realme",
-        name: "Realme C71 5G",
-        price: "₹7,699*",
-        mrp: "₹9,499",
-        img: "./realme-c71-5g.png",
-        link: "#",
-        desc: "Entry-level 5G smartphone with a big battery and AI camera features, ideal for everyday use." // market news on Realme C71 5G launch
+        brand: "Infinix",
+        name: "Infinix Smart 10 5G",
+        price: "₹7,599–₹8,999",
+        mrp: "₹8,999",
+        img: "../mobileU10k/infinix-smart-10.png",
+        link: "#", // e.g., "https://www.flipkart.com/infinix-smart-10-5g-...html"
+        desc: "Entry-level 5G smartphone with a smooth display, decent battery life and solid daily performance. A good pick for basic users who want 5G readiness without spending much."
     }
 ];
-
-        const container = document.getElementById("similarProducts");
+const container = document.getElementById("similarProducts");
         
-        container.innerHTML = similarProducts.map(p => `
+         container.innerHTML = similarProducts.map(p => `
             <div class="similar-card" style="min-width:220px; border:1px solid var(--border); color:black; border-radius:8px; overflow:hidden; margin-bottom:16px;">
                 <a href="${p.link}" target="_self" style="text-decoration:none; color:inherit; display:block;">
-                    <div class="img-wrap">
-                        <img src="${p.img}" alt="${p.name}" style="width:100%; height:200px; object-fit:cover;">
-                    </div>
+                    <div class="product-img-box">
+  <img src="${p.img}" alt="${p.name}">
+</div>
+
                     <div class="info" style="padding:10px;">
                         <div class="brand cabin-font-600">${p.brand}</div>
                         <div class="name maaney cabin-font-700" style="font-size:14px; margin:5px 0;">${p.name}</div>
@@ -1903,12 +1799,12 @@ document.getElementById("year").innerText=new Date().getFullYear();
                 </a>
             </div>
         `).join("");
-        
         // Add to cart function
         function addToCart() {
             alert('Product added to cart!');
             // In a real application, this would add the product to the cart
         }
     </script>
+    <script src="../../footer.js"></script>
 </body>
 </html>
