@@ -243,16 +243,20 @@
         }
         
         /* IMAGE SLIDER */
-        .image-box {
+         .image-box {
             position: relative;
             background: #f5f5f5;
+            text-align: center;
+            min-height: 200px;
         }
         
-        .image-box img {
-            width: 100%;
-            height: 520px;
-            object-fit: cover;
-        }
+     .image-box img {
+    width: 80%;          /* reduce width */
+    max-width: 900px;   /* limit desktop size */
+    height: auto;
+    max-height: 500px;  /* reduce height */
+    object-fit: contain;
+}
         
         .slider-btn {
             position: absolute;
@@ -417,13 +421,17 @@
             display: none;
         }
         
-        .mobile-slider-track img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            flex-shrink: 0;
-            scroll-snap-align: start;
-        }
+         .mobile-slider-track img {
+    width: 90%;
+    height: auto;
+    max-height: 280px;
+    object-fit: contain;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    margin: 0 auto;
+    display: block;
+}
+
         
         /* DOTS */
         .slider-dots {
@@ -954,10 +962,13 @@ text-decoration:none;
       <!-- MOBILE SLIDER -->
       <div class="mobile-slider d-md-none">
         <div class="mobile-slider-track" id="mobileSlider">
-          <img src="./poco-c75-5g-1.png" alt="POCO C75 5G image 1">
-          <img src="./poco-c75-5g-2.png" alt="POCO C75 5G image 2">
-          <img src="./poco-c75-5g-3.png" alt="POCO C75 5G image 3">
-          <img src="./poco-c75-5g-4.png" alt="POCO C75 5G image 4">
+          <img src="./image1.png" alt="POCO C75 5G image 1">
+          <img src="./image2.png" alt="POCO C75 5G image 2">
+          <img src="./image3.png" alt="POCO C75 5G image 3">
+          <img src="./image4.png" alt="POCO C75 5G image 4">
+          <img src="./image5.png" alt="POCO C75 5G image 5">
+          <img src="./image6.png" alt="POCO C75 5G image 6">
+          <img src="./image7.png" alt="POCO C75 5G image 7">
         </div>
         <div class="slider-dots" id="sliderDots"></div>
       </div>
@@ -1773,7 +1784,10 @@ document.getElementById("year").innerText=new Date().getFullYear();
             "./image1.png",
             "./image2.png",
             "./image3.png",
-            "./image4.png"
+            "./image4.png",
+            "./image5.png",
+            "./image6.png",
+            "./image7.png"
         ];
         let i = 0;
         
