@@ -827,7 +827,7 @@
     
     .product-card{
       border:1px solid #e3e8ee;
-      border-radius:20px;
+      border-radius:5px;
       padding:15px;
       height:100%;
       display:flex;
@@ -1644,7 +1644,8 @@ text-decoration:none;
   </div>
 </div>
 
-<div class="container-fluid px-3 px-md-4 mt-4">
+<div class="container-fluid px-3 px-md-4 mt-4 pb-4">
+
   <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
     <h3><b>Our Products</b></h3>
 
@@ -2042,7 +2043,7 @@ off:12,
 cat:"Mobile",
 color:"Black",
 img:"./mobiles/mobileU10k/p.png",
-link:"../poco-m7-5g",
+link:"/mobiles/poco-m7-5g",
 desc:"6.88″ 120Hz HD+ Display | Qualcomm Snapdragon 4 Gen 2 Processor | 6GB/8GB RAM | 128GB Storage | Expandable up to 1TB | 5160mAh Battery | 50MP Rear Camera | 8MP Front Camera | Android 14 with HyperOS | Dual SIM 5G Connectivity"
 },
 
@@ -2055,7 +2056,7 @@ off:24,
 cat:"Mobile",
 color:"Blue",
 img:"./mobiles/mobileU10k/samsung-m06.png",
-link:"../samsung-mo6",
+link:"/mobiles/samsung-m06",
 desc:"6.70″ HD+ PLS LCD Display | MediaTek Dimensity 6300 Octa-Core Processor | 4GB/6GB RAM | 64GB/128GB Storage | Dual 5G Nano-SIM | 50MP + 2MP Dual Rear Cameras | 8MP Front Camera | 5000mAh Battery with 25W Fast Charging | Android 15 with One UI Core | Wi-Fi, Bluetooth 5.3, GPS & 3.5mm Jack"
 },
 
@@ -2068,7 +2069,7 @@ off:12,
 cat:"Mobile",
 color:"Green",
 img:"./mobiles/mobileU10k/redmi-a4-5g.png",
-link:"../redmi-a4-5g",
+link:"/mobiles/redmi-a4-5g",
 desc:"6.88″ HD+ 120Hz IPS LCD Display | Qualcomm Snapdragon 4s Gen 2 Octa-Core | 4GB/6GB RAM | 64GB/128GB Storage | Android 14 with HyperOS | 50MP Rear Camera | 5MP Front Camera | 5160mAh Battery with 18W Fast Charging | Dual 5G SIM | Expandable Storage up to 1TB"
 },
 
@@ -2094,7 +2095,7 @@ off:20,
 cat:"Mobile",
 color:"Red",
 img:"./mobiles/mobileU10k/moto-g06-5g.png",
-link:"../moto-go6",
+link:"/mobiles/moto-g06",
 desc:"6.5″ HD+ IPS LCD Display | Unisoc T720 Octa-Core Processor | 4GB RAM | 64GB/128GB Storage | 6000mAh Massive Battery | 50MP Dual Rear Camera | 8MP Front Camera | Android 14 | Dual SIM 4G Connectivity | Side-Mounted Fingerprint Sensor"
 },
 
@@ -2195,10 +2196,10 @@ desc:"6.6″ HD+ IPS LCD Display | MediaTek Dimensity 6020 Octa-Core Processor |
   /* RENDER */
   function render(list) {
     grid.innerHTML = list.map(p => `
-      <div class="col-6 col-md-4 col-xl-2">
+      <div class="col-6 col-md-4 col-xl-2 padding-fix" role="listitem">
         <div class="product-card">
           <div class="product-img">
-            <span class="off-badge poppins-regular">15% OFF</span>
+            <span class="off-badge poppins-regular">${p.off}% OFF</span>
             <img src="${p.img}">
             <div class="hover-icons">
               <i class="bi bi-heart"></i>
@@ -2206,17 +2207,19 @@ desc:"6.6″ HD+ IPS LCD Display | MediaTek Dimensity 6020 Octa-Core Processor |
               <i class="bi bi-eye"></i>
             </div>
           </div>
-          <div class="title poppins-regular">${p.title}</div>
+          <div class="title poppins-regular">
+            <a href="${p.link}" style="text-decoration:none;color:#000;font-weight:600;">
+              ${p.title}
+            </a>
+          </div>
+
           <div class="stars">★★★★☆ <span class="text-muted">(189)</span></div>
           <div>
-            <span class="price poppins-regular">$${p.price}</span>
-            <span class="old poppins-regular">$${p.old}</span>
-            <span class="discount poppins-regular">10% OFF</span>
+            <span class="price poppins-regular">₹${p.price}</span>
+            <span class="old poppins-regular">₹${p.old}</span>
+            <span class="discount poppins-regular">${p.off}% OFF</span>
           </div>
-          <div class="cart-row">
-            <div class="wish"><i class="bi bi-heart"></i></div>
-            <button class="addcart poppins-regular"><i class="bi bi-cart poppins-regular"></i> View</button>
-          </div>
+          
         </div>
       </div>
     `).join("");
