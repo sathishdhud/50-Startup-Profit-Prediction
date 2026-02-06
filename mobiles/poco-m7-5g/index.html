@@ -796,6 +796,19 @@ font-size:13px;
 margin-top:6px;
 text-decoration:none;
 }
+.product-img-box{
+  width:100%;
+  height:200px;
+  overflow:hidden;
+  border-radius:8px;
+}
+
+.product-img-box img{
+  width:100%;
+  height:100%;
+  object-fit:contain;   /* IMPORTANT */
+  display:block;
+}
 
     </style>
 </head>
@@ -1603,7 +1616,7 @@ text-decoration:none;
         
         <!-- SIMILAR PRODUCTS -->
         <div class="section-box">
-            <h5 class="fw-bold mb-3">SIMILAR PRODUCTS</h5>
+            <h5 class="fw-bold mb-3" style="color:#000000;">SIMILAR PRODUCTS</h5>
             <div class="similar-row" id="similarProducts">
                 <!-- Products will be injected here -->
             </div>
@@ -1787,8 +1800,8 @@ document.getElementById("year").innerText=new Date().getFullYear();
                 name: "Redmi A4 5G",
                 price: "₹9,678",
                 mrp: "₹10,999",
-                img: "./redmi-a4-5g.png",
-                link: "#",
+                img: "../mobileU10k/redmi-a4-5g.png",
+                link: "../../mobiles/redmi-a4-5g",
                 desc: "Budget-friendly 5G smartphone with Snapdragon 4s Gen 2 processor and 120Hz display."
             },
             {
@@ -1796,8 +1809,8 @@ document.getElementById("year").innerText=new Date().getFullYear();
                 name: "POCO C75 5G",
                 price: "₹8,499",
                 mrp: "₹10,999",
-                img: "./poco-c75-5g.png",
-                link: "#",
+                img: "../mobileU10k/poco-m75-5g.png",
+                link: "../../mobiles/poco-c75-5g",
                 desc: "Affordable 5G phone with large display and capable Snapdragon processor."
             },
             {
@@ -1805,8 +1818,8 @@ document.getElementById("year").innerText=new Date().getFullYear();
                 name: "Samsung Galaxy M06 5G",
                 price: "₹10,621",
                 mrp: "₹13,999",
-                img: "./samsung-m06.png",
-                link: "#",
+                img: "../mobileU10k/samsung-m06.png",
+                link: "../../mobiles/samsung-m06-5g",
                 desc: "Reliable 5G smartphone from Samsung with Dimensity processor and good camera."
             },
             {
@@ -1814,8 +1827,8 @@ document.getElementById("year").innerText=new Date().getFullYear();
                 name: "Moto G06 Power",
                 price: "₹7,999",
                 mrp: "₹9,999",
-                img: "./moto-g06-5g.png",
-                link: "#",
+                img: "../mobileU10k/moto-g06-5g.png",
+                link: "../../mobiles/moto-g06-power",
                 desc: "Budget phone with massive 6000mAh battery and decent performance."
             },
             {
@@ -1823,8 +1836,8 @@ document.getElementById("year").innerText=new Date().getFullYear();
                 name: "Lava Storm Play 5G",
                 price: "₹10,473",
                 mrp: "₹13,499",
-                img: "./lava-storm-play-5g.png",
-                link: "#",
+                img: "../mobileU10k/lava-storm-play-5g.png",
+                link: "../../mobiles/lava-storm-play-5g",
                 desc: "Made-in-India 5G smartphone with powerful Dimensity 7050 processor."
             },
             {
@@ -1832,8 +1845,8 @@ document.getElementById("year").innerText=new Date().getFullYear();
                 name: "Infinix Smart 10",
                 price: "₹7,999",
                 mrp: "₹8,999",
-                img: "./infinix-smart-10.png",
-                link: "#",
+                img: "../mobileU10k/infinix-smart-10.png",
+                link: "../../mobiles/infinix-smart-10",
                 desc: "Entry-level smartphone with good display and decent performance."
             }
         ];
@@ -1843,9 +1856,10 @@ document.getElementById("year").innerText=new Date().getFullYear();
         container.innerHTML = similarProducts.map(p => `
             <div class="similar-card" style="min-width:220px; border:1px solid var(--border); color:black; border-radius:8px; overflow:hidden; margin-bottom:16px;">
                 <a href="${p.link}" target="_self" style="text-decoration:none; color:inherit; display:block;">
-                    <div class="img-wrap">
-                        <img src="${p.img}" alt="${p.name}" style="width:100%; height:200px; object-fit:cover;">
-                    </div>
+                    <div class="product-img-box">
+  <img src="${p.img}" alt="${p.name}">
+</div>
+
                     <div class="info" style="padding:10px;">
                         <div class="brand cabin-font-600">${p.brand}</div>
                         <div class="name maaney cabin-font-700" style="font-size:14px; margin:5px 0;">${p.name}</div>
