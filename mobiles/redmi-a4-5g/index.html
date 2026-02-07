@@ -34,7 +34,7 @@
 <!-- Schema.org Product -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org/",
+  "@context": "https://schema.org",
   "@type": "Product",
   "name": "Redmi A4 5G (6GB RAM, 128GB Storage)",
   "image": [
@@ -51,23 +51,20 @@
   "offers": {
     "@type": "Offer",
     "url": "https://maaney.store/mobiles/redmi-a4-5g",
-    "priceCurrency": "INR",
     "price": "10999",
+    "priceCurrency": "INR",
     "priceValidUntil": "2026-12-31",
     "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
     "seller": {
       "@type": "Organization",
       "name": "Maaney Store"
     }
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.2",
-    "reviewCount": "2146"
-  },
   "releaseDate": "2024-09-01"
 }
 </script>
+
 
     
     <!-- Bootstrap & Icons -->
@@ -861,36 +858,32 @@ text-decoration:none;
     
     <div class="container my-3" style="color:white;">
         <!-- Breadcrumb -->
-        <nav class="breadcrumb young-serif-regular" itemscope itemtype="https://schema.org/BreadcrumbList">
-            <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <a itemprop="item" href="/" style="text-decoration:none;">
-  <span itemprop="name" style="color:white;">Home</span>
-</a>
+        <nav class="breadcrumb young-serif-regular">
+  
+  <a href="/" style="text-decoration:none; color:white;">
+    Home
+  </a>
 
-                <meta itemprop="position" content="1" />
-            </span>
-            &nbsp;/&nbsp;
-            <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <a itemprop="item" href="/" style="text-decoration:none;">
-  <span itemprop="name" style="color:white;">Mobiles</span>
-</a>
+  &nbsp;/&nbsp;
 
-                <meta itemprop="position" content="2" />
-            </span>
-            &nbsp;/&nbsp;
-            <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <a itemprop="item" href="/" style="text-decoration:none;">
-  <span itemprop="name" style="color:white;">Mobiles Under ₹10,000</span>
-</a>
+  <a href="../mobileU10k" style="text-decoration:none; color:white;">
+    Mobiles
+  </a>
 
-                <meta itemprop="position" content="3" />
-            </span>
-            &nbsp;/&nbsp;
-            <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <strong itemprop="name" style="color:white;">REDMI A4 5G</strong>
-                <meta itemprop="position" content="4" />
-            </span>
-        </nav>
+  &nbsp;/&nbsp;
+
+  <a href="../mobileU10k" style="text-decoration:none; color:white;">
+    Mobiles Under ₹10,000
+  </a>
+
+  &nbsp;/&nbsp;
+
+  <span style="color:white; font-weight:bold;">
+    REDMI A4 5G
+  </span>
+
+</nav>
+
         
         <div class="audio-wrapper">
             <div id="playBtn" class="audio-btn">
@@ -932,115 +925,128 @@ text-decoration:none;
     </div>
 
     <!-- DETAILS -->
-    <div class="col-lg-5" itemscope itemtype="https://schema.org/Product">
+    <div class="col-lg-5">
 
-      <meta itemprop="brand" content="Redmi">
-      <div class="brand" style="color:black;">Redmi</div>
+  <!-- BRAND -->
+  <div class="brand" style="color:black;">Redmi</div>
 
-      <h1 class="subtitle maaney cabin-font-700" itemprop="name">
-        Redmi A4 5G (6GB RAM, 128GB Storage)
-      </h1>
+  <!-- PRODUCT NAME -->
+  <h1 class="subtitle maaney cabin-font-700">
+    Redmi A4 5G (6GB RAM, 128GB Storage)
+  </h1>
 
-      <p class="small mt-2 maaney lexend dark" style="color:#000000;" itemprop="description">
-        Redmi A4 5G delivers an affordable 5G experience with a large 6.88-inch 120Hz display, Snapdragon 4s Gen 2 processor, and a long-lasting 5160mAh battery. Designed for smooth browsing, social media, and daily productivity, it offers reliable performance, expandable storage, and Xiaomi’s HyperOS — making it an excellent choice for budget-conscious users who want modern connectivity without overspending.
-      </p>
+  <!-- DESCRIPTION -->
+  <p class="small mt-2 maaney lexend dark" style="color:#000000;">
+    Redmi A4 5G delivers an affordable 5G experience with a large 6.88-inch 120Hz display,
+    Snapdragon 4s Gen 2 processor, and a long-lasting 5160mAh battery. Designed for smooth
+    browsing, social media, and daily productivity, it offers reliable performance,
+    expandable storage, and Xiaomi’s HyperOS — making it an excellent choice for
+    budget-conscious users who want modern connectivity without overspending.
+  </p>
 
-      <!-- PRICE -->
-      <div class="mt-2" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-        <span class="price maaney special-gothic-expanded-one-regular">₹<span itemprop="price">9,999</span></span>
-        <span class="mrp special-gothic-expanded-one-regular">₹10,999</span>
-        <span class="off special-gothic-expanded-one-regular">(9% OFF)</span>
+  <!-- PRICE -->
+  <div class="mt-2">
+    <span class="price maaney special-gothic-expanded-one-regular">
+      ₹9,999
+    </span>
+    <span class="mrp special-gothic-expanded-one-regular">
+      ₹10,999
+    </span>
+    <span class="off special-gothic-expanded-one-regular">
+      (9% OFF)
+    </span>
+  </div>
 
-        <meta itemprop="priceCurrency" content="INR">
-        <meta itemprop="availability" content="https://schema.org/InStock">
-        <meta itemprop="url" content="https://maaney.store/mobiles/redmi-a4-5g.html">
-      </div>
+  <div class="tax">
+    Inclusive of all applicable taxes in India
+  </div>
 
-      <div class="tax">
-        Inclusive of all applicable taxes in India
-      </div>
+  <!-- TECH SPECS -->
+  <div class="mt-4 maaney">
+    <h2 class="h6">Technical Specifications</h2>
 
-      <!-- TECH SPECS -->
-      <div class="mt-4 maaney">
-        <h2 class="h6">Technical Specifications</h2>
+    <ul class="small mt-2 line-seed-jp-regular" style="line-height:1.7;">
+      <li><strong class="fw-semibold text-dark">Display:</strong> 6.88″ HD+ IPS LCD, 120Hz</li>
+      <li><strong>Processor:</strong> Qualcomm Snapdragon 4s Gen 2 Octa-Core</li>
+      <li><strong>RAM & Storage:</strong> 6GB RAM, 128GB (Expandable up to 1TB)</li>
+      <li><strong>Rear Camera:</strong> 50MP Primary + Auxiliary Sensor</li>
+      <li><strong>Front Camera:</strong> 5MP</li>
+      <li><strong>Battery:</strong> 5160mAh with 18W fast charging</li>
+      <li><strong>OS:</strong> Android 14 with Xiaomi HyperOS</li>
+      <li><strong>Connectivity:</strong> 5G, Wi-Fi, Bluetooth 5.3, GPS, Dual SIM</li>
+      <li><strong>Colors:</strong> Starry Black, Sparkle Purple</li>
+    </ul>
+  </div>
 
-        <ul class="small mt-2 line-seed-jp-regular" style="line-height:1.7;">
-          <li><strong class="fw-semibold text-dark">Display:</strong> 6.88″ HD+ IPS LCD, 120Hz</li>
-          <li><strong>Processor:</strong> Qualcomm Snapdragon 4s Gen 2 Octa-Core</li>
-          <li><strong>RAM & Storage:</strong> 6GB RAM, 128GB (Expandable up to 1TB)</li>
-          <li><strong>Rear Camera:</strong> 50MP Primary + Auxiliary Sensor</li>
-          <li><strong>Front Camera:</strong> 5MP</li>
-          <li><strong>Battery:</strong> 5160mAh with 18W fast charging</li>
-          <li><strong>OS:</strong> Android 14 with Xiaomi HyperOS</li>
-          <li><strong>Connectivity:</strong> 5G, Wi-Fi, Bluetooth 5.3, GPS, Dual SIM</li>
-          <li><strong>Colors:</strong> Starry Black, Sparkle Purple</li>
-        </ul>
-      </div>
+  <!-- COMPARISON -->
+  <div class="mt-4 line-seed-jp-regular">
+    <h2 class="compare-title">Why Choose Redmi A4 5G?</h2>
+    <p class="small" style="color:black;">
+      Redmi A4 5G stands out in the entry-level 5G segment with its smooth 120Hz display,
+      efficient Snapdragon chipset, and massive battery life. Compared to similarly priced
+      phones, it offers a bigger screen, expandable storage, and Xiaomi’s optimized HyperOS
+      experience — making it a smart everyday smartphone under ₹10,000.
+    </p>
+  </div>
 
-      <!-- COMPARISON -->
-      <div class="mt-4 line-seed-jp-regular">
-        <h2 class="compare-title">Why Choose Redmi A4 5G?</h2>
-        <p class="small" style="color:black;">
-          Redmi A4 5G stands out in the entry-level 5G segment with its smooth 120Hz display, efficient Snapdragon chipset, and massive battery life. Compared to similarly priced phones, it offers a bigger screen, expandable storage, and Xiaomi’s optimized HyperOS experience — making it a smart everyday smartphone under ₹10,000.
-        </p>
-      </div>
-
-      <!-- BUY -->
-      <div class="row g-2 mt-4">
-        <div class="col-7">
-          <button class="btn-bag w-100 text-center"
-            onclick="window.open('https://fktr.in/6IwR0M8', '_blank')">
-            <i class="fa-solid fa-bag-shopping me-2"></i>
-            FLIPKART
-          </button>
-        </div>
-
-        <div class="col-5">
-          <button class="btn-wishlist w-100">
-            <i class="fa fa-heart me-2"></i>
-            Wishlist
-          </button>
-        </div>
-      </div>
-
-      <!-- TRUST -->
-      <div class="mt-3 line-seed-jp-regular" style="font-size:14px; line-height:1.6;color:black;">
-
-        <div class="d-flex align-items-start mb-2" style="gap:10px;">
-          <i class="fa fa-shield-halved" style="color:#bdbdbd;"></i>
-          <div>
-            <strong>100% Genuine Redmi Product</strong>
-            <div>Official sealed smartphone</div>
-          </div>
-        </div>
-
-        <div class="d-flex align-items-start mb-2" style="gap:10px;">
-          <i class="fa fa-certificate" style="color:#bdbdbd;"></i>
-          <div>
-            <strong>1-Year Manufacturer Warranty</strong>
-            <div>Xiaomi brand warranty included</div>
-          </div>
-        </div>
-
-        <div class="d-flex align-items-start mb-2" style="gap:10px;">
-          <i class="fa fa-truck-fast" style="color:#bdbdbd;"></i>
-          <div>
-            <strong>Fast Delivery</strong>
-            <div>Delivered in 2–4 business days</div>
-          </div>
-        </div>
-
-        <div class="d-flex align-items-start" style="gap:10px;">
-          <i class="fa fa-rotate-left" style="color:#bdbdbd;"></i>
-          <div>
-            <strong>7-Day Return Policy</strong>
-            <div>As per buyer protection rules</div>
-          </div>
-        </div>
-
-      </div>
-
+  <!-- BUY -->
+  <div class="row g-2 mt-4">
+    <div class="col-7">
+      <button class="btn-bag w-100 text-center"
+              onclick="window.open('https://fktr.in/6IwR0M8', '_blank')">
+        <i class="fa-solid fa-bag-shopping me-2"></i>
+        FLIPKART
+      </button>
     </div>
+
+    <div class="col-5">
+      <button class="btn-wishlist w-100">
+        <i class="fa fa-heart me-2"></i>
+        Wishlist
+      </button>
+    </div>
+  </div>
+
+  <!-- TRUST -->
+  <div class="mt-3 line-seed-jp-regular"
+       style="font-size:14px; line-height:1.6; color:black;">
+
+    <div class="d-flex align-items-start mb-2" style="gap:10px;">
+      <i class="fa fa-shield-halved" style="color:#bdbdbd;"></i>
+      <div>
+        <strong>100% Genuine Redmi Product</strong>
+        <div>Official sealed smartphone</div>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-start mb-2" style="gap:10px;">
+      <i class="fa fa-certificate" style="color:#bdbdbd;"></i>
+      <div>
+        <strong>1-Year Manufacturer Warranty</strong>
+        <div>Xiaomi brand warranty included</div>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-start mb-2" style="gap:10px;">
+      <i class="fa fa-truck-fast" style="color:#bdbdbd;"></i>
+      <div>
+        <strong>Fast Delivery</strong>
+        <div>Delivered in 2–4 business days</div>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-start" style="gap:10px;">
+      <i class="fa fa-rotate-left" style="color:#bdbdbd;"></i>
+      <div>
+        <strong>7-Day Return Policy</strong>
+        <div>As per buyer protection rules</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
   </div>
 </div>
 
@@ -1048,19 +1054,25 @@ text-decoration:none;
 
         
         <!-- KEY FEATURES SECTION -->
-       <section class="section-box mt-4 line-seed-jp-regular" style="color:black;" aria-labelledby="key-features-title" itemscope itemtype="https://schema.org/Product">
+<section class="section-box mt-4 line-seed-jp-regular"
+         style="color:black;"
+         aria-labelledby="key-features-title">
+
   <!-- SECTION HEADING -->
-  <h2 id="key-features-title" class="section-title mb-3 maaney" itemprop="name">
+  <h2 id="key-features-title" class="section-title mb-3 maaney">
     Key Features of Redmi A4 5G
   </h2>
-  
+
   <!-- SHORT SEO INTRO -->
   <p class="small text-muted mb-4">
-    Redmi A4 5G brings together smooth visuals, dependable Snapdragon performance, long battery endurance, and modern 5G connectivity — making it an excellent everyday smartphone for users who want maximum value on a budget.
+    Redmi A4 5G brings together smooth visuals, dependable Snapdragon performance,
+    long battery endurance, and modern 5G connectivity — making it an excellent
+    everyday smartphone for users who want maximum value on a budget.
   </p>
-  
+
   <!-- FEATURES GRID -->
-  <div class="features-grid" style="color: #000000;">
+  <div class="features-grid" style="color:#000000;">
+
     <!-- FEATURE 1 -->
     <article class="feature-card">
       <div class="icon-wrap">
@@ -1068,10 +1080,12 @@ text-decoration:none;
       </div>
       <h3 class="maaney">Snapdragon 4s Gen 2 Efficient Performance</h3>
       <p>
-        Powered by Qualcomm Snapdragon 4s Gen 2, Redmi A4 5G delivers smooth app launches, responsive multitasking, and optimized power usage — ideal for daily browsing, messaging, streaming, and light gaming.
+        Powered by Qualcomm Snapdragon 4s Gen 2, Redmi A4 5G delivers smooth app launches,
+        responsive multitasking, and optimized power usage — ideal for daily browsing,
+        messaging, streaming, and light gaming.
       </p>
     </article>
-    
+
     <!-- FEATURE 2 -->
     <article class="feature-card">
       <div class="icon-wrap">
@@ -1079,10 +1093,12 @@ text-decoration:none;
       </div>
       <h3 class="maaney">50MP Main Camera for Clear Daylight Shots</h3>
       <p>
-        The 50MP rear camera captures sharp photos in good lighting, while the auxiliary sensor improves portrait depth. A 5MP front camera supports video calls and casual selfies for everyday sharing.
+        The 50MP rear camera captures sharp photos in good lighting, while the auxiliary
+        sensor improves portrait depth. A 5MP front camera supports video calls and casual
+        selfies for everyday sharing.
       </p>
     </article>
-    
+
     <!-- FEATURE 3 -->
     <article class="feature-card">
       <div class="icon-wrap">
@@ -1090,10 +1106,12 @@ text-decoration:none;
       </div>
       <h3 class="maaney">Large 6.88″ 120Hz Smooth Display</h3>
       <p>
-        Enjoy scrolling and videos on the expansive 6.88-inch HD+ display with a 120Hz refresh rate, delivering fluid motion and comfortable viewing for social media, movies, and reading.
+        Enjoy scrolling and videos on the expansive 6.88-inch HD+ display with a 120Hz
+        refresh rate, delivering fluid motion and comfortable viewing for social media,
+        movies, and reading.
       </p>
     </article>
-    
+
     <!-- FEATURE 4 -->
     <article class="feature-card">
       <div class="icon-wrap">
@@ -1101,10 +1119,12 @@ text-decoration:none;
       </div>
       <h3 class="maaney">Android 14 with Xiaomi HyperOS</h3>
       <p>
-        Runs on Android 14 with Xiaomi HyperOS, offering a clean interface, smart optimizations, customizable layouts, and useful privacy tools for a smoother everyday smartphone experience.
+        Runs on Android 14 with Xiaomi HyperOS, offering a clean interface, smart
+        optimizations, customizable layouts, and useful privacy tools for a smoother
+        everyday smartphone experience.
       </p>
     </article>
-    
+
     <!-- FEATURE 5 -->
     <article class="feature-card">
       <div class="icon-wrap">
@@ -1112,7 +1132,9 @@ text-decoration:none;
       </div>
       <h3 class="maaney">5160mAh Battery with Fast Charging</h3>
       <p>
-        The large 5160mAh battery provides dependable all-day backup for calls, streaming, and apps. With 18W fast charging support, Redmi A4 5G helps you recharge quickly and get back to what matters.
+        The large 5160mAh battery provides dependable all-day backup for calls, streaming,
+        and apps. With 18W fast charging support, Redmi A4 5G helps you recharge quickly
+        and get back to what matters.
       </p>
     </article>
 
@@ -1123,22 +1145,33 @@ text-decoration:none;
       </div>
       <h3 class="maaney">Built-In 5G & Expandable Storage</h3>
       <p>
-        Stay future-ready with integrated 5G connectivity on supported networks, while expandable storage up to 1TB lets you store more photos, videos, and apps without worrying about space.
+        Stay future-ready with integrated 5G connectivity on supported networks, while
+        expandable storage up to 1TB lets you store more photos, videos, and apps without
+        worrying about space.
       </p>
     </article>
+
   </div>
-  
+
   <!-- SEO FOOTER TEXT -->
   <div class="mt-4 small text-muted">
-    Combining a smooth 120Hz display, efficient Snapdragon processor, capable 50MP camera, long-lasting battery, and Xiaomi’s HyperOS software, Redmi A4 5G stands out as a well-rounded budget smartphone for users looking for reliable 5G performance at an affordable price.
+    Combining a smooth 120Hz display, efficient Snapdragon processor, capable 50MP camera,
+    long-lasting battery, and Xiaomi’s HyperOS software, Redmi A4 5G stands out as a
+    well-rounded budget smartphone for users looking for reliable 5G performance at an
+    affordable price.
   </div>
+
 </section>
+
 
 
 
         
         <!-- OFFERS + DETAILS -->
-        <section class="section-box mt-4 line-seed-jp-regular" style="color:black;" aria-labelledby="offers-details-title" itemscope itemtype="https://schema.org/Product">
+<section class="section-box mt-4 line-seed-jp-regular"
+         style="color:black;"
+         aria-labelledby="offers-details-title">
+
   <!-- SECTION TITLE -->
   <h2 id="offers-details-title" class="section-title mb-3">
     Offers & Product Information – Redmi A4 5G
@@ -1157,7 +1190,8 @@ text-decoration:none;
 
       <ul class="offer-list mt-2">
         <li>
-          Instant bank discounts may apply on select debit and credit cards during Amazon, Flipkart, and Mi Store sale events.
+          Instant bank discounts may apply on select debit and credit cards during Amazon,
+          Flipkart, and Mi Store sale events.
         </li>
         <li>
           Exchange offers on eligible smartphones can further lower the effective purchase price.
@@ -1174,7 +1208,8 @@ text-decoration:none;
       </ul>
 
       <p class="muted small">
-        Final pricing depends on seller, inventory, city, and payment method. Always verify live offers on the retailer’s product page before purchasing.
+        Final pricing depends on seller, inventory, city, and payment method.
+        Always verify live offers on the retailer’s product page before purchasing.
       </p>
 
       <a href="#" class="link" rel="nofollow">
@@ -1183,31 +1218,39 @@ text-decoration:none;
     </div>
 
     <!-- PRODUCT DETAILS -->
-    <div class="col-lg-6 details maaney" itemprop="description">
+    <div class="col-lg-6 details maaney">
+
       <h3 class="offer-title">Product Overview</h3>
 
       <ul class="detail-list">
         <li>
-          Redmi A4 5G comes with 6GB RAM and 128GB internal storage, expandable up to 1TB using a dedicated microSD slot.
+          Redmi A4 5G comes with 6GB RAM and 128GB internal storage,
+          expandable up to 1TB using a dedicated microSD slot.
         </li>
         <li>
-          Large 6.88″ HD+ IPS LCD display with a 120Hz refresh rate offers smooth scrolling and comfortable viewing for videos and reading.
+          Large 6.88″ HD+ IPS LCD display with a 120Hz refresh rate offers smooth scrolling
+          and comfortable viewing for videos and reading.
         </li>
         <li>
-          Qualcomm Snapdragon 4s Gen 2 processor ensures reliable everyday performance with integrated 5G connectivity.
+          Qualcomm Snapdragon 4s Gen 2 processor ensures reliable everyday performance
+          with integrated 5G connectivity.
         </li>
         <li>
-          50MP main rear camera and 5MP front camera handle daily photography, video calls, and social sharing.
+          50MP main rear camera and 5MP front camera handle daily photography,
+          video calls, and social sharing.
         </li>
         <li>
-          Runs on Android 14 with Xiaomi HyperOS, delivering a clean interface, smart optimizations, and useful customization options.
+          Runs on Android 14 with Xiaomi HyperOS, delivering a clean interface,
+          smart optimizations, and useful customization options.
         </li>
       </ul>
 
       <!-- DESIGN -->
       <h4 class="sub-title">Design & Build</h4>
       <p class="muted">
-        Modern Redmi design with a slim profile and comfortable grip. Lightweight body makes it easy to hold for long sessions. Available in Starry Black and Sparkle Purple colour variants.
+        Modern Redmi design with a slim profile and comfortable grip.
+        Lightweight body makes it easy to hold for long sessions.
+        Available in Starry Black and Sparkle Purple colour variants.
       </p>
 
       <!-- IN THE BOX -->
@@ -1280,8 +1323,10 @@ text-decoration:none;
       </table>
 
     </div>
+
   </div>
 </section>
+
 
 
 
@@ -1420,22 +1465,25 @@ text-decoration:none;
 
         
         <!-- CUSTOMER REVIEWS SECTION -->
-      <section class="section-box mt-4 line-seed-jp-regular" style="color:black;" itemscope itemtype="https://schema.org/Product">
-  <h2 class="mb-3 fw-bold">Customer Feedback & Ratings – Samsung Galaxy M06 5G</h2>
+      <section class="section-box mt-4 line-seed-jp-regular" style="color:black;">
 
-  <!-- AGGREGATE RATING (SEO FRIENDLY) -->
-  <div class="row mb-4" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+  <h2 class="mb-3 fw-bold">
+    Customer Feedback & Ratings – Samsung Galaxy M06 5G
+  </h2>
+
+  <!-- AGGREGATE RATING (VISUAL ONLY) -->
+  <div class="row mb-4">
     <div class="col-md-4 text-center p-3">
-      <!-- Estimated combined rating from Amazon & Flipkart listings -->
-      <div class="display-4 fw-bold" itemprop="ratingValue">3.9</div>
+
+      <div class="display-4 fw-bold">3.9</div>
       <div class="rating-stars mb-2">★★★★☆</div>
+
       <div class="text-dark fw-bold">
         Based on
-        <span itemprop="reviewCount" style="color:var(--fk-orange);">~20,000+</span>
+        <span style="color:var(--fk-orange);">20,000+</span>
         user ratings from Amazon India & Flipkart
       </div>
-      <meta itemprop="bestRating" content="5">
-      <meta itemprop="worstRating" content="1">
+
     </div>
 
     <!-- RATING DISTRIBUTION (ESTIMATED) -->
@@ -1454,54 +1502,52 @@ text-decoration:none;
   <div class="reviews-list">
 
     <!-- REVIEW 1 -->
-    <article class="review-box" itemprop="review" itemscope itemtype="https://schema.org/Review">
-      <strong itemprop="author">Verified Amazon Buyer</strong>
+    <article class="review-box">
+      <strong>Verified Amazon Buyer</strong>
       <span class="review-date">• Recent purchase</span>
-      <div class="rating-stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
-        <meta itemprop="ratingValue" content="5">
-        ★★★★★
-      </div>
-      <p itemprop="reviewBody" class="maaney">
-        Very satisfied with the Samsung Galaxy M06 5G. The phone runs smoothly for daily tasks, and the 5G experience is noticeably faster on supported networks. Buyers often highlight the consistent battery life that easily lasts a full day on moderate use.
+      <div class="rating-stars">★★★★★</div>
+      <p class="maaney">
+        Very satisfied with the Samsung Galaxy M06 5G. The phone runs smoothly for daily
+        tasks, and the 5G experience is noticeably faster on supported networks. Buyers
+        often highlight the consistent battery life that easily lasts a full day on
+        moderate use.
       </p>
     </article>
 
     <!-- REVIEW 2 -->
-    <article class="review-box" itemprop="review" itemscope itemtype="https://schema.org/Review">
-      <strong itemprop="author">Flipkart Reviewer</strong>
+    <article class="review-box">
+      <strong>Flipkart Reviewer</strong>
       <span class="review-date">• Verified purchase</span>
-      <div class="rating-stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
-        <meta itemprop="ratingValue" content="4">
-        ★★★★☆
-      </div>
-      <p itemprop="reviewBody" class="maaney">
-        Many Flipkart customers mention the display quality and battery endurance as significant strengths for this price segment. The camera performs reliably in daylight, producing clear images, though low-light shots are typically average as expected in this category.
+      <div class="rating-stars">★★★★☆</div>
+      <p class="maaney">
+        Many Flipkart customers mention the display quality and battery endurance as
+        significant strengths for this price segment. The camera performs reliably in
+        daylight, producing clear images, though low-light shots are typically average.
       </p>
     </article>
 
     <!-- REVIEW 3 -->
-    <article class="review-box" itemprop="review" itemscope itemtype="https://schema.org/Rating">
-      <strong itemprop="author">Amazon User</strong>
+    <article class="review-box">
+      <strong>Amazon User</strong>
       <span class="review-date">• Recent review</span>
-      <div class="rating-stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
-        <meta itemprop="ratingValue" content="3">
-        ★★★☆☆
-      </div>
-      <p itemprop="reviewBody" class="maaney">
-        Some users note that while the MediaTek Dimensity 6300 chipset handles daily usage smoothly, performance under heavy multitasking or high-intensity gaming isn’t as strong as mid-range competitors. This aligns with feedback seen on both Amazon and Flipkart listings.
+      <div class="rating-stars">★★★☆☆</div>
+      <p class="maaney">
+        Some users note that while the MediaTek Dimensity 6300 chipset handles daily usage
+        smoothly, performance under heavy multitasking or high-intensity gaming isn’t as
+        strong as mid-range competitors. This aligns with feedback seen on marketplace
+        listings.
       </p>
     </article>
 
     <!-- REVIEW 4 -->
-    <article class="review-box" itemprop="review" itemscope itemtype="https://schema.org/Review">
-      <strong itemprop="author">Flipkart Buyer</strong>
+    <article class="review-box">
+      <strong>Flipkart Buyer</strong>
       <span class="review-date">• Verified purchase</span>
-      <div class="rating-stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
-        <meta itemprop="ratingValue" content="2">
-        ★★☆☆☆
-      </div>
-      <p itemprop="reviewBody" class="maaney">
-        A minority of customers mention occasional slow touch responsiveness in heavy use and average low-light camera performance, suggesting that expectations should align with the Galaxy M06 5G’s budget category and price.
+      <div class="rating-stars">★★☆☆☆</div>
+      <p class="maaney">
+        A minority of customers mention occasional slow touch responsiveness in heavy use
+        and average low-light camera performance, suggesting expectations should align
+        with the Galaxy M06 5G’s budget category and price.
       </p>
     </article>
 
@@ -1509,147 +1555,226 @@ text-decoration:none;
 
   <!-- DISCLAIMER -->
   <p class="small text-muted mt-3">
-    Review data is aggregated from verified Amazon India and Flipkart user feedback for the Samsung Galaxy M06 5G across multiple listings. Individual experiences may vary based on usage habits, network conditions, and device configurations.
+    Review data is aggregated from publicly available Amazon India and Flipkart user
+    feedback for the Samsung Galaxy M06 5G across multiple listings. Individual
+    experiences may vary based on usage habits, network conditions, and device
+    configurations.
   </p>
+
 </section>
+
 
 
 
         
         <!-- FAQ SECTION -->
-       <section class="section-box faq-section mt-4 line-seed-jp-regular" itemscope itemtype="https://schema.org/FAQPage">
-  <h2 class="faq-title mb-3 fw-bold">Frequently Asked Questions – Samsung Galaxy M06 5G</h2>
+     <section class="section-box faq-section mt-4 line-seed-jp-regular">
+  <h2 class="faq-title mb-3 fw-bold">
+    Frequently Asked Questions – Samsung Galaxy M06 5G
+  </h2>
 
   <div class="accordion faq-accordion" id="faqAccordion">
 
     <!-- FAQ 1 -->
-    <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="accordion-item">
       <h3 class="accordion-header" id="faqOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne" itemprop="name">
+        <button class="accordion-button" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseOne"
+                aria-expanded="true"
+                aria-controls="faqCollapseOne">
           Does Samsung Galaxy M06 5G have water or dust resistance?
         </button>
       </h3>
-      <div id="faqCollapseOne" class="accordion-collapse collapse show" aria-labelledby="faqOne" data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div class="accordion-body" itemprop="text">
-          Samsung Galaxy M06 5G **does not carry an official IP water/dust resistance rating** on its spec sheet. While everyday splashes or light moisture exposure shouldn’t harm the device, it **is not built for water submersion or rugged environments**.
+      <div id="faqCollapseOne" class="accordion-collapse collapse show"
+           aria-labelledby="faqOne"
+           data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Samsung Galaxy M06 5G does <strong>not carry an official IP water or dust
+          resistance rating</strong>. While light splashes should not cause issues,
+          the device is <strong>not designed for water submersion</strong>.
         </div>
       </div>
     </div>
 
     <!-- FAQ 2 -->
-    <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="accordion-item">
       <h3 class="accordion-header" id="faqTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo" itemprop="name">
+        <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseTwo"
+                aria-expanded="false"
+                aria-controls="faqCollapseTwo">
           What type of charging does Galaxy M06 5G support?
         </button>
       </h3>
-      <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqTwo" data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div class="accordion-body" itemprop="text">
-          Galaxy M06 5G supports **fast wired charging up to 25W** with the included charger in most retail packages. It does **not support wireless charging**, which is typical for devices in this price segment.
+      <div id="faqCollapseTwo" class="accordion-collapse collapse"
+           aria-labelledby="faqTwo"
+           data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Galaxy M06 5G supports <strong>fast wired charging up to 25W</strong>
+          with the included charger in most retail packages. It does
+          <strong>not support wireless charging</strong>.
         </div>
       </div>
     </div>
 
     <!-- FAQ 3 -->
-    <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="accordion-item">
       <h3 class="accordion-header" id="faqThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree" itemprop="name">
+        <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseThree"
+                aria-expanded="false"
+                aria-controls="faqCollapseThree">
           What accessories are included in the Samsung Galaxy M06 5G box?
         </button>
       </h3>
-      <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqThree" data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div class="accordion-body" itemprop="text">
-          The standard retail box for Galaxy M06 5G typically includes the **smartphone, USB-C cable, SIM ejector tool, documentation, and a 25W charging adapter**. Accessories such as earphones are **not included** by default.
+      <div id="faqCollapseThree" class="accordion-collapse collapse"
+           aria-labelledby="faqThree"
+           data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          The retail box typically includes the smartphone, USB-C cable,
+          SIM ejector tool, documentation, and a <strong>25W charging adapter</strong>.
+          Earphones are <strong>not included</strong>.
         </div>
       </div>
     </div>
 
     <!-- FAQ 4 -->
-    <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="accordion-item">
       <h3 class="accordion-header" id="faqFour">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour" itemprop="name">
+        <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseFour"
+                aria-expanded="false"
+                aria-controls="faqCollapseFour">
           Does Galaxy M06 5G support Dual SIM and expandable storage?
         </button>
       </h3>
-      <div id="faqCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqFour" data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div class="accordion-body" itemprop="text">
-          Yes, the Samsung Galaxy M06 5G supports **Dual Nano-SIMs** and features a **dedicated microSD card slot**, allowing you to expand storage up to 1TB without sacrificing the second SIM slot.
+      <div id="faqCollapseFour" class="accordion-collapse collapse"
+           aria-labelledby="faqFour"
+           data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Yes. Galaxy M06 5G supports <strong>Dual Nano-SIM</strong> cards and
+          features a <strong>dedicated microSD card slot</strong> supporting
+          storage expansion up to 1TB.
         </div>
       </div>
     </div>
 
     <!-- FAQ 5 -->
-    <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="accordion-item">
       <h3 class="accordion-header" id="faqFive">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFive" aria-expanded="false" aria-controls="faqCollapseFive" itemprop="name">
+        <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseFive"
+                aria-expanded="false"
+                aria-controls="faqCollapseFive">
           How long are software updates supported?
         </button>
       </h3>
-      <div id="faqCollapseFive" class="accordion-collapse collapse" aria-labelledby="faqFive" data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div class="accordion-body" itemprop="text">
-          As part of Samsung’s mid-range M series, Galaxy M06 5G typically receives **multiple years of Android OS updates and security patches**. Launched with Android 14, it is expected to receive at least one major OS upgrade and regular monthly or quarterly security updates.
+      <div id="faqCollapseFive" class="accordion-collapse collapse"
+           aria-labelledby="faqFive"
+           data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Galaxy M06 5G typically receives multiple years of Android OS updates
+          and regular security patches. Launched with Android 14, it is expected
+          to receive at least one major OS upgrade.
         </div>
       </div>
     </div>
 
     <!-- FAQ 6 -->
-    <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="accordion-item">
       <h3 class="accordion-header" id="faqSix">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseSix" aria-expanded="false" aria-controls="faqCollapseSix" itemprop="name">
+        <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseSix"
+                aria-expanded="false"
+                aria-controls="faqCollapseSix">
           How good is the camera on Galaxy M06 5G?
         </button>
       </h3>
-      <div id="faqCollapseSix" class="accordion-collapse collapse" aria-labelledby="faqSix" data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div class="accordion-body" itemprop="text">
-          Samsung Galaxy M06 5G has a **50MP primary rear camera with a depth sensor** and an **8MP selfie camera**. Users often find the camera performs well in bright daylight scenarios, capturing clear, detailed images. In lower light, performance is average and typical for budget 5G phones.
+      <div id="faqCollapseSix" class="accordion-collapse collapse"
+           aria-labelledby="faqSix"
+           data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Galaxy M06 5G features a <strong>50MP rear camera</strong> and an
+          <strong>8MP selfie camera</strong>. Daylight photography is good,
+          while low-light performance is average for this segment.
         </div>
       </div>
     </div>
 
     <!-- FAQ 7 -->
-    <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="accordion-item">
       <h3 class="accordion-header" id="faqSeven">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseSeven" aria-expanded="false" aria-controls="faqCollapseSeven" itemprop="name">
+        <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseSeven"
+                aria-expanded="false"
+                aria-controls="faqCollapseSeven">
           Is Samsung Galaxy M06 5G suitable for gaming?
         </button>
       </h3>
-      <div id="faqCollapseSeven" class="accordion-collapse collapse" aria-labelledby="faqSeven" data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div class="accordion-body" itemprop="text">
-          The Galaxy M06 5G’s **MediaTek Dimensity 6300 chipset** and 90Hz display handle casual and mid-level gaming well. While heavy AAA titles at max settings may not run smoothly, everyday games and graphics-moderate titles perform reliably.
+      <div id="faqCollapseSeven" class="accordion-collapse collapse"
+           aria-labelledby="faqSeven"
+           data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          With the <strong>MediaTek Dimensity 6300 chipset</strong> and a
+          <strong>90Hz display</strong>, Galaxy M06 5G handles casual and
+          mid-level gaming well, though demanding titles at max settings
+          may be limited.
         </div>
       </div>
     </div>
 
     <!-- FAQ 8 -->
-    <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="accordion-item">
       <h3 class="accordion-header" id="faqEight">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseEight" aria-expanded="false" aria-controls="faqCollapseEight" itemprop="name">
+        <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseEight"
+                aria-expanded="false"
+                aria-controls="faqCollapseEight">
           Does Galaxy M06 5G support 5G networks in India?
         </button>
       </h3>
-      <div id="faqCollapseEight" class="accordion-collapse collapse" aria-labelledby="faqEight" data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div class="accordion-body" itemprop="text">
-          Yes. The Samsung Galaxy M06 5G supports multiple **5G bands compatible with Indian carriers** like Jio and Airtel, giving reliable high-speed network connectivity where 5G coverage is available.
+      <div id="faqCollapseEight" class="accordion-collapse collapse"
+           aria-labelledby="faqEight"
+           data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Yes. Galaxy M06 5G supports multiple 5G bands compatible with
+          Indian carriers such as Jio and Airtel.
         </div>
       </div>
     </div>
 
     <!-- FAQ 9 -->
-    <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="accordion-item">
       <h3 class="accordion-header" id="faqNine">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseNine" aria-expanded="false" aria-controls="faqCollapseNine" itemprop="name">
+        <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseNine"
+                aria-expanded="false"
+                aria-controls="faqCollapseNine">
           Does Galaxy M06 5G come with a screen protector or case?
         </button>
-      </h3>
-      <div id="faqCollapseNine" class="accordion-collapse collapse" aria-labelledby="faqNine" data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div class="accordion-body" itemprop="text">
-          Most retail packages do not include a pre-installed screen protector or protective case. Users often purchase third-party tempered glass and protective cases separately for added device protection.
+      </h_alignment>
+      <div id="faqCollapseNine" class="accordion-collapse collapse"
+           aria-labelledby="faqNine"
+           data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Most retail packages do not include a screen protector or protective case.
+          Users usually purchase third-party accessories separately.
         </div>
       </div>
     </div>
 
   </div>
 </section>
+
 
 
 
