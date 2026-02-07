@@ -34,7 +34,7 @@
 <!-- Structured Data – Schema.org Product -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org/",
+  "@context": "https://schema.org",
   "@type": "Product",
   "name": "Motorola Moto G06 Power (4GB RAM, 64GB Storage)",
   "image": [
@@ -42,12 +42,13 @@
     "https://maaney.store/mobiles/moto-go6/image2.png",
     "https://maaney.store/mobiles/moto-go6/image3.png"
   ],
-  "description": "Motorola Moto G06 Power smartphone with a large 6.88-inch 120Hz display, MediaTek Helio G81 Extreme processor, 50MP rear camera, 8MP front camera and massive 7000mAh battery with 18W fast charging, running Android 15.",
+  "description": "Motorola Moto G06 Power smartphone featuring a 6.88-inch HD+ display with 120Hz refresh rate, MediaTek Helio G81 Extreme processor, 50MP rear camera, 8MP front camera, and a massive 7000mAh battery with 18W fast charging. Runs on Android 15.",
   "brand": {
     "@type": "Brand",
     "name": "Motorola"
   },
   "sku": "MOTOG06P-4-64-IN",
+  "mpn": "MOTO-G06-POWER-4-64",
   "offers": {
     "@type": "Offer",
     "url": "https://maaney.store/mobiles/moto-go6",
@@ -55,6 +56,7 @@
     "price": "7999",
     "priceValidUntil": "2026-12-31",
     "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
     "seller": {
       "@type": "Organization",
       "name": "Maaney Store"
@@ -68,6 +70,7 @@
   "releaseDate": "2025-01-15"
 }
 </script>
+
 
     
     <!-- Bootstrap & Icons -->
@@ -869,48 +872,32 @@ text-decoration:none;
     
     <div class="container my-3" style="color:white;">
         <!-- Breadcrumb -->
-        <nav class="breadcrumb young-serif-regular"
-     aria-label="Breadcrumb"
-     itemscope itemtype="https://schema.org/BreadcrumbList">
+<nav class="breadcrumb young-serif-regular" aria-label="Breadcrumb">
 
-  <!-- Home -->
-  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-    <a itemprop="item" href="https://maaney.store/" style="text-decoration:none;">
-      <span itemprop="name" style="color:white;">Home</span>
-    </a>
-    <meta itemprop="position" content="1" />
-  </span>
+  <a href="https://maaney.store/" style="text-decoration:none; color:white;">
+    Home
+  </a>
 
   &nbsp;/&nbsp;
 
-  <!-- Mobiles Category -->
-  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-    <a itemprop="item" href="https://maaney.store/mobiles" style="text-decoration:none;">
-      <span itemprop="name" style="color:white;">Mobiles</span>
-    </a>
-    <meta itemprop="position" content="2" />
-  </span>
+  <a href="https://maaney.store/mobiles" style="text-decoration:none; color:white;">
+    Mobiles
+  </a>
 
   &nbsp;/&nbsp;
 
-  <!-- Budget or Power Category -->
-  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-    <a itemprop="item" href="https://maaney.store/mobiles-under-10000" style="text-decoration:none;">
-      <span itemprop="name" style="color:white;">Mobiles Under ₹10,000</span>
-    </a>
-    <meta itemprop="position" content="3" />
-  </span>
+  <a href="https://maaney.store/mobiles-under-10000" style="text-decoration:none; color:white;">
+    Mobiles Under ₹10,000
+  </a>
 
   &nbsp;/&nbsp;
 
-  <!-- Current Product -->
-  <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-    <strong itemprop="name" style="color:white;">Motorola Moto G06 Power</strong>
-    <meta itemprop="item" content="https://maaney.store/mobiles/moto-g06-power.html" />
-    <meta itemprop="position" content="4" />
+  <span style="color:white; font-weight:bold;">
+    Motorola Moto G06 Power
   </span>
 
 </nav>
+
 
         
         <div class="audio-wrapper">
@@ -955,128 +942,125 @@ text-decoration:none;
     </div>
 
     <!-- DETAILS -->
-    <div class="col-lg-5" itemscope itemtype="https://schema.org/Product">
+    <div class="col-lg-5">
 
-      <meta itemprop="brand" content="Motorola">
-      <div class="brand" style="color:black;">Motorola</div>
+  <div class="brand" style="color:black;">Motorola</div>
 
-      <h1 class="subtitle maaney cabin-font-700" itemprop="name">
-        Motorola Moto G06 Power (4GB RAM, 64GB Storage)
-      </h1>
+  <h1 class="subtitle maaney cabin-font-700">
+    Motorola Moto G06 Power (4GB RAM, 64GB Storage)
+  </h1>
 
-      <p class="small mt-2 maaney lexend dark" style="color:#000000;" itemprop="description">
-        Motorola Moto G06 Power is built for users who need exceptional battery life and smooth daily performance. It features a large 6.88-inch 120Hz display, MediaTek Helio G81 Extreme processor, and a massive 7000mAh battery. With clean Android 15, a 50MP main camera, and expandable storage, it’s an ideal budget smartphone for long screen time, browsing, streaming, and everyday tasks.
-      </p>
+  <p class="small mt-2 maaney lexend dark" style="color:#000000;">
+    Motorola Moto G06 Power is built for users who need exceptional battery life and smooth daily performance. It features a large 6.88-inch 120Hz display, MediaTek Helio G81 Extreme processor, and a massive 7000mAh battery. With clean Android 15, a 50MP main camera, and expandable storage, it’s an ideal budget smartphone for long screen time, browsing, streaming, and everyday tasks.
+  </p>
 
-      <!-- PRICE -->
-      <div class="mt-2" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-        <span class="price maaney special-gothic-expanded-one-regular">₹<span itemprop="price">7,999</span></span>
-        <span class="mrp special-gothic-expanded-one-regular">₹9,999</span>
-        <span class="off special-gothic-expanded-one-regular">(20% OFF)</span>
+  <!-- PRICE -->
+  <div class="mt-2">
+    <span class="price maaney special-gothic-expanded-one-regular">
+      ₹7,999
+    </span>
+    <span class="mrp special-gothic-expanded-one-regular">₹9,999</span>
+    <span class="off special-gothic-expanded-one-regular">(20% OFF)</span>
+  </div>
 
-        <meta itemprop="priceCurrency" content="INR">
-        <meta itemprop="availability" content="https://schema.org/InStock">
-        <meta itemprop="url" content="https://maaney.store/mobiles/moto-g06-power.html">
-      </div>
+  <div class="tax">
+    Inclusive of all applicable taxes in India
+  </div>
 
-      <div class="tax">
-        Inclusive of all applicable taxes in India
-      </div>
+  <!-- TECH SPECS -->
+  <div class="mt-4 maaney">
+    <h2 class="h6">Technical Specifications</h2>
 
-      <!-- TECH SPECS -->
-      <div class="mt-4 maaney">
-        <h2 class="h6">Technical Specifications</h2>
+    <ul class="small mt-2 line-seed-jp-regular" style="line-height:1.7;">
+      <li><strong class="fw-semibold text-dark">Display:</strong> 6.88″ HD+ IPS LCD, 120Hz</li>
+      <li><strong>Processor:</strong> MediaTek Helio G81 Extreme Octa-Core</li>
+      <li><strong>RAM & Storage:</strong> 4GB RAM, 64GB (Expandable up to 1TB)</li>
+      <li><strong>Rear Camera:</strong> 50MP Primary</li>
+      <li><strong>Front Camera:</strong> 8MP</li>
+      <li><strong>Battery:</strong> 7000mAh with 18W fast charging</li>
+      <li><strong>OS:</strong> Android 15 (Motorola Hello UI)</li>
+      <li><strong>Connectivity:</strong> 4G LTE, Wi-Fi, Bluetooth, GPS, Dual SIM</li>
+      <li><strong>Colors:</strong> Pantone Tendril, Laurel Oak, Tapestry</li>
+    </ul>
+  </div>
 
-        <ul class="small mt-2 line-seed-jp-regular" style="line-height:1.7;">
-          <li><strong class="fw-semibold text-dark">Display:</strong> 6.88″ HD+ IPS LCD, 120Hz</li>
-          <li><strong>Processor:</strong> MediaTek Helio G81 Extreme Octa-Core</li>
-          <li><strong>RAM & Storage:</strong> 4GB RAM, 64GB (Expandable up to 1TB)</li>
-          <li><strong>Rear Camera:</strong> 50MP Primary</li>
-          <li><strong>Front Camera:</strong> 8MP</li>
-          <li><strong>Battery:</strong> 7000mAh with 18W fast charging</li>
-          <li><strong>OS:</strong> Android 15 (Motorola Hello UI)</li>
-          <li><strong>Connectivity:</strong> 4G LTE, Wi-Fi, Bluetooth, GPS, Dual SIM</li>
-          <li><strong>Colors:</strong> Pantone Tendril, Laurel Oak, Tapestry</li>
-        </ul>
-      </div>
+  <!-- COMPARISON -->
+  <div class="mt-4 line-seed-jp-regular">
+    <h2 class="compare-title">Why Choose Moto G06 Power?</h2>
+    <p class="small" style="color:black;">
+      Moto G06 Power stands out with its massive 7000mAh battery and smooth 120Hz display. Compared to most budget phones, it delivers significantly longer battery backup, a clean Android experience, and reliable everyday performance — making it a great choice for users who prioritize endurance under ₹10,000.
+    </p>
+  </div>
 
-      <!-- COMPARISON -->
-      <div class="mt-4 line-seed-jp-regular">
-        <h2 class="compare-title">Why Choose Moto G06 Power?</h2>
-        <p class="small" style="color:black;">
-          Moto G06 Power stands out with its massive 7000mAh battery and smooth 120Hz display. Compared to most budget phones, it delivers significantly longer battery backup, clean Android experience, and reliable everyday performance — making it a great choice for users who prioritize endurance and simplicity under ₹10,000.
-        </p>
-      </div>
-
-      <!-- BUY -->
-      <div class="row g-2 mt-4">
-        <div class="col-7">
-          <button class="btn-bag w-100 text-center"
-            onclick="window.open('https://fktr.in/x9ar3Nm', '_blank')">
-            <i class="fa-solid fa-bag-shopping me-2"></i>
-            FLIPKART
-          </button>
-        </div>
-
-        <div class="col-5">
-          <button class="btn-wishlist w-100">
-            <i class="fa fa-heart me-2"></i>
-            Wishlist
-          </button>
-        </div>
-      </div>
-
-      <!-- TRUST -->
-      <div class="mt-3 line-seed-jp-regular" style="font-size:14px; line-height:1.6;color:black;">
-
-        <div class="d-flex align-items-start mb-2" style="gap:10px;">
-          <i class="fa fa-shield-halved" style="color:#bdbdbd;"></i>
-          <div>
-            <strong>100% Genuine Motorola Product</strong>
-            <div>Official sealed smartphone</div>
-          </div>
-        </div>
-
-        <div class="d-flex align-items-start mb-2" style="gap:10px;">
-          <i class="fa fa-certificate" style="color:#bdbdbd;"></i>
-          <div>
-            <strong>1-Year Manufacturer Warranty</strong>
-            <div>Motorola brand warranty included</div>
-          </div>
-        </div>
-
-        <div class="d-flex align-items-start mb-2" style="gap:10px;">
-          <i class="fa fa-truck-fast" style="color:#bdbdbd;"></i>
-          <div>
-            <strong>Fast Delivery</strong>
-            <div>Delivered in 2–4 business days</div>
-          </div>
-        </div>
-
-        <div class="d-flex align-items-start" style="gap:10px;">
-          <i class="fa fa-rotate-left" style="color:#bdbdbd;"></i>
-          <div>
-            <strong>7-Day Return Policy</strong>
-            <div>As per buyer protection rules</div>
-          </div>
-        </div>
-
-      </div>
-
+  <!-- BUY -->
+  <div class="row g-2 mt-4">
+    <div class="col-7">
+      <button class="btn-bag w-100 text-center"
+        onclick="window.open('https://fktr.in/x9ar3Nm', '_blank')">
+        <i class="fa-solid fa-bag-shopping me-2"></i>
+        FLIPKART
+      </button>
     </div>
+
+    <div class="col-5">
+      <button class="btn-wishlist w-100">
+        <i class="fa fa-heart me-2"></i>
+        Wishlist
+      </button>
+    </div>
+  </div>
+
+  <!-- TRUST -->
+  <div class="mt-3 line-seed-jp-regular" style="font-size:14px; line-height:1.6;color:black;">
+
+    <div class="d-flex align-items-start mb-2" style="gap:10px;">
+      <i class="fa fa-shield-halved" style="color:#bdbdbd;"></i>
+      <div>
+        <strong>100% Genuine Motorola Product</strong>
+        <div>Official sealed smartphone</div>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-start mb-2" style="gap:10px;">
+      <i class="fa fa-certificate" style="color:#bdbdbd;"></i>
+      <div>
+        <strong>1-Year Manufacturer Warranty</strong>
+        <div>Motorola brand warranty included</div>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-start mb-2" style="gap:10px;">
+      <i class="fa fa-truck-fast" style="color:#bdbdbd;"></i>
+      <div>
+        <strong>Fast Delivery</strong>
+        <div>Delivered in 2–4 business days</div>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-start" style="gap:10px;">
+      <i class="fa fa-rotate-left" style="color:#bdbdbd;"></i>
+      <div>
+        <strong>7-Day Return Policy</strong>
+        <div>As per buyer protection rules</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
   </div>
 </div>
 
 
         
         <!-- KEY FEATURES SECTION -->
-       <section class="section-box mt-4 line-seed-jp-regular"
+<section class="section-box mt-4 line-seed-jp-regular"
          style="color:black;"
-         aria-labelledby="key-features-title"
-         itemscope itemtype="https://schema.org/Product">
+         aria-labelledby="key-features-title">
 
   <!-- SECTION HEADING -->
-  <h2 id="key-features-title" class="section-title mb-3 maaney" itemprop="name">
+  <h2 id="key-features-title" class="section-title mb-3 maaney">
     Key Features of Motorola Moto G06 Power
   </h2>
   
@@ -1165,9 +1149,13 @@ text-decoration:none;
 
 
 
+
         
         <!-- OFFERS + DETAILS -->
-        <section class="section-box mt-4 line-seed-jp-regular" style="color:black;" aria-labelledby="offers-details-title" itemscope itemtype="https://schema.org/Product">
+<section class="section-box mt-4 line-seed-jp-regular"
+         style="color:black;"
+         aria-labelledby="offers-details-title">
+
   <!-- SECTION TITLE -->
   <h2 id="offers-details-title" class="section-title mb-3">
     Offers & Product Information – Motorola Moto G06 Power
@@ -1186,24 +1174,24 @@ text-decoration:none;
 
       <ul class="offer-list mt-2">
         <li>
-          Instant bank and card discounts available on select credit and debit cards during major Flipkart and Amazon sale events.  
+          Instant bank and card discounts available on select credit and debit cards during major Flipkart and Amazon sale events.
         </li>
         <li>
-          Exchange offers on eligible old smartphones can further lower the effective purchase price on both Flipkart and Amazon.
+          Exchange offers on eligible old smartphones can further lower the effective purchase price.
         </li>
         <li>
-          No-cost EMI and flexible monthly payment plans backed by major Indian banks and UPI options.
+          No-cost EMI and flexible monthly payment plans supported by major Indian banks and UPI options.
         </li>
         <li>
           Festival and seasonal sales (Big Billion Days, Diwali) often bring discounts deeper than ₹1,000 off the marked price.
         </li>
         <li>
-          App-only coupons on Flipkart and Amazon give additional savings at checkout.
+          App-only coupons on Flipkart and Amazon may provide additional checkout savings.
         </li>
       </ul>
 
       <p class="muted small">
-        Final pricing and deal availability vary by seller, inventory, and payment method — check the current offers on Flipkart and Amazon before purchase.
+        Final pricing and deal availability vary by seller, inventory, and payment method — always verify current offers before checkout.
       </p>
 
       <a href="#" class="link" rel="nofollow">
@@ -1212,41 +1200,41 @@ text-decoration:none;
     </div>
 
     <!-- PRODUCT DETAILS -->
-    <div class="col-lg-6 details maaney" itemprop="description">
+    <div class="col-lg-6 details maaney">
       <h3 class="offer-title">Product Overview</h3>
 
       <ul class="detail-list">
         <li>
-          Motorola Moto G06 Power comes with **4GB RAM and 64GB internal storage**, expandable up to **1TB** via microSD on supported listings. (Flipkart & Amazon specs)  
+          Motorola Moto G06 Power features 4GB RAM and 64GB internal storage, expandable up to 1TB via microSD.
         </li>
         <li>
-          A **massive 7000mAh battery** delivers day-long usage for browsing, videos and gaming, one of the longest battery performances in this segment. (Flipkart listing)  
+          Massive 7000mAh battery delivers exceptional endurance for browsing, video streaming, and daily use.
         </li>
         <li>
-          The **6.88″ HD+ display with 120Hz refresh rate** offers smooth visuals for everyday tasks and entertainment. (Amazon & Flipkart)  
+          Large 6.88″ HD+ IPS LCD display with a smooth 120Hz refresh rate enhances everyday viewing.
         </li>
         <li>
-          Equipped with **MediaTek Helio G81 Extreme** processor — capable of handling social apps, multitasking and casual gaming. (Amazon & Flipkart)  
+          Powered by MediaTek Helio G81 Extreme processor for reliable multitasking and casual gaming.
         </li>
         <li>
-          The **50MP rear camera** captures detailed daylight photos, while the **8MP front camera** is optimized for selfies and video calls. (Flipkart reviews)  
+          50MP rear camera captures detailed daylight photos, while the 8MP front camera supports clear selfies and video calls.
         </li>
         <li>
-          Runs on **Android 15 with Hello UI** for a clean software experience with minimal bloatware. (Official Motorola support)  
+          Runs on Android 15 with Motorola Hello UI for a clean, near-stock Android experience.
         </li>
       </ul>
 
       <!-- DESIGN -->
       <h4 class="sub-title">Design & Build</h4>
       <p class="muted">
-        Moto G06 Power features a modern design with a slim profile and vegan leather-style finish in select colours. The textured back improves grip and resists fingerprints. Available in popular shades like Pantone Tendril and Laurel Oak. (Flipkart + official listings)
+        Modern Motorola design with a slim profile and textured back for better grip. Select variants feature a vegan leather-style finish. Available in Pantone Tendril, Laurel Oak, and Tapestry colour options.
       </p>
 
       <!-- IN THE BOX -->
       <h4 class="sub-title">What's Included in the Box</h4>
       <ul class="detail-list">
-        <li>Moto G06 Power Handset</li>
-        <li>USB Type-C Cable</li>
+        <li>Moto G06 Power Smartphone</li>
+        <li>USB Type-C Charging Cable</li>
         <li>18W Charging Adapter*</li>
         <li>SIM Ejector Tool</li>
         <li>Quick Start Guide & Warranty Card</li>
@@ -1256,58 +1244,19 @@ text-decoration:none;
       <h4 class="sub-title">Technical Specifications</h4>
       <table class="tech-specs-table">
         <tbody>
-          <tr>
-            <th>Brand</th>
-            <td>Motorola</td>
-          </tr>
-          <tr>
-            <th>Model</th>
-            <td>Moto G06 Power</td>
-          </tr>
-          <tr>
-            <th>RAM</th>
-            <td>4GB</td>
-          </tr>
-          <tr>
-            <th>Storage</th>
-            <td>64GB (Expandable up to 1TB)</td>
-          </tr>
-          <tr>
-            <th>Display</th>
-            <td>6.88″ HD+ IPS LCD, 120Hz</td>
-          </tr>
-          <tr>
-            <th>Processor</th>
-            <td>MediaTek Helio G81 Extreme</td>
-          </tr>
-          <tr>
-            <th>Rear Camera</th>
-            <td>50MP Primary</td>
-          </tr>
-          <tr>
-            <th>Front Camera</th>
-            <td>8MP</td>
-          </tr>
-          <tr>
-            <th>Battery</th>
-            <td>7000mAh with 18W Fast Charging</td>
-          </tr>
-          <tr>
-            <th>Operating System</th>
-            <td>Android 15 with Hello UI</td>
-          </tr>
-          <tr>
-            <th>Colour Options</th>
-            <td>Pantone Tendril, Laurel Oak, Tapestry</td>
-          </tr>
-          <tr>
-            <th>Connectivity</th>
-            <td>4G LTE, Wi-Fi, Bluetooth, GPS</td>
-          </tr>
-          <tr>
-            <th>Warranty</th>
-            <td>1-Year Manufacturer Warranty</td>
-          </tr>
+          <tr><th>Brand</th><td>Motorola</td></tr>
+          <tr><th>Model</th><td>Moto G06 Power</td></tr>
+          <tr><th>RAM</th><td>4GB</td></tr>
+          <tr><th>Storage</th><td>64GB (Expandable up to 1TB)</td></tr>
+          <tr><th>Display</th><td>6.88″ HD+ IPS LCD, 120Hz</td></tr>
+          <tr><th>Processor</th><td>MediaTek Helio G81 Extreme</td></tr>
+          <tr><th>Rear Camera</th><td>50MP Primary</td></tr>
+          <tr><th>Front Camera</th><td>8MP</td></tr>
+          <tr><th>Battery</th><td>7000mAh with 18W Fast Charging</td></tr>
+          <tr><th>Operating System</th><td>Android 15 with Hello UI</td></tr>
+          <tr><th>Colour Options</th><td>Pantone Tendril, Laurel Oak, Tapestry</td></tr>
+          <tr><th>Connectivity</th><td>4G LTE, Wi-Fi, Bluetooth, GPS</td></tr>
+          <tr><th>Warranty</th><td>1-Year Manufacturer Warranty</td></tr>
         </tbody>
       </table>
 
@@ -1318,9 +1267,11 @@ text-decoration:none;
 
 
 
+
         
        <!-- COMPARISON SECTION -->
-<section class="section-box mt-5 compare-section line-seed-jp-regular" style="color:black;" itemscope itemtype="https://schema.org/ItemList">
+<section class="section-box mt-5 compare-section line-seed-jp-regular" style="color:black;">
+
   <h2 class="section-title mb-3 fw-bold">
     Compare Samsung Galaxy M06 5G With Popular Budget 5G Smartphones
   </h2>
@@ -1389,6 +1340,7 @@ text-decoration:none;
 
   <!-- MOBILE CARDS -->
   <div class="d-md-none">
+
     <div class="compare-card">
       <h3>Samsung Galaxy M06 5G</h3>
       <ul>
@@ -1443,35 +1395,38 @@ text-decoration:none;
         <li><strong>~₹16,990*</strong></li>
       </ul>
     </div>
+
   </div>
 
   <p class="small text-muted mt-4">
-    Samsung Galaxy M06 5G offers a balanced mix of large display, Dimensity 6300 performance, dependable battery life, and competitive pricing. POCO M7 5G and Redmi A4 5G focus on aggressive pricing below ₹10,000, while realme Narzo 70 5G and iQOO Z7 5G provide stronger performance and faster charging at higher prices — helping buyers pick the best 5G phone based on budget and priorities.
+    Samsung Galaxy M06 5G offers a balanced mix of large display, Dimensity 6300 performance, dependable battery life, and competitive pricing. POCO M7 5G and Redmi A4 5G focus on aggressive pricing below ₹10,000, while realme Narzo 70 5G and iQOO Z7 5G deliver stronger performance and faster charging at higher prices — helping buyers choose the right 5G phone based on budget and priorities.
   </p>
+
 </section>
+
 
 
         
         <!-- CUSTOMER REVIEWS SECTION -->
-      <section class="section-box mt-4 line-seed-jp-regular" style="color:black;" itemscope itemtype="https://schema.org/Product">
-  <h2 class="mb-3 fw-bold">Customer Feedback & Ratings – Motorola Moto G06 Power</h2>
+     <section class="section-box mt-4 line-seed-jp-regular" style="color:black;">
 
-  <!-- AGGREGATE RATING (SEO FRIENDLY) -->
-  <div class="row mb-4" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+  <h2 class="mb-3 fw-bold">
+    Customer Feedback & Ratings – Motorola Moto G06 Power
+  </h2>
+
+  <!-- AGGREGATE RATING DISPLAY -->
+  <div class="row mb-4">
     <div class="col-md-4 text-center p-3">
-      <!-- Estimated combined rating -->
-      <div class="display-4 fw-bold" itemprop="ratingValue">4.2</div>
+      <div class="display-4 fw-bold">4.2</div>
       <div class="rating-stars mb-2">★★★★☆</div>
       <div class="text-dark fw-bold">
         Based on
-        <span itemprop="reviewCount" style="color:var(--fk-orange);">~25,000+</span>
+        <span style="color:var(--fk-orange);">~25,000+</span>
         verified user ratings from Flipkart & Amazon
       </div>
-      <meta itemprop="bestRating" content="5">
-      <meta itemprop="worstRating" content="1">
     </div>
 
-    <!-- RATING DISTRIBUTION (ESTIMATED) -->
+    <!-- RATING DISTRIBUTION (VISUAL ONLY) -->
     <div class="col-md-8">
       <div class="rating-bars">
         <div><span>5★</span><div class="bar"><div style="width:45%"></div></div></div>
@@ -1486,55 +1441,39 @@ text-decoration:none;
   <!-- EDITORIAL REVIEW SUMMARIES -->
   <div class="reviews-list">
 
-    <!-- REVIEW 1 -->
-    <article class="review-box" itemprop="review" itemscope itemtype="https://schema.org/Review">
-      <strong itemprop="author">Amazon Verified Buyer</strong>
+    <article class="review-box">
+      <strong>Amazon Verified Buyer</strong>
       <span class="review-date">• Recent purchase</span>
-      <div class="rating-stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
-        <meta itemprop="ratingValue" content="5">
-        ★★★★★
-      </div>
-      <p itemprop="reviewBody" class="maaney">
-        Excellent battery performance! Many Amazon reviewers praise the **7000mAh battery** on the Moto G06 Power for lasting well over a day even under heavy usage. Users also mention the responsive display and solid daily performance for browsing and apps.
+      <div class="rating-stars">★★★★★</div>
+      <p class="maaney">
+        Excellent battery performance! Many Amazon reviewers praise the <strong>7000mAh battery</strong> on the Moto G06 Power for lasting well over a day even under heavy usage. Users also mention the responsive display and solid daily performance for browsing and apps.
       </p>
     </article>
 
-    <!-- REVIEW 2 -->
-    <article class="review-box" itemprop="review" itemscope itemtype="https://schema.org/Review">
-      <strong itemprop="author">Flipkart Customer</strong>
+    <article class="review-box">
+      <strong>Flipkart Customer</strong>
       <span class="review-date">• Verified purchase</span>
-      <div class="rating-stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
-        <meta itemprop="ratingValue" content="4">
-        ★★★★☆
-      </div>
-      <p itemprop="reviewBody" class="maaney">
-        Users on Flipkart highlight the **large 120Hz display** as a standout feature for the price, making video streaming and scrolling feel smooth. The clean Android 15 experience with minimal bloatware is also appreciated.
+      <div class="rating-stars">★★★★☆</div>
+      <p class="maaney">
+        Users on Flipkart highlight the <strong>large 120Hz display</strong> as a standout feature for the price, making video streaming and scrolling feel smooth. The clean Android 15 experience with minimal bloatware is also appreciated.
       </p>
     </article>
 
-    <!-- REVIEW 3 -->
-    <article class="review-box" itemprop="review" itemscope itemtype="https://schema.org/Review">
-      <strong itemprop="author">Amazon User</strong>
+    <article class="review-box">
+      <strong>Amazon User</strong>
       <span class="review-date">• Recent review</span>
-      <div class="rating-stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
-        <meta itemprop="ratingValue" content="3">
-        ★★★☆☆
-      </div>
-      <p itemprop="reviewBody">
-        Some reviewers note that while daily use is smooth, the phone may feel less powerful under **intensive gaming or heavy multitasking**. A few users also mention that camera performance in low light is average compared to pricier phones.
+      <div class="rating-stars">★★★☆☆</div>
+      <p>
+        Some reviewers note that while daily use is smooth, the phone may feel less powerful under <strong>intensive gaming or heavy multitasking</strong>. Camera performance in low light is described as average compared to higher-priced phones.
       </p>
     </article>
 
-    <!-- REVIEW 4 -->
-    <article class="review-box" itemprop="review" itemscope itemtype="https://schema.org/Review">
-      <strong itemprop="author">Flipkart Buyer</strong>
+    <article class="review-box">
+      <strong>Flipkart Buyer</strong>
       <span class="review-date">• Verified purchase</span>
-      <div class="rating-stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
-        <meta itemprop="ratingValue" content="2">
-        ★★☆☆☆
-      </div>
-      <p itemprop="reviewBody">
-        A small number of customers report occasional touch lag or delayed app loading during very high workload situations. Some also feel the **speaker output** could be louder, though most agree Moto G06 Power remains strong for its price range.
+      <div class="rating-stars">★★☆☆☆</div>
+      <p>
+        A small number of customers report occasional touch lag or delayed app loading during very heavy workloads. Some also feel the <strong>speaker output</strong> could be louder, though most agree Moto G06 Power offers strong value for the price.
       </p>
     </article>
 
@@ -1542,133 +1481,169 @@ text-decoration:none;
 
   <!-- DISCLAIMER -->
   <p class="small text-muted mt-3">
-    Review summaries are aggregated from verified user feedback on Amazon and Flipkart listings, combined with insights from price tracker platforms. Individual experiences may vary based on usage conditions, device configuration, and software updates.
+    Review summaries are aggregated from verified user feedback on Amazon and Flipkart listings and reflect overall buyer sentiment. Individual experiences may vary based on usage patterns, software updates, and device configuration.
   </p>
+
 </section>
+
 
 
 
         
         <!-- FAQ SECTION -->
-       <section class="section-box faq-section mt-4 line-seed-jp-regular" itemscope itemtype="https://schema.org/FAQPage">
-  <h2 class="faq-title mb-3 fw-bold">Frequently Asked Questions – Motorola Moto G06 Power</h2>
+<section class="section-box faq-section mt-4 line-seed-jp-regular">
+  <h2 class="faq-title mb-3 fw-bold">
+    Frequently Asked Questions – Motorola Moto G06 Power
+  </h2>
 
   <div class="accordion faq-accordion" id="faqAccordion">
 
     <!-- FAQ 1 -->
-    <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="accordion-item">
       <h3 class="accordion-header" id="faqOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne" itemprop="name">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+          data-bs-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne">
           Does Motorola Moto G06 Power have water or dust resistance?
         </button>
       </h3>
-      <div id="faqCollapseOne" class="accordion-collapse collapse show" aria-labelledby="faqOne" data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div class="accordion-body" itemprop="text">
-          Moto G06 Power does not come with an official IP rating. It offers basic splash protection for everyday use, but it is **not designed for submersion or heavy exposure to water or dust**.
+      <div id="faqCollapseOne" class="accordion-collapse collapse show"
+        aria-labelledby="faqOne" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Moto G06 Power does not come with an official IP rating. It offers basic splash
+          protection for everyday use, but it is <strong>not designed for submersion or heavy
+          exposure to water or dust</strong>.
         </div>
       </div>
     </div>
 
     <!-- FAQ 2 -->
-    <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="accordion-item">
       <h3 class="accordion-header" id="faqTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo" itemprop="name">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
           What charging speed does Moto G06 Power support?
         </button>
       </h3>
-      <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqTwo" data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div class="accordion-body" itemprop="text">
-          Motorola Moto G06 Power supports **fast wired charging (up to 18W)** via USB Type-C. Wireless charging is not supported, which is expected in this budget segment.
+      <div id="faqCollapseTwo" class="accordion-collapse collapse"
+        aria-labelledby="faqTwo" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Motorola Moto G06 Power supports <strong>fast wired charging up to 18W</strong> via
+          USB Type-C. Wireless charging is not supported, which is expected in this budget
+          segment.
         </div>
       </div>
     </div>
 
     <!-- FAQ 3 -->
-    <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="accordion-item">
       <h3 class="accordion-header" id="faqThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree" itemprop="name">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
           What is included in the Moto G06 Power retail box?
         </button>
       </h3>
-      <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqThree" data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div class="accordion-body" itemprop="text">
-          The box usually contains the **Moto G06 Power handset, USB Type-C cable, SIM ejector tool, and documentation**. Charger availability may vary by seller. Earphones are not included.
+      <div id="faqCollapseThree" class="accordion-collapse collapse"
+        aria-labelledby="faqThree" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          The box usually includes the <strong>Moto G06 Power handset, USB Type-C cable,
+          SIM ejector tool, and documentation</strong>. Charger availability may vary by
+          seller. Earphones are not included.
         </div>
       </div>
     </div>
 
     <!-- FAQ 4 -->
-    <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="accordion-item">
       <h3 class="accordion-header" id="faqFour">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour" itemprop="name">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour">
           Does Moto G06 Power support Dual SIM and expandable storage?
         </button>
       </h3>
-      <div id="faqCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqFour" data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div class="accordion-body" itemprop="text">
-          Yes. Moto G06 Power supports **Dual Nano SIM cards** and includes a **dedicated microSD card slot** for expanding storage (up to 1TB), so you don’t need to sacrifice a SIM.
+      <div id="faqCollapseFour" class="accordion-collapse collapse"
+        aria-labelledby="faqFour" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Yes. Moto G06 Power supports <strong>Dual Nano-SIM cards</strong> and features a
+          <strong>dedicated microSD card slot</strong> for expandable storage up to 1TB,
+          without sacrificing a SIM slot.
         </div>
       </div>
     </div>
 
     <!-- FAQ 5 -->
-    <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="accordion-item">
       <h3 class="accordion-header" id="faqFive">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFive" aria-expanded="false" aria-controls="faqCollapseFive" itemprop="name">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#faqCollapseFive" aria-expanded="false" aria-controls="faqCollapseFive">
           How long will Moto G06 Power receive software updates?
         </button>
       </h3>
-      <div id="faqCollapseFive" class="accordion-collapse collapse" aria-labelledby="faqFive" data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div class="accordion-body" itemprop="text">
-          Motorola typically provides **Android version updates and regular security patches** for its G-series phones. Moto G06 Power ships with near-stock Android and is expected to receive future security updates over the coming years.
+      <div id="faqCollapseFive" class="accordion-collapse collapse"
+        aria-labelledby="faqFive" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Motorola typically provides <strong>Android version updates and regular security
+          patches</strong> for its G-series devices. Moto G06 Power ships with near-stock
+          Android and is expected to receive security updates over the coming years.
         </div>
       </div>
     </div>
 
     <!-- FAQ 6 -->
-    <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="accordion-item">
       <h3 class="accordion-header" id="faqSix">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseSix" aria-expanded="false" aria-controls="faqCollapseSix" itemprop="name">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#faqCollapseSix" aria-expanded="false" aria-controls="faqCollapseSix">
           How good is the camera on Moto G06 Power?
         </button>
       </h3>
-      <div id="faqCollapseSix" class="accordion-collapse collapse" aria-labelledby="faqSix" data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div class="accordion-body" itemprop="text">
-          Moto G06 Power features a **50MP main rear camera and an 8MP front camera**. It delivers good daylight photos and clear selfies, while low-light performance is average — typical for budget smartphones.
+      <div id="faqCollapseSix" class="accordion-collapse collapse"
+        aria-labelledby="faqSix" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Moto G06 Power features a <strong>50MP main rear camera</strong> and an
+          <strong>8MP front camera</strong>. It delivers good daylight photos and clear
+          selfies, while low-light performance is average for a budget smartphone.
         </div>
       </div>
     </div>
 
     <!-- FAQ 7 -->
-    <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="accordion-item">
       <h3 class="accordion-header" id="faqSeven">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseSeven" aria-expanded="false" aria-controls="faqCollapseSeven" itemprop="name">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#faqCollapseSeven" aria-expanded="false" aria-controls="faqCollapseSeven">
           Is Moto G06 Power suitable for gaming?
         </button>
       </h3>
-      <div id="faqCollapseSeven" class="accordion-collapse collapse" aria-labelledby="faqSeven" data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div class="accordion-body" itemprop="text">
-          Moto G06 Power handles **casual gaming and daily multitasking smoothly**, helped by its high-refresh display and optimized Android experience. Heavy games at maximum graphics may be limited, but overall performance is solid for the price.
+      <div id="faqCollapseSeven" class="accordion-collapse collapse"
+        aria-labelledby="faqSeven" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Moto G06 Power handles <strong>casual gaming and everyday multitasking</strong>
+          smoothly. Heavy games at maximum graphics settings may be limited, but overall
+          performance is solid for its price range.
         </div>
       </div>
     </div>
 
     <!-- FAQ 8 -->
-    <div class="accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="accordion-item">
       <h3 class="accordion-header" id="faqEight">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseEight" aria-expanded="false" aria-controls="faqCollapseEight" itemprop="name">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#faqCollapseEight" aria-expanded="false" aria-controls="faqCollapseEight">
           Does Moto G06 Power support 5G networks in India?
         </button>
       </h3>
-      <div id="faqCollapseEight" class="accordion-collapse collapse" aria-labelledby="faqEight" data-bs-parent="#faqAccordion" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div class="accordion-body" itemprop="text">
-          Yes. Motorola Moto G06 Power supports **Indian 5G bands** along with Wi-Fi, Bluetooth, GPS, and dual-SIM connectivity on compatible networks.
+      <div id="faqCollapseEight" class="accordion-collapse collapse"
+        aria-labelledby="faqEight" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Yes. Motorola Moto G06 Power supports <strong>Indian 5G bands</strong> along with
+          Wi-Fi, Bluetooth, GPS, and dual-SIM connectivity on compatible networks.
         </div>
       </div>
     </div>
 
   </div>
 </section>
+
 
 
 
