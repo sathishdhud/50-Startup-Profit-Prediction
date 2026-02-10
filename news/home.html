@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maaney Store Blog - Tech News, Reviews & Launches</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=LINE+Seed+JP:wght@400;700&family=Cabin:wght@400;700&family=Lexend:wght@300;400;600;700&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        /* FONT CLASSES */
+        .poppins-semibold { font-family: "Poppins", sans-serif; font-weight: 600; }
+        .line-seed { font-family: "LINE Seed JP", sans-serif; }
+        .young-serif { font-family: "Young Serif", serif; }
+        .lexend { font-family: 'Lexend', sans-serif; }
+
+        /* VARIABLES (White & Orange Theme) */
+        :root {
+            --fk-orange: #ff8c2b;
+            --fk-orange-dark: #e67300;
+            --fk-orange-light: #fff0e0;
+            --border: #e5e7eb;
+            --text-dark: #212121;
+            --text-gray: #555;
+            --off-white: #f8f9fa;
+            --bg-gray: #f0f2f5;
+            --main-radius: 5px; /* Unified Radius Variable */
+        }
+        
+        body {
+            background-color: var(--bg-gray);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* FULL SCREEN WRAPPER */
+        .main-page-wrapper {
+            max-width: 1280px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06); /* Subtle shadow */
+            min-height: 100vh;
+            border-radius: var(--main-radius); /* 5px */
+            overflow: hidden;
+        }
+
+        /* HEADER */
+        .blog-nav {
+            background: #ffffff;
+            padding: 15px 30px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .brand-text {
+            font-weight: 800;
+            font-size: 24px;
+            color: var(--fk-orange);
+            text-decoration: none;
+        }
+
+        /* HERO SECTION */
+        .hero-banner {
+            width: 100%;
+            background: #ffffff;
+            padding: 50px 20px;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #111;
+        }
+        .hero-subtitle {
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1rem;
+        }
+
+        /* CONTENT LAYOUT (GRID) */
+        .content-layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 30px; /* Slightly tighter gap */
+            padding: 0;
+        }
+
+        /* LEFT COLUMN: BLOG FEED */
+        .article-column {
+            padding: 40px 50px 40px 50px;
+        }
+
+        /* BLOG POST CARD DESIGN */
+        .blog-list-item {
+            border-bottom: 1px solid var(--border);
+            padding: 30px 0;
+            display: flex;
+            gap: 25px;
+            align-items: start;
+            transition: background 0.2s;
+        }
+        
+        .blog-list-item:last-child {
+            border-bottom: none;
+        }
+
+        .blog-list-item:hover {
+            background-color: #fafafa;
+            /* On hover, highlight gently without breaking layout */
+            margin: 0 -50px;
+            padding: 30px 50px;
+        }
+
+        .blog-thumbnail {
+            width: 260px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: var(--main-radius); /* 5px */
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .blog-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .post-cat {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--fk-orange);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .post-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+        .post-title:hover { color: var(--fk-orange); }
+
+        .post-excerpt {
+            font-size: 15px;
+            color: var(--text-gray);
+            margin-bottom: 12px;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .post-meta {
+            font-size: 12px;
+            color: #999;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* RIGHT COLUMN: SIDEBAR */
+        .sidebar-column {
+            padding: 40px 30px 40px 0;
+            border-left: 1px solid var(--border);
+        }
+        .sticky-sidebar { position: sticky; top: 90px; }
+
+        .sidebar-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--main-radius); /* 5px */
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+        .sidebar-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--fk-orange);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* PRICE / FEATURE BOX */
+        .price-box {
+            background: linear-gradient(135deg, #ff8c2b, #ff5f00);
+            color: white;
+            text-align: center;
+        }
+        .price-main { font-size: 32px; font-weight: 800; margin: 10px 0; }
+        .price-old { text-decoration: line-through; opacity: 0.8; font-size: 14px; }
+        .btn-buy {
+            background: white;
+            color: var(--fk-orange);
+            font-weight: 700;
+            width: 100%;
+            border: none;
+            padding: 12px;
+            border-radius: var(--main-radius); /* 5px */
+            margin-top: 15px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .btn-buy:hover { background: #222; color: white; }
+
+        /* TRENDING LIST */
+        .trending-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+            cursor: pointer;
+        }
+        .trending-item:last-child { border: none; margin: 0; padding: 0; }
+        .trending-thumb {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--main-radius); /* 5px */
+            object-fit: cover;
+        }
+        .trending-info h6 {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0 0 5px 0;
+            line-height: 1.3;
+        }
+        .trending-info span { font-size: 11px; color: #999; }
+        .trending-info:hover h6 { color: var(--fk-orange); }
+
+        /* PAGINATION */
+        .pagination-container { display: flex; justify-content: center; gap: 10px; margin-top: 50px; }
+        .page-link {
+            min-width: 40px; height: 40px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50px; /* Pill shape looks better than 5px square for buttons */
+            border: 1px solid var(--border);
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+        .page-link.active { background: var(--fk-orange); color: white; border-color: var(--fk-orange); }
+        .page-link:hover { background-color: #f9f9f9; }
+
+        /* FOOTER */
+        footer {
+            background: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        .footer-text { color: #999; font-size: 13px; margin-top: 10px; }
+
+        /* RESPONSIVE DESIGN (DESKTOP & MOBILE) */
+
+        /* Tablet View */
+        @media (max-width: 992px) {
+            .content-layout { grid-template-columns: 1fr; }
+            .sidebar-column { 
+                border-left: none; 
+                border-top: 1px solid var(--border); 
+                padding: 40px 30px; 
+            }
+            .article-column { padding: 30px; }
+        }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            .main-page-wrapper { 
+                margin: 0; 
+                border-radius: 0; 
+                box-shadow: none;
+            }
+            .blog-nav { padding: 15px; }
+            .hero-banner { padding: 40px 20px; }
+            .hero-title { font-size: 26px; }
+            .hero-subtitle { font-size: 0.9rem; }
+            
+            /* Mobile Blog Card Stack */
+            .blog-list-item { 
+                flex-direction: column; 
+                padding: 20px 0;
+                margin: 0 -30px; /* Reset for highlight */
+            }
+            .blog-list-item:hover { 
+                margin: 0 -30px; 
+                padding: 20px 30px; 
+                background: none; /* Remove hover bg on mobile for cleaner look */
+            }
+            .blog-thumbnail { width: 100%; height: 200px; }
+            .blog-content { align-items: flex-start; text-align: left; }
+            .post-meta { width: 100%; justify-content: space-between; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-page-wrapper">
+        
+        <!-- HEADER NAVIGATION -->
+        <header class="blog-nav">
+           <a href="https://maaney.store" class="brand-text">
+                Maaney<span style="color:#222">Store</span>
+           </a>
+            
+            <div class="d-none d-md-flex align-items-center gap-4 line-seed nav-links" style="font-size: 14px; font-weight: 700;">
+                <a href="#" style="color: var(--fk-orange); text-decoration: none;">LATEST NEWS</a>
+                <a href="#" style="color: #555; text-decoration: none;">REVIEWS</a>
+                <a href="#" style="color: #555; text-decoration: none;">DEALS</a>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+                <button class="btn btn-sm btn-outline-secondary rounded-circle"><i class="fa fa-search"></i></button>
+                <button class="btn btn-sm btn-dark d-md-none"><i class="fa fa-bars"></i></button>
+            </div>
+        </header>
+
+        <!-- HERO BANNER -->
+        <section class="hero-banner">
+            <span class="post-cat line-seed">#TechUpdates</span>
+            <h1 class="hero-title poppins-semibold">The Future of Tech is Here</h1>
+            <p class="hero-subtitle line-seed">In-depth reviews, exclusive launch alerts, and the latest updates from the world of smartphones and gadgets.</p>
+        </section>
+
+        <!-- BLOG CONTENT LAYOUT -->
+        <div class="content-layout">
+            
+            <!-- LEFT: MAIN FEED -->
+            <main class="article-column">
+
+                <!-- POST 1 (Featured) -->
+                <article class="blog-list-item">
+                    <img src="news-google-pixel-10a.png" class="blog-thumbnail" alt="Pixel 10a">
+                    <div class="blog-content">
+                        <span class="post-cat line-seed">Reviews</span>
+                        <a href="#" class="post-title poppins-semibold">Google Pixel 10a India Launch Set for February 18: Flat Camera Design, Tensor G4 & AI Focus</a>
+                        <p class="post-excerpt">Google is preparing to shake up its affordable Pixel lineup once again. Unlike previous “a-series” models, the Pixel 10a introduces a bold new flush design.</p>
+                        <div class="post-meta line-seed">
+                            <span class="dynamic-time" data-time="2024-02-18T10:00:00"><i class="fa fa-clock me-1"></i> Loading...</span>
+                            <span><i class="fa fa-user me-1"></i> Arjun Verma</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- POST 2 -->
+                <article class="blog-list-item">
+                    <img src="https://picsum.photos/seed/phone2/260/160" class="blog-thumbnail" alt="Samsung">
+                    <div class="blog-content">
+                        <span class="post-cat line-seed">News</span>
+                        <a href="#" class="post-title poppins-semibold">Samsung Galaxy S26 Ultra: The Camera Revolution We Waited For</a>
+                        <p class="post-excerpt">Leaked images suggest a 200MP main sensor with massive improvements to low-light video processing. Is this the Android king for 2026?</p>
+                        <div class="post-meta line-seed">
+                            <span class="dynamic-time" data-time="2024-02-17T14:30:00"><i class="fa fa-clock me-1"></i> Loading...</span>
+                            <span><i class="fa fa-user me-1"></i> Sarah Jenkins</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- POST 3 -->
+                <article class="blog-list-item">
+                    <img src="https://picsum.photos/seed/audio/260/160" class="blog-thumbnail" alt="Audio">
+                    <div class="blog-content">
+                        <span class="post-cat line-seed">Audio</span>
+                        <a href="#" class="post-title poppins-semibold">Sony WH-1000XM6 Leaks: Noise Canceling Gets Smarter</a>
+                        <p class="post-excerpt">New leaked images suggest a lighter design and significantly improved battery life for Sony's next flagship headphones, arriving this summer.</p>
+                        <div class="post-meta line-seed">
+                            <span class="dynamic-time" data-time="2024-02-16T09:15:00"><i class="fa fa-clock me-1"></i> Loading...</span>
+                            <span><i class="fa fa-user me-1"></i> Mike Ross</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- POST 4 -->
+                <article class="blog-list-item">
+                    <img src="https://picsum.photos/seed/laptop/260/160" class="blog-thumbnail" alt="Laptop">
+                    <div class="blog-content">
+                        <span class="post-cat line-seed">Buying Guide</span>
+                        <a href="#" class="post-title poppins-semibold">Top 5 Laptops for Engineering Students in 2026</a>
+                        <p class="post-excerpt">From budget-friendly options to powerhouses for rendering CAD models. We compare the latest MacBook Air, Dell XPS, and gaming hybrids.</p>
+                        <div class="post-meta line-seed">
+                            <span class="dynamic-time" data-time="2024-02-15T16:45:00"><i class="fa fa-clock me-1"></i> Loading...</span>
+                            <span><i class="fa fa-user me-1"></i> Arjun Verma</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- POST 5 -->
+                <article class="blog-list-item">
+                    <img src="https://picsum.photos/seed/watch/260/160" class="blog-thumbnail" alt="Watch">
+                    <div class="blog-content">
+                        <span class="post-cat line-seed">Wearables</span>
+                        <a href="#" class="post-title poppins-semibold">Pixel Watch 3 vs Apple Watch Series 10: The AI Battle</a>
+                        <p class="post-excerpt">Google's new on-device AI features go head-to-head with Apple's established health ecosystem. Which one should you buy?</p>
+                        <div class="post-meta line-seed">
+                            <span class="dynamic-time" data-time="2024-02-14T11:20:00"><i class="fa fa-clock me-1"></i> Loading...</span>
+                            <span><i class="fa fa-user me-1"></i> David Chen</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Pagination -->
+                <div class="pagination-container">
+                    <a href="#" class="page-link"><i class="fa fa-chevron-left"></i></a>
+                    <a href="#" class="page-link active">1</a>
+                    <a href="#" class="page-link">2</a>
+                    <a href="#" class="page-link">3</a>
+                    <a href="#" class="page-link"><i class="fa fa-chevron-right"></i></a>
+                </div>
+
+            </main>
+
+            <!-- RIGHT: SIDEBAR -->
+            <aside class="sidebar-column">
+                <div class="sticky-sidebar">
+        
+                    <!-- PRICE / FEATURE BOX -->
+                    <div class="sidebar-card price-box line-seed">
+                        <h6 style="margin:0;text-transform:uppercase;font-size:12px;letter-spacing:1px;">
+                            Featured Review
+                        </h6>
+                        <h4 style="margin: 15px 0 5px 0; font-weight: 700;">Pixel 10a</h4>
+                        <div class="price-old">₹46,999</div>
+                        <div class="price-main">₹41,999*</div>
+
+                        <div style="font-size:11px;opacity:.85;">
+                            *Estimated with launch offers
+                        </div>
+
+                        <button class="btn-buy" aria-label="Read review">
+                            READ FULL REVIEW
+                        </button>
+                    </div>
+
+                    <!-- TRENDING ARTICLES -->
+                    <div class="sidebar-card">
+                        <div class="sidebar-title">Trending Now</div>
+                        
+                        <div class="trending-item">
+                            <img src="https://picsum.photos/seed/trend1/100/100" class="trending-thumb" alt="Thumb">
+                            <div class="trending-info">
+                                <h6>Flipkart Big Billion Days Dates Leaked</h6>
+                                <span>2 hours ago</span>
+                            </div>
+                        </div>
+
+                        <div class="trending-item">
+                            <img src="https://picsum.photos/seed/trend2/100/100" class="trending-thumb" alt="Thumb">
+                            <div class="trending-info">
+                                <h6>Best Budget Tablets for Students</h6>
+                                <span>5 hours ago</span>
+                            </div>
+                        </div>
+
+                        <div class="trending-item">
+                            <img src="https://picsum.photos/seed/trend3/100/100" class="trending-thumb" alt="Thumb">
+                            <div class="trending-info">
+                                <h6>OnePlus 13R India Launch Confirmed</h6>
+                                <span>1 day ago</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CATEGORIES -->
+                    <div class="sidebar-card">
+                        <div class="sidebar-title">Categories</div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="#" class="badge rounded-pill text-decoration-none" style="background:#f1f1f1; color:#333;">Smartphones</a>
+                            <a href="#" class="badge rounded-pill text-decoration-none" style="background:#f1f1f1; color:#333;">Laptops</a>
+                            <a href="#" class="badge rounded-pill text-decoration-none" style="background:#f1f1f1; color:#333;">Audio</a>
+                            <a href="#" class="badge rounded-pill text-decoration-none" style="background:#f1f1f1; color:#333;">Wearables</a>
+                            <a href="#" class="badge rounded-pill text-decoration-none" style="background:#f1f1f1; color:#333;">Cameras</a>
+                        </div>
+                    </div>
+
+                    <!-- NEWSLETTER -->
+                    <div class="sidebar-card" style="background:#222;color:#fff;">
+                        <h5 style="margin-bottom:15px;">
+                            <i class="fa fa-envelope me-2"></i> Tech Deals
+                        </h5>
+                        <p style="font-size:13px;opacity:.8;">
+                            Weekly updates on smartphone launches, price drops, and exclusive buying guides.
+                        </p>
+                        <input type="email" class="form-control form-control-sm mb-2" placeholder="Enter your email" style="background:#333; border:none; color:#fff;">
+                        <button class="btn btn-sm btn-warning w-100 fw-bold" style="border-radius:5px;">SUBSCRIBE FREE</button>
+                    </div>
+
+                </div>
+            </aside>
+
+        </div> <!-- End Content Layout -->
+
+        <!-- FOOTER -->
+        <footer>
+            <div>
+                <a href="https://maaney.store" class="brand-text" style="font-size: 20px;">Maaney<span style="color:#222">Store</span></a>
+                <p class="footer-text">Your trusted source for tech news and honest reviews.</p>
+            </div>
+            <div class="mt-4" style="font-size: 13px; color: #aaa;">
+                &copy; 2026 Maaney Store Inc. All rights reserved.
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Dynamic Time Script -->
+    <script>
+        // Calculate "Time Ago" dynamically
+        function timeAgo(dateString) {
+            const date = new Date(dateString);
+            const now = new Date();
+            const seconds = Math.floor((now - date) / 1000);
+            
+            let interval = seconds / 31536000;
+            if (interval > 1) return Math.floor(interval) + " year" + (Math.floor(interval) > 1 ? "s" : "") + " ago";
+            
+            interval = seconds / 2592000;
+            if (interval > 1) return Math.floor(interval) + " month" + (Math.floor(interval) > 1 ? "s" : "") + " ago";
+            
+            interval = seconds / 86400;
+            if (interval > 1) return Math.floor(interval) + " day" + (Math.floor(interval) > 1 ? "s" : "") + " ago";
+            
+            interval = seconds / 3600;
+            if (interval > 1) return Math.floor(interval) + " hour" + (Math.floor(interval) > 1 ? "s" : "") + " ago";
+            
+            interval = seconds / 60;
+            if (interval > 1) return Math.floor(interval) + " minute" + (Math.floor(interval) > 1 ? "s" : "") + " ago";
+            
+            return "Just now";
+        }
+
+        // Function to update all times
+        function updateTimes() {
+            const timeElements = document.querySelectorAll('.dynamic-time');
+            timeElements.forEach(el => {
+                const rawDate = el.getAttribute('data-time');
+                // If attribute exists
+                if(rawDate) {
+                    // For demo purposes, I'm parsing the date string. 
+                    // In a real app, if the year is in the past (like 2024) relative to 2026, 
+                    // the script will show "years ago". 
+                    // I will treat "2024" as "current year" for the demo to look active.
+                    const displayDate = rawDate.replace('2024', '2026'); 
+                    el.innerHTML = '<i class="fa fa-clock me-1"></i> ' + timeAgo(displayDate);
+                }
+            });
+        }
+
+        // Run on load
+        document.addEventListener('DOMContentLoaded', updateTimes);
+    </script>
+</body>
+</html>
