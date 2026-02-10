@@ -68,8 +68,8 @@ background:
 linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)),
 url('https://img.freepik.com/premium-vector/black-texture-background-abstract-black-background-black-pattern_672416-233.jpg')
 center/cover no-repeat;
-border-top-left-radius:8px;
-border-top-right-radius:8px;
+border-top-left-radius:24px;
+border-top-right-radius:24px;
 ">
 
 <div class="footer-overlay"></div>
