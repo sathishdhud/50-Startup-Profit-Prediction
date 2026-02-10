@@ -133,7 +133,7 @@
             background: var(--fk-orange);
             color: white;
             padding: 6px 16px;
-            border-radius: 50px;
+            border-radius: 5px;
             font-size: 12px;
             font-weight: 700;
             margin-bottom: 15px;
@@ -387,6 +387,14 @@
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
+
+        .ai-sub-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 22px;
+    margin-bottom: 6px;
+}
+
     </style>
 </head>
 <body>
@@ -395,9 +403,13 @@
         
         <!-- HEADER NAVIGATION -->
         <header class="blog-nav">
-            <a href="https://maaney.store" class="brand-text">
-                <i class="fa fa-bolt" style="color: var(--fk-orange);"></i> MAANEY STORE
-            </a>
+           <a href="https://maaney.store" class="brand-logo">
+    <img src="https://maaney.store/white_logo.png"
+         alt="Maaney Store – Tech News & Deals"
+         height="36"
+         loading="lazy">
+</a>
+
             
             <div class="d-none d-md-flex align-items-center gap-4 line-seed nav-links" style="font-size: 14px; font-weight: 700;">
                 <a href="#" style="color: var(--fk-orange); text-decoration: none;">LATEST NEWS</a>
@@ -413,7 +425,7 @@
 
         <!-- HERO BANNER -->
         <section class="hero-banner">
-            <div class="hero-badge">EXCLUSIVE REVEAL</div>
+        
             <!-- Placeholder using Picsum with seed 'pixel' for consistent tech-looking image -->
             <img src="https://picsum.photos/seed/pixel10a/1200/600" alt="Google Pixel 10a official leaked look">
         </section>
@@ -424,7 +436,7 @@
             <!-- LEFT: MAIN ARTICLE -->
             <article class="article-column">
 
-    <span class="category-label line-seed">GLOBAL REVEAL</span>
+    <span class="category-label line-seed">#GoogleNews</span>
 
     <h1 class="main-title young-serif">
         Google Pixel 10a India Launch Set for February 18: Flat Camera Design, Tensor G4 & AI Focus
@@ -526,29 +538,33 @@
 
     <h2 class="sub-heading young-serif">AI-Driven Pixel Experience</h2>
 
-    <div class="ai-grid line-seed">
-        <div class="ai-card">
-            <i class="fa fa-wand-magic-sparkles ai-icon"></i>
-            <h5>Magic Editor</h5>
-            <p class="small text-muted">
-                Advanced photo editing using generative AI directly on the device.
-            </p>
-        </div>
-        <div class="ai-card">
-            <i class="fa fa-robot ai-icon"></i>
-            <h5>Gemini Assistant</h5>
-            <p class="small text-muted">
-                A conversational AI assistant designed for real-time, on-device interactions.
-            </p>
-        </div>
-        <div class="ai-card">
-            <i class="fa fa-bullseye ai-icon"></i>
-            <h5>Circle to Search</h5>
-            <p class="small text-muted">
-                Instantly search anything visible on your screen with a simple gesture.
-            </p>
-        </div>
-    </div>
+<p class="blog-paragraph">
+    Google continues to position the Pixel lineup as an AI-first smartphone experience, and the Pixel 10a is no
+    exception. Powered by on-device processing from the Tensor G4 chipset, the phone brings several advanced
+    AI features that work without relying heavily on cloud connectivity.
+</p>
+
+<h3 class="ai-sub-heading">Magic Editor: Smarter Photo Enhancements</h3>
+<p class="blog-paragraph">
+    Magic Editor allows users to rework their photos using generative AI. Subjects can be repositioned, resized,
+    or removed entirely, while the background is intelligently reconstructed. Unlike traditional editing tools,
+    Magic Editor performs these enhancements directly on the device, ensuring faster results and better privacy.
+</p>
+
+<h3 class="ai-sub-heading">Gemini Assistant: On-Device Conversational AI</h3>
+<p class="blog-paragraph">
+    The Pixel 10a is expected to ship with Google’s Gemini Assistant deeply integrated into the system. This
+    voice-first assistant is designed to understand context, summarize information, and respond naturally to
+    spoken commands, all while processing key interactions locally for improved speed and reliability.
+</p>
+
+<h3 class="ai-sub-heading">Circle to Search: Find Anything Instantly</h3>
+<p class="blog-paragraph">
+    Circle to Search enables users to search for anything on their screen by simply circling it. Whether it’s
+    text, an image, or an object inside an app, the feature eliminates the need to switch between applications,
+    making everyday searches quicker and more intuitive.
+</p>
+
 
     <h2 class="sub-heading young-serif">Expected Specifications</h2>
 
@@ -694,39 +710,7 @@
         </div> <!-- End Content Layout -->
 
         <!-- FOOTER -->
-        <footer class="maaney-footer line-seed">
-            <div class="mb-4" style="font-size: 24px; font-weight: 800; color: white;">
-                <i class="fa fa-bolt" style="color: var(--fk-orange);"></i> MAANEY STORE
-            </div>
-            <div class="d-flex justify-content-center gap-4 mb-4" style="font-size: 20px;">
-                <a href="#" style="color: white;"><i class="fab fa-facebook"></i></a>
-                <a href="#" style="color: white;"><i class="fab fa-instagram"></i></a>
-                <a href="#" style="color: white;"><i class="fab fa-youtube"></i></a>
-                <a href="#" style="color: white;"><i class="fab fa-twitter"></i></a>
-            </div>
-            <div class="row justify-content-center text-start g-4" style="max-width: 800px; margin: 0 auto; font-size: 14px;">
-                <div class="col-6 col-md-3">
-                    <h6 class="text-white mb-3">Company</h6>
-                    <ul class="list-unstyled" style="opacity: 0.7;">
-                        <li>About Us</li>
-                        <li>Careers</li>
-                        <li>Press</li>
-                    </ul>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h6 class="text-white mb-3">Support</h6>
-                    <ul class="list-unstyled" style="opacity: 0.7;">
-                        <li>Help Center</li>
-                        <li>Return Policy</li>
-                        <li>Warranty</li>
-                    </ul>
-                </div>
-                <div class="col-12 col-md-6">
-                    <h6 class="text-white mb-3">Legal</h6>
-                    <p style="opacity: 0.7; font-size: 12px;">&copy; 2026 Maaney Store. All product details are based on early leaks and official teasers. Images used for illustrative purposes.</p>
-                </div>
-            </div>
-        </footer>
+        
 
     </div>
 
@@ -757,5 +741,6 @@
             }
         });
     </script>
+    <script src="../footer.js"></script>
 </body>
 </html>
