@@ -95,6 +95,7 @@ product comparisons.
 <li><a href="/categories/electronic/">Electronics</a></li>
 <li><a href="/about-us">About Us</a></li>
 <li><a href="/contact-us">Contact</a></li>
+<li><a href="/news">News</a></li>
 </ul>
 </div>
 
@@ -140,6 +141,7 @@ Compare smartphones and find best deals with Maaney Store.
 <a href="/categories/electronic/">Electronics</a>
 <a href="/about-us">About Us</a>
 <a href="/contact-us">Contact</a>
+<a href="/news">News</a>
 </details>
 
 <details class="mobile-block">
