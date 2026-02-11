@@ -125,4 +125,16 @@
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
   </url>
+    <url>
+      <loc>https://maaney.store/news/samsung/samsung-s26</loc>
+      <lastmod>2026-02-10</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+  </url>
+    <url>
+      <loc>https://maaney.store/news/infinix/news-infinix-note-60-pro</loc>
+      <lastmod>2026-02-11</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+  </url>
 </urlset>
