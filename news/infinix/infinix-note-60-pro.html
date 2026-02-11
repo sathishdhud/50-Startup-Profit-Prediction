@@ -87,12 +87,24 @@
 
     
     <style>
-   .fb-post-wrapper {
-  max-width: 500px;
-  margin: 24px auto;
+ .fb-post-wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 10px auto;
   padding: 0 12px;
+  box-sizing: border-box;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
+
+/* MOBILE: edge-to-edge like Facebook */
+@media (max-width: 576px) {
+  .fb-post-wrapper {
+    
+    margin: 0;
+    padding: 0;   /* 🔥 removes left/right space */
+  }
+}
+
 
 .fb-post {
   background: #fff;
@@ -144,9 +156,13 @@
 
 .fb-post-image img {
   width: 100%;
+  height: 240px;          /* reduced height */
+  object-fit: cover;     /* crop, no stretch */
+  object-position: center;
   display: block;
   background: #000;
 }
+
 
 .fb-post-text {
   padding: 12px;
@@ -377,13 +393,11 @@
             grid-template-columns: 1fr 320px; /* Main content + Sidebar */
             gap: 40px;
             padding: 0;
-            margin: 0px;
         }
 
         /* LEFT COLUMN: ARTICLE */
         .article-column {
             padding: 40px 60px;
-            
         }
 
         .category-label {
@@ -766,12 +780,13 @@ strong {
         </p>
 
         <div class="color-options">
-            <div class="color-dot" style="background:#ff9f43" data-name="Solar Orange"></div>
-            <div class="color-dot" style="background:#1f1f1f" data-name="Torino Black"></div>
-            <div class="color-dot" style="background:#2ecc71" data-name="Silk Green"></div>
+            <div class="color-dot" style="background:#ff9f43" ></div>
+            <div class="color-dot" style="background:#1f1f1f" ></div>
+            <div class="color-dot" style="background:#2ecc71" ></div>
         </div>
- </article>
-        <section class="fb-post-wrapper">
+        
+
+        <section class="fb-post-wrapper" >
 
   <article class="fb-post">
 
