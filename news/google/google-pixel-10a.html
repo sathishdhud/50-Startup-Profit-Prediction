@@ -81,117 +81,18 @@
 }
 </script>
 
-
-
     
     <style>
-        .poppins-thin {
-  font-family: "Poppins", sans-serif;
-  font-weight: 100;
-  font-style: normal;
-}
-
-.poppins-extralight {
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
-  font-style: normal;
-}
-
-.poppins-light {
-  font-family: "Poppins", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.poppins-regular {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.poppins-medium {
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.poppins-semibold {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.poppins-bold {
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.poppins-extrabold {
-  font-family: "Poppins", sans-serif;
-  font-weight: 800;
-  font-style: normal;
-}
-
-.poppins-black {
-  font-family: "Poppins", sans-serif;
-  font-weight: 900;
-  font-style: normal;
-}
-
-.poppins-thin-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 100;
-  font-style: italic;
-}
-
-.poppins-extralight-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
-  font-style: italic;
-}
-
-.poppins-light-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.poppins-regular-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.poppins-medium-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-style: italic;
-}
-
-.poppins-semibold-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-style: italic;
-}
-
-.poppins-bold-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.poppins-extrabold-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 800;
-  font-style: italic;
-}
-
-.poppins-black-italic {
-  font-family: "Poppins", sans-serif;
-  font-weight: 900;
-  font-style: italic;
-}
+        /* TYPOGRAPHY UTILS */
+        .poppins-thin { font-family: "Poppins", sans-serif; font-weight: 100; font-style: normal; }
+        .poppins-extralight { font-family: "Poppins", sans-serif; font-weight: 200; font-style: normal; }
+        .poppins-light { font-family: "Poppins", sans-serif; font-weight: 300; font-style: normal; }
+        .poppins-regular { font-family: "Poppins", sans-serif; font-weight: 400; font-style: normal; }
+        .poppins-medium { font-family: "Poppins", sans-serif; font-weight: 500; font-style: normal; }
+        .poppins-semibold { font-family: "Poppins", sans-serif; font-weight: 600; font-style: normal; }
+        .poppins-bold { font-family: "Poppins", sans-serif; font-weight: 700; font-style: normal; }
+        .poppins-extrabold { font-family: "Poppins", sans-serif; font-weight: 800; font-style: normal; }
+        .poppins-black { font-family: "Poppins", sans-serif; font-weight: 900; font-style: normal; }
 
         :root {
             --fk-orange: #ff8c2b;
@@ -226,7 +127,7 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.08);
             min-height: 100vh;
             border-radius: 8px;
-            overflow: hidden; /* For rounded corners */
+            overflow: hidden;
         }
 
         /* HEADER */
@@ -278,13 +179,12 @@
             max-height: 500px;
             object-fit: cover;
             border-radius: 12px;
-            
         }
 
         /* CONTENT LAYOUT */
         .content-layout {
             display: grid;
-            grid-template-columns: 1fr 320px; /* Main content + Sidebar */
+            grid-template-columns: 1fr 320px;
             gap: 40px;
             padding: 0;
         }
@@ -508,8 +408,6 @@
         }
         .v-list li.con::before { content: '\f00d'; color: #dc3545; }
 
-        /* FOOTER */
-     
         /* MOBILE STICKY CTA */
         .mobile-sticky-cta {
             position: fixed;
@@ -541,7 +439,7 @@
             .main-title { font-size: 28px; }
             .blog-nav { padding: 15px; }
             .nav-links { display: none; }
-            .mobile-sticky-cta.visible { display: flex; } /* Show only on mobile */
+            .mobile-sticky-cta.visible { display: flex; }
         }
 
         @keyframes pulse {
@@ -551,18 +449,18 @@
         }
 
         .ai-sub-heading {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-top: 22px;
-    margin-bottom: 6px;
-}
-strong {
-    color: #FFD700;          /* Yellow text */
-    background-color: #000;  /* Black background */
-    padding: 2px 6px;        /* Top/Bottom | Left/Right padding */
-    border-radius: 3px;      /* Optional: smooth edges */
-    font-weight: 600;        /* Keeps it strong but clean */
-}
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 22px;
+            margin-bottom: 6px;
+        }
+        strong {
+            color: #FFD700;          /* Yellow text */
+            background-color: #000;  /* Black background */
+            padding: 2px 6px;        /* Top/Bottom | Left/Right padding */
+            border-radius: 3px;      /* Optional: smooth edges */
+            font-weight: 600;        /* Keeps it strong but clean */
+        }
 
     </style>
      <script async src="https://www.googletagmanager.com/gtag/js?id=G-S60YQL9TZ2"></script>
@@ -570,7 +468,6 @@ strong {
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-S60YQL9TZ2');
 </script>
 </head>
@@ -602,8 +499,6 @@ strong {
 
         <!-- HERO BANNER -->
         <section class="hero-banner">
-        
-            <!-- Placeholder using Picsum with seed 'pixel' for consistent tech-looking image -->
             <img src="news-google-pixel-10a.png" alt="Google Pixel 10a official leaked look">
         </section>
 
@@ -862,32 +757,32 @@ strong {
 
         <!-- NEWSLETTER -->
         <div class="sidebar-card" style="background:#222;color:#fff;">
-    <h5 style="margin-bottom:15px;">
-        Tech Deals Newsletter
-    </h5>
+            <h5 style="margin-bottom:15px;">
+                Tech Deals Newsletter
+            </h5>
 
-    <p style="font-size:13px;opacity:.8;">
-        Weekly updates on smartphone launches, price drops, and exclusive buying guides.
-    </p>
+            <p style="font-size:13px;opacity:.8;">
+                Weekly updates on smartphone launches, price drops, and exclusive buying guides.
+            </p>
 
-    <input type="email"
-           id="newsletterEmail"
-           class="form-control form-control-sm mb-2"
-           placeholder="Enter your email"
-           required>
+            <input type="email"
+                   id="newsletterEmail"
+                   class="form-control form-control-sm mb-2"
+                   placeholder="Enter your email"
+                   required>
 
-    <!-- Hidden product name -->
-    <input type="hidden"
-           id="productName"
-           value="Infinix Note 60 Pro">
+            <!-- Hidden product name -->
+            <input type="hidden"
+                   id="productName"
+                   value="Google Pixel 10a">
 
-    <button class="btn btn-sm btn-warning w-100 fw-bold"
-            onclick="subscribeNewsletter()">
-        SUBSCRIBE FREE
-    </button>
+            <button id="subscribeBtn" class="btn btn-sm btn-warning w-100 fw-bold"
+                    onclick="subscribeNewsletter()">
+                SUBSCRIBE FREE
+            </button>
 
-    <small id="newsletterMsg" style="display:block;margin-top:8px;"></small>
-</div>
+            <small id="newsletterMsg" style="display:block;margin-top:8px;"></small>
+        </div>
 
 
     </div>
@@ -895,9 +790,6 @@ strong {
 
 
         </div> <!-- End Content Layout -->
-
-        <!-- FOOTER -->
-        
 
     </div>
 
@@ -912,70 +804,102 @@ strong {
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
-    <!-- Simple script for Mobile CTA visibility -->
+    <!-- MAIN FUNCTIONALITY SCRIPT -->
     <script>
-        // Show sticky CTA after scrolling past hero
+        // 1. Mobile CTA Logic
         window.addEventListener('scroll', function() {
             const hero = document.querySelector('.hero-banner');
             const cta = document.querySelector('.mobile-sticky-cta');
-            const heroBottom = hero.offsetTop + hero.offsetHeight;
-            
-            if (window.scrollY > heroBottom) {
-                cta.classList.add('visible');
-            } else {
-                cta.classList.remove('visible');
+            // Check if elements exist
+            if (hero && cta) {
+                const heroBottom = hero.offsetTop + hero.offsetHeight;
+                if (window.scrollY > heroBottom) {
+                    cta.classList.add('visible');
+                } else {
+                    cta.classList.remove('visible');
+                }
             }
         });
-    </script>
-    <script src="../footer.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script>
-    const SUPABASE_URL = "https://azepwzwwgxfuqtburjlq.supabase.co";
-    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF6ZXB3end3Z3hmdXF0YnVyamxxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkxODEwMzcsImV4cCI6MjA4NDc1NzAzN30.WldUvmlMh3DW9FYus2xz9JQcM-tMtPXGuLZv9zv3RQs";
+        // 2. Supabase Configuration
+        const SUPABASE_URL = "https://azepwzwwgxfuqtburjlq.supabase.co";
+        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF6ZXB3end3Z3hmdXF0YnVyamxxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkxODEwMzcsImV4cCI6MjA4NDc1NzAzN30.WldUvmlMh3DW9FYus2xz9JQcM-tMtPXGuLZv9zv3RQs";
 
-    const supabase = supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_ANON_KEY
-    );
-
-    async function subscribeNewsletter() {
-        const email = document.getElementById("newsletterEmail").value.trim();
-        const productName = "Infinix Note 60 Pro"; // This can be dynamic based on the article
-        const msg = document.getElementById("newsletterMsg");
-
-        if (!email) {
-            msg.textContent = "Please enter a valid email.";
-            msg.style.color = "orange";
-            return;
-        }
-
-        const { error } = await supabase
-            .from("newsletter_subscribers")
-            .insert([
-                {
-                    email: email,
-                    product_name: productName,
-                    source: "sidebar"
-                }
-            ]);
-
-        if (error) {
-            if (error.code === "23505") {
-                msg.textContent = "Already subscribed for this product 🎉";
-                msg.style.color = "#0f0";
+        let supabase;
+        
+        // Initialize Supabase safely
+        try {
+            if (window.supabase) {
+                supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
             } else {
-                msg.textContent = "Subscription failed. Try again.";
-                msg.style.color = "red";
+                console.error("Supabase library not loaded.");
             }
-        } else {
-            msg.textContent = "Subscribed successfully ✅";
-            msg.style.color = "#0f0";
-            document.getElementById("newsletterEmail").value = "";
+        } catch (e) {
+            console.error("Supabase initialization error:", e);
         }
-    }
-</script>
+
+        // 3. Newsletter Subscription Logic
+        // EXPLICITLY attaching to window to fix 'ReferenceError: is not defined'
+        async function subscribeNewsletter() {
+            const emailInput = document.getElementById("newsletterEmail");
+            const msg = document.getElementById("newsletterMsg");
+            const btn = document.getElementById("subscribeBtn");
+
+            // Clear previous messages
+            msg.textContent = "";
+            msg.style.color = "inherit";
+
+            if (!supabase) {
+                msg.textContent = "Service unavailable. Check connection.";
+                msg.style.color = "orange";
+                return;
+            }
+
+            const email = emailInput.value.trim();
+            const productName = document.getElementById("productName").value;
+
+            if (!email) {
+                msg.textContent = "Please enter a valid email.";
+                msg.style.color = "orange";
+                return;
+            }
+
+            // Disable button during request
+            btn.disabled = true;
+            btn.textContent = "Processing...";
+
+            const { error } = await supabase
+                .from("newsletter_subscribers")
+                .insert([
+                    {
+                        email: email,
+                        product_name: productName,
+                        source: "sidebar"
+                    }
+                ]);
+
+            // Re-enable button
+            btn.disabled = false;
+            btn.textContent = "SUBSCRIBE FREE";
+
+            if (error) {
+                if (error.code === "23505") {
+                    msg.textContent = "Already subscribed for this product 🎉";
+                    msg.style.color = "#0f0";
+                } else {
+                    console.error("Supabase Error:", error);
+                    msg.textContent = "Subscription failed. Try again.";
+                    msg.style.color = "red";
+                }
+            } else {
+                msg.textContent = "Subscribed successfully ✅";
+                msg.style.color = "#0f0";
+                emailInput.value = "";
+            }
+        };
+    </script>
 
 </body>
 </html>
