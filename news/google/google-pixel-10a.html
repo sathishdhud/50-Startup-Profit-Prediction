@@ -862,23 +862,33 @@ strong {
 
         <!-- NEWSLETTER -->
         <div class="sidebar-card" style="background:#222;color:#fff;">
-            <h5 style="margin-bottom:15px;">
-                Tech Deals Newsletter
-            </h5>
+    <h5 style="margin-bottom:15px;">
+        Tech Deals Newsletter
+    </h5>
 
-            <p style="font-size:13px;opacity:.8;">
-                Weekly updates on smartphone launches, price drops, and exclusive buying guides.
-            </p>
+    <p style="font-size:13px;opacity:.8;">
+        Weekly updates on smartphone launches, price drops, and exclusive buying guides.
+    </p>
 
-            <input type="email"
-                   class="form-control form-control-sm mb-2"
-                   placeholder="Enter your email"
-                   aria-label="Email address">
+    <input type="email"
+           id="newsletterEmail"
+           class="form-control form-control-sm mb-2"
+           placeholder="Enter your email"
+           required>
 
-            <button class="btn btn-sm btn-warning w-100 fw-bold">
-                SUBSCRIBE FREE
-            </button>
-        </div>
+    <!-- Hidden product name -->
+    <input type="hidden"
+           id="productName"
+           value="Infinix Note 60 Pro">
+
+    <button class="btn btn-sm btn-warning w-100 fw-bold"
+            onclick="subscribeNewsletter()">
+        SUBSCRIBE FREE
+    </button>
+
+    <small id="newsletterMsg" style="display:block;margin-top:8px;"></small>
+</div>
+
 
     </div>
 </aside>
@@ -919,5 +929,53 @@ strong {
         });
     </script>
     <script src="../footer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+    const SUPABASE_URL = "https://azepwzwwgxfuqtburjlq.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF6ZXB3end3Z3hmdXF0YnVyamxxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkxODEwMzcsImV4cCI6MjA4NDc1NzAzN30.WldUvmlMh3DW9FYus2xz9JQcM-tMtPXGuLZv9zv3RQs";
+
+    const supabase = supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+    );
+
+    async function subscribeNewsletter() {
+        const email = document.getElementById("newsletterEmail").value.trim();
+        const productName = document.getElementById("productName").value;
+        const msg = document.getElementById("newsletterMsg");
+
+        if (!email) {
+            msg.textContent = "Please enter a valid email.";
+            msg.style.color = "orange";
+            return;
+        }
+
+        const { error } = await supabase
+            .from("newsletter_subscribers")
+            .insert([
+                {
+                    email: email,
+                    product_name: productName,
+                    source: "sidebar"
+                }
+            ]);
+
+        if (error) {
+            if (error.code === "23505") {
+                msg.textContent = "Already subscribed for this product 🎉";
+                msg.style.color = "#0f0";
+            } else {
+                msg.textContent = "Subscription failed. Try again.";
+                msg.style.color = "red";
+            }
+        } else {
+            msg.textContent = "Subscribed successfully ✅";
+            msg.style.color = "#0f0";
+            document.getElementById("newsletterEmail").value = "";
+        }
+    }
+</script>
+
 </body>
 </html>
