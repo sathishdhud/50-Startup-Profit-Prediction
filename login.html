@@ -12,11 +12,13 @@
     /* --- THEME VARIABLES --- */
     :root {
       --primary-orange: #f44f08;
-      --primary-hover: #f44f08;
+      --primary-hover: #fb641b; /* Slightly lighter for hover feedback */
       --text-black: #212121;
-      --text-grey: #000000;
+      --text-grey: #878787;
       --border-color: #e0e0e0;
       --bg-white: #ffffff;
+      --success-color: #388e3c;
+      --error-color: #ff6161;
     }
 
     /* --- RESET & BASE --- */
@@ -35,6 +37,46 @@
       justify-content: center;
       color: var(--text-black);
       overflow: hidden; /* Prevent scrolling on desktop */
+    }
+
+    /* --- TOAST NOTIFICATION STYLES --- */
+    #toast-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toast {
+      min-width: 300px;
+      padding: 16px 20px;
+      background: white;
+      border-left: 4px solid var(--primary-orange);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border-radius: 4px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      animation: slideIn 0.3s ease-out;
+      color: var(--text-black);
+    }
+
+    .toast.success { border-left-color: var(--success-color); }
+    .toast.error { border-left-color: var(--error-color); }
+    .toast.info { border-left-color: var(--primary-orange); }
+
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
     }
 
     /* --- LOGO (TOP LEFT) --- */
@@ -59,8 +101,6 @@
     .logo-icon {
       width: 82px;
       height: 82px;
-      /* Adding a subtle border to logo since it's white on white */
-     
       border-radius: 4px;
       padding: 2px;
       display: flex;
@@ -114,7 +154,7 @@
     .left-panel img {
       width: 100%;
       height: auto;
-      display: block; /* Hidden by default via JS or generic placeholder */
+      display: block;
     }
 
     /* --- RIGHT SIDE (FORM) --- */
@@ -179,6 +219,11 @@
       box-shadow: 0 0 0 1px var(--primary-orange);
     }
 
+    input:disabled {
+      background-color: #f9f9f9;
+      cursor: not-allowed;
+    }
+
     /* ORANGE BUTTON */
     .btn-primary {
       width: 100%;
@@ -188,16 +233,40 @@
       font-size: 15px;
       font-weight: 600;
       border: none;
-      border-radius: 5px; /* REQUESTED: 5px radius */
+      border-radius: 5px;
       cursor: pointer;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       box-shadow: 0 1px 2px rgba(0,0,0,0.1);
       transition: background 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .btn-primary:hover {
       background-color: var(--primary-hover);
+    }
+
+    .btn-primary:disabled {
+      background-color: #ff9e6e;
+      cursor: not-allowed;
+    }
+
+    /* Simple Loader */
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
+      margin-right: 10px;
+      display: none;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
 
     /* DIVIDER */
@@ -293,12 +362,15 @@
 
 <body>
 
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
   <!-- LOGO -->
   <a href="https://maaney.store" class="brand-logo">
     <div class="logo-icon">
-      <img src="https://maaney.store/white_logo.png" alt="Logo">
+      <!-- Using a placeholder if the image fails, but keeping the user's link -->
+      <img src="https://maaney.store/white_logo.png" alt="Logo" onerror="this.style.display='none'">
     </div>
-    
   </a>
 
   <div class="login-card">
@@ -307,8 +379,7 @@
     <div class="left-panel">
       <h2>Login</h2>
       <p>Get access to your Orders, Wishlist and Recommendations.</p>
-      <!-- Generic Abstract Image suitable for white theme -->
-      <img src="./favicon.svg" alt="Login Illustration" style="border-radius: 5px; opacity: 0.8;">
+      <img src="./favicon.svg" alt="Login Illustration" style="border-radius: 5px; opacity: 0.8;" onerror="this.src='https://picsum.photos/seed/maaney/300/300'">
     </div>
 
     <!-- RIGHT PANEL (Form) -->
@@ -322,7 +393,7 @@
 
       <!-- LOGIN FORM -->
       <div id="formLogin" class="form-section active">
-        <form onsubmit="event.preventDefault(); handleManualLogin('Login');">
+        <form id="loginForm">
           <div class="input-group">
             <input type="email" id="loginEmail" placeholder="Enter Email/Mobile number" required>
           </div>
@@ -330,7 +401,10 @@
             <input type="password" id="loginPass" placeholder="Enter Password" required>
           </div>
           
-          <button type="submit" class="btn-primary">Login</button>
+          <button type="submit" class="btn-primary" id="loginBtn">
+            <div class="spinner"></div>
+            <span class="btn-text">Login</span>
+          </button>
           
           <div class="divider"><span>Or</span></div>
           
@@ -346,9 +420,9 @@
 
       <!-- SIGN UP FORM -->
       <div id="formSignup" class="form-section">
-        <form onsubmit="event.preventDefault(); handleManualLogin('Sign Up');">
+        <form id="signupForm">
           <div class="input-group">
-            <input type="text" placeholder="Enter Full Name" required>
+            <input type="text" id="signupName" placeholder="Enter Full Name" required>
           </div>
           <div class="input-group">
             <input type="email" id="signupEmail" placeholder="Enter Email" required>
@@ -357,7 +431,10 @@
             <input type="password" id="signupPass" placeholder="Create Password" required>
           </div>
 
-          <button type="submit" class="btn-primary">Create Account</button>
+          <button type="submit" class="btn-primary" id="signupBtn">
+            <div class="spinner"></div>
+            <span class="btn-text">Create Account</span>
+          </button>
 
           <div class="divider"><span>Or</span></div>
 
@@ -376,9 +453,57 @@
 
 <script>
   // --- 1. CONFIGURATION ---
+  const API_BASE_URL = "https://maaney-backend1.onrender.com";
   const CLIENT_ID = "906065616995-tlj04c7lonuaf29c2cq19leu24g29n53.apps.googleusercontent.com";
 
-  // --- 2. TAB SWITCHING LOGIC ---
+  // --- 2. UI UTILITIES (TOAST & LOADING) ---
+  
+  function showToast(message, type = 'info') {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.innerHTML = `<span>${message}</span>`;
+    
+    // Add close button
+    const closeBtn = document.createElement('span');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.style.cursor = 'pointer';
+    closeBtn.style.fontSize = '18px';
+    closeBtn.style.marginLeft = '10px';
+    closeBtn.onclick = () => container.removeChild(toast);
+    
+    toast.appendChild(closeBtn);
+    container.appendChild(toast);
+
+    // Auto remove after 4 seconds
+    setTimeout(() => {
+      toast.style.animation = 'fadeOut 0.4s ease forwards';
+      toast.addEventListener('animationend', () => {
+        if (container.contains(toast)) container.removeChild(toast);
+      });
+    }, 4000);
+  }
+
+  function setLoading(btnId, isLoading) {
+    const btn = document.getElementById(btnId);
+    const spinner = btn.querySelector('.spinner');
+    const text = btn.querySelector('.btn-text');
+    const inputs = document.querySelectorAll('input');
+
+    if (isLoading) {
+      btn.disabled = true;
+      spinner.style.display = 'block';
+      text.innerText = 'Please wait...';
+      inputs.forEach(input => input.disabled = true);
+    } else {
+      btn.disabled = false;
+      spinner.style.display = 'none';
+      text.innerText = btnId === 'loginBtn' ? 'Login' : 'Create Account';
+      inputs.forEach(input => input.disabled = false);
+    }
+  }
+
+  // --- 3. TAB SWITCHING LOGIC ---
   function switchTab(tab) {
     const loginForm = document.getElementById('formLogin');
     const signupForm = document.getElementById('formSignup');
@@ -398,65 +523,149 @@
     }
   }
 
-  // --- 3. GOOGLE AUTHENTICATION CALLBACK ---
-  function handleLogin(response) {
-    // Parse the JWT credential
-    const payload = JSON.parse(atob(response.credential.split('.')[1]));
-    const email = payload.email;
-    
-    console.log("Google Login Success:", payload);
+  // --- 4. API HANDLERS ---
 
-    // Alert and Redirect to Home Page
-    alert("Successfully logged in as: " + email + "\nRedirecting to Home...");
+  // Helper to handle fetch requests
+  async function apiRequest(endpoint, payload) {
+    try {
+      const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("API Error:", error);
+      return { success: false, message: "Network error. Please try again later." };
+    }
+  }
+
+  // Handle Manual Login
+  document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
     
-    // REPLACE 'home.html' with your actual home page URL
-    window.location.href = "home.html"; 
+    const email = document.getElementById('loginEmail').value.trim();
+    const password = document.getElementById('loginPass').value;
+
+    if(!email || !password) {
+      showToast("Please fill in all fields", "error");
+      return;
+    }
+
+    setLoading('loginBtn', true);
+
+    const result = await apiRequest('/auth/login', { email, password });
+
+    setLoading('loginBtn', false);
+
+    if (result.success) {
+      showToast(`Welcome back, ${result.data.name}!`, "success");
+      
+      // Store user data in localStorage (simulating session)
+      localStorage.setItem('maaneyUser', JSON.stringify(result.data));
+      
+      // Redirect to home page after short delay
+      setTimeout(() => {
+        window.location.href = "home.html";
+      }, 1500);
+    } else {
+      showToast(result.message || "Login failed", "error");
+    }
+  });
+
+  // Handle Signup
+  document.getElementById('signupForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('signupName').value.trim();
+    const email = document.getElementById('signupEmail').value.trim();
+    const password = document.getElementById('signupPass').value;
+
+    if(!name || !email || !password) {
+      showToast("Please fill in all fields", "error");
+      return;
+    }
+
+    setLoading('signupBtn', true);
+
+    const result = await apiRequest('/auth/signup', { name, email, password });
+
+    setLoading('signupBtn', false);
+
+    if (result.success) {
+      showToast("Account created successfully! Please Login.", "success");
+      // Switch to login tab automatically
+      switchTab('login');
+      // Pre-fill login email
+      document.getElementById('loginEmail').value = email;
+    } else {
+      showToast(result.message || "Signup failed", "error");
+    }
+  });
+
+  // --- 5. GOOGLE AUTHENTICATION ---
+  function handleGoogleLogin(response) {
+    // Parse JWT
+    try {
+      const payload = JSON.parse(atob(response.credential.split('.')[1]));
+      const email = payload.email;
+      const name = payload.name;
+
+      console.log("Google Login Success:", payload);
+      
+      // Since there is no specific Google Endpoint provided in the prompt,
+      // We will simulate a successful login flow here.
+      showToast(`Logged in via Google as ${email}`, "success");
+      
+      // Mock user data for redirect
+      const mockUser = {
+        id: "google_user_id",
+        name: name,
+        email: email,
+        created_at: new Date().toISOString()
+      };
+      localStorage.setItem('maaneyUser', JSON.stringify(mockUser));
+
+      setTimeout(() => {
+        window.location.href = "home.html";
+      }, 1500);
+
+    } catch (e) {
+      showToast("Google Authentication Failed", "error");
+      console.error(e);
+    }
   }
 
   // Initialize Google Identity
   window.onload = () => {
-    google.accounts.id.initialize({
-      client_id: CLIENT_ID,
-      callback: handleLogin,
-      ux_mode: "popup"
-    });
+    if (window.google) {
+      google.accounts.id.initialize({
+        client_id: CLIENT_ID,
+        callback: handleGoogleLogin,
+        ux_mode: "popup",
+        auto_select: false
+      });
 
-    // Render Login Button
-    google.accounts.id.renderButton(
-      document.getElementById("googleBtnLogin"),
-      {
-        theme: "outline",
-        size: "large",
-        text: "signin_with",
-        width: "250",
-        locale: "en"
-      }
-    );
+      // Render Login Button
+      google.accounts.id.renderButton(
+        document.getElementById("googleBtnLogin"),
+        { theme: "outline", size: "large", text: "signin_with", width: "250", locale: "en" }
+      );
 
-    // Render Signup Button
-    google.accounts.id.renderButton(
-      document.getElementById("googleBtnSignup"),
-      {
-        theme: "outline",
-        size: "large",
-        text: "signup_with",
-        width: "250",
-        locale: "en"
-      }
-    );
+      // Render Signup Button
+      google.accounts.id.renderButton(
+        document.getElementById("googleBtnSignup"),
+        { theme: "outline", size: "large", text: "signup_with", width: "250", locale: "en" }
+      );
+    } else {
+      console.warn("Google Identity Services script failed to load.");
+    }
   };
 
-  // --- 4. MANUAL FORM SUBMISSION (MOCK) ---
-  function handleManualLogin(type) {
-    // Get email from active form
-    const isLogin = type === 'Login';
-    const email = document.getElementById(isLogin ? 'loginEmail' : 'signupEmail').value;
-    
-    if(email) {
-      alert("Manual " + type + " successful!\nRedirecting to Home...");
-      window.location.href = "home.html";
-    }
-  }
 </script>
 
 </body>
