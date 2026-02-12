@@ -101,6 +101,7 @@
             --text-dark: #212121;
             --text-gray: #555;
             --off-white: #f8f9fa;
+            --wa-green: #25D366;
         }
         
         body {
@@ -318,8 +319,54 @@
             border-radius: 6px;
             margin-top: 15px;
             transition: 0.3s;
+            text-decoration: none;
+            display: block;
         }
         .btn-buy:hover { background: #222; color: white; }
+
+        /* WHATSAPP BUTTON STYLES (Added) */
+        .btn-whatsapp-join {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--wa-green);
+            color: white;
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 700;
+            margin-top: 10px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 14px;
+            border: none;
+        }
+        .btn-whatsapp-join:hover {
+            background-color: #1ebc57;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* IN-ARTICLE CTA (Added) */
+        .in-article-cta {
+            background: #e7fce3;
+            border: 1px solid #25D366;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        .in-article-cta h4 {
+            color: #128C7E;
+            margin-bottom: 15px;
+            font-family: 'Young Serif', serif;
+        }
+        .in-article-cta p {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 20px;
+        }
 
         /* COMPARISON TABLE */
         .comparison-table {
@@ -364,16 +411,69 @@
             left: 0;
             width: 100%;
             background: white;
-            padding: 15px 20px;
+            padding: 12px 15px;
             box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
-            display: flex;
+            display: none; /* Hidden by default on desktop */
             justify-content: space-between;
             align-items: center;
             z-index: 2000;
-            transform: translateY(100%);
-            transition: transform 0.3s ease-out;
+            gap: 10px;
         }
-        .mobile-sticky-cta.visible { transform: translateY(0); }
+        
+        /* Mobile Sticky CTA Layout */
+        .mobile-cta-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .mobile-cta-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-sticky-cta.visible { 
+                display: flex; 
+                flex-direction: row; /* Changed to row to fit both buttons */
+            }
+            .mobile-sticky-cta {
+                flex-wrap: wrap; /* Allow wrapping if screen is very small */
+            }
+            .mobile-cta-left {
+                flex: 1;
+                min-width: 80px;
+            }
+            .mobile-cta-buttons {
+                flex: 2;
+                justify-content: flex-end;
+            }
+            .btn-mobile-buy {
+                flex: 1;
+                text-align: center;
+                padding: 10px;
+                border-radius: 50px;
+                font-size: 14px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+            }
+            .btn-mobile-wa {
+                background: var(--wa-green);
+                color: white;
+                padding: 10px 15px;
+                border-radius: 50px;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                font-weight: 700;
+                white-space: nowrap;
+            }
+        }
 
         /* RESPONSIVE BREAKS */
         @media (max-width: 992px) {
@@ -383,12 +483,11 @@
         }
 
         @media (max-width: 768px) {
-            .main-page-wrapper { margin: 0; border-radius: 0; }
+            .main-page-wrapper { margin: 0; border-radius: 0; padding-bottom: 80px; /* Space for sticky CTA */ }
             .hero-banner { padding: 20px 10px; }
             .main-title { font-size: 28px; }
             .blog-nav { padding: 15px; }
             .nav-links { display: none; }
-            .mobile-sticky-cta.visible { display: flex; }
         }
 
         @keyframes pulse {
@@ -614,6 +713,15 @@
         lower during the initial sale on <strong>Flipkart and the Google Store</strong> starting February 18, 2026.
     </p>
 
+    <!-- JOIN WHATSAPP CHANNEL BANNER (In Article) -->
+    <div class="in-article-cta">
+        <h4>Stay Updated with Launch Alerts</h4>
+        <p>Join the Maaney Store WhatsApp Channel for instant price drop alerts, flash sale updates, and exclusive tech news.</p>
+        <a href="https://whatsapp.com/channel/0029Vb7WxXmFXUuZkg9Qz61u" target="_blank" class="btn-whatsapp-join" style="max-width: 250px; margin: 0 auto;">
+            <i class="fab fa-whatsapp"></i> Join Channel Now
+        </a>
+    </div>
+
 </article>
 
 
@@ -634,11 +742,16 @@
                 *Estimated with launch offers & bank discounts
             </div>
 
-            <button class="btn-buy" aria-label="Notify me about Pixel 10a launch">
+            <a href="#" class="btn-buy" aria-label="Notify me about Pixel 10a launch">
                 GET LAUNCH ALERT
-            </button>
+            </a>
 
-            <div style="font-size:11px;margin-top:10px;color:#555;">
+            <!-- JOIN BUTTON ADDED TO SIDEBAR -->
+            <a href="https://whatsapp.com/channel/0029Vb7WxXmFXUuZkg9Qz61u" target="_blank" class="btn-whatsapp-join">
+                <i class="fab fa-whatsapp"></i> Join Channel
+            </a>
+
+            <div style="font-size:11px;margin-top:15px;color:#fff;">
                 Sale begins • Feb 18, 2026
             </div>
         </div>
@@ -742,12 +855,20 @@
     </div>
 
     <!-- MOBILE STICKY CTA (Visible only on small screens) -->
-    <div class="mobile-sticky-cta d-md-none">
-        <div>
-            <div style="font-size: 12px; color: #777;">Price from</div>
-            <div style="font-weight: 700; color: var(--fk-orange-dark);">₹41,999</div>
+    <div class="mobile-sticky-cta visible d-md-none">
+        <div class="mobile-cta-left">
+            <div style="font-size: 11px; color: #777;">Price from</div>
+            <div style="font-weight: 700; color: var(--fk-orange-dark); font-size: 18px;">₹41,999</div>
         </div>
-        <a href="#" class="btn btn-dark rounded-pill px-4" style="font-weight: 600;">Pre-order</a>
+        <div class="mobile-cta-buttons">
+            <!-- Existing Pre-order button -->
+            <a href="#" class="btn-mobile-buy btn btn-dark rounded-pill">Pre-order</a>
+            
+            <!-- New WhatsApp Join Button -->
+            <a href="https://whatsapp.com/channel/0029Vb7WxXmFXUuZkg9Qz61u" target="_blank" class="btn-mobile-wa">
+                <i class="fab fa-whatsapp"></i> Join
+            </a>
+        </div>
     </div>
 
     <!-- Scripts -->
@@ -806,7 +927,7 @@
   });
 
   // Function to show alert below the newsletter section
-  // isError: boolean. If true, text is red. If false, text is orange (success).
+  // isError: boolean. If true, text is red. If false, text is orange (for success).
   function showInlineAlert(message, isError) {
     const msgElement = document.getElementById("newsletterMsg");
     
@@ -825,6 +946,5 @@
     }, 5000);
   }
 </script>
-<script src="../../footer.js"></script>
 </body>
 </html>
