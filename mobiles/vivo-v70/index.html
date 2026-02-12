@@ -195,7 +195,7 @@
             position: relative;
             background: #f5f5f5;
             text-align: center;
-            
+            cursor: pointer; /* Added cursor for interaction */
         }
         
      .image-box img {
@@ -218,6 +218,7 @@
             justify-content: center;
             cursor: pointer;
             box-shadow: 0 2px 8px rgba(0,0,0,.2);
+            z-index: 2;
         }
         
         .slider-btn.left {
@@ -378,6 +379,7 @@
     scroll-snap-align: center;
     margin: 0 auto;
     display: block;
+    cursor: pointer; /* Added cursor for interaction */
 }
 
         
@@ -815,6 +817,161 @@ text-decoration:none;
   height:100%;
   object-fit:contain;   /* IMPORTANT */
   display:block;
+}
+
+/* --- LIGHTBOX / FULL SCREEN PREVIEW STYLES --- */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding-bottom: 20px;
+}
+
+.lightbox-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content-wrapper {
+    position: relative;
+    max-width: 90%;
+    max-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-main-img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* Close Button */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 35px;
+    cursor: pointer;
+    z-index: 10001;
+    background: rgba(255, 255, 255, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.lightbox-close:hover {
+    background: var(--fk-orange);
+}
+
+/* Thumbnails Container */
+.lightbox-thumbs-container {
+    margin-top: 20px;
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--fk-orange) transparent;
+}
+
+.lightbox-thumbs-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.lightbox-thumbs-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.lightbox-thumbs-container::-webkit-scrollbar-thumb {
+    background-color: var(--fk-orange);
+    border-radius: 3px;
+}
+
+/* Thumbnail Card Styling */
+.thumb-card {
+    flex: 0 0 auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #000;
+}
+
+.thumb-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumb-card.active {
+    border-color: var(--fk-orange);
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 106, 0, 0.6);
+}
+
+.thumb-card:hover {
+    opacity: 0.8;
+}
+
+/* Lightbox Navigation Arrows */
+.lb-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: background 0.3s;
+    z-index: 5;
+}
+
+.lb-nav-btn:hover {
+    background: var(--fk-orange);
+}
+
+.lb-prev { left: -60px; }
+.lb-next { right: -60px; }
+
+@media(max-width: 768px) {
+    .lb-prev { left: 10px; }
+    .lb-next { right: 10px; }
+    .lightbox-close { top: 10px; right: 10px; width: 40px; height: 40px; font-size: 28px; }
+    .lightbox-thumbs-container { width: 100%; }
 }
 
     </style>
@@ -1715,6 +1872,24 @@ text-decoration:none;
             </div>
         </div>
     </div>
+
+    <!-- LIGHTBOX OVERLAY STRUCTURE -->
+    <div id="lightbox" class="lightbox-overlay">
+        <!-- Close Button -->
+        <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
+        
+        <!-- Main Image Area -->
+        <div class="lightbox-content-wrapper">
+            <button class="lb-nav-btn lb-prev" onclick="changeLightboxImage(-1)"><i class="fa fa-chevron-left"></i></button>
+            <img id="lightbox-img" class="lightbox-main-img" src="" alt="Full Screen Preview">
+            <button class="lb-nav-btn lb-next" onclick="changeLightboxImage(1)"><i class="fa fa-chevron-right"></i></button>
+        </div>
+
+        <!-- Bottom Thumbnails / Cards -->
+        <div class="lightbox-thumbs-container" id="lightbox-thumbs">
+            <!-- Thumbnails injected via JS -->
+        </div>
+    </div>
     
     <!-- Footer -->
     
@@ -1732,9 +1907,11 @@ text-decoration:none;
             "./image4.png",
             "./image5.png",
             "./image6.png",
-            "./image7.png"
+            "./image7.png",
+            "./image8.png" // Added 8th image to match HTML
         ];
         let i = 0;
+        let currentLightboxIndex = 0;
         
         function nextImg() {
             i = (i + 1) % images.length;
@@ -1745,6 +1922,84 @@ text-decoration:none;
             i = (i - 1 + images.length) % images.length;
             document.getElementById("sliderImg").src = images[i];
         }
+
+        /* ================= LIGHTBOX LOGIC ================= */
+        
+        // Open Lightbox
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const mainImg = document.getElementById('lightbox-img');
+            
+            mainImg.src = images[index];
+            
+            // Render Thumbnails
+            renderThumbnails();
+            
+            // Show
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        // Close Lightbox
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Change Image via Arrows
+        function changeLightboxImage(direction) {
+            currentLightboxIndex = (currentLightboxIndex + direction + images.length) % images.length;
+            document.getElementById('lightbox-img').src = images[currentLightboxIndex];
+            updateThumbnailActiveState();
+        }
+
+        // Render Thumbnail Cards
+        function renderThumbnails() {
+            const container = document.getElementById('lightbox-thumbs');
+            container.innerHTML = '';
+            
+            images.forEach((imgSrc, idx) => {
+                const thumbCard = document.createElement('div');
+                thumbCard.className = `thumb-card ${idx === currentLightboxIndex ? 'active' : ''}`;
+                thumbCard.onclick = () => {
+                    currentLightboxIndex = idx;
+                    document.getElementById('lightbox-img').src = images[idx];
+                    updateThumbnailActiveState();
+                };
+                
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = `Thumbnail ${idx + 1}`;
+                
+                thumbCard.appendChild(img);
+                container.appendChild(thumbCard);
+            });
+        }
+
+        // Update Active Class on Thumbnails
+        function updateThumbnailActiveState() {
+            const thumbs = document.querySelectorAll('.thumb-card');
+            thumbs.forEach((thumb, idx) => {
+                if (idx === currentLightboxIndex) {
+                    thumb.classList.add('active');
+                    // Scroll active thumb into view
+                    thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                } else {
+                    thumb.classList.remove('active');
+                }
+            });
+        }
+
+        // Close on clicking outside image
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this || e.target.classList.contains('lightbox-content-wrapper')) {
+                closeLightbox();
+            }
+        });
+
+        /* ================= END LIGHTBOX LOGIC ================= */
         
         // Mobile slider dots
         document.addEventListener('DOMContentLoaded', function() {
@@ -1769,6 +2024,22 @@ text-decoration:none;
                     dot.classList.toggle('active', index === activeIndex);
                 });
             });
+
+            // Add Click Events for Lightbox on Mobile Images
+            slides.forEach((img, index) => {
+                img.addEventListener('click', () => {
+                    openLightbox(index);
+                });
+            });
+
+            // Add Click Event for Lightbox on Desktop Main Image
+            const desktopImg = document.getElementById('sliderImg');
+            if(desktopImg) {
+                // We need to sync the desktop slider index 'i' when opening
+                desktopImg.addEventListener('click', () => {
+                    openLightbox(i);
+                });
+            }
         });
         
         // Similar products data
