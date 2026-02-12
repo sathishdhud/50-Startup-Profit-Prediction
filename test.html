@@ -1,131 +1,361 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Discover Maaney</title>
+  <style type="text/css">
+    /* RESET & BASE */
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;font-family: Arial, Helvetica, sans-serif;
+ }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; display: block; }
+    table { border-collapse: collapse !important; }
+    body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #ffffff; }
 
-<button id="btn">Play / Generate Audio</button>
-<br><br>
-
-<audio id="a" controls type="audio/mpeg"></audio>
-
-<div class="maaney">Samsung Galaxy S24 5G</div>
-<div class="maaney">Premium AMOLED Display</div>
-<div class="maaney">Galaxy AI Powered</div>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script>
-/* ================= CONFIG ================= */
-
-const SUPABASE_URL = "https://nzgtmshbyasptrvygfgh.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im56Z3Rtc2hieWFzcHRydnlnZmdoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI2MjU4ODEsImV4cCI6MjA3ODIwMTg4MX0.w9xxto-enEiKhk9H3vYeZkrQwFurH2hzElAhYhDJ1sc";
-
-const ELEVEN_KEY = "sk_da5de606c1165b46a51afa6b8358bdd47a9a41b8e59b1ec9";
-const VOICE = "S9GPGBaMND8XWwwzxQXp";
-
-const BUCKET = "maaney";
-const FILE = "audio.mp3";
-
-/* ========================================= */
-
-const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-/* Combine maaney text */
-function getMaaneyText(){
-  return [...document.querySelectorAll('.maaney')]
-    .map(e => e.innerText.trim())
-    .join(" ");
-}
-
-/* Create folder slug from first maaney element */
-function getFolderName(){
-  const title = document.querySelector('.maaney')?.innerText || "product";
-  return title
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g,"-")
-    .replace(/(^-|-$)/g,"");
-}
-
-/* Check if audio exists in folder */
-async function audioExists(path){
-  const { data } = await supabaseClient.storage
-    .from(BUCKET)
-    .list(path, { search: FILE });
-
-  return data && data.length > 0;
-}
-
-async function play(){
-
-  const audio = document.getElementById("a");
-  const folder = getFolderName();
-  const path = `${folder}/${FILE}`;
-
-  try {
-
-    // 1️⃣ If already uploaded → play
-    if(await audioExists(folder)){
-      const { data } = supabaseClient.storage.from(BUCKET).getPublicUrl(path);
-      audio.src = data.publicUrl + "?t=" + Date.now();
-      audio.play();
-      return;
+    /* UTILITIES */
+    .center { text-align: center; }
+    .bold { font-weight: 700; }
+    .orange-text { color: #ff6600; }
+    
+    /* RESPONSIVE */
+    @media screen and (max-width: 600px) {
+      .email-container { width: 100% !important; }
+      .fluid { width: 100% !important; height: auto !important; }
+      .stack { display: block !important; width: 100% !important; box-sizing: border-box; }
+      .mobile-padding { padding-left: 20px !important; padding-right: 20px !important; }
+      .mobile-btn { width: 100% !important; text-align: center !important; }
+      .hide-mobile { display: none !important; }
     }
+  </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #ffffff;">
 
-    // 2️⃣ Generate MP3 from ElevenLabs
-    const text = getMaaneyText();
+  <!-- CONTAINER -->
+  <center>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #ffffff;">
+      <tr>
+        <td align="center">
 
-    const r = await fetch(
-      `https://api.elevenlabs.io/v1/text-to-speech/${VOICE}?output_format=mp3_44100_128`,
-      {
-        method:"POST",
-        headers:{
-          "xi-api-key": ELEVEN_KEY,
-          "Content-Type":"application/json",
-          "Accept":"audio/mpeg"
-        },
-        body: JSON.stringify({
-          text,
-          model_id: "eleven_multilingual_v2"
-        })
-      }
-    );
+          <!-- EMAIL WRAPPER (600px) -->
+          <table border="0" cellpadding="0" cellspacing="0" width="600" class="email-container">
+            
+            <!-- SLEEK ORANGE HEADER BAR (For White Logo Visibility) -->
+            <tr>
+              <td align="center" style="background-color: #ff6600; padding: 20px 0;">
+                <!-- Logo Container -->
+                <a href="https://maaney.store">
+                  <img src="https://maaney.store/logo.png" alt="Maaney Store" width="160" style="display: inline-block; width: 160px; max-width: 80%;">
+                </a>
+              </td>
+            </tr>
 
-    if(!r.ok){
-      const err = await r.text();
-      console.error("ElevenLabs error:", err);
-      alert("ElevenLabs failed");
-      return;
-    }
+            <!-- HERO POSTER SECTION -->
+            <tr>
+              <td style="position: relative;">
+                <!-- Main Background Image -->
+                <img src="https://maaney.store/categories/fashion/fashion-og.png" alt="Shopping Lifestyle" width="600" class="fluid" style="display: block; width: 100%; height: auto;">
+                
+                <!-- OVERLAY CONTENT CARD (Poster Style) -->
+                <!-- We use a negative margin-top to pull this up over the image -->
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tr>
+                    <td style="padding: 0 40px;">
+  <table
+    border="0"
+    cellpadding="0"
+    cellspacing="0"
+    width="100%"
+    style="
+      background-color:#ffffff;
+      border-radius:6px;
+      border-top:3px solid #ff6600;
+    "
+  >
+    <tr>
+      <td
+        style="
+          padding:32px 36px;
+          text-align:center;
+        "
+      >
+        <h2
+          style="
+            margin:0;
+            color:#111111;
+            font-size:24px;
+            font-weight:700;
+            letter-spacing:0.5px;
+          "
+        >
+          Welcome
+          <span style="color:#ff6600;">
+            ${recipientName}
+          </span>
+        </h2>
 
-    const buffer = await r.arrayBuffer();
-    const blob = new Blob([buffer], { type:"audio/mpeg" });
+        <p
+          style="
+            margin:14px 0 0 0;
+            color:#555555;
+            font-size:15px;
+            line-height:1.6;
+          "
+        >
+          You’re now part of a smarter shopping experience.
+          Discover top deals, compare prices, and explore trending products
+          — all in one clean and trusted place.
+        </p>
 
-    // 3️⃣ Upload into folder/audio.mp3
-    const { error } = await supabaseClient.storage
-      .from(BUCKET)
-      .upload(path, blob,{
-        upsert:true,
-        contentType:"audio/mpeg"
-      });
+        <!-- subtle divider -->
+        <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:24px;">
+          <tr>
+            <td style="border-top:1px solid #f2f2f2;"></td>
+          </tr>
+        </table>
 
-    if(error){
-      console.error("Supabase upload error:", error);
-      alert("Upload failed");
-      return;
-    }
+      </td>
+    </tr>
+  </table>
+</td>
 
-    // 4️⃣ Play uploaded audio
-    const { data } = supabaseClient.storage.from(BUCKET).getPublicUrl(path);
-    audio.src = data.publicUrl + "?t=" + Date.now();
-    audio.play();
+                  </tr>
+                </table>
+              </td>
+            </tr>
 
-  } catch(e){
-    console.error(e);
-    alert("Check console");
-  }
-}
+            <!-- TRENDING CATALOGUE (Poster Strip Style) -->
+            <tr>
 
-document.getElementById("btn").addEventListener("click", play);
-</script>
+  <td style="padding:40px 40px 20px 40px;">
+
+    <!-- Section Title -->
+    <h3
+      style="
+        margin:0 0 24px 0;
+        color:#111111;
+        font-size:18px;
+        font-weight:700;
+        text-transform:uppercase;
+        letter-spacing:0.6px;
+        border-left:4px solid #ff6600;
+        padding-left:12px;
+      "
+    >
+      Trending Mobiles Under ₹10,000
+    </h3>
+
+    <!-- Products Grid -->
+    <table width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+
+        <!-- Product 1 -->
+        <td width="31%" valign="top" style="background:#ffffff;">
+          <table width="100%" cellpadding="0" cellspacing="0"
+            style="border:1px solid #eeeeee;border-radius:6px;">
+            <tr>
+              <td>
+                <img
+                  src="https://maaney.store/mobiles/mobileu10k/samsung-m06.png"
+                  alt="Budget Smartphone"
+                  width="100%"
+                  style="display:block;border-radius:6px 6px 0 0;"
+                >
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:12px;text-align:center;">
+                <div style="color:#ff6600;font-size:11px;font-weight:700;">
+                  UNDER ₹10K
+                </div>
+                <div style="margin-top:4px;color:#111;font-size:14px;font-weight:600;">
+                  Budget Smartphone
+                </div>
+                <a
+                  href="https://maaney.store/mobiles/mobileu10k"
+                  style="margin-top:10px;display:inline-block;
+                         font-size:12px;color:#ff6600;
+                         text-decoration:none;font-weight:600;">
+                  View Deals →
+                </a>
+              </td>
+            </tr>
+          </table>
+        </td>
+
+        <!-- Spacer -->
+        <td width="3.5%">&nbsp;</td>
+
+        <!-- Product 2 -->
+        <td width="31%" valign="top" style="background:#ffffff;">
+          <table width="100%" cellpadding="0" cellspacing="0"
+            style="border:1px solid #eeeeee;border-radius:6px;">
+            <tr>
+              <td>
+                <img
+                  src="https://maaney.store/mobiles/mobileu10k/infinix-smart-10.png"
+                  alt="Value Smartphone"
+                  width="100%"
+                  style="display:block;border-radius:6px 6px 0 0;"
+                >
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:12px;text-align:center;">
+                <div style="color:#ff6600;font-size:11px;font-weight:700;">
+                  BEST VALUE
+                </div>
+                <div style="margin-top:4px;color:#111;font-size:14px;font-weight:600;">
+                  Value Smartphone
+                </div>
+                <a
+                  href="https://maaney.store/mobiles/mobileu10k"
+                  style="margin-top:10px;display:inline-block;
+                         font-size:12px;color:#ff6600;
+                         text-decoration:none;font-weight:600;">
+                  Compare Prices →
+                </a>
+              </td>
+            </tr>
+          </table>
+        </td>
+
+        <!-- Spacer -->
+        <td width="3.5%">&nbsp;</td>
+
+        <!-- Product 3 -->
+        <td width="31%" valign="top" style="background:#ffffff;">
+          <table width="100%" cellpadding="0" cellspacing="0"
+            style="border:1px solid #eeeeee;border-radius:6px;">
+            <tr>
+              <td>
+                <img
+                  src="https://maaney.store/mobiles/mobileu10k/techno-spark-go-5g.png"
+                  alt="Top Rated Smartphone"
+                  width="100%"
+                  style="display:block;border-radius:6px 6px 0 0;"
+                >
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:12px;text-align:center;">
+                <div style="color:#ff6600;font-size:11px;font-weight:700;">
+                  TOP RATED
+                </div>
+                <div style="margin-top:4px;color:#111;font-size:14px;font-weight:600;">
+                  Top Rated Phone
+                </div>
+                <a
+                  href="https://maaney.store/mobiles/mobileu10k"
+                  style="margin-top:10px;display:inline-block;
+                         font-size:12px;color:#ff6600;
+                         text-decoration:none;font-weight:600;">
+                  See Offers →
+                </a>
+              </td>
+            </tr>
+          </table>
+        </td>
+
+      </tr>
+    </table>
+
+  </td>
+</tr>
+
+
+            <!-- ICONS ROW (Sleek, Circular) -->
+            <tr>
+              <td class="mobile-padding" style="padding: 30px 40px;">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tr>
+                    <!-- Icon 1: Discover -->
+                    <td width="25%" class="stack" style="text-align: center; padding-bottom: 20px;">
+                      <!-- SVG Icon embedded as Data URI -->
+                      <img src="https://img.icons8.com/m_outlined/512/FD7E14/search.png" width="40" height="40" alt="Search" style="display: block; margin: 0 auto 10px auto;">
+                      <div style="font-size: 12px; font-weight: bold; color: #333333;">DISCOVER</div>
+                    </td>
+
+                    <!-- Icon 2: Compare -->
+                    <td width="25%" class="stack" style="text-align: center; padding-bottom: 20px;">
+                      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmY2NjAwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjE4IiB5MT0iMjAiIHgyPSIxOCIgeTI9IjEwIi8+PGxpbmUgeDE9IjEyIiB5MT0iMjAiIHgyPSIxMiIgeTI9IjQiLz48bGluZSB4MT0iNiIgeTE9IjIwIiB4Mj0iNiIgeTI9IjE0Ii8+PC9zdmc+" width="40" height="40" alt="Compare" style="display: block; margin: 0 auto 10px auto;">
+                      <div style="font-size: 12px; font-weight: bold; color: #333333;">COMPARE</div>
+                    </td>
+
+                    <!-- Icon 3: Smart Picks -->
+                    <td width="25%" class="stack" style="text-align: center; padding-bottom: 20px;">
+                      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmY2NjAwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlnb24gcG9pbnRzPSIxMyAyIDMgMTQgMTIgMTQgMjEgMjAiPjwvcG9seWdvbj48bGluZSB4MT0iMTIiIHkxPSIxNCIgeDI9IjEyIiB5Mj0iMTQiPjwvbGluZT48L3N2Zz4=" width="40" height="40" alt="Picks" style="display: block; margin: 0 auto 10px auto;">
+                      <div style="font-size: 12px; font-weight: bold; color: #333333;">SMART PICKS</div>
+                    </td>
+
+                    <!-- Icon 4: Save -->
+                    <td width="25%" class="stack" style="text-align: center;">
+                      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmY2NjAwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIwLjYgNy4ybC0yLjYtLjZMMTcgMmwtMSAxLjYtMS0xLjZMMTMgNi42bC0yLjYuNi0uNiAyLjZMMTAgMTBsMy4xLjMuMyAzLjF6Ii8+PHBvbHlnb24gcG9pbnRzPSIxMiAyIDE1LjA5IDguMjYgMjIgOS4yNyAxNyAxNC4xNCAxOC4xOCAyMSAyIDE4LjE4IDcgMTQuMTQgMiA5LjI3IDguOTEgOC4yNiAxMiAyIj48L3BvbHlnb24+PC9zdmc+" width="40" height="40" alt="Save" style="display: block; margin: 0 auto 10px auto;">
+                      <div style="font-size: 12px; font-weight: bold; color: #333333;">SAVE BIG</div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- CTA SECTION -->
+            <tr>
+              <td align="center" style="padding: 40px 40px 50px 40px;">
+                <table border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td align="center" style="background-color: #ff6600; border-radius: 50px; box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);">
+                      <a href="https://maaney.store" class="mobile-btn" style="background-color: #ff6600; color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; letter-spacing: 0.5px; line-height: 1; text-align: center; text-decoration: none; padding: 18px 50px; display: block; border-radius: 50px;">
+                        START SHOPPING
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+                <p style="margin-top: 20px; color: #999999; font-size: 12px;">
+                  Trusted by thousands of smart shoppers.
+                </p>
+              </td>
+            </tr>
+
+            <!-- FOOTER -->
+            <tr>
+              <td style="background-color: #000000; padding: 30px; border-top: 1px solid #eeeeee;">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tr>
+                    <td align="center">
+                      <img
+  src="https://maaney.store/logo.png"
+  alt="Maaney Store"
+  width="120"
+  style="
+    display:block;
+    margin:0 0 8px 0;
+    border:0;
+    outline:none;
+    text-decoration:none;
+  "
+>
+
+                      <p style="margin: 0 0 15px 0; color: #ffffff; font-size: 12px;">
+                        E-commerce Discovery Platform
+                      </p>
+                      <p style="margin: 0; color: #ffffff; font-size: 11px; line-height: 1.5;">
+                        You received this email because you signed up at <a href="https://maaney.store" style="color: #ff6600; text-decoration: none;">maaney.store</a>.<br>
+                        © 2026 Maaney. All rights reserved.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+          </table>
+          <!-- END WRAPPER -->
+
+        </td>
+      </tr>
+    </table>
+  </center>
 
 </body>
 </html>
