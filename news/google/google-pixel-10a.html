@@ -753,120 +753,40 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    
-    <!-- MAIN FUNCTIONALITY SCRIPT -->
     <script>
-        // 1. Mobile CTA Logic
-        window.addEventListener('scroll', function() {
-            const hero = document.querySelector('.hero-banner');
-            const cta = document.querySelector('.mobile-sticky-cta');
-            if (hero && cta) {
-                const heroBottom = hero.offsetTop + hero.offsetHeight;
-                if (window.scrollY > heroBottom) {
-                    cta.classList.add('visible');
-                } else {
-                    cta.classList.remove('visible');
-                }
-            }
-        });
+  document.getElementById("subscribebtn").addEventListener("click", async function () {
+    const emailInput = document.getElementById("newsletterEmail");
+    const email = emailInput.value.trim();
 
-        // 2. Supabase Configuration
-        const SUPABASE_URL = "https://azepwzwwgxfuqtburjlq.supabase.co";
-        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF6ZXB3end3Z3hmdXF0YnVyamxxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkxODEwMzcsImV4cCI6MjA4NDc1NzAzN30.WldUvmlMh3DW9FYus2xz9JQcM-tMtPXGuLZv9zv3RQs";
+    if (!email) {
+      alert("Please enter an email address");
+      return;
+    }
 
-        let supabase;
-        
-        // Initialize Supabase safely
-        try {
-            if (window.supabase) {
-                supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-            } else {
-                console.error("Supabase library not loaded.");
-                document.getElementById("newsletterMsg").textContent = "Library not loaded.";
-                document.getElementById("newsletterMsg").style.color = "red";
-            }
-        } catch (e) {
-            console.error("Supabase initialization error:", e);
-        }
+    try {
+      const response = await fetch("/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email: email
+        })
+      });
 
-        // 3. Newsletter Subscription Logic (Properly Fixed)
-        // We use addEventListener instead of onclick to avoid global scope ReferenceErrors.
-        document.addEventListener('DOMContentLoaded', function() {
-            const btn = document.getElementById('subscribeBtn');
-            
-            if(btn) {
-                btn.addEventListener('click', async function(e) {
-                    e.preventDefault(); // Prevent any default form submission behavior
+      const result = await response.json();
 
-                    const emailInput = document.getElementById("newsletterEmail");
-                    const msg = document.getElementById("newsletterMsg");
-                    const productNameInput = document.getElementById("productName");
-
-                    // Clear previous messages
-                    msg.textContent = "";
-                    msg.style.color = "inherit";
-
-                    if (!supabase) {
-                        msg.textContent = "Service unavailable. Check connection.";
-                        msg.style.color = "orange";
-                        return;
-                    }
-
-                    const email = emailInput.value.trim();
-                    const productName = productNameInput ? productNameInput.value : "Unknown Product";
-
-                    if (!email) {
-                        msg.textContent = "Please enter a valid email.";
-                        msg.style.color = "orange";
-                        return;
-                    }
-
-                    // Disable button during request
-                    const originalBtnText = btn.textContent;
-                    btn.disabled = true;
-                    btn.textContent = "Processing...";
-
-                    try {
-                        const { error } = await supabase
-                            .from("newsletter_subscribers")
-                            .insert([
-                                {
-                                    email: email,
-                                    product_name: productName,
-                                    source: "sidebar"
-                                }
-                            ]);
-
-                        // Re-enable button
-                        btn.disabled = false;
-                        btn.textContent = originalBtnText;
-
-                        if (error) {
-                            if (error.code === "23505") {
-                                msg.textContent = "Already subscribed for this product 🎉";
-                                msg.style.color = "#0f0";
-                            } else {
-                                console.error("Supabase Error:", error);
-                                msg.textContent = "Subscription failed. Try again.";
-                                msg.style.color = "red";
-                            }
-                        } else {
-                            msg.textContent = "Subscribed successfully ✅";
-                            msg.style.color = "#0f0";
-                            emailInput.value = "";
-                        }
-                    } catch (err) {
-                        console.error("Request Error:", err);
-                        btn.disabled = false;
-                        btn.textContent = originalBtnText;
-                        msg.textContent = "An unexpected error occurred.";
-                        msg.style.color = "red";
-                    }
-                });
-            }
-        });
-    </script>
-
+      if (response.ok && result.success) {
+        alert("✅ Email subscribed successfully!");
+        emailInput.value = "";
+      } else {
+        alert("❌ " + (result.message || "Something went wrong"));
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("⚠️ Failed to connect to server");
+    }
+  });
+</script>
 </body>
 </html>
