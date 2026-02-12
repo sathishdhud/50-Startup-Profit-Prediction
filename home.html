@@ -959,6 +959,119 @@ font-size:13px;
 margin-top:6px;
 text-decoration:none;
 }
+
+/* ================= AUTO LOGIN POPUP STYLES ================= */
+.maaney-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 99999; /* Ensure it sits on top of everything */
+    display: none; /* Hidden by default, controlled by JS */
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.maaney-modal-box {
+    background: #ffffff;
+    width: 90%;
+    max-width: 420px;
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    /* REQUESTED: Design border 2px matches the theme (#f44f08) */
+    border: 2px solid #f44f08; 
+    box-shadow: 0 20px 50px rgba(244, 79, 8, 0.3);
+    animation: slideUp 0.4s ease-out;
+}
+
+.maaney-modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.maaney-modal-close-btn:hover {
+    color: #f44f08;
+}
+
+.maaney-modal-logo {
+    max-height: 50px;
+    margin-bottom: 20px;
+}
+
+.maaney-modal-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #212121;
+    margin-bottom: 10px;
+    font-family: "Poppins", sans-serif;
+}
+
+.maaney-modal-desc {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.maaney-modal-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-bottom: 12px;
+    transition: all 0.3s;
+}
+
+.maaney-btn-primary {
+    background-color: #f44f08;
+    color: #ffffff;
+    border: 2px solid #f44f08;
+}
+
+.maaney-btn-primary:hover {
+    background-color: #d14006;
+    border-color: #d14006;
+    color: #fff;
+}
+
+.maaney-btn-secondary {
+    background-color: transparent;
+    color: #555;
+    border: 2px solid #eee;
+}
+
+.maaney-btn-secondary:hover {
+    border-color: #ccc;
+    background-color: #f9f9f9;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
   </style>
   
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5811636573059605"
@@ -1872,6 +1985,30 @@ margin-top:40px;
 
 </footer>
 
+<!-- ================= AUTO LOGIN POPUP MODAL ================= -->
+<div id="maaneyAuthPopup" class="maaney-modal-overlay">
+    <div class="maaney-modal-box">
+        <button class="maaney-modal-close-btn" onclick="closeAuthPopup()">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <img src="https://maaney.store/white_logo.png" alt="Maaney Logo" class="maaney-modal-logo">
+        
+        <h2 class="maaney-modal-title">Welcome to Maaney!</h2>
+        <p class="maaney-modal-desc">
+            Login to unlock exclusive deals, track your orders, and get personalized recommendations.
+        </p>
+        
+        <a href="/login" class="maaney-modal-btn maaney-btn-primary">
+            Login to Continue
+        </a>
+        
+        <button onclick="closeAuthPopup()" class="maaney-modal-btn maaney-btn-secondary">
+            Continue as Guest
+        </button>
+    </div>
+</div>
+
 <script>
 document.getElementById("year").innerText=new Date().getFullYear();
 </script>
@@ -2270,6 +2407,34 @@ function randomLightColor() {
 document.querySelectorAll('.product-img').forEach(img=>{
   img.style.background = randomLightColor();
 });
+
+/* ================= AUTO LOGIN POPUP LOGIC ================= */
+(function() {
+    // Check if popup has been shown in this session
+    // sessionStorage ensures it happens "only once" per browser session
+    const popupShown = sessionStorage.getItem('maaney_popup_shown');
+    
+    // If not logged in and popup not shown yet, show it
+    // Note: Since there is no real backend auth, we assume not logged in by default.
+    if (!popupShown) {
+        // Small delay for smooth UX
+        setTimeout(function() {
+            const modal = document.getElementById('maaneyAuthPopup');
+            if (modal) {
+                modal.style.display = 'flex';
+                // Mark as shown so it doesn't appear again on refresh (until tab closed)
+                sessionStorage.setItem('maaney_popup_shown', 'true');
+            }
+        }, 1000); // 1 second delay
+    }
+})();
+
+function closeAuthPopup() {
+    const modal = document.getElementById('maaneyAuthPopup');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
 </script>
 
 
