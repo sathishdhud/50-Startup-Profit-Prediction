@@ -258,9 +258,11 @@
             border: 1px solid var(--border);
             color: var(--text-dark);
             text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
         }
+        .page-link:hover { background-color: var(--fk-orange-light); border-color: var(--fk-orange); }
         .page-link.active { background: var(--fk-orange); color: white; border-color: var(--fk-orange); }
-        /* Hover effect removed */
 
         /* FOOTER */
         footer {
@@ -300,7 +302,7 @@
             .blog-list-item { 
                 flex-direction: column; 
                 padding: 20px 0;
-                margin: 0; /* Removed margin manipulation */
+                margin: 0;
             }
             .blog-thumbnail { width: 100%; height: 200px; }
             .blog-content { align-items: flex-start; text-align: left; }
@@ -311,7 +313,6 @@
     width: auto;
     display: block;
 }
-
     </style>
 </head>
 <body>
@@ -350,144 +351,12 @@
             <!-- LEFT: MAIN FEED -->
             <main class="article-column">
 
-                <!-- POST 1 (Featured) -->
-                <article class="blog-list-item">
-                    <img src="./google/news-google-pixel-10a.png" class="blog-thumbnail" alt="Pixel 10a">
-                    <div class="blog-content">
-                        <span class="post-cat line-seed">Reviews</span>
-                        <a href="/news/google/google-pixel-10a-launch" class="post-title poppins-semibold">Google Pixel 10a India Launch Set for February 18: Flat Camera Design, Tensor G4 & AI Focus</a>
-                        <p class="post-excerpt">Google is preparing to shake up its affordable Pixel lineup once again. Unlike previous “a-series” models, Pixel 10a introduces a bold new flush design.</p>
-                        <div class="post-meta line-seed">
-                            <span class="dynamic-time" data-time="2024-02-18T10:00:00"><i class="fa fa-clock me-1"></i> Loading...</span>
-                            <span><i class="fa fa-user me-1"></i> Arjun Verma</span>
-                        </div>
-                    </div>
-                </article>
+                <!-- Container where JS will inject posts -->
+                <div id="blog-feed-container"></div>
 
-                <!-- POST 2 -->
-                <article class="blog-list-item">
-                    <img src="./samsung/news-samsung-s26-ultra-2.png" class="blog-thumbnail" alt="Samsung">
-                    <div class="blog-content">
-                        <span class="post-cat line-seed">News</span>
-                        <a href="./samsung/samsung-s26" class="post-title poppins-semibold">Samsung Galaxy S26 Ultra: The Camera Revolution We Waited For</a>
-                        <p class="post-excerpt">Leaked images suggest a 200MP main sensor with massive improvements to low-light video processing. Is this the Android king for 2026?</p>
-                        <div class="post-meta line-seed">
-                            <span class="dynamic-time" data-time="2024-02-17T14:30:00"><i class="fa fa-clock me-1"></i> Loading...</span>
-                            <span><i class="fa fa-user me-1"></i> Sarah Jenkins</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- POST 3 -->
-              <article class="blog-list-item" style="display:flex;gap:14px;align-items:flex-start;">
-
-  <img src="./infinix/infinix-note-60-pro-verdict.png"
-       class="blog-thumbnail"
-       alt="Infinix Note 60 Pro official teaser with 144Hz AMOLED and Matrix Display"
-       >
-
-  <div class="blog-content">
-
-    <span class="post-cat line-seed" style="font-size:12px;color:#ff6a00;">
-      Smartphones
-    </span>
-
-    <a href="/news/infinix/news-infinix-note-60-pro"
-       class="post-title poppins-semibold"
-       style="display:block;font-size:15px;line-height:1.4;color:#111;text-decoration:none;margin:4px 0;">
-      Infinix Note 60 Pro Spotted Ahead of India Launch with 144Hz AMOLED & 90W Charging
-    </a>
-
-    <p class="post-excerpt" style="font-size:13px;color:#555;line-height:1.5;margin:6px 0;">
-      Infinix teases its upcoming Note 60 Pro featuring a Snapdragon 7s Gen 4 chipset,
-      rear Matrix display, massive 6500mAh battery and ultra-fast charging support.
-    </p>
-
-    <div class="post-meta line-seed" style="font-size:12px;color:#777;display:flex;gap:14px;">
-      <span class="dynamic-time" data-time="2026-02-10T09:15:00">
-        <i class="fa fa-clock me-1"></i> Feb 10, 2026
-      </span>
-
-      <span>
-        <i class="fa fa-user me-1"></i> Maaney Editorial
-      </span>
-    </div>
-
-  </div>
-
-</article>
-
-
-               <!-- POST : Vivo V70 Series -->
-<article class="blog-list-item">
-    <img src="https://maaney.store/news/vivo/vivo-v70-1.png"
-         class="blog-thumbnail"
-         alt="Vivo V70 Elite ZEISS camera smartphone India launch">
-
-    <div class="blog-content">
-        <span class="post-cat line-seed">Smartphone Launch</span>
-
-        <a href="/news/vivo/news-vivo-v70"
-           class="post-title poppins-semibold">
-            Vivo V70 & V70 Elite: Price, Specs and What Makes the Elite Model Different
-        </a>
-
-        <p class="post-excerpt">
-            Vivo brings its first-ever Elite smartphone to the V-series. From ZEISS-tuned cameras
-            to Snapdragon performance, here’s a detailed breakdown of what sets the V70 lineup
-            apart in India.
-        </p>
-
-        <div class="post-meta line-seed">
-            <span class="dynamic-time" data-time="2026-02-11T10:30:00">
-                <i class="fa fa-clock me-1"></i> Loading...
-            </span>
-            <span>
-                <i class="fa fa-user me-1"></i> Arjun Verma
-            </span>
-        </div>
-    </div>
-</article>
-
-
-               <!-- POST -->
-<article class="blog-list-item">
-    <img src="./iqoo/news-iqoo-15r.png"
-         class="blog-thumbnail"
-         alt="iQOO 15R launch teaser highlighting Snapdragon 8 Gen 5 performance">
-
-    <div class="blog-content">
-        <span class="post-cat line-seed">Smartphones</span>
-
-        <a href="/news/iqoo/news-iqoo-15r"
-           class="post-title poppins-semibold">
-            iQOO 15R Set to Launch in India on Feb 24: Big Battery, Flagship Chip & More
-        </a>
-
-        <p class="post-excerpt">
-            iQOO’s upcoming 15R aims to redefine performance-focused smartphones with a massive 7600mAh battery,
-            Snapdragon 8 Gen 5 chipset, and a smooth 144Hz AMOLED display.
-        </p>
-
-        <div class="post-meta line-seed">
-            <span class="dynamic-time" data-time="2026-02-12T10:30:00">
-                <i class="fa fa-clock me-1"></i> Loading...
-            </span>
-            <span>
-                <i class="fa fa-user me-1"></i> Maaney Tech Desk
-            </span>
-        </div>
-    </div>
-</article>
-
-
-                <!-- Pagination -->
-                <div class="pagination-container">
-                    <a href="#" class="page-link"><i class="fa fa-chevron-left"></i></a>
-                    <a href="#" class="page-link active">1</a>
-                    <a href="#" class="page-link">2</a>
-                    <a href="#" class="page-link">3</a>
-                    <a href="#" class="page-link"><i class="fa fa-chevron-right"></i></a>
+                <!-- Pagination Container -->
+                <div id="pagination-controls" class="pagination-container">
+                    <!-- Buttons injected via JS -->
                 </div>
 
             </main>
@@ -514,8 +383,8 @@
    style="
        display:inline-block;
        padding:12px 22px;
-      
-       color:#fff;
+       background: white;
+       color: #ff8c2b;
        font-size:14px;
        font-weight:600;
        text-decoration:none;
@@ -579,7 +448,7 @@
                         <p style="font-size:13px;opacity:.8;">
                             Weekly updates on smartphone launches, price drops, and exclusive buying guides.
                         </p>
-                        <input type="email" class="form-control form-control-sm mb-2" placeholder="Enter your email" style="background:#333; border:none; color:#fff;">
+                        <input type="email" class="form-control form-control-sm mb-2" placeholder="Enter your email" style="background:#ffffff; border:none; color:#000000;">
                         <button class="btn btn-sm btn-warning w-100 fw-bold" style="border-radius:5px;">SUBSCRIBE FREE</button>
                     </div>
 
@@ -588,17 +457,123 @@
 
         </div> <!-- End Content Layout -->
 
-        <!-- FOOTER -->
-       
+        <!-- FOOTER (Replaced footer.js with inline HTML for standalone functionality) -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="https://maaney.store" class="brand-logo" style="display:inline-block; margin-bottom:15px;">
+                            <img src="https://maaney.store/white_logo.png" alt="Maaney Store" style="filter: brightness(0); opacity: 0.7;" />
+                        </a>
+                        <p class="footer-text">
+                            &copy; 2026 Maaney Store. All rights reserved. <br>
+                            Tech News, Reviews, and Launch Updates.
+                        </p>
+                        <div class="mt-3">
+                            <a href="#" style="color:#999; margin:0 10px; font-size:18px;"><i class="fab fa-twitter"></i></a>
+                            <a href="#" style="color:#999; margin:0 10px; font-size:18px;"><i class="fab fa-instagram"></i></a>
+                            <a href="#" style="color:#999; margin:0 10px; font-size:18px;"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
     </div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Dynamic Time Script -->
+    <!-- Main Logic Script -->
     <script>
-        // Calculate "Time Ago" dynamically
+        // --- DATA STORE ---
+        // Contains all blog post data. Images kept as user requested (local paths), 
+        // but in a real scenario ensure these paths are correct.
+        const articles = [
+            {
+                id: 1,
+                img: "./google/news-google-pixel-10a.png",
+                category: "Reviews",
+                title: "Google Pixel 10a India Launch Set for February 18: Flat Camera Design, Tensor G4 & AI Focus",
+                excerpt: "Google is preparing to shake up its affordable Pixel lineup once again. Unlike previous “a-series” models, Pixel 10a introduces a bold new flush design.",
+                author: "Arjun Verma",
+                date: "2026-02-18T10:00:00", // Using 2026 to match user's demo script logic
+                link: "/news/google/google-pixel-10a-launch"
+            },
+            {
+                id: 2,
+                img: "./samsung/news-samsung-s26-ultra-2.png",
+                category: "News",
+                title: "Samsung Galaxy S26 Ultra: The Camera Revolution We Waited For",
+                excerpt: "Leaked images suggest a 200MP main sensor with massive improvements to low-light video processing. Is this the Android king for 2026?",
+                author: "Sarah Jenkins",
+                date: "2026-02-17T14:30:00",
+                link: "./samsung/samsung-s26"
+            },
+            {
+                id: 3,
+                img: "./infinix/infinix-note-60-pro-verdict.png",
+                category: "Smartphones",
+                title: "Infinix Note 60 Pro Spotted Ahead of India Launch with 144Hz AMOLED & 90W Charging",
+                excerpt: "Infinix teases its upcoming Note 60 Pro featuring a Snapdragon 7s Gen 4 chipset, rear Matrix display, massive 6500mAh battery and ultra-fast charging support.",
+                author: "Maaney Editorial",
+                date: "2026-02-16T09:15:00",
+                link: "/news/infinix/news-infinix-note-60-pro"
+            },
+            {
+                id: 4,
+                img: "https://maaney.store/news/vivo/vivo-v70-1.png",
+                category: "Smartphone Launch",
+                title: "Vivo V70 & V70 Elite: Price, Specs and What Makes the Elite Model Different",
+                excerpt: "Vivo brings its first-ever Elite smartphone to the V-series. From ZEISS-tuned cameras to Snapdragon performance, here’s a detailed breakdown of what sets the V70 lineup apart in India.",
+                author: "Arjun Verma",
+                date: "2026-02-15T10:30:00",
+                link: "/news/vivo/news-vivo-v70"
+            },
+            {
+                id: 5,
+                img: "./iqoo/news-iqoo-15r.png",
+                category: "Smartphones",
+                title: "iQOO 15R Set to Launch in India on Feb 24: Big Battery, Flagship Chip & More",
+                excerpt: "iQOO’s upcoming 15R aims to redefine performance-focused smartphones with a massive 7600mAh battery, Snapdragon 8 Gen 5 chipset, and a smooth 144Hz AMOLED display.",
+                author: "Maaney Tech Desk",
+                date: "2026-02-14T10:30:00",
+                link: "/news/iqoo/news-iqoo-15r"
+            },
+            {
+                id: 6,
+                img: "https://picsum.photos/seed/technews1/260/160", 
+                category: "Laptops",
+                title: "Apple MacBook Air M3 Review: The Perfect Student Laptop?",
+                excerpt: "With the new M3 chip, the MacBook Air gets a slight performance bump. We test it against the M2 model to see if the upgrade is worth it for students.",
+                author: "Rohan Das",
+                date: "2026-02-13T11:00:00",
+                link: "#"
+            },
+            {
+                id: 7,
+                img: "https://picsum.photos/seed/technews2/260/160",
+                category: "Audio",
+                title: "Sony WF-1000XM6 Leaked: Features We Want to See",
+                excerpt: "The king of ANC earbuds is getting a successor. Here is everything we know about the release date, price, and expected sound quality improvements.",
+                author: "Priya Singh",
+                date: "2026-02-12T16:45:00",
+                link: "#"
+            }
+        ];
+
+        // --- CONFIG ---
+        let currentPage = 1;
+        const itemsPerPage = 3;
+        const totalPages = Math.ceil(articles.length / itemsPerPage);
+
+        // --- DOM ELEMENTS ---
+        const feedContainer = document.getElementById('blog-feed-container');
+        const paginationContainer = document.getElementById('pagination-controls');
+
+        // --- FUNCTIONS ---
+
+        // 1. Time Ago Logic
         function timeAgo(dateString) {
             const date = new Date(dateString);
             const now = new Date();
@@ -622,26 +597,85 @@
             return "Just now";
         }
 
-        // Function to update all times
-        function updateTimes() {
-            const timeElements = document.querySelectorAll('.dynamic-time');
-            timeElements.forEach(el => {
-                const rawDate = el.getAttribute('data-time');
-                // If attribute exists
-                if(rawDate) {
-                    // For demo purposes, I'm parsing the date string. 
-                    // In a real app, if the year is in the past (like 2024) relative to 2026, 
-                    // the script will show "years ago". 
-                    // I will treat "2024" as "current year" for the demo to look active.
-                    const displayDate = rawDate.replace('2024', '2026'); 
-                    el.innerHTML = '<i class="fa fa-clock me-1"></i> ' + timeAgo(displayDate);
-                }
+        // 2. Render Articles
+        function renderArticles(page) {
+            feedContainer.innerHTML = ""; // Clear current content
+            
+            const start = (page - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const paginatedItems = articles.slice(start, end);
+
+            paginatedItems.forEach(article => {
+                // Determine time string
+                const timeString = timeAgo(article.date);
+
+                // Create Article HTML
+                const articleHTML = `
+                <article class="blog-list-item">
+                    <img src="${article.img}" class="blog-thumbnail" alt="${article.title}" onerror="this.src='https://picsum.photos/seed/${article.id}/260/160'">
+                    <div class="blog-content">
+                        <span class="post-cat line-seed">${article.category}</span>
+                        <a href="${article.link}" class="post-title poppins-semibold">${article.title}</a>
+                        <p class="post-excerpt">${article.excerpt}</p>
+                        <div class="post-meta line-seed">
+                            <span><i class="fa fa-clock me-1"></i> ${timeString}</span>
+                            <span><i class="fa fa-user me-1"></i> ${article.author}</span>
+                        </div>
+                    </div>
+                </article>
+                `;
+                
+                // Append to container
+                feedContainer.insertAdjacentHTML('beforeend', articleHTML);
             });
+
+            // Scroll to top of main column smoothly
+            if (page > 1) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         }
 
-        // Run on load
-        document.addEventListener('DOMContentLoaded', updateTimes);
+        // 3. Render Pagination
+        function renderPagination() {
+            paginationContainer.innerHTML = ""; // Clear pagination
+
+            // Prev Button
+            const prevBtn = document.createElement('a');
+            prevBtn.className = `page-link ${currentPage === 1 ? 'disabled' : ''}`;
+            prevBtn.innerHTML = '<i class="fa fa-chevron-left"></i>';
+            prevBtn.onclick = () => { if(currentPage > 1) changePage(currentPage - 1); };
+            paginationContainer.appendChild(prevBtn);
+
+            // Page Numbers
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement('a');
+                pageBtn.className = `page-link ${i === currentPage ? 'active' : ''}`;
+                pageBtn.innerText = i;
+                pageBtn.onclick = () => changePage(i);
+                paginationContainer.appendChild(pageBtn);
+            }
+
+            // Next Button
+            const nextBtn = document.createElement('a');
+            nextBtn.className = `page-link ${currentPage === totalPages ? 'disabled' : ''}`;
+            nextBtn.innerHTML = '<i class="fa fa-chevron-right"></i>';
+            nextBtn.onclick = () => { if(currentPage < totalPages) changePage(currentPage + 1); };
+            paginationContainer.appendChild(nextBtn);
+        }
+
+        // 4. Change Page Handler
+        function changePage(page) {
+            currentPage = page;
+            renderArticles(currentPage);
+            renderPagination();
+        }
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderArticles(currentPage);
+            renderPagination();
+        });
+
     </script>
-    <script src="../footer.js"></script>
 </body>
 </html>
