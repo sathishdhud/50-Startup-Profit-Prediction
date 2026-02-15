@@ -630,25 +630,29 @@
                 title: "Vivo V70 & V70 Elite: Price, Specs and What Makes the Elite Model Different",
                 img: "https://maaney.store/news/vivo/vivo-v70-1.png",
                 brand: "Vivo",
-                date: "2026-02-18T10:00:00"
+                date: "2026-02-18T10:00:00",
+                link: "/news/vivo/news-vivo-v70"
             },
             {
                 title: "Google Pixel 10a India Launch Set for February 18",
-                img: "https://picsum.photos/seed/pixel10a/200/140",
+                img: "./google/news-google-pixel-10a.png",
                 brand: "Google",
-                date: "2026-02-17T14:30:00"
+                date: "2026-02-17T14:30:00",
+                link: "/news/google/google-pixel-10a-launch"
             },
             {
                 title: "Nothing Phone (4a) Series Officially Teased: Colours Revealed",
                 img: "https://maaney.store/news/nothing/news-nothing-4a.png",
                 brand: "Nothing",
-                date: "2026-02-16T09:00:00"
+                date: "2026-02-16T09:00:00",
+                link: "https://maaney.store/news/nothing/news-nothing-4a"
             },
             {
                 title: "iQOO 15R Set to Launch in India on Feb 24: Big Battery, Flagship Chip",
-                img: "https://picsum.photos/seed/iqoo15r/200/140",
+                img: "./iqoo/news-iqoo-15r.png",
                 brand: "iQOO",
-                date: "2026-02-15T11:00:00"
+                date: "2026-02-15T11:00:00",
+                link: "/news/iqoo/news-iqoo-15r"
             }
         ];
 
@@ -772,7 +776,7 @@
             headerNewsItems.forEach(item => {
                 const timeString = timeAgo(item.date);
                 htmlContent += `
-                <a href="#" class="sub-feature-item">
+                <a href="${item.link}" class="sub-feature-item">
                     <img src="${item.img}" class="sub-thumb" alt="${item.brand}">
                     <div class="sub-content">
                         <div class="sub-title">${item.title}</div>
