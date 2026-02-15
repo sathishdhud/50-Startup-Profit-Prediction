@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maaney – Best Mobile Prices & Deals in India</title>
+  <title>Maaney – Best Mobile Prices, News & Reviews in India</title>
   
-  <meta name="description" content="Maaney helps you discover the best online deals on mobiles, electronics, fashion, and home products. Compare prices across top marketplaces and save money every day.">
+  <meta name="description" content="Maaney helps you discover best online deals on mobiles, read latest news, and compare prices across top marketplaces.">
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
   
@@ -65,7 +65,7 @@
     .text-orange { color: #f44f08; }
     .bg-orange { background-color: #f44f08; }
     .btn-orange { background-color: #f44f08; color: #fff; border: 1px solid #f44f08; }
-    
+    .btn-orange:hover { background-color: #d14006; color: #fff; }
 
     .section-title {
       font-size: 20px;
@@ -85,7 +85,7 @@
     }
     .section-title a:hover { color: #f44f08; }
 
-    /* ================= TOP STRIP (Orange) ================= */
+    /* ================= TOP STRIP ================= */
     .top-strip {
       background: #f44f08;
       color: #fff;
@@ -180,12 +180,11 @@
     
     .nav-links::-webkit-scrollbar { display: none; }
 
-    /* ================= HERO SECTION (Split Layout) ================= */
+    /* ================= HERO SECTION ================= */
     .hero-wrapper {
       margin-top: 20px;
     }
 
-    /* Main Slider */
     .hero-slider-container {
       position: relative;
       overflow: hidden;
@@ -214,7 +213,6 @@
       max-width: 80%;
     }
 
-    /* Slider Controls */
     .slider-control {
       position: absolute;
       top: 50%;
@@ -233,7 +231,6 @@
     .slider-prev { left: 10px; }
     .slider-next { right: 10px; }
 
-    /* Side Banners */
     .side-banner {
       height: 170px;
       margin-bottom: 10px;
@@ -243,7 +240,7 @@
     }
     .side-banner img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* ================= BRAND LOGO STRIP ================= */
+    /* ================= BRAND STRIP ================= */
     .brand-strip {
       background: #fff;
       padding: 15px 0;
@@ -275,7 +272,7 @@
     }
     .brand-item:hover img { filter: grayscale(0%); }
 
-    /* ================= PRODUCT LIST (Affiliate Style) ================= */
+    /* ================= PRODUCT CARD ================= */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -292,7 +289,11 @@
       position: relative;
     }
 
-   
+    .product-card-91:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-color: #f44f08;
+    }
 
     .pc-image-box {
       height: 200px;
@@ -314,7 +315,6 @@
       transform: scale(1.05);
     }
 
-    /* Badge */
     .pc-badge {
       position: absolute;
       top: 0;
@@ -326,10 +326,7 @@
       border-bottom-right-radius: 4px;
       font-weight: 600;
     }
-    
-    .pc-badge.upcoming {
-      background: #0084ff;
-    }
+    .pc-badge.upcoming { background: #0084ff; }
 
     .pc-content {
       padding: 15px;
@@ -362,11 +359,7 @@
       margin-top: 10px;
     }
 
-    .pc-price {
-      color: #212121;
-      font-size: 18px;
-      font-weight: 700;
-    }
+    .pc-price { color: #212121; font-size: 18px; font-weight: 700; }
 
     .pc-buy-btn {
       display: block;
@@ -381,10 +374,141 @@
       margin-top: 10px;
       transition: all 0.3s;
     }
-    
-    .pc-buy-btn:hover {
-      background: #f44f08;
+    .pc-buy-btn:hover { background: #f44f08; color: #fff; }
+
+    /* ================= NEWS SECTION ================= */
+    .news-card-main {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .news-img-wrapper {
+      position: relative;
+      height: 350px;
+      overflow: hidden;
+    }
+
+    .news-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .news-card-main:hover .news-img-wrapper img {
+      transform: scale(1.05);
+    }
+
+    .news-content {
+      padding: 20px;
+    }
+
+    .news-tag {
+      background: #eef5ff;
+      color: #0066cc;
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .news-title {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .news-meta {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .news-list-item {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #f0f0f0;
+      padding-bottom: 20px;
+    }
+    .news-list-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .news-list-img {
+      width: 120px;
+      height: 80px;
+      border-radius: 6px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .news-list-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .news-list-title {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 5px;
+    }
+
+    /* ================= VIDEO/REVIEW SECTION ================= */
+    .video-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .video-thumb {
+      position: relative;
+      height: 180px;
+    }
+
+    .video-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      background: rgba(244, 79, 8, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: #fff;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+
+    .video-card:hover .play-icon {
+      background: #f44f08;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .video-info {
+      padding: 12px;
+    }
+
+    .video-title {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4;
+      height: 40px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
     }
 
     /* ================= FOOTER ================= */
@@ -395,38 +519,19 @@
       margin-top: 50px;
       font-size: 13px;
     }
-    
-    .footer h5 {
-      color: #fff;
-      font-size: 15px;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
-    
-    .footer ul li {
-      margin-bottom: 10px;
-    }
-    
-    .footer ul li a:hover {
-      color: #f44f08;
-    }
+    .footer h5 { color: #fff; font-size: 15px; margin-bottom: 20px; font-weight: 600; }
+    .footer ul li { margin-bottom: 10px; }
+    .footer ul li a:hover { color: #f44f08; }
     
     .social-icons a {
       display: inline-flex;
-      width: 35px;
-      height: 35px;
-      background: #333;
-      color: #fff;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      margin-right: 10px;
+      width: 35px; height: 35px;
+      background: #333; color: #fff;
+      align-items: center; justify-content: center;
+      border-radius: 50%; margin-right: 10px;
       transition: background 0.3s;
     }
-    
-    .social-icons a:hover {
-      background: #f44f08;
-    }
+    .social-icons a:hover { background: #f44f08; }
 
     /* ================= POPUP MODAL ================= */
     .maaney-modal-overlay {
@@ -439,7 +544,6 @@
         align-items: center;
         justify-content: center;
     }
-
     .maaney-modal-box {
         background: #fff;
         width: 90%;
@@ -451,7 +555,6 @@
         border-top: 5px solid #f44f08;
         position: relative;
     }
-
     .maaney-close {
         position: absolute;
         top: 10px; right: 15px;
@@ -465,15 +568,17 @@
       .side-banners-col { display: none; }
       .hero-slider-container { height: 280px; }
       .hero-slide { height: 280px; }
+      .news-img-wrapper { height: 250px; }
     }
-    
     @media (max-width: 768px) {
-      .search-container { display: none; } /* Hide desktop search on mobile */
+      .search-container { display: none; }
       .nav-links { gap: 15px; }
       .product-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
       .pc-image-box { height: 150px; padding: 10px; }
-      .pc-title { font-size: 13px; height: auto; -webkit-line-clamp: 2; }
-      .pc-specs { display: none; } /* Hide specs on mobile to save space */
+      .pc-title { font-size: 13px; height: auto; }
+      .pc-specs { display: none; }
+      .news-list-item { flex-direction: column; }
+      .news-list-img { width: 100%; height: 200px; margin-bottom: 10px; }
     }
   </style>
 
@@ -505,14 +610,12 @@
   <header class="main-header">
     <div class="container">
       <div class="row align-items-center">
-        <!-- LOGO -->
         <div class="col-6 col-lg-2">
           <a href="/" class="logo d-flex align-items-center">
             <img src="./white_logo.png" alt="Maaney Store" onerror="this.src='https://via.placeholder.com/150x50?text=MAANEY'">
           </a>
         </div>
 
-        <!-- SEARCH (Desktop) -->
         <div class="col-lg-7 d-none d-lg-block">
           <div class="search-container">
             <input type="text" class="search-input" placeholder="Search for Mobiles, Tablets, Laptops...">
@@ -520,7 +623,6 @@
           </div>
         </div>
 
-        <!-- ICONS -->
         <div class="col-6 col-lg-3 d-flex justify-content-end align-items-center header-icons">
           <i class="fas fa-user-circle" title="Login"></i>
           <i class="far fa-heart d-none d-md-inline-block" title="Wishlist"></i>
@@ -540,7 +642,6 @@
         <a href="#" class="nav-item">Laptops</a>
         <a href="#" class="nav-item">TVs</a>
         <a href="#" class="nav-item">Cameras</a>
-        <a href="#" class="nav-item">Wearables</a>
         <a href="/news" class="nav-item">News</a>
         <a href="/news" class="nav-item">Reviews</a>
       </div>
@@ -550,35 +651,26 @@
   <!-- HERO SECTION -->
   <section class="container hero-wrapper">
     <div class="row">
-      <!-- Main Slider -->
       <div class="col-lg-9 col-12">
         <div class="hero-slider-container" id="heroSlider">
-          <!-- Slides injected via JS -->
           <div class="slider-control slider-prev" onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></div>
           <div class="slider-control slider-next" onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></div>
         </div>
       </div>
       
       <!-- Side Banners -->
-    <div class="col-lg-3 col-12 side-banners-col">
-
-  <div class="side-banner">
-    <a href="/news/google/google-pixel-10a" aria-label="Google Pixel 10a Verdict">
-      <img src="./news/google/news-google-pixel-10a-verdict.png"
-           alt="Google Pixel 10a verdict news">
-    </a>
-  </div>
-
-  <div class="side-banner">
-    <a href="/news/samsung/samsung-s26"
-       aria-label="Samsung Galaxy S26 Ultra News">
-      <img src="./news/samsung/news-samsung-s26-ultra-2.png"
-           alt="Samsung Galaxy S26 Ultra latest news">
-    </a>
-  </div>
-
-</div>
-
+      <div class="col-lg-3 col-12 side-banners-col">
+        <div class="side-banner">
+          <a href="/news/google/google-pixel-10a" aria-label="Google Pixel 10a Verdict">
+            <img src="./news/google/news-google-pixel-10a-verdict.png" alt="Google Pixel 10a verdict news">
+          </a>
+        </div>
+        <div class="side-banner">
+          <a href="/news/samsung/samsung-s26" aria-label="Samsung Galaxy S26 Ultra News">
+            <img src="./news/samsung/news-samsung-s26-ultra-2.png" alt="Samsung Galaxy S26 Ultra latest news">
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -586,69 +678,18 @@
   <section class="brand-strip">
     <div class="container">
       <div class="brand-scroll">
-        <!-- Logos -->
-       <div style="
-  display:flex;
-  overflow-x:auto;
-  white-space:nowrap;
-  gap:10px;
-  padding:10px 0;
-  scrollbar-width:none;
-  -ms-overflow-style:none;
-">
-  
-  <a href="/mobiles/apple"
-     style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">
-    Apple
-  </a>
-
-  <a href="/mobiles/samsung"
-     style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">
-    Samsung
-  </a>
-
-  <a href="/mobiles/xiaomi"
-     style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">
-    Xiaomi
-  </a>
-
-  <a href="/mobiles/oneplus"
-     style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">
-    OnePlus
-  </a>
-
-  <a href="/mobiles/vivo"
-     style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">
-    Vivo
-  </a>
-
-  <a href="/mobiles/oppo"
-     style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">
-    Oppo
-  </a>
-
-  <a href="/mobiles/realme"
-     style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">
-    Realme
-  </a>
-
-  <a href="/mobiles/google"
-     style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">
-    Google
-  </a>
-
-  <a href="/mobiles/nothing"
-     style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">
-    Nothing
-  </a>
-
-  <a href="/mobiles/motorola"
-     style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">
-    Motorola
-  </a>
-
-</div>
-
+        <div style="display:flex; overflow-x:auto; white-space:nowrap; gap:10px; padding:10px 0; scrollbar-width:none;">
+          <a href="/mobiles/apple" style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">Apple</a>
+          <a href="/mobiles/samsung" style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">Samsung</a>
+          <a href="/mobiles/xiaomi" style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">Xiaomi</a>
+          <a href="/mobiles/oneplus" style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">OnePlus</a>
+          <a href="/mobiles/vivo" style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">Vivo</a>
+          <a href="/mobiles/oppo" style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">Oppo</a>
+          <a href="/mobiles/realme" style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">Realme</a>
+          <a href="/mobiles/google" style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">Google</a>
+          <a href="/mobiles/nothing" style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">Nothing</a>
+          <a href="/mobiles/motorola" style="flex:0 0 auto; padding:8px 14px; border:1px solid #ddd; border-radius:4px; text-decoration:none; color:#000; font-weight:600; font-size:14px;">Motorola</a>
+        </div>
       </div>
     </div>
   </section>
@@ -656,36 +697,28 @@
   <!-- MAIN CONTENT WRAPPER -->
   <main class="container mt-4">
 
-    <!-- SECTION 1: UPCOMING MOBILES (Coming Soon) -->
+    <!-- SECTION 1: UPCOMING MOBILES -->
     <section id="section-upcoming" style="display:none;">
       <div class="section-title">
         <span><i class="fas fa-clock text-orange me-2"></i>Upcoming Mobiles</span>
         <a href="#">View All <i class="fas fa-chevron-right"></i></a>
       </div>
-      <div class="product-grid" id="grid-upcoming">
-        <!-- Products injected via JS -->
-      </div>
+      <div class="product-grid" id="grid-upcoming"></div>
     </section>
 
-    <!-- SECTION 2: LATEST MOBILES (Trending) -->
+    <!-- SECTION 2: LATEST MOBILES -->
     <section id="section-latest" style="display:none;">
       <div class="section-title">
         <span><i class="fas fa-fire text-orange me-2"></i>Latest Mobiles</span>
         <a href="#">View All <i class="fas fa-chevron-right"></i></a>
       </div>
-      
-      <!-- Filter Tabs (Visual Only) -->
       <div class="mb-3 d-flex gap-2 overflow-auto pb-2" style="border-bottom: 1px solid #eee;">
         <button class="btn btn-sm btn-orange rounded-pill">All</button>
         <button class="btn btn-sm btn-light rounded-pill text-secondary">Samsung</button>
         <button class="btn btn-sm btn-light rounded-pill text-secondary">Apple</button>
         <button class="btn btn-sm btn-light rounded-pill text-secondary">Xiaomi</button>
-        <button class="btn btn-sm btn-light rounded-pill text-secondary">OnePlus</button>
       </div>
-
-      <div class="product-grid" id="grid-latest">
-        <!-- Products injected via JS -->
-      </div>
+      <div class="product-grid" id="grid-latest"></div>
     </section>
 
     <!-- SECTION 3: BEST DEALS -->
@@ -700,7 +733,6 @@
                 <div class="pc-content">
                     <div class="pc-title">Wireless Earbuds</div>
                     <div class="pc-price">₹899</div>
-                    <div class="text-danger small" style="text-decoration:line-through;">₹2,999</div>
                 </div>
             </div>
         </div>
@@ -710,7 +742,6 @@
                 <div class="pc-content">
                     <div class="pc-title">Smart Watch</div>
                     <div class="pc-price">₹1,299</div>
-                    <div class="text-danger small" style="text-decoration:line-through;">₹4,999</div>
                 </div>
             </div>
         </div>
@@ -720,7 +751,6 @@
                 <div class="pc-content">
                     <div class="pc-title">Power Bank</div>
                     <div class="pc-price">₹699</div>
-                    <div class="text-danger small" style="text-decoration:line-through;">₹1,999</div>
                 </div>
             </div>
         </div>
@@ -730,10 +760,52 @@
                 <div class="pc-content">
                     <div class="pc-title">Bluetooth Speaker</div>
                     <div class="pc-price">₹1,499</div>
-                    <div class="text-danger small" style="text-decoration:line-through;">₹3,999</div>
                 </div>
             </div>
         </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: LATEST NEWS (91mobiles Style Layout) -->
+    <section class="mt-5">
+      <div class="section-title">
+        <span><i class="fas fa-newspaper text-orange me-2"></i>Latest News</span>
+        <a href="/news">View All News <i class="fas fa-chevron-right"></i></a>
+      </div>
+      <div class="row g-4">
+        <!-- Main Featured Article -->
+        <div class="col-lg-8">
+          <a href="/news/samsung/s26-ultra-leaks" class="news-card-main">
+            <div class="news-img-wrapper">
+              <img src="./news/samsung/news-samsung-s26-ultra-2.png" alt="Samsung S26 Ultra News">
+            </div>
+            <div class="news-content">
+              <span class="news-tag">LEAKS</span>
+              <h2 class="news-title">Samsung Galaxy S26 Ultra Leaked: Massive Camera Upgrade Expected</h2>
+              <div class="news-meta">
+                <i class="far fa-clock me-1"></i> 2 Hours Ago • By Rajesh Kumar
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Side News List -->
+        <div class="col-lg-4">
+          <div id="side-news-list">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: VIDEO REVIEWS -->
+    <section class="mt-5">
+      <div class="section-title">
+        <span><i class="fas fa-play-circle text-orange me-2"></i>Expert Reviews</span>
+        <a href="/videos">View All Videos <i class="fas fa-chevron-right"></i></a>
+      </div>
+      <div class="row g-3" id="video-grid">
+        <!-- Injected by JS -->
       </div>
     </section>
 
@@ -745,7 +817,7 @@
       <div class="row">
         <div class="col-lg-4 col-md-6 mb-4">
           <h5 class="poppins">About Maaney</h5>
-          <p class="mb-4">Maaney is the leading price comparison portal in India. We help you find the best deals on Mobiles, Electronics, and Fashion across Amazon, Flipkart, Myntra, and more.</p>
+          <p class="mb-4">Maaney is leading price comparison portal in India. We help you find best deals on Mobiles, Electronics, and Fashion across Amazon, Flipkart, Myntra, and more.</p>
           <div class="social-icons">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -813,7 +885,7 @@
         status: "Coming Soon",
         img: "./mobiles/iqoo-15r/image4.png",
         link: "./mobiles/iqoo-15r",
-        desc: "6.59-inch 1.5K AMOLED | Snapdragon 8 Gen 5 | 12GB RAM | 256GB Storage"
+        desc: "6.59-inch 1.5K AMOLED | Snapdragon 8 Gen 5 | 12GB RAM"
       },
       {
         brand: "Infinix",
@@ -837,7 +909,7 @@
         cat: "Mobile",
         img: "./mobiles/vivo-v70/image1.png",
         link: "./mobiles/vivo-v70",
-        desc: "6.7″ AMOLED Display | ZEISS Camera | 8GB/12GB RAM | 5000mAh Battery"
+        desc: "6.7″ AMOLED Display | ZEISS Camera | 8GB/12GB RAM | 5000mAh"
       },
       {
         brand: "POCO",
@@ -949,6 +1021,42 @@
       }
     ];
 
+    // ================= NEWS DATA =================
+    const sideNewsData = [
+        {
+            title: "Google Pixel 10a: Is it worth waiting for?",
+            tag: "VERDICT",
+            img: "./news/google/news-google-pixel-10a-verdict.png",
+            link: "/news/google/pixel-10a-verdict"
+        },
+        {
+            title: "OnePlus Nord CE 5 Launch Date Confirmed",
+            tag: "NEWS",
+            img: "https://picsum.photos/seed/oneplus/120/80.jpg",
+            link: "/news/oneplus/nord-ce-5"
+        },
+        {
+            title: "iPhone 17 Pro Max Camera Specs Leaked",
+            tag: "LEAKS",
+            img: "https://picsum.photos/seed/iphone/120/80.jpg",
+            link: "/news/apple/iphone-17-pro"
+        },
+        {
+            title: "Xiaomi Redmi Note 14 Pro Review",
+            tag: "REVIEW",
+            img: "https://picsum.photos/seed/redmi/120/80.jpg",
+            link: "/news/xiaomi/redmi-note-14-review"
+        }
+    ];
+
+    // ================= VIDEO DATA =================
+    const videoData = [
+        { title: "Samsung Galaxy S26 Ultra Hands On Review", img: "./news/samsung/news-samsung-s26-ultra-2.png" },
+        { title: "Google Pixel 10a vs Pixel 9a Comparison", img: "https://picsum.photos/seed/v1/300/180.jpg" },
+        { title: "Best Budget Smartphones under 15000 in 2025", img: "https://picsum.photos/seed/v2/300/180.jpg" },
+        { title: "iPhone 16 Pro Max Camera Test", img: "https://picsum.photos/seed/v3/300/180.jpg" }
+    ];
+
     // ================= RENDER PRODUCTS =================
     function renderProducts() {
       const upcomingContainer = document.getElementById('grid-upcoming');
@@ -962,7 +1070,6 @@
       let hasLatest = false;
 
       products.forEach(p => {
-        // Generate Card HTML
         const badgeClass = p.status === "Coming Soon" ? "pc-badge upcoming" : "pc-badge";
         const badgeText = p.status === "Coming Soon" ? "Upcoming" : `${p.off}% OFF`;
         const btnText = p.status === "Coming Soon" ? "Notify Me" : "View Price";
@@ -1005,6 +1112,49 @@
       }
     }
 
+    // ================= RENDER NEWS =================
+    function renderNews() {
+        const listContainer = document.getElementById('side-news-list');
+        let html = '';
+        sideNewsData.forEach(news => {
+            html += `
+            <a href="${news.link}" class="news-list-item">
+                <div class="news-list-img">
+                    <img src="${news.img}" alt="${news.title}" onerror="this.src='https://via.placeholder.com/120x80?text=News'">
+                </div>
+                <div>
+                    <span class="news-tag" style="font-size:9px; padding:2px 6px;">${news.tag}</span>
+                    <div class="news-list-title">${news.title}</div>
+                    <div class="news-meta">Today</div>
+                </div>
+            </a>
+            `;
+        });
+        listContainer.innerHTML = html;
+    }
+
+    // ================= RENDER VIDEOS =================
+    function renderVideos() {
+        const gridContainer = document.getElementById('video-grid');
+        let html = '';
+        videoData.forEach(vid => {
+            html += `
+            <div class="col-md-3 col-6">
+                <div class="video-card">
+                    <div class="video-thumb">
+                        <img src="${vid.img}" alt="${vid.title}" onerror="this.src='https://via.placeholder.com/300x180?text=Video'">
+                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-title">${vid.title}</div>
+                    </div>
+                </div>
+            </div>
+            `;
+        });
+        gridContainer.innerHTML = html;
+    }
+
     // ================= HERO SLIDER =================
     const slides = [
       { img: "./mobiles/google-pixel-10a/image1.pngs", title: "Big Billion Days Sale" },
@@ -1016,7 +1166,6 @@
     const sliderContainer = document.getElementById('heroSlider');
 
     function initSlider() {
-      // Generate slides
       slides.forEach((s, i) => {
         const div = document.createElement('div');
         div.className = `hero-slide ${i === 0 ? 'active' : ''}`;
@@ -1028,7 +1177,6 @@
             <button class="btn btn-orange mt-2">Shop Now</button>
           </div>
         `;
-        // Insert before controls
         sliderContainer.insertBefore(div, sliderContainer.children[sliderContainer.children.length - 2]);
       });
     }
@@ -1036,10 +1184,7 @@
     function moveSlide(direction) {
       const slideElements = document.querySelectorAll('.hero-slide');
       slideElements[currentSlide].classList.remove('active');
-      
       currentSlide = (currentSlide + direction + slides.length) % slides.length;
-      
-      // Hide all, show current
       slideElements.forEach(s => s.style.display = 'none');
       slideElements[currentSlide].style.display = 'flex';
     }
@@ -1048,9 +1193,10 @@
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById("year").innerText = new Date().getFullYear();
       renderProducts();
+      renderNews();
+      renderVideos();
       initSlider();
       
-      // Auto slide
       setInterval(() => moveSlide(1), 5000);
 
       // Auth Popup Logic
