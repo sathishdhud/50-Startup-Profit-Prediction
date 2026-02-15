@@ -16,13 +16,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     
     <style>
-        /* FONT CLASSES */
+        /* --- FONT CLASSES --- */
         .poppins-semibold { font-family: "Poppins", sans-serif; font-weight: 600; }
+        .poppins-bold { font-family: "Poppins", sans-serif; font-weight: 700; }
         .line-seed { font-family: "LINE Seed JP", sans-serif; }
         .young-serif { font-family: "Young Serif", serif; }
         .lexend { font-family: 'Lexend', sans-serif; }
 
-        /* VARIABLES (White & Orange Theme) */
+        /* --- VARIABLES --- */
         :root {
             --fk-orange: #ff8c2b;
             --fk-orange-dark: #e67300;
@@ -32,7 +33,7 @@
             --text-gray: #555;
             --off-white: #f8f9fa;
             --bg-gray: #f0f2f5;
-            --main-radius: 5px; /* Unified Radius Variable */
+            --main-radius: 5px;
         }
         
         body {
@@ -44,18 +45,18 @@
             line-height: 1.6;
         }
 
-        /* FULL SCREEN WRAPPER */
+        /* --- MAIN WRAPPER --- */
         .main-page-wrapper {
             max-width: 1280px;
             margin: 20px auto;
             background: #ffffff;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06); /* Static shadow */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
             min-height: 100vh;
-            border-radius: var(--main-radius); /* 5px */
+            border-radius: var(--main-radius);
             overflow: hidden;
         }
 
-        /* HEADER */
+        /* --- NAVIGATION --- */
         .blog-nav {
             background: #ffffff;
             padding: 15px 30px;
@@ -67,36 +68,169 @@
             top: 0;
             z-index: 1000;
         }
-        .brand-text {
-            font-weight: 800;
-            font-size: 24px;
-            color: var(--fk-orange);
+        .brand-logo img { height: 40px; width: auto; display: block; }
+        
+        .nav-link-custom {
+            color: #555;
             text-decoration: none;
-        }
-
-        /* HERO SECTION */
-        .hero-banner {
-            width: 100%;
-            background: #ffffff;
-            padding: 50px 20px;
-            text-align: center;
-            position: relative;
-            border-bottom: 1px solid var(--border);
-        }
-        .hero-title {
-            font-size: 2.2rem;
             font-weight: 700;
-            margin-bottom: 10px;
-            color: #111;
+            transition: color 0.2s;
         }
-        .hero-subtitle {
-            color: var(--text-gray);
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1rem;
+        .nav-link-custom:hover, .nav-link-custom.active { color: var(--fk-orange); }
+
+        /* --- NEWS HEADER (HERO) SECTION --- */
+        .news-header-section {
+            width: 100%;
+            border-bottom: 1px solid var(--border);
+            background: #fff;
         }
 
-        /* CONTENT LAYOUT (GRID) */
+        .news-grid-container {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            height: 480px; 
+        }
+
+        /* Left Side: Big Feature */
+        .hero-left {
+            position: relative;
+            overflow: hidden;
+            border-right: 1px solid var(--border);
+            cursor: pointer;
+        }
+        .hero-left img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .hero-left:hover img { transform: scale(1.05); }
+        
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            /* Stronger gradient for readability */
+            background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.6) 40%, transparent);
+            padding: 40px 30px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .hero-overlay .category-tag {
+            background: var(--fk-orange);
+            color: white;
+            padding: 5px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 4px;
+            align-self: flex-start;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+        .hero-overlay h2 {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Right Side: Scrolling Container */
+        .hero-right {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            overflow: hidden; /* Hides scrollbar */
+        }
+
+        /* Gradient Masks for Top and Bottom of Scroller */
+        .hero-right::before, .hero-right::after {
+            content: "";
+            position: absolute;
+            left: 0; right: 0;
+            height: 60px;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .hero-right::before {
+            top: 0;
+            background: linear-gradient(to bottom, #ffffff 10%, transparent);
+        }
+        .hero-right::after {
+            bottom: 0;
+            background: linear-gradient(to top, #ffffff 10%, transparent);
+        }
+
+        /* Scrolling Animation Wrapper */
+        .hero-scroll-wrapper {
+            display: flex;
+            flex-direction: column;
+            /* Animation setup */
+            animation: scrollUp 20s linear infinite;
+        }
+        
+        /* Pause on hover */
+        .hero-right:hover .hero-scroll-wrapper {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollUp {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); } /* Moves up by half the content height (since we duplicate items) */
+        }
+
+        /* Individual News Items in Scroller */
+        .sub-feature-item {
+            display: flex;
+            align-items: center;
+            padding: 18px 20px;
+            border-bottom: 1px solid #f0f0f0;
+            text-decoration: none;
+            color: inherit;
+            transition: background 0.2s;
+            gap: 15px;
+            flex-shrink: 0; /* Prevents shrinking during animation */
+        }
+        .sub-feature-item:hover { background-color: var(--fk-orange-light); }
+
+        .sub-thumb {
+            width: 90px;
+            height: 65px;
+            border-radius: var(--main-radius);
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .sub-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .sub-title {
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 4px;
+            color: var(--text-dark);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .sub-meta {
+            font-size: 11px;
+            color: #888;
+            font-weight: 500;
+        }
+
+        /* --- CONTENT LAYOUT (Main Feed) --- */
         .content-layout {
             display: grid;
             grid-template-columns: 1fr 320px;
@@ -104,40 +238,33 @@
             padding: 0;
         }
 
-        /* LEFT COLUMN: BLOG FEED */
+        /* Left Column */
         .article-column {
             padding: 40px 50px 40px 50px;
         }
 
-        /* BLOG POST CARD DESIGN */
+        /* Blog Post Card */
         .blog-list-item {
             border-bottom: 1px solid var(--border);
             padding: 30px 0;
             display: flex;
             align-items: start;
+            gap: 25px;
         }
-        .blog-list-item img{
-            margin: 20px 0px;
-        }
+        .blog-list-item:last-child { border-bottom: none; }
         
-        .blog-list-item:last-child {
-            border-bottom: none;
-        }
-       
         .blog-thumbnail {
             width: 260px;
             height: 160px;
             object-fit: cover;
-            border-radius: var(--main-radius); /* 5px */
+            border-radius: var(--main-radius);
             flex-shrink: 0;
-        
         }
 
         .blog-content {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            
             flex: 1;
         }
 
@@ -158,8 +285,8 @@
             line-height: 1.3;
             color: var(--text-dark);
             text-decoration: none;
-            /* Hover effect removed */
         }
+        .post-title:hover { color: var(--fk-orange); }
 
         .post-excerpt {
             font-size: 15px;
@@ -179,7 +306,7 @@
             gap: 15px;
         }
 
-        /* RIGHT COLUMN: SIDEBAR */
+        /* Sidebar */
         .sidebar-column {
             padding: 40px 30px 40px 0;
             border-left: 1px solid var(--border);
@@ -189,10 +316,10 @@
         .sidebar-card {
             background: #fff;
             border: 1px solid var(--border);
-            border-radius: var(--main-radius); /* 5px */
+            border-radius: var(--main-radius);
             padding: 20px;
             margin-bottom: 25px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03); /* Static shadow */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
         }
         .sidebar-title {
             font-size: 16px;
@@ -203,7 +330,7 @@
             padding-bottom: 5px;
         }
 
-        /* PRICE / FEATURE BOX */
+        /* Price Box */
         .price-box {
             background: linear-gradient(135deg, #ff8c2b, #ff5f00);
             color: white;
@@ -211,20 +338,24 @@
         }
         .price-main { font-size: 32px; font-weight: 800; margin: 10px 0; }
         .price-old { text-decoration: line-through; opacity: 0.8; font-size: 14px; }
-        .btn-buy {
+        
+        .btn-buy-custom {
+            display: inline-block;
             background: white;
             color: var(--fk-orange);
             font-weight: 700;
             width: 100%;
             border: none;
             padding: 12px;
-            border-radius: var(--main-radius); /* 5px */
+            border-radius: 999px;
             margin-top: 15px;
             cursor: pointer;
-            /* Transition and hover effect removed */
+            text-decoration: none;
+            transition: opacity 0.2s;
         }
+        .btn-buy-custom:hover { opacity: 0.9; }
 
-        /* TRENDING LIST */
+        /* Trending List */
         .trending-item {
             display: flex;
             gap: 12px;
@@ -232,12 +363,15 @@
             padding-bottom: 15px;
             border-bottom: 1px dashed #eee;
             cursor: pointer;
+            text-decoration: none;
+            color: inherit;
         }
+        .trending-item:hover h6 { color: var(--fk-orange); }
         .trending-item:last-child { border: none; margin: 0; padding: 0; }
         .trending-thumb {
             width: 60px;
             height: 60px;
-            border-radius: var(--main-radius); /* 5px */
+            border-radius: var(--main-radius);
             object-fit: cover;
         }
         .trending-info h6 {
@@ -245,16 +379,15 @@
             font-weight: 600;
             margin: 0 0 5px 0;
             line-height: 1.3;
-            /* Hover effect removed */
         }
         .trending-info span { font-size: 11px; color: #999; }
 
-        /* PAGINATION */
+        /* Pagination */
         .pagination-container { display: flex; justify-content: center; gap: 10px; margin-top: 50px; }
         .page-link {
             min-width: 40px; height: 40px;
             display: flex; align-items: center; justify-content: center;
-            border-radius: 50px; /* Pill shape */
+            border-radius: 50px;
             border: 1px solid var(--border);
             color: var(--text-dark);
             text-decoration: none;
@@ -264,7 +397,7 @@
         .page-link:hover { background-color: var(--fk-orange-light); border-color: var(--fk-orange); }
         .page-link.active { background: var(--fk-orange); color: white; border-color: var(--fk-orange); }
 
-        /* FOOTER */
+        /* Footer */
         footer {
             background: #fff;
             padding: 40px 20px;
@@ -273,9 +406,9 @@
         }
         .footer-text { color: #999; font-size: 13px; margin-top: 10px; }
 
-        /* RESPONSIVE DESIGN (DESKTOP & MOBILE) */
+        /* --- RESPONSIVE DESIGN --- */
 
-        /* Tablet View */
+        /* Tablet */
         @media (max-width: 992px) {
             .content-layout { grid-template-columns: 1fr; }
             .sidebar-column { 
@@ -284,35 +417,33 @@
                 padding: 40px 30px; 
             }
             .article-column { padding: 30px; }
+            
+            /* Header adjustments for Tablet */
+            .news-grid-container {
+                height: auto;
+                grid-template-columns: 1fr;
+            }
+            .hero-left { height: 350px; border-right: none; border-bottom: 1px solid var(--border); }
+            .hero-right { height: 300px; /* Fixed height for scroller on tablet */ }
+            .sub-feature-item { padding: 15px 20px; }
         }
 
-        /* Mobile View */
+        /* Mobile */
         @media (max-width: 768px) {
-            .main-page-wrapper { 
-                margin: 0; 
-                border-radius: 0; 
-                box-shadow: none;
-            }
+            .main-page-wrapper { margin: 0; border-radius: 0; box-shadow: none; }
             .blog-nav { padding: 15px; }
-            .hero-banner { padding: 40px 20px; }
-            .hero-title { font-size: 26px; }
-            .hero-subtitle { font-size: 0.9rem; }
+            
+            /* Mobile Header */
+            .hero-left { height: 250px; }
+            .hero-overlay h2 { font-size: 20px; }
+            .sub-thumb { width: 70px; height: 50px; }
             
             /* Mobile Blog Card Stack */
-            .blog-list-item { 
-                flex-direction: column; 
-                padding: 20px 0;
-                margin: 0;
-            }
+            .blog-list-item { flex-direction: column; padding: 20px 0; margin: 0; }
             .blog-thumbnail { width: 100%; height: 200px; }
             .blog-content { align-items: flex-start; text-align: left; }
             .post-meta { width: 100%; justify-content: space-between; }
         }
-        .brand-logo img {
-    height: 40px;        /* adjust as needed */
-    width: auto;
-    display: block;
-}
     </style>
 </head>
 <body>
@@ -322,14 +453,13 @@
         <!-- HEADER NAVIGATION -->
         <header class="blog-nav">
           <a href="https://maaney.store" class="brand-logo">
-    <img src="https://maaney.store/white_logo.png"  alt="Maaney Store" />
-</a>
-
+            <img src="https://maaney.store/white_logo.png" alt="Maaney Store" />
+          </a>
             
-            <div class="d-none d-md-flex align-items-center gap-4 line-seed nav-links" style="font-size: 14px; font-weight: 700;">
-                <a href="#" style="color: var(--fk-orange); text-decoration: none;">LATEST NEWS</a>
-                <a href="#" style="color: #555; text-decoration: none;">REVIEWS</a>
-                <a href="#" style="color: #555; text-decoration: none;">DEALS</a>
+            <div class="d-none d-md-flex align-items-center gap-4 line-seed">
+                <a href="#" class="nav-link-custom active">LATEST NEWS</a>
+                <a href="#" class="nav-link-custom">REVIEWS</a>
+                <a href="#" class="nav-link-custom">DEALS</a>
             </div>
 
             <div class="d-flex align-items-center gap-3">
@@ -338,11 +468,27 @@
             </div>
         </header>
 
-        <!-- HERO BANNER -->
-        <section class="hero-banner">
-            <span class="post-cat line-seed">#TechUpdates</span>
-            <h1 class="hero-title poppins-semibold">The Future of Tech is Here</h1>
-            <p class="hero-subtitle line-seed">In-depth reviews, exclusive launch alerts, and latest updates from world of smartphones and gadgets.</p>
+        <!-- NEW NEWS HEADER SECTION -->
+        <section class="news-header-section">
+            <div class="news-grid-container">
+                
+                <!-- LEFT: BIG FEATURE (Upcoming Smartphones) -->
+                <a href="#featured-article" class="hero-left">
+                    <img src="./launchCalendar/feb/samsung-s26-feb.png" alt="Upcoming Smartphones Feb 2026">
+                    <div class="hero-overlay">
+                        <span class="category-tag">Featured</span>
+                        <h2>Upcoming Smartphones in Feb 2026: The Ultimate Launch Lineup</h2>
+                    </div>
+                </a>
+
+                <!-- RIGHT: 4 NEWS ITEMS WITH AUTO SCROLL -->
+                <div class="hero-right">
+                    <div class="hero-scroll-wrapper" id="header-scroller">
+                        <!-- Javascript will populate items here and duplicate them for the loop -->
+                    </div>
+                </div>
+
+            </div>
         </section>
 
         <!-- BLOG CONTENT LAYOUT -->
@@ -379,23 +525,11 @@
                         </div>
 
                        <a href="https://maaney.store/news/google/google-pixel-10a-launch"
-   aria-label="Read full iQOO 15R review"
-   style="
-       display:inline-block;
-       padding:12px 22px;
-       background: white;
-       color: #ff8c2b;
-       font-size:14px;
-       font-weight:600;
-       text-decoration:none;
-       border-radius:999px;
-       text-align:center;
-       transition:all .25s ease;
-       cursor:pointer;
-   "
-   >
-    READ FULL REVIEW
-</a>
+                           aria-label="Read full iQOO 15R review"
+                           class="btn-buy-custom"
+                       >
+                        READ FULL REVIEW
+                    </a>
 
                     </div>
 
@@ -403,29 +537,29 @@
                     <div class="sidebar-card">
                         <div class="sidebar-title">Trending Now</div>
                         
-                        <div class="trending-item">
+                        <a href="#" class="trending-item">
                             <img src="https://picsum.photos/seed/trend1/100/100" class="trending-thumb" alt="Thumb">
                             <div class="trending-info">
                                 <h6>Flipkart Big Billion Days Dates Leaked</h6>
                                 <span>2 hours ago</span>
                             </div>
-                        </div>
+                        </a>
 
-                        <div class="trending-item">
+                        <a href="#" class="trending-item">
                             <img src="https://picsum.photos/seed/trend2/100/100" class="trending-thumb" alt="Thumb">
                             <div class="trending-info">
                                 <h6>Best Budget Tablets for Students</h6>
                                 <span>5 hours ago</span>
                             </div>
-                        </div>
+                        </a>
 
-                        <div class="trending-item">
+                        <a href="#" class="trending-item">
                             <img src="https://picsum.photos/seed/trend3/100/100" class="trending-thumb" alt="Thumb">
                             <div class="trending-info">
                                 <h6>OnePlus 13R India Launch Confirmed</h6>
                                 <span>1 day ago</span>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                     <!-- CATEGORIES -->
@@ -457,7 +591,7 @@
 
         </div> <!-- End Content Layout -->
 
-        <!-- FOOTER (Replaced footer.js with inline HTML for standalone functionality) -->
+        <!-- FOOTER -->
         <footer>
             <div class="container">
                 <div class="row">
@@ -486,9 +620,39 @@
     
     <!-- Main Logic Script -->
     <script>
-        // --- DATA STORE ---
-        // Contains all blog post data. Images kept as user requested (local paths), 
-        // but in a real scenario ensure these paths are correct.
+        // --- CONFIGURATION ---
+        // Simulate "Today" as Feb 20, 2026 to make the "days ago" logic realistic for the demo data.
+        const SIMULATED_TODAY = new Date('2026-02-20T12:00:00'); 
+
+        // --- HEADER RIGHT DATA (4 News Items) ---
+        const headerNewsItems = [
+            {
+                title: "Vivo V70 & V70 Elite: Price, Specs and What Makes the Elite Model Different",
+                img: "https://maaney.store/news/vivo/vivo-v70-1.png",
+                brand: "Vivo",
+                date: "2026-02-18T10:00:00"
+            },
+            {
+                title: "Google Pixel 10a India Launch Set for February 18",
+                img: "https://picsum.photos/seed/pixel10a/200/140",
+                brand: "Google",
+                date: "2026-02-17T14:30:00"
+            },
+            {
+                title: "Nothing Phone (4a) Series Officially Teased: Colours Revealed",
+                img: "https://maaney.store/news/nothing/news-nothing-4a.png",
+                brand: "Nothing",
+                date: "2026-02-16T09:00:00"
+            },
+            {
+                title: "iQOO 15R Set to Launch in India on Feb 24: Big Battery, Flagship Chip",
+                img: "https://picsum.photos/seed/iqoo15r/200/140",
+                brand: "iQOO",
+                date: "2026-02-15T11:00:00"
+            }
+        ];
+
+        // --- DATA STORE (Main Feed) ---
         const articles = [
             {
                 id: 1,
@@ -497,7 +661,7 @@
                 title: "Google Pixel 10a India Launch Set for February 18: Flat Camera Design, Tensor G4 & AI Focus",
                 excerpt: "Google is preparing to shake up its affordable Pixel lineup once again. Unlike previous “a-series” models, Pixel 10a introduces a bold new flush design.",
                 author: "Arjun Verma",
-                date: "2026-02-18T10:00:00", // Using 2026 to match user's demo script logic
+                date: "2026-02-18T10:00:00",
                 link: "/news/google/google-pixel-10a-launch"
             },
             {
@@ -542,14 +706,13 @@
             },
             {
                 id: 6,
-img: "https://maaney.store/news/nothing/news-nothing-4a.png",
-category: "Smartphones",
-title: "Nothing Phone (4a) Series Officially Teased: Colours Revealed, Launch Expected Soon",
-excerpt: "Nothing has begun teasing its Phone (4a) lineup through official channels, confirming a refreshed colour approach and signaling an imminent launch. Here’s a clear breakdown of what’s officially known so far.",
-author: "Maaney Tech Desk",
-date: "2026-02-14T11:00:00",
-link: "https://maaney.store/news/nothing/news-nothing-4a"
-
+                img: "https://maaney.store/news/nothing/news-nothing-4a.png",
+                category: "Smartphones",
+                title: "Nothing Phone (4a) Series Officially Teased: Colours Revealed, Launch Expected Soon",
+                excerpt: "Nothing has begun teasing its Phone (4a) lineup through official channels, confirming a refreshed colour approach and signaling an imminent launch. Here’s a clear breakdown of what’s officially known so far.",
+                author: "Maaney Tech Desk",
+                date: "2026-02-14T11:00:00",
+                link: "https://maaney.store/news/nothing/news-nothing-4a"
             },
             {
                 id: 7,
@@ -571,13 +734,16 @@ link: "https://maaney.store/news/nothing/news-nothing-4a"
         // --- DOM ELEMENTS ---
         const feedContainer = document.getElementById('blog-feed-container');
         const paginationContainer = document.getElementById('pagination-controls');
+        const headerScroller = document.getElementById('header-scroller');
 
         // --- FUNCTIONS ---
 
-        // 1. Time Ago Logic
+        // 1. Time Ago Logic (Uses Simulated Date)
         function timeAgo(dateString) {
             const date = new Date(dateString);
-            const now = new Date();
+            // Use simulated today instead of real 'new Date()'
+            const now = SIMULATED_TODAY; 
+            
             const seconds = Math.floor((now - date) / 1000);
             
             let interval = seconds / 31536000;
@@ -598,19 +764,40 @@ link: "https://maaney.store/news/nothing/news-nothing-4a"
             return "Just now";
         }
 
-        // 2. Render Articles
+        // 2. Render Header Scroller (With Loop Duplication)
+        function renderHeaderScroller() {
+            let htmlContent = "";
+            
+            // Generate HTML for items
+            headerNewsItems.forEach(item => {
+                const timeString = timeAgo(item.date);
+                htmlContent += `
+                <a href="#" class="sub-feature-item">
+                    <img src="${item.img}" class="sub-thumb" alt="${item.brand}">
+                    <div class="sub-content">
+                        <div class="sub-title">${item.title}</div>
+                        <div class="sub-meta line-seed">${item.brand} • ${timeString}</div>
+                    </div>
+                </a>
+                `;
+            });
+
+            // To create an infinite loop with CSS animation, we duplicate the list.
+            // The animation moves from 0% to -50% (which is exactly the height of the original list).
+            headerScroller.innerHTML = htmlContent + htmlContent; 
+        }
+
+        // 3. Render Main Feed Articles
         function renderArticles(page) {
-            feedContainer.innerHTML = ""; // Clear current content
+            feedContainer.innerHTML = ""; 
             
             const start = (page - 1) * itemsPerPage;
             const end = start + itemsPerPage;
             const paginatedItems = articles.slice(start, end);
 
             paginatedItems.forEach(article => {
-                // Determine time string
                 const timeString = timeAgo(article.date);
 
-                // Create Article HTML
                 const articleHTML = `
                 <article class="blog-list-item">
                     <img src="${article.img}" class="blog-thumbnail" alt="${article.title}" onerror="this.src='https://picsum.photos/seed/${article.id}/260/160'">
@@ -626,28 +813,24 @@ link: "https://maaney.store/news/nothing/news-nothing-4a"
                 </article>
                 `;
                 
-                // Append to container
                 feedContainer.insertAdjacentHTML('beforeend', articleHTML);
             });
 
-            // Scroll to top of main column smoothly
             if (page > 1) {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
 
-        // 3. Render Pagination
+        // 4. Render Pagination
         function renderPagination() {
-            paginationContainer.innerHTML = ""; // Clear pagination
+            paginationContainer.innerHTML = ""; 
 
-            // Prev Button
             const prevBtn = document.createElement('a');
             prevBtn.className = `page-link ${currentPage === 1 ? 'disabled' : ''}`;
             prevBtn.innerHTML = '<i class="fa fa-chevron-left"></i>';
             prevBtn.onclick = () => { if(currentPage > 1) changePage(currentPage - 1); };
             paginationContainer.appendChild(prevBtn);
 
-            // Page Numbers
             for (let i = 1; i <= totalPages; i++) {
                 const pageBtn = document.createElement('a');
                 pageBtn.className = `page-link ${i === currentPage ? 'active' : ''}`;
@@ -656,7 +839,6 @@ link: "https://maaney.store/news/nothing/news-nothing-4a"
                 paginationContainer.appendChild(pageBtn);
             }
 
-            // Next Button
             const nextBtn = document.createElement('a');
             nextBtn.className = `page-link ${currentPage === totalPages ? 'disabled' : ''}`;
             nextBtn.innerHTML = '<i class="fa fa-chevron-right"></i>';
@@ -664,7 +846,7 @@ link: "https://maaney.store/news/nothing/news-nothing-4a"
             paginationContainer.appendChild(nextBtn);
         }
 
-        // 4. Change Page Handler
+        // 5. Change Page Handler
         function changePage(page) {
             currentPage = page;
             renderArticles(currentPage);
@@ -673,6 +855,7 @@ link: "https://maaney.store/news/nothing/news-nothing-4a"
 
         // --- INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
+            renderHeaderScroller(); // Render the auto-scrolling right side
             renderArticles(currentPage);
             renderPagination();
         });
