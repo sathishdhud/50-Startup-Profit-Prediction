@@ -595,16 +595,26 @@ body{
       </div>
   </div>
 
-  <!-- SECTION 4: TRENDING PRODUCTS (The Grid) -->
-  <div class="section-header">
-      <h5 class="section-title">Trending Now</h5>
+  <!-- SECTION 4: COMING SOON (New Division) -->
+  <div id="section-coming-soon" style="display:none;">
+      <div class="section-header">
+          <h5 class="section-title text-danger">Coming Soon <span style="font-size:0.6em; background:#ffebee; color:#c62828; padding:2px 6px; border-radius:4px; vertical-align:middle; margin-left:8px;">Pre-Order</span></h5>
+      </div>
+      <div class="row g-4" id="grid-coming-soon"></div>
   </div>
-  
-  <p class="small text-muted mb-3 dongle-regular">
-    Browse the most popular electronics chosen by our users this week.
-  </p>
 
-  <div class="row g-4" id="grid"></div>
+  <!-- SECTION 5: TRENDING / AVAILABLE (New Division) -->
+  <div id="section-trending" style="display:none;">
+      <div class="section-header">
+          <h5 class="section-title">Trending Now</h5>
+      </div>
+  
+      <p class="small text-muted mb-3 dongle-regular">
+        Browse the most popular electronics chosen by our users this week.
+      </p>
+
+      <div class="row g-4" id="grid-trending"></div>
+  </div>
 
 </div>
 
@@ -651,6 +661,7 @@ const products = [{
   off: 8,
   cat: "Mobile",
   color: "Dark Knight",
+  status: "Coming Soon",
   img: "../../mobiles/iqoo-15r/image4.png",
   link: "../../mobiles/iqoo-15r",
   desc: "6.59-inch 1.5K AMOLED display with 144Hz refresh rate | Qualcomm Snapdragon 8 Gen 5 processor | 12GB RAM | 256GB internal storage | 7600mAh battery with 100W fast charging | 50MP Sony primary rear camera | 32MP front camera | Android 16 with iQOO UI | Dual SIM 5G connectivity"
@@ -664,10 +675,24 @@ const products = [{
   old: "₹22,999",
   off: 13,
   cat: "Mobile",
+  status: "Coming Soon",
   color: "Lunar Titanium",
   img: "../../mobiles/infinix-note-edge-5g/image1.png",
   link: "../../mobiles/infinix-note-edge-5g",
   desc: "6.78-inch 1.5K curved AMOLED display with 120Hz refresh rate | MediaTek Dimensity 7100 5G processor | 8GB RAM | 128GB internal storage | 6500mAh battery with 45W fast charging | 50MP AI rear camera | 13MP front camera | Android 16 with XOS | Dual SIM 5G connectivity"
+},
+{
+  brand: "Vivo",
+  title: "Vivo V70 5G Premium AMOLED Smartphone",
+  price: "39,999",
+  old: "44,999",
+  off: 11,
+  status: "Coming Soon",
+  cat: "Mobile",
+  color: "Aurora Blue",
+  img: "../../mobiles/vivo-v70/image1.png",
+  link: "../../mobiles/vivo-v70",
+  desc: "6.7″ AMOLED Display with High Refresh Rate | Qualcomm Snapdragon Processor | 8GB/12GB RAM | 128GB/256GB Storage | ZEISS Co-Engineered Camera System | 50MP Rear Camera | 32MP Front Camera | 5000mAh Battery with Fast Charging | Android 14 with Funtouch OS | Dual SIM 5G Connectivity"
 }
 ,
 {
@@ -829,47 +854,97 @@ desc:"6.6″ HD+ IPS LCD Display | MediaTek Dimensity 6020 Octa-Core Processor |
 
 
 function render(list){
-  const grid=document.getElementById("grid");
-  grid.innerHTML="";
+  // Split list into Coming Soon and Trending
+  const comingSoonList = list.filter(p => p.status === "Coming Soon");
+  const trendingList = list.filter(p => p.status !== "Coming Soon");
+
+  // 1. Render Coming Soon Section
+  const gridCS = document.getElementById("grid-coming-soon");
+  const sectionCS = document.getElementById("section-coming-soon");
   
-  if(list.length === 0) {
-      grid.innerHTML = `<div class="col-12 text-center py-5">
-        <h5 class="text-muted">No products found.</h5>
-      </div>`;
-      document.getElementById("count").innerText="0";
-      return;
+  gridCS.innerHTML = "";
+  
+  if(comingSoonList.length > 0) {
+      sectionCS.style.display = "block";
+      comingSoonList.forEach(p=>{
+        gridCS.innerHTML+=`
+        <div class="col-lg-3 col-md-4 col-12">
+      <div class="product-card position-relative">
+    
+        <img src="${p.img}" class="product-img" onerror="this.src='https://via.placeholder.com/300?text=Image'">
+        <div style="position:absolute; top:10px; right:10px; background:#ea3903; color:white; padding:2px 6px; font-size:11px; border-radius:2px; font-weight:600;">
+      Coming Soon
+    </div>
+    
+        <div>
+          <div class="brand cabin-font-700-bold">${p.brand}</div>
+          <div class="title cabin-font-700" style="font-size:14px; font-weight:500; line-height:1.3; margin-top:6px; color:#212121;">
+            <a href="${p.link}" target="_self" style="text-decoration:none; color:#212121; display:block;" onmouseover="this.style.color='#ff6f00'" onmouseout="this.style.color='#212121'">
+              ${p.title}
+            </a>
+          </div>
+          <hr style="border:none; height:3px; width:100%; border-radius:10px; background:#ff8c2b; margin:12px 0;">
+          <div class="d-block d-md-none cabin-font-600" style="font-size:12.5px; color:262626; line-height:1.4; margin-top:4px;">
+            ${p.desc}
+          </div>
+          <div style="margin-top:6px;">
+            <span class="price special-gothic-expanded-one-regular">₹${p.price}</span>
+            <span class="old special-gothic-expanded-one-regular" style="color:#DC0000;"> ₹${p.old}</span>
+            <span class="off">(${p.off}% OFF)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    `;
+      });
+  } else {
+      sectionCS.style.display = "none";
   }
 
-  list.forEach(p=>{
-    grid.innerHTML+=`
-    <div class="col-lg-3 col-md-4 col-12">
-  <div class="product-card position-relative">
+  // 2. Render Trending Section
+  const gridT = document.getElementById("grid-trending");
+  const sectionT = document.getElementById("section-trending");
+  
+  gridT.innerHTML = "";
+  
+  if(trendingList.length > 0) {
+      sectionT.style.display = "block";
+      trendingList.forEach(p=>{
+        gridT.innerHTML+=`
+        <div class="col-lg-3 col-md-4 col-12">
+      <div class="product-card position-relative">
+    
+        <img src="${p.img}" class="product-img" onerror="this.src='https://via.placeholder.com/300?text=Image'">
+        <div style="position:absolute; top:10px; right:10px; background:#28a745; color:white; padding:2px 6px; font-size:11px; border-radius:2px; font-weight:600;">
+      ${p.status ? p.status : "Trending"}
+    </div>
+    
+        <div>
+          <div class="brand cabin-font-700-bold">${p.brand}</div>
+          <div class="title cabin-font-700" style="font-size:14px; font-weight:500; line-height:1.3; margin-top:6px; color:#212121;">
+            <a href="${p.link}" target="_self" style="text-decoration:none; color:#212121; display:block;" onmouseover="this.style.color='#ff6f00'" onmouseout="this.style.color='#212121'">
+              ${p.title}
+            </a>
+          </div>
+          <hr style="border:none; height:3px; width:100%; border-radius:10px; background:#ff8c2b; margin:12px 0;">
+          <div class="d-block d-md-none cabin-font-600" style="font-size:12.5px; color:262626; line-height:1.4; margin-top:4px;">
+            ${p.desc}
+          </div>
+          <div style="margin-top:6px;">
+            <span class="price special-gothic-expanded-one-regular">₹${p.price}</span>
+            <span class="old special-gothic-expanded-one-regular" style="color:#DC0000;"> ₹${p.old}</span>
+            <span class="off">(${p.off}% OFF)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    `;
+      });
+  } else {
+      sectionT.style.display = "none";
+  }
 
-    <img src="${p.img}" class="product-img" onerror="this.src='https://via.placeholder.com/300?text=Image'">
-    <div style="position:absolute; top:10px; right:10px; background:#28a745; color:white; padding:2px 6px; font-size:11px; border-radius:2px; font-weight:600;">
-      Trending
-    </div>
-    <div>
-      <div class="brand cabin-font-700-bold">${p.brand}</div>
-      <div class="title cabin-font-700" style="font-size:14px; font-weight:500; line-height:1.3; margin-top:6px; color:#212121;">
-        <a href="${p.link}" target="_self" style="text-decoration:none; color:#212121; display:block;" onmouseover="this.style.color='#ff6f00'" onmouseout="this.style.color='#212121'">
-          ${p.title}
-        </a>
-      </div>
-      <hr style="border:none; height:3px; width:100%; border-radius:10px; background:#ff8c2b; margin:12px 0;">
-      <div class="d-block d-md-none cabin-font-600" style="font-size:12.5px; color:262626; line-height:1.4; margin-top:4px;">
-        ${p.desc}
-      </div>
-      <div style="margin-top:6px;">
-        <span class="price special-gothic-expanded-one-regular">₹${p.price}</span>
-        <span class="old special-gothic-expanded-one-regular" style="color:#DC0000;"> ₹${p.old}</span>
-        <span class="off">(${p.off}% OFF)</span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-  });
+  // Update total count
   document.getElementById("count").innerText=list.length;
 }
 
