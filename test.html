@@ -2,88 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Maaney Icon System Test</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maaney Awesome Icon Test</title>
 
-  <!-- ✅ Load Maaney Icons CSS from CDN -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sathishdhud/maaney-awesome/maaney-icon.css">
+  <!-- YOUR CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sathishdhud/maaney-awesome/maaneystore.css">
 
   <style>
     body {
       font-family: Arial, sans-serif;
       padding: 40px;
-      line-height: 2;
+      font-size: 32px;
+    }
+    i {
+      margin-right: 8px;
+      color: rgb(75, 75, 75);
+     
     }
 
-    .test-row {
-      margin-bottom: 20px;
-    }
-    i.mi {
-      display: inline-block;
-      vertical-align: middle;
-      color:#ff6a00; /* Default brand color */
+    button {
+      font-size: 18px;
+      padding: 10px 16px;
+      background: #ff6600;
+      color: white;
+      border: none;
+      border-radius: 6px;
     }
   </style>
 </head>
 <body>
 
-  <h1>Maaney Icon Test (Font Awesome Style)</h1>
+  <h2>
+    <i class="m m-md"></i>
+    Maaney Store
+  </h2>
 
-  <!-- BASIC ICON -->
-  <div class="test-row">
-    Default icon:
-    <i class="mi mi-m"></i>
-  </div>
+  <p>
+    <i class="m m-lg"></i>
+    Default icon text
+  </p>
 
-  <!-- SIZE TEST -->
-  <div class="test-row">
-    Size 14px:
-    <i class="mi mi-m" style="font-size:14px"></i>
-  </div>
-
-  <div class="test-row">
-    Size 24px:
-    <i class="mi mi-m" style="font-size:24px"></i>
-  </div>
-
-  <div class="test-row">
-    Size 36px:
-    <i class="mi mi-m" style="font-size:36px"></i>
-  </div>
-
-  <!-- COLOR TEST -->
-  <div class="test-row">
-    Red:
-    <i class="mi mi-m" style="color:red"></i>
-  </div>
-
-  <div class="test-row">
-    Green:
-    <i class="mi mi-m" style="color:green"></i>
-  </div>
-
-  <div class="test-row">
-    Brand Orange:
-    <i class="mi mi-m" style="color:#ff6a00"></i>
-  </div>
-
-  <!-- INLINE TEXT TEST -->
-  <div class="test-row">
-    Price info
-    <i class="mi mi-m"></i>
-    applies to selected offers.
-  </div>
-
-  <!-- MULTIPLE ICONS -->
-  <div class="test-row">
-    Multiple icons:
-    <i class="mi mi-m"></i>
-    <i class="mi mi-m"></i>
-    <i class="mi mi-m"></i>
-  </div>
-
-  <!-- ✅ Load Maaney Icons JS (IMPORTANT) -->
-  <script src="https://cdn.jsdelivr.net/gh/sathishdhud/maaney-awesome/maaney-icons.js"></script>
+  <button>
+    <i class="m m-sm"></i>
+    Buy Now
+  </button>
 
 </body>
 </html>
