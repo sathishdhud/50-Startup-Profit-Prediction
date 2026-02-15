@@ -2,234 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maaney Welcome Email</title>
+  <title>Maaney Icon System Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ✅ Load Maaney Icons CSS from CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sathishdhud/maaney-awesome/maaney-icon.css">
+
   <style>
-    /* PREVIEW STYLES - These help it look good in the browser, 
-       but the inline styles below ensure it works in Email Clients */
-    body { background-color: #f4f4f4; padding: 20px; }
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      line-height: 2;
+    }
+
+    .test-row {
+      margin-bottom: 20px;
+    }
+    i.mi {
+      display: inline-block;
+      vertical-align: middle;
+      color:#ff6a00; /* Default brand color */
+    }
   </style>
 </head>
 <body>
 
-  <!-- 
-    EMAIL CONTAINER START 
-    (In a real email client, this body background is ignored, 
-    which is why the table has its own background).
-  -->
-  <center>
-    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #ffffff;">
-      <tr>
-        <td align="center">
+  <h1>Maaney Icon Test (Font Awesome Style)</h1>
 
-          <!-- EMAIL WRAPPER (600px) -->
-          <table border="0" cellpadding="0" cellspacing="0" width="600" style="background-color: #ffffff; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
-            
-            <!-- SLEEK ORANGE HEADER BAR -->
-            <tr>
-              <td align="center" style="background-color: #ff6600; padding: 20px 0;">
-                <!-- Logo Container -->
-                <a href="https://maaney.store">
-                  <!-- Using a placeholder for the logo to ensure preview works if image is missing -->
-                  <img src="https://maaney.store/logo.png" onerror="this.src='https://via.placeholder.com/160x50/ff6600/ffffff?text=MAANEY'" alt="Maaney Store" width="160" style="display: inline-block; width: 160px; max-width: 80%;">
-                </a>
-              </td>
-            </tr>
+  <!-- BASIC ICON -->
+  <div class="test-row">
+    Default icon:
+    <i class="mi mi-m"></i>
+  </div>
 
-            <!-- HERO POSTER SECTION -->
-            <tr>
-              <td style="position: relative;">
-                <!-- Main Background Image -->
-                <img src="https://maaney.store/categories/fashion/fashion-og.png" onerror="this.src='https://picsum.photos/seed/maaney/600/300'" alt="Shopping Lifestyle" width="600" style="display: block; width: 100%; height: auto;">
-                
-                <!-- OVERLAY CONTENT CARD -->
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                  <tr>
-                    <td style="padding: 0 40px;">
-                      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#ffffff; border-radius:6px; border-top:3px solid #ff6600; margin-top: -40px; position: relative; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-                        <tr>
-                          <td style="padding:32px 36px; text-align:center;">
-                            <h2 style="margin:0; color:#111111; font-size:24px; font-weight:700; letter-spacing:0.5px;">
-                              Welcome <span style="color:#ff6600;">John Doe</span>
-                            </h2>
+  <!-- SIZE TEST -->
+  <div class="test-row">
+    Size 14px:
+    <i class="mi mi-m" style="font-size:14px"></i>
+  </div>
 
-                            <p style="margin:14px 0 0 0; color:#555555; font-size:15px; line-height:1.6;">
-                              You’re now part of a smarter shopping experience.
-                              Discover top deals, compare prices, and explore trending products
-                              — all in one clean and trusted place.
-                            </p>
+  <div class="test-row">
+    Size 24px:
+    <i class="mi mi-m" style="font-size:24px"></i>
+  </div>
 
-                            <!-- subtle divider -->
-                            <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:24px;">
-                              <tr>
-                                <td style="border-top:1px solid #f2f2f2;"></td>
-                              </tr>
-                            </table>
+  <div class="test-row">
+    Size 36px:
+    <i class="mi mi-m" style="font-size:36px"></i>
+  </div>
 
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+  <!-- COLOR TEST -->
+  <div class="test-row">
+    Red:
+    <i class="mi mi-m" style="color:red"></i>
+  </div>
 
-            <!-- TRENDING CATALOGUE -->
-            <tr>
-              <td style="padding:40px 40px 20px 40px;">
-                <!-- Section Title -->
-                <h3 style="margin:0 0 24px 0; color:#111111; font-size:18px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; border-left:4px solid #ff6600; padding-left:12px;">
-                  Trending Mobiles Under ₹10,000
-                </h3>
+  <div class="test-row">
+    Green:
+    <i class="mi mi-m" style="color:green"></i>
+  </div>
 
-                <!-- Products Grid -->
-                <table width="100%" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <!-- Product 1 -->
-                    <td width="31%" valign="top" style="background:#ffffff;">
-                      <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #eeeeee;border-radius:6px;">
-                        <tr>
-                          <td>
-                            <img src="https://maaney.store/mobiles/mobileu10k/samsung-m06.png" onerror="this.src='https://picsum.photos/seed/ph1/200/200'" alt="Budget Smartphone" width="100%" style="display:block;border-radius:6px 6px 0 0;">
-                          </td>
-                        </tr>
-                        <tr>
-                          <td style="padding:12px;text-align:center;">
-                            <div style="color:#ff6600;font-size:11px;font-weight:700;">UNDER ₹10K</div>
-                            <div style="margin-top:4px;color:#111;font-size:14px;font-weight:600;">Budget Smartphone</div>
-                            <a href="#" style="margin-top:10px;display:inline-block; font-size:12px;color:#ff6600; text-decoration:none;font-weight:600;">View Deals →</a>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
+  <div class="test-row">
+    Brand Orange:
+    <i class="mi mi-m" style="color:#ff6a00"></i>
+  </div>
 
-                    <!-- Spacer -->
-                    <td width="3.5%">&nbsp;</td>
+  <!-- INLINE TEXT TEST -->
+  <div class="test-row">
+    Price info
+    <i class="mi mi-m"></i>
+    applies to selected offers.
+  </div>
 
-                    <!-- Product 2 -->
-                    <td width="31%" valign="top" style="background:#ffffff;">
-                      <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #eeeeee;border-radius:6px;">
-                        <tr>
-                          <td>
-                            <img src="https://maaney.store/mobiles/mobileu10k/infinix-smart-10.png" onerror="this.src='https://picsum.photos/seed/ph2/200/200'" alt="Value Smartphone" width="100%" style="display:block;border-radius:6px 6px 0 0;">
-                          </td>
-                        </tr>
-                        <tr>
-                          <td style="padding:12px;text-align:center;">
-                            <div style="color:#ff6600;font-size:11px;font-weight:700;">BEST VALUE</div>
-                            <div style="margin-top:4px;color:#111;font-size:14px;font-weight:600;">Value Smartphone</div>
-                            <a href="#" style="margin-top:10px;display:inline-block; font-size:12px;color:#ff6600; text-decoration:none;font-weight:600;">Compare Prices →</a>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
+  <!-- MULTIPLE ICONS -->
+  <div class="test-row">
+    Multiple icons:
+    <i class="mi mi-m"></i>
+    <i class="mi mi-m"></i>
+    <i class="mi mi-m"></i>
+  </div>
 
-                    <!-- Spacer -->
-                    <td width="3.5%">&nbsp;</td>
-
-                    <!-- Product 3 -->
-                    <td width="31%" valign="top" style="background:#ffffff;">
-                      <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #eeeeee;border-radius:6px;">
-                        <tr>
-                          <td>
-                            <img src="https://maaney.store/mobiles/mobileu10k/techno-spark-go-5g.png" onerror="this.src='https://picsum.photos/seed/ph3/200/200'" alt="Top Rated Smartphone" width="100%" style="display:block;border-radius:6px 6px 0 0;">
-                          </td>
-                        </tr>
-                        <tr>
-                          <td style="padding:12px;text-align:center;">
-                            <div style="color:#ff6600;font-size:11px;font-weight:700;">TOP RATED</div>
-                            <div style="margin-top:4px;color:#111;font-size:14px;font-weight:600;">Top Rated Phone</div>
-                            <a href="#" style="margin-top:10px;display:inline-block; font-size:12px;color:#ff6600; text-decoration:none;font-weight:600;">See Offers →</a>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-
-                  </tr>
-                </table>
-
-              </td>
-            </tr>
-
-            <!-- ICONS ROW -->
-            <tr>
-              <td style="padding: 30px 40px;">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                  <tr>
-                    <!-- Icon 1: Discover -->
-                    <td width="25%" style="text-align: center; padding-bottom: 20px;">
-                      <img src="https://img.icons8.com/m_outlined/512/FD7E14/search.png" width="40" height="40" alt="Search" style="display: block; margin: 0 auto 10px auto;">
-                      <div style="font-size: 12px; font-weight: bold; color: #333333;">DISCOVER</div>
-                    </td>
-
-                    <!-- Icon 2: Compare -->
-                    <td width="25%" style="text-align: center; padding-bottom: 20px;">
-                      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmY2NjAwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjE4IiB5MT0iMjAiIHgyPSIxOCIgeTI9IjEwIi8+PGxpbmUgeDE9IjEyIiB5MT0iMjAiIHgyPSIxMiIgeTI9IjQiLz48bGluZSB4MT0iNiIgeTE9IjIwIiB4Mj0iNiIgeTI9IjE0Ii8+PC9zdmc+" width="40" height="40" alt="Compare" style="display: block; margin: 0 auto 10px auto;">
-                      <div style="font-size: 12px; font-weight: bold; color: #333333;">COMPARE</div>
-                    </td>
-
-                    <!-- Icon 3: Smart Picks -->
-                    <td width="25%" style="text-align: center; padding-bottom: 20px;">
-                      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmY2NjAwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlnb24gcG9pbnRzPSIxMyAyIDMgMTQgMTIgMTQgMjEgMjAiPjwvcG9seWdvbj48bGluZSB4MT0iMTIiIHkxPSIxNCIgeDI9IjEyIiB5Mj0iMTQiPjwvbGluZT48L3N2Zz4=" width="40" height="40" alt="Picks" style="display: block; margin: 0 auto 10px auto;">
-                      <div style="font-size: 12px; font-weight: bold; color: #333333;">SMART PICKS</div>
-                    </td>
-
-                    <!-- Icon 4: Save -->
-                    <td width="25%" style="text-align: center;">
-                      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmY2NjAwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIwLjYgNy4ybC0yLjYtLjZMMTcgMmwtMSAxLjYtMS0xLjZMMTMgNi42bC0yLjYuNi0uNiAyLjZMMTAgMTBsMy4xLjMuMyAzLjF6Ii8+PHBvbHlnb24gcG9pbnRzPSIxMiAyIDE1LjA5IDguMjYgMjIgOS4yNyAxNyAxNC4xNCAxOC4xOCAyMSAyIDE4LjE4IDcgMTQuMTQgMiA5LjI3IDguOTEgOC4yNiAxMiAyIj48L3BvbHlnb24+PC9zdmc+" width="40" height="40" alt="Save" style="display: block; margin: 0 auto 10px auto;">
-                      <div style="font-size: 12px; font-weight: bold; color: #333333;">SAVE BIG</div>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-
-            <!-- CTA SECTION -->
-            <tr>
-              <td align="center" style="padding: 40px 40px 50px 40px;">
-                <table border="0" cellspacing="0" cellpadding="0">
-                  <tr>
-                    <td align="center" style="background-color: #ff6600; border-radius: 50px; box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);">
-                      <a href="https://maaney.store" style="background-color: #ff6600; color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; letter-spacing: 0.5px; line-height: 1; text-align: center; text-decoration: none; padding: 18px 50px; display: block; border-radius: 50px;">
-                        START SHOPPING
-                      </a>
-                    </td>
-                  </tr>
-                </table>
-                <p style="margin-top: 20px; color: #999999; font-size: 12px;">
-                  Trusted by thousands of smart shoppers.
-                </p>
-              </td>
-            </tr>
-
-            <!-- FOOTER -->
-            <tr>
-              <td style="background-color: #000000; padding: 30px; border-top: 1px solid #eeeeee;">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                  <tr>
-                    <td align="center">
-                      <img src="https://maaney.store/logo.png" onerror="this.src='https://via.placeholder.com/120x40/000000/ffffff?text=MAANEY'" alt="Maaney Store" width="120" style="display:block; margin:0 0 8px 0; border:0; outline:none; text-decoration:none;">
-                      <p style="margin: 0 0 15px 0; color: #ffffff; font-size: 12px;">
-                        E-commerce Discovery Platform
-                      </p>
-                      <p style="margin: 0; color: #ffffff; font-size: 11px; line-height: 1.5;">
-                        You received this email because you signed up at <a href="https://maaney.store" style="color: #ff6600; text-decoration: none;">maaney.store</a>.<br>
-                        © 2026 Maaney. All rights reserved.
-                      </p>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-
-          </table>
-          <!-- END WRAPPER -->
-
-        </td>
-      </tr>
-    </table>
-  </center>
+  <!-- ✅ Load Maaney Icons JS (IMPORTANT) -->
+  <script src="https://cdn.jsdelivr.net/gh/sathishdhud/maaney-awesome/maaney-icons.js"></script>
 
 </body>
 </html>
