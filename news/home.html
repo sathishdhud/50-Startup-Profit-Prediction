@@ -121,18 +121,19 @@
             height: 100%;
             box-sizing: border-box;
         }
-        .hero-overlay .category-tag {
-            background: var(--fk-orange);
-            color: white;
-            padding: 5px 12px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 4px;
-            align-self: flex-start;
-            margin-bottom: 12px;
-            display: inline-block;
-        }
+      .hero-overlay .category-tag {
+    color: #ffffff;
+    padding: 0px 2px;          /* bigger padding */
+    font-size: 18px;            /* bigger text */
+    font-weight: 800;           /* stronger emphasis */
+    text-transform: uppercase;
+    border-radius: 6px;         /* slightly rounder */
+    align-self: flex-start;
+    margin-bottom: 2px;         /* exactly 2px */
+    display: inline-block;
+    letter-spacing: 0.6px;      /* premium look */
+}
+
         .hero-overlay h2 {
             font-size: 28px;
             font-weight: 700;
@@ -721,13 +722,13 @@
             },
             {
                 id: 7,
-                img: "https://picsum.photos/seed/technews2/260/160",
-                category: "Audio",
-                title: "Sony WF-1000XM6 Leaked: Features We Want to See",
-                excerpt: "The king of ANC earbuds is getting a successor. Here is everything we know about the release date, price, and expected sound quality improvements.",
+                img: "https://maaney.store/news/launchCalendar/feb/samsung-s26-feb.png",
+                category: "Smartphone",
+                title: "Upcoming Smartphones in Feb 2026: The Ultimate Launch Calendar",
+                excerpt: "February 2026 is shaping up to be one of the most exciting months for smartphone enthusiasts. With major brands like Samsung, Google, Vivo, iQOO, and Nothing all set to unveil new devices. ",
                 author: "Priya Singh",
                 date: "2026-02-12T16:45:00",
-                link: "#"
+                link: "https://maaney.store/news/launchCalendar/feb/upcoming-mobiles-feb-2026"
             }
         ];
 
@@ -784,9 +785,9 @@
      gap:14px;
      text-decoration:none;
      padding:12px;
-     border-radius:12px;
+     border-radius:5px;
      background:#ffffff;
-     box-shadow:0 6px 18px rgba(0,0,0,0.06);
+     
      margin-bottom:14px;
      transition:transform 0.2s ease, box-shadow 0.2s ease;
    "
@@ -816,15 +817,15 @@
             color:#111;
             line-height:1.3;
             margin-bottom:6px;
-        ">
+        " class="line-seed">
             ${item.title}
         </div>
 
         <div style="
             font-size:13px;
-            color:#777;
+            color:#000;
             font-weight:500;
-        ">
+        " class="line-seed">
             ${item.brand} • ${timeString}
         </div>
     </div>
@@ -856,7 +857,7 @@
                     <div class="blog-content">
                         <span class="post-cat line-seed">${article.category}</span>
                         <a href="${article.link}" class="post-title poppins-semibold">${article.title}</a>
-                        <p class="post-excerpt">${article.excerpt}</p>
+                        <p class="post-excerpt line-seed">${article.excerpt}</p>
                         <div class="post-meta line-seed">
                             <span><i class="fa fa-clock me-1"></i> ${timeString}</span>
                             <span><i class="fa fa-user me-1"></i> ${article.author}</span>
