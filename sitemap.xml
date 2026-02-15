@@ -169,7 +169,13 @@
   </url>
   <url>
       <loc>https://maaney.store/mobiles/iqoo-15r</loc>
-      <lastmod>2026-02-24</lastmod>
+      <lastmod>2026-02-15</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+  </url>
+  <url>
+      <loc>https://maaney.store/news/launchCalendar/feb/upcoming-mobiles-feb-2026</loc>
+      <lastmod>2026-02-15</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
   </url>
