@@ -262,6 +262,7 @@
     /* NEW: Bullet List Specs - Optimized for wider space */
     .pcl-specs-list {
       margin: 0;
+      margin-left: 40px;
       padding: 0;
       list-style: none;
       font-size: 13px;
@@ -404,6 +405,7 @@
       /* Show specs compactly */
       .pcl-specs-list {
         font-size: 12px;
+        margin: 0px;
         line-height: 1.4;
         display: grid; /* Grid for better mobile space usage */
         grid-template-columns: 1fr 1fr; /* Two columns of specs */
@@ -451,9 +453,14 @@
       <div class="row align-items-center d-none d-lg-block">
         <div class="row">
           <div class="col-2">
-            <a href="/" class="d-flex align-items-center text-decoration-none">
-              <span class="logo-text"><i class="fas fa-bolt"></i> MAANEY</span>
-            </a>
+           <a href="/" class="d-flex align-items-center text-decoration-none">
+  <img 
+    src="../../white_logo.png" 
+    alt="MAANEY Logo"
+    style="height:32px; width:auto; display:block;"
+  >
+</a>
+
           </div>
           <div class="col-7">
             <div class="search-container">
@@ -473,8 +480,13 @@
         <div class="row align-items-center header-top-row">
           <div class="col-8">
             <a href="/" class="d-flex align-items-center text-decoration-none">
-              <span class="logo-text"><i class="fas fa-bolt"></i> MAANEY</span>
-            </a>
+  <img 
+    src="../../white_logo.png" 
+    alt="MAANEY Logo"
+    style="height:32px; width:auto; display:block;"
+  >
+</a>
+
           </div>
           <div class="col-4 text-end">
             <button class="btn btn-sm btn-outline-orange"><i class="fas fa-user"></i></button>
@@ -508,7 +520,7 @@
           <div class="result-count" id="resultCount">Showing 1 of 1514 phones</div>
         </div>
         <div class="d-none d-lg-block text-end" style="font-size:12px; color:#666; max-width: 500px;">
-          Last Updated: 5th Feb 2026.
+          Last Updated: 15th Feb 2026.
         </div>
       </div>
     </div>
@@ -537,23 +549,23 @@
           <div class="filter-section">
             <div class="filter-title">Brand <i class="fas fa-chevron-down"></i></div>
             <div class="form-check">
-              <input class="form-check-input brand-filter" type="checkbox" value="Realme" id="brandRealme" checked>
+              <input class="form-check-input brand-filter" type="checkbox" value="Realme" id="brandRealme" >
               <label class="form-check-label" for="brandRealme">Realme</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input brand-filter" type="checkbox" value="Samsung" id="brandSamsung" checked>
+              <input class="form-check-input brand-filter" type="checkbox" value="Samsung" id="brandSamsung">
               <label class="form-check-label" for="brandSamsung">Samsung</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input brand-filter" type="checkbox" value="Apple" id="brandApple" checked>
+              <input class="form-check-input brand-filter" type="checkbox" value="Apple" id="brandApple">
               <label class="form-check-label" for="brandApple">Apple</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input brand-filter" type="checkbox" value="Xiaomi" id="brandXiaomi" checked>
+              <input class="form-check-input brand-filter" type="checkbox" value="Xiaomi" id="brandXiaomi">
               <label class="form-check-label" for="brandXiaomi">Xiaomi</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input brand-filter" type="checkbox" value="OnePlus" id="brandOnePlus" checked>
+              <input class="form-check-input brand-filter" type="checkbox" value="OnePlus" id="brandOnePlus">
               <label class="form-check-label" for="brandOnePlus">OnePlus</label>
             </div>
           </div>
@@ -674,111 +686,110 @@
     // ================= MOCK DATA =================
     // Simulating the 1514 phones, highlighting the requested Realme P4 Power
     const db = [
-      {
-        id: 1,
-        brand: "Realme",
-        title: "Realme P4 Power 5G",
-        specs: { ram: "8 GB", rom: "128 GB", cam: "50 MP + 8 MP", bat: "6000 mAh", proc: "Dimensity 7400 Ultra", screen: "6.7 inch AMOLED" },
-        price: 25735,
-        store: "Amazon",
-        isNew: true,
-        imgUrl: "https://z-cdn-media.chatglm.cn/files/2c15354d-1a4b-4026-bd59-9ba5cbe69ea7.png?auth_key=1871225658-d95509ef3f48485e9f63a9a4173c2071-0-3dbd85151eb82aa1533c48df2b2340be",
-        releaseDate: "2026-01-29"
-      },
-      {
-        id: 2,
-        brand: "Samsung",
-        title: "Samsung Galaxy S26 Ultra",
-        specs: { ram: "12 GB", rom: "256 GB", cam: "200 MP + 12 MP", bat: "5500 mAh", proc: "Snapdragon 8 Gen 4", screen: "6.9 inch Dynamic AMOLED" },
-        price: 129999,
-        store: "Samsung Official",
-        isNew: true,
-        imgUrl: "https://picsum.photos/seed/s26ultra/200/200.jpg",
-        releaseDate: "2026-02-01"
-      },
-      {
-        id: 3,
-        brand: "Apple",
-        title: "iPhone 18 Pro Max",
-        specs: { ram: "12 GB", rom: "512 GB", cam: "48 MP + 12 MP", bat: "4676 mAh", proc: "A19 Pro", screen: "6.9 inch LTPO OLED" },
-        price: 159900,
-        store: "Amazon",
-        isNew: false,
-        imgUrl: "https://picsum.photos/seed/iphone18/200/200.jpg",
-        releaseDate: "2025-09-01"
-      },
-      {
-        id: 4,
-        brand: "Xiaomi",
-        title: "Xiaomi Redmi Note 14 Pro+",
-        specs: { ram: "12 GB", rom: "256 GB", cam: "200 MP + 8 MP", bat: "5000 mAh", proc: "Dimensity 9300", screen: "6.67 inch AMOLED" },
-        price: 34999,
-        store: "Flipkart",
-        isNew: false,
-        imgUrl: "https://picsum.photos/seed/redmi14/200/200.jpg",
-        releaseDate: "2025-11-15"
-      },
-      {
-        id: 5,
-        brand: "OnePlus",
-        title: "OnePlus 14R",
-        specs: { ram: "8 GB", rom: "128 GB", cam: "50 MP + 8 MP", bat: "5500 mAh", proc: "Snapdragon 8 Gen 3", screen: "6.78 inch AMOLED" },
-        price: 39999,
-        store: "Amazon",
-        isNew: false,
-        imgUrl: "https://picsum.photos/seed/op14/200/200.jpg",
-        releaseDate: "2025-01-20"
-      },
-      {
-        id: 6,
-        brand: "Realme",
-        title: "Realme GT 7 Pro",
-        specs: { ram: "16 GB", rom: "512 GB", cam: "50 MP + 50 MP", bat: "6000 mAh", proc: "Snapdragon 8 Gen 4", screen: "6.78 inch AMOLED" },
-        price: 59999,
-        store: "Amazon",
-        isNew: false,
-        imgUrl: "https://picsum.photos/seed/realmeGT/200/200.jpg",
-        releaseDate: "2025-10-10"
-      },
-      {
-        id: 7,
-        brand: "Vivo",
-        title: "Vivo X200 Pro",
-        specs: { ram: "12 GB", rom: "256 GB", cam: "50 MP + 50 MP", bat: "5400 mAh", proc: "Dimensity 9400", screen: "6.78 inch AMOLED" },
-        price: 64999,
-        store: "Vivo Store",
-        isNew: false,
-        imgUrl: "https://picsum.photos/seed/vivoX200/200/200.jpg",
-        releaseDate: "2025-11-01"
-      },
-      {
-        id: 8,
-        brand: "Samsung",
-        title: "Samsung Galaxy A36 5G",
-        specs: { ram: "6 GB", rom: "128 GB", cam: "50 MP + 5 MP", bat: "5000 mAh", proc: "Exynos 1480", screen: "6.6 inch Super AMOLED" },
-        price: 21999,
-        store: "Amazon",
-        isNew: false,
-        imgUrl: "https://picsum.photos/seed/a36/200/200.jpg",
-        releaseDate: "2025-03-15"
-      }
-    ];
+      
+  {
+    id: 1,
+    brand: "Vivo",
+    title: "Vivo V70 5G",
+    specs: {
+      ram: "12 GB",
+      rom: "256 GB",
+      cam: "50 MP + 8 MP",
+      bat: "6500 mAh",
+      proc: "Snapdragon 7 Gen 4",
+      screen: "6.59 inch AMOLED"
+    },
+    price: 42999,
+    store: "Vivo Store",
+    isNew: true,
+    imgUrl: "../vivo-v70/image1.png",
+    releaseDate: "2026-02-19",  
+    link: "../vivo-v70/"
+  },
+
+  {
+    id: 2,
+    brand: "iQOO",
+    title: "iQOO 15R 5G",
+    specs: {
+      ram: "12 GB",
+      rom: "256 GB",
+      cam: "200 MP + 8 MP",
+      bat: "7600 mAh",
+      proc: "Snapdragon 8 Gen 5",
+      screen: "6.59 inch AMOLED 144Hz"
+    },
+    price: 49999,
+    store: "Amazon",
+    isNew: true,
+    imgUrl: "../iqoo-15r/image1.png",
+    link: "../iqoo-15r/",
+    releaseDate: "2026-02-24"
+  },
+
+  {
+    id: 3,
+    brand: "Google",
+    title: "Google Pixel 10a",
+    specs: {
+      ram: "8 GB",
+      rom: "128 GB",
+      cam: "48 MP + 13 MP",
+      bat: "5100 mAh",
+      proc: "Google Tensor G4",
+      screen: "6.2 inch OLED 120Hz"
+    },
+    price: 44999,
+    store: "Flipkart",
+    isNew: true,
+    imgUrl: "../google-pixel-10a/image1.png",
+    link: "../google-pixel-10a/",
+    releaseDate: "2026-02-18"
+  },
+
+  {
+    id: 4,
+    brand: "Samsung",
+    title: "Samsung Galaxy S26 Ultra",
+    specs: {
+      ram: "12 GB",
+      rom: "256 GB",
+      cam: "200 MP + 50 MP + 12 MP",
+      bat: "5000 mAh",
+      proc: "Snapdragon 8 Elite Gen 5",
+      screen: "6.9 inch Dynamic AMOLED 2X"
+    },
+    price: 129999,
+    store: "Samsung Official",
+    isNew: true,
+    imgUrl: "../samsung-s26/image1.png",
+    link: "../samsung-s26/",
+    releaseDate: "2026-02-25"
+  },
+
+  {
+    id: 5,
+    brand: "Infinix",
+    title: "Infinix Note Edge 5G",
+    specs: {
+      ram: "8 GB",
+      rom: "128 GB",
+      cam: "50 MP + 2 MP",
+      bat: "6500 mAh",
+      proc: "Dimensity 7200",
+      screen: "6.7 inch Curved AMOLED"
+    },
+    price: 19999,
+    store: "Flipkart",
+    isNew: true,
+    imgUrl: "../infinix-note-edge-5g/image1.png",
+    link: "../infinix-note-edge-5g/",
+    releaseDate: "2026-02-18"
+  }
+];
 
     // Fill the rest to get close to 1514 number in the title text (mock data generation)
-    for(let i=9; i<=20; i++) {
-        db.push({
-            id: i,
-            brand: "Generic",
-            title: `Smartphone Model ${i} 5G`,
-            specs: { ram: "8 GB", rom: "128 GB", cam: "50 MP", bat: "5000 mAh", proc: "Octa Core", screen: "6.5 inch IPS" },
-            price: 15000 + (i*100),
-            store: "Flipkart",
-            isNew: false,
-            imgUrl: `https://picsum.photos/seed/phone${i}/200/200.jpg`,
-            releaseDate: "2025-01-01"
-        });
-    }
-
+   
     // ================= RENDER FUNCTION =================
     function renderProducts(data) {
       const container = document.getElementById('productContainer');
@@ -834,7 +845,7 @@
           <!-- MIDDLE: DETAILS (In mobile, this includes the bottom action bar via CSS) -->
           <div class="pcl-details">
             <div>
-              <a href="#" class="pcl-title">${product.title}</a>
+              <a href="${product.link}" class="pcl-title">${product.title}</a>
               ${specsListHtml}
             </div>
             
@@ -849,7 +860,7 @@
                 <i class="fas fa-shopping-bag text-secondary"></i> ${product.store}
               </div>
               <div class="pcl-price">${formattedPrice}</div>
-              <a href="#" class="btn btn-orange btn-buy-sm">Buy Now</a>
+              <a href="${product.link}" class="btn btn-orange btn-buy-sm">Buy Now</a>
             </div>
           </div>
         `;
