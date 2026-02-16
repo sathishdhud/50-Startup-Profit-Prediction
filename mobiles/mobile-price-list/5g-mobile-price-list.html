@@ -432,14 +432,12 @@
     }
   </style>
 </head>
-
 <body>
 
   <!-- TOP STRIP (Visible on Mobile & Desktop) -->
   <div class="top-strip">
     <div class="container d-flex justify-content-between align-items-center">
       <div><i class="fas fa-tag me-2"></i> Best Price Comparison Engine</div>
-      <!-- Removed d-none d-md-block to show WhatsApp Support on Mobile -->
       <div class="d-flex align-items-center gap-3">
         <a href="#" class="text-white text-decoration-none"><i class="fab fa-whatsapp me-1"></i> Support</a>
       </div>
@@ -454,13 +452,12 @@
         <div class="row">
           <div class="col-2">
            <a href="/" class="d-flex align-items-center text-decoration-none">
-  <img 
-    src="../../white_logo.png" 
-    alt="MAANEY Logo"
-    style="height:32px; width:auto; display:block;"
-  >
-</a>
-
+              <img 
+                src="../../white_logo.png" 
+                alt="MAANEY Logo"
+                style="height:32px; width:auto; display:block;"
+              >
+            </a>
           </div>
           <div class="col-7">
             <div class="search-container">
@@ -469,24 +466,28 @@
             </div>
           </div>
           <div class="col-3 text-end">
-            <button class="btn btn-sm btn-orange">Login</button>
+            <!-- PROFILE & LOGIN INLINE -->
+            <div class="d-flex justify-content-end align-items-center gap-2">
+                <a href="#" class="text-secondary"><i class="fas fa-user-circle fa-2x"></i></a>
+                <button class="btn btn-sm btn-orange">Login</button>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- MOBILE HEADER (Custom Layout) -->
-      <div class="d-lg-block">
+      <!-- Changed to d-block d-lg-none so it hides on desktop to prevent duplicate logo -->
+      <div class="d-block d-lg-none">
         <!-- Row 1: Logo & Icons -->
         <div class="row align-items-center header-top-row">
           <div class="col-8">
             <a href="/" class="d-flex align-items-center text-decoration-none">
-  <img 
-    src="../../white_logo.png" 
-    alt="MAANEY Logo"
-    style="height:32px; width:auto; display:block;"
-  >
-</a>
-
+              <img 
+                src="../../white_logo.png" 
+                alt="MAANEY Logo"
+                style="height:32px; width:auto; display:block;"
+              >
+            </a>
           </div>
           <div class="col-4 text-end">
             <button class="btn btn-sm btn-outline-orange"><i class="fas fa-user"></i></button>
@@ -494,7 +495,7 @@
         </div>
         
         <!-- Row 2: Search (Mobile Only) -->
-        <div class="d-lg-none">
+        <div>
            <div class="search-container">
               <input type="text" class="search-input" id="mobileSearchInput" placeholder="Search mobiles...">
               <button class="search-btn"><i class="fas fa-search"></i></button>
@@ -567,6 +568,22 @@
             <div class="form-check">
               <input class="form-check-input brand-filter" type="checkbox" value="OnePlus" id="brandOnePlus">
               <label class="form-check-label" for="brandOnePlus">OnePlus</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input brand-filter" type="checkbox" value="Vivo" id="brandVivo">
+              <label class="form-check-label" for="brandVivo">Vivo</label>
+            </div>
+             <div class="form-check">
+              <input class="form-check-input brand-filter" type="checkbox" value="iQOO" id="brandIqoo">
+              <label class="form-check-label" for="brandIqoo">iQOO</label>
+            </div>
+             <div class="form-check">
+              <input class="form-check-input brand-filter" type="checkbox" value="Google" id="brandGoogle">
+              <label class="form-check-label" for="brandGoogle">Google</label>
+            </div>
+             <div class="form-check">
+              <input class="form-check-input brand-filter" type="checkbox" value="Infinix" id="brandInfinix">
+              <label class="form-check-label" for="brandInfinix">Infinix</label>
             </div>
           </div>
 
@@ -662,10 +679,11 @@
       </div>
       <div class="filter-section">
         <div class="filter-title">Brand</div>
-        <div class="form-check"><input class="form-check-input brand-filter" type="checkbox" value="Realme"><label class="form-check-label">Realme</label></div>
+        <div class="form-check"><input class="form-check-input brand-filter" type="checkbox" value="Vivo"><label class="form-check-label">Vivo</label></div>
+        <div class="form-check"><input class="form-check-input brand-filter" type="checkbox" value="iQOO"><label class="form-check-label">iQOO</label></div>
+        <div class="form-check"><input class="form-check-input brand-filter" type="checkbox" value="Google"><label class="form-check-label">Google</label></div>
         <div class="form-check"><input class="form-check-input brand-filter" type="checkbox" value="Samsung"><label class="form-check-label">Samsung</label></div>
-        <div class="form-check"><input class="form-check-input brand-filter" type="checkbox" value="Apple"><label class="form-check-label">Apple</label></div>
-        <div class="form-check"><input class="form-check-input brand-filter" type="checkbox" value="Xiaomi"><label class="form-check-label">Xiaomi</label></div>
+        <div class="form-check"><input class="form-check-input brand-filter" type="checkbox" value="Infinix"><label class="form-check-label">Infinix</label></div>
       </div>
       <button class="btn btn-orange w-100 mt-3" data-bs-dismiss="offcanvas" onclick="applyFilters()">Apply Filters</button>
     </div>
@@ -684,112 +702,109 @@
   <!-- MAIN LOGIC -->
   <script>
     // ================= MOCK DATA =================
-    // Simulating the 1514 phones, highlighting the requested Realme P4 Power
+    // Using exact data provided
     const db = [
-      
-  {
-    id: 1,
-    brand: "Vivo",
-    title: "Vivo V70 5G",
-    specs: {
-      ram: "12 GB",
-      rom: "256 GB",
-      cam: "50 MP + 8 MP",
-      bat: "6500 mAh",
-      proc: "Snapdragon 7 Gen 4",
-      screen: "6.59 inch AMOLED"
-    },
-    price: 42999,
-    store: "Vivo Store",
-    isNew: true,
-    imgUrl: "../vivo-v70/image1.png",
-    releaseDate: "2026-02-19",  
-    link: "../vivo-v70/"
-  },
+      {
+        id: 1,
+        brand: "Vivo",
+        title: "Vivo V70 5G",
+        specs: {
+          ram: "12 GB",
+          rom: "256 GB",
+          cam: "50 MP + 8 MP",
+          bat: "6500 mAh",
+          proc: "Snapdragon 7 Gen 4",
+          screen: "6.59 inch AMOLED"
+        },
+        price: 42999,
+        store: "Vivo Store",
+        isNew: true,
+        imgUrl: "../vivo-v70/image1.png",
+        releaseDate: "2026-02-19",  
+        link: "../vivo-v70/"
+      },
 
-  {
-    id: 2,
-    brand: "iQOO",
-    title: "iQOO 15R 5G",
-    specs: {
-      ram: "12 GB",
-      rom: "256 GB",
-      cam: "200 MP + 8 MP",
-      bat: "7600 mAh",
-      proc: "Snapdragon 8 Gen 5",
-      screen: "6.59 inch AMOLED 144Hz"
-    },
-    price: 49999,
-    store: "Amazon",
-    isNew: true,
-    imgUrl: "../iqoo-15r/image1.png",
-    link: "../iqoo-15r/",
-    releaseDate: "2026-02-24"
-  },
+      {
+        id: 2,
+        brand: "iQOO",
+        title: "iQOO 15R 5G",
+        specs: {
+          ram: "12 GB",
+          rom: "256 GB",
+          cam: "200 MP + 8 MP",
+          bat: "7600 mAh",
+          proc: "Snapdragon 8 Gen 5",
+          screen: "6.59 inch AMOLED 144Hz"
+        },
+        price: 49999,
+        store: "Amazon",
+        isNew: true,
+        imgUrl: "../iqoo-15r/image1.png",
+        link: "../iqoo-15r/",
+        releaseDate: "2026-02-24"
+      },
 
-  {
-    id: 3,
-    brand: "Google",
-    title: "Google Pixel 10a",
-    specs: {
-      ram: "8 GB",
-      rom: "128 GB",
-      cam: "48 MP + 13 MP",
-      bat: "5100 mAh",
-      proc: "Google Tensor G4",
-      screen: "6.2 inch OLED 120Hz"
-    },
-    price: 44999,
-    store: "Flipkart",
-    isNew: true,
-    imgUrl: "../google-pixel-10a/image1.png",
-    link: "../google-pixel-10a/",
-    releaseDate: "2026-02-18"
-  },
+      {
+        id: 3,
+        brand: "Google",
+        title: "Google Pixel 10a",
+        specs: {
+          ram: "8 GB",
+          rom: "128 GB",
+          cam: "48 MP + 13 MP",
+          bat: "5100 mAh",
+          proc: "Google Tensor G4",
+          screen: "6.2 inch OLED 120Hz"
+        },
+        price: 44999,
+        store: "Flipkart",
+        isNew: true,
+        imgUrl: "../google-pixel-10a/image1.png",
+        link: "../google-pixel-10a/",
+        releaseDate: "2026-02-18"
+      },
 
-  {
-    id: 4,
-    brand: "Samsung",
-    title: "Samsung Galaxy S26 Ultra",
-    specs: {
-      ram: "12 GB",
-      rom: "256 GB",
-      cam: "200 MP + 50 MP + 12 MP",
-      bat: "5000 mAh",
-      proc: "Snapdragon 8 Elite Gen 5",
-      screen: "6.9 inch Dynamic AMOLED 2X"
-    },
-    price: 129999,
-    store: "Samsung Official",
-    isNew: true,
-    imgUrl: "../samsung-s26/image1.png",
-    link: "../samsung-s26/",
-    releaseDate: "2026-02-25"
-  },
+      {
+        id: 4,
+        brand: "Samsung",
+        title: "Samsung Galaxy S26 Ultra",
+        specs: {
+          ram: "12 GB",
+          rom: "256 GB",
+          cam: "200 MP + 50 MP + 12 MP",
+          bat: "5000 mAh",
+          proc: "Snapdragon 8 Elite Gen 5",
+          screen: "6.9 inch Dynamic AMOLED 2X"
+        },
+        price: 129999,
+        store: "Samsung Official",
+        isNew: true,
+        imgUrl: "../samsung-s26/image1.png",
+        link: "../samsung-s26/",
+        releaseDate: "2026-02-25"
+      },
 
-  {
-    id: 5,
-    brand: "Infinix",
-    title: "Infinix Note Edge 5G",
-    specs: {
-      ram: "8 GB",
-      rom: "128 GB",
-      cam: "50 MP + 2 MP",
-      bat: "6500 mAh",
-      proc: "Dimensity 7200",
-      screen: "6.7 inch Curved AMOLED"
-    },
-    price: 19999,
-    store: "Flipkart",
-    isNew: true,
-    imgUrl: "../infinix-note-edge-5g/image1.png",
-    link: "../infinix-note-edge-5g/",
-    releaseDate: "2026-02-18"
-  }
-];
+      {
+        id: 5,
+        brand: "Infinix",
+        title: "Infinix Note Edge 5G",
+        specs: {
+          ram: "8 GB",
+          rom: "128 GB",
+          cam: "50 MP + 2 MP",
+          bat: "6500 mAh",
+          proc: "Dimensity 7200",
+          screen: "6.7 inch Curved AMOLED"
+        },
+        price: 19999,
+        store: "Flipkart",
+        isNew: true,
+        imgUrl: "../infinix-note-edge-5g/image1.png",
+        link: "../infinix-note-edge-5g/",
+        releaseDate: "2026-02-18"
+      }
+    ];
 
-    // Fill the rest to get close to 1514 number in the title text (mock data generation)
-   
     // ================= RENDER FUNCTION =================
     function renderProducts(data) {
       const container = document.getElementById('productContainer');
@@ -920,7 +935,8 @@
       document.getElementById('sortSelect').value = 'popularity';
       
       document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-      ['Realme', 'Samsung', 'Apple', 'Xiaomi'].forEach(b => {
+      // Check all available brands by default based on current DB
+      ['Vivo', 'iQOO', 'Google', 'Samsung', 'Infinix'].forEach(b => {
         const cb = document.querySelector(`.brand-filter[value="${b}"]`);
         if(cb) cb.checked = true;
       });
