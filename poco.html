@@ -26,9 +26,6 @@
 <meta property="twitter:description" content="Check full specs, 50MP camera samples, and best prices for Tecno Camon 40 Pro.">
 <meta property="twitter:image" content="https://i.guim.co.uk/img/media/18badfc0b64b09f917fd14bbe47d73fd92feeb27/189_335_5080_3048/master/5080.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=1562112c7a64da36ae0a5e75075a0d12">
 
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 <!-- ================= SCHEMA.ORG JSON-LD ================= -->
 <script type="application/ld+json">
 {
@@ -104,12 +101,7 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-     body {
-      margin: 0;
-      background: #f5f7fa; /* Light grey background like 91mobiles */
-      font-family: 'Poppins', sans-serif;
-      color: #212121;
-    }
+    body { font-family: 'Roboto', sans-serif; background: var(--bg-body); color: var(--text-dark); line-height: 1.5; -webkit-font-smoothing: antialiased; }
     a { text-decoration: none; color: inherit; transition: 0.2s; }
     ul { list-style: none; }
     img { max-width: 100%; display: block; }
@@ -214,17 +206,12 @@
     .spec-key { width: 35%; color: #666; font-size: 13px; font-weight: 500; }
     .spec-val { width: 65%; color: #222; font-size: 13px; font-weight: 600; }
 
-   .top-strip {
-  background: #f44f08;
-  color: #fff;
-  font-size: 12px;
-  padding: 6px 0;
-
-  width: 100%;
-  margin: 0;
-  overflow-x: hidden;
-}
-
+    .top-strip {
+      background: #f44f08;
+      color: #fff;
+      font-size: 12px;
+      padding: 6px 0;
+    }
 
     /* --- NEW: PHOTO GALLERY STYLES --- */
     .gallery-grid {
@@ -311,35 +298,13 @@
 </head>
 <body>
 
-   <!-- TOP STRIP FULL WIDTH -->
-<div style="width:100%;background:#ff6600;">
-  
-  <!-- CONTENT CONTAINER -->
-  <div 
-    class="container d-flex justify-content-between align-items-center"
-    style="
-      max-width:1200px;
-      margin:0 auto;
-      padding:6px 12px;
-      color:#fff;
-      font-size:12px;
-    "
-  >
-    <!-- LEFT -->
-    <div style="display:flex;align-items:center;gap:6px;">
-      <i class="fas fa-tag"></i>
-      <span>India's Best Price Comparison Engine</span>
+     <!-- TOP STRIP -->
+  <div class="top-strip">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div><i class="fas fa-tag me-2"></i> India's Best Price Comparison Engine</div>
+      
     </div>
-
-    <!-- RIGHT (DESKTOP ONLY) -->
-    <div class="d-none d-md-flex" style="gap:16px;">
-      <span><i class="fas fa-download"></i> Download App</span>
-      <span><i class="fas fa-headset"></i> Support</span>
-    </div>
-
   </div>
-</div>
-
 
     <!-- Header -->
     <header class="main-header">
