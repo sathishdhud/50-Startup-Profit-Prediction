@@ -17,12 +17,12 @@
         --text-dark: #222222;
         --text-gray: #666666;
         --text-light: #999999;
-        --bg-body: #f4f5f7;
+        --bg-body: #ffffff;
         --bg-white: #ffffff;
         --border-color: #e0e0e0;
         --whatsapp-green: #25D366;
         --shadow: 0 2px 8px rgba(0,0,0,0.05);
-        --radius: 6px;
+        --radius: 3px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -51,6 +51,7 @@
 
     /* --- TITLE SECTION --- */
     .breadcrumb-area { padding: 15px 0 5px; }
+    
     .breadcrumb { font-size: 12px; color: var(--text-light); margin-bottom: 8px; }
     .product-title { font-size: 26px; font-weight: 800; line-height: 1.2; margin-bottom: 10px; }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -64,17 +65,18 @@
         .main-grid { grid-template-columns: 340px 1fr; }
         .product-title { font-size: 34px; }
     }
+   
 
     /* --- SIDEBAR (LEFT) --- */
     .img-box { position: relative; text-align: center; padding: 20px; background: white; }
     .main-prod-img { max-height: 280px; margin: 0 auto; mix-blend-mode: multiply; }
-    .score-badge { position: absolute; top: 15px; left: 15px; background: #28a745; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
+    .score-badge { position: absolute; top: 15px; left: 15px; background: #28a745; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); z-index: 1;}
     .score-badge span { font-size: 9px; font-weight: 500; text-transform: uppercase; }
 
     /* Store List */
     .store-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px dashed #eee; }
     .store-row:last-child { border: none; }
-    .store-info { display: flex; align-items: center; gap: 10px; }
+    .store-info { display: flex; align-items: center; gap: 10px; border-radius: 15px; }
     .store-logo { height: 20px; width: auto; }
     .store-name { font-weight: 700; font-size: 14px; }
     .price-tag { font-size: 18px; font-weight: 800; color: #222; }
@@ -158,6 +160,7 @@
         .store-row { flex-direction: column; align-items: flex-start; gap: 8px; }
         .store-info { width: 100%; justify-content: space-between; }
         .price-tag { font-size: 16px; }
+        .breadcrumb-area {margin-left: 20px;}
         .btn-buy { width: auto; padding: 6px 20px; }
         .store-action { width: 100%; display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed #eee; padding-top: 8px; margin-top: 5px; }
         
@@ -251,15 +254,7 @@
                 </div>
             </div>
 
-            <!-- WhatsApp Community -->
-            <div class="card wa-box">
-                <div class="card-body">
-                    <div class="wa-icon"><i class="fa-brands fa-whatsapp"></i></div>
-                    <h5 class="wa-title">Join Our Community</h5>
-                    <p class="wa-desc">Get daily deals and offers directly on WhatsApp!</p>
-                    <button class="btn-wa"><i class="fa-solid fa-user-group"></i> Join Group</button>
-                </div>
-            </div>
+           
 
             <!-- Accessories -->
             <div class="card">
@@ -503,6 +498,15 @@
                             <span>4 days ago</span>
                         </div>
                     </div>
+                </div>
+            </div>
+             <!-- WhatsApp Community -->
+            <div class="card wa-box">
+                <div class="card-body">
+                    <div class="wa-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                    <h5 class="wa-title">Join Our Community</h5>
+                    <p class="wa-desc">Get daily deals and offers directly on WhatsApp!</p>
+                    <button class="btn-wa"><i class="fa-solid fa-user-group"></i> Join Group</button>
                 </div>
             </div>
 
