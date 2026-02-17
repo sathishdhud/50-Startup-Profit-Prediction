@@ -102,8 +102,14 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Roboto', sans-serif; background: var(--bg-body); color: var(--text-dark); line-height: 1.5; -webkit-font-smoothing: antialiased; }
-    a { text-decoration: none; color: inherit; transition: 0.2s; }
+  html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+ a { text-decoration: none; color: inherit; transition: 0.2s; }
     ul { list-style: none; }
     img { max-width: 100%; display: block; }
     button { cursor: pointer; font-family: inherit; border: none; }
@@ -118,10 +124,7 @@
     .fw-bold { font-weight: 700; }
 
     /* --- HEADER --- */
-    .top-bar {
-         background: #111; color: #fff; font-size: 11px; padding: 6px 0; text-align: left;
-         width: 100%;
-        }
+    
     .main-header { background: #fff; padding: 15px 0; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; }
     .header-flex { display: flex; justify-content: space-between; align-items: center; }
     .logo { font-size: 24px; font-weight: 900; letter-spacing: -1px; color: var(--text-dark); }
@@ -138,6 +141,10 @@
 
     /* --- GRID LAYOUT --- */
     .main-grid { display: grid; grid-template-columns: 1fr; gap: 20px; padding-bottom: 40px; }
+    .main-grid > * {
+  min-width: 0;
+}
+
     
     /* Desktop Layout */
     @media (min-width: 992px) {
@@ -280,7 +287,11 @@
         .store-row { flex-direction: column; align-items: flex-start; gap: 8px; }
         .store-info { width: 100%; justify-content: space-between; }
         .price-tag { font-size: 16px; }
-        .breadcrumb-area {margin-left: 20px;}
+        .breadcrumb-area {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
         .btn-buy { width: auto; padding: 6px 20px; }
         .store-action { width: 100%; display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed #eee; padding-top: 8px; margin-top: 5px; }
         
@@ -292,12 +303,44 @@
             .hl-table td:first-child { color: var(--primary); font-size: 11px; text-transform: uppercase; }
         }
     }
+
+   .top-bar {
+  width: 100%;
+  background: #111;
+  color: #fff;
+}
+
+.top-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.top-bar h5 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Slightly bigger text on desktop */
+@media (min-width: 768px) {
+    .top-bar h5 {
+        font-size: 13px;
+    }
+}
+
 </style>
 </head>
 <body>
 
-    <!-- Top Bar -->
-    <div class="top-bar"><h5>India's #1 Gadgets Research Portal</h5></div>
+   <!-- Top Bar -->
+<div class="top-bar">
+    <div class="top-bar-inner">
+        <h5>India's #1 Gadgets Research Portal</h5>
+    </div>
+</div>
+
 
     <!-- Header -->
     <header class="main-header">
