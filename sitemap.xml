@@ -203,6 +203,12 @@
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
   </url>
+  <url>
+      <loc>https://maaney.store/news/android/android-17-beta-pixel</loc>
+      <lastmod>2026-02-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+  </url>
 
 
 </urlset>
