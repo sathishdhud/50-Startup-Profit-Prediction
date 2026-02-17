@@ -2,1479 +2,1058 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Tecno Camon 40 Pro – Full Specs, Competitors & Comparisons</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tecno Camon 40 Pro – Full Specs & Comparisons</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Unbounded:wght@300..700&display=swap" rel="stylesheet">
 
+<style>
+    /* --- RESET & VARIABLES --- */
+    :root {
+        --primary-orange: #ff6600;
+        --secondary-orange: #ff8533;
+        --text-black: #000000;
+        --text-dark-gray: #333333;
+        --text-light-gray: #666666;
+        --bg-white: #ffffff;
+        --bg-light-gray: #f8f9fa;
+        --border-color: #e0e0e0;
+        --shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
 
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+        overflow-x: hidden; /* PREVENTS HORIZONTAL SCROLL */
+        width: 100%;
+    }
+
+    body {
+        font-family: 'Unbounded', sans-serif;
+        background-color: var(--bg-light-gray);
+        color: var(--text-black);
+        line-height: 1.5;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* --- UTILITIES --- */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .fjalla { font-family: 'Fjalla One', sans-serif; }
+    .text-orange { color: var(--primary-orange); }
+    .mb-20 { margin-bottom: 20px; }
+    .mt-20 { margin-top: 20px; }
+
+    /* --- HEADER --- */
+    .site-header {
+        background: var(--bg-white);
+        border-bottom: 2px solid var(--primary-orange);
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .brand-title {
+        font-size: 22px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .buy-btn {
+        background-color: var(--primary-orange);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+        transition: background 0.2s;
+        font-size: 14px;
+    }
+    .buy-btn:hover { background-color: #e65c00; }
+
+    /* --- PAGE TITLE --- */
+    .page-header {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .page-header h1 {
+        font-size: 24px;
+        font-family: 'Fjalla One', sans-serif;
+    }
+    .page-header span {
+        font-size: 13px;
+        color: var(--text-light-gray);
+    }
+
+    /* --- HERO SECTION (MAIN LAYOUT) --- */
+    .hero-section {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 30px;
+        margin-bottom: 40px;
+        align-items: start;
+    }
+
+    /* Left: Phone Card */
+    .phone-card {
+        background: var(--bg-white);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        text-align: center;
+        position: relative;
+        margin: 0 auto; /* Center on mobile if grid collapses */
+        width: 100%;
+    }
+
+    .upcoming-badge {
+        background: var(--text-black);
+        color: white;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 11px;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        z-index: 2;
+    }
+
+    .score-badge {
+        background-color: rgba(34, 197, 94, 1);
+        color: white;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 13px;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        z-index: 2;
+    }
+    .score-badge span { font-size: 9px; font-weight: normal; }
+
+    .phone-img {
+        margin: 20px 0 10px 0;
+        min-height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .phone-img img {
+        max-height: 280px;
+        object-fit: contain;
+    }
+
+    .view-photos {
+        color: var(--primary-orange);
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    /* Right: Content */
+    .specs-main {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    /* Affiliate Section */
+    .affiliate-box {
+        background: var(--bg-white);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: var(--shadow);
+    }
+    .affiliate-box h3 { font-size: 16px; margin-bottom: 15px; color: var(--text-black); }
+
+    .affiliate-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        margin-bottom: 10px;
+        transition: border-color 0.2s;
+        background: white;
+        flex-wrap: wrap; /* Helps on small screens */
+    }
+    .affiliate-card:hover { border-color: var(--primary-orange); }
+
+    .store-info { display: flex; gap: 12px; align-items: center; flex: 1; min-width: 150px; }
+    .store-info img { height: 28px; width: auto; object-fit: contain; }
+    .store-name { display: block; font-weight: 700; font-size: 15px; }
+    .store-sub { font-size: 12px; color: var(--text-light-gray); display: block; }
+
+    .price-info { text-align: right; margin-right: 10px; min-width: 100px; }
+    .price { color: var(--text-black); font-weight: 700; font-size: 18px; display: block; }
+    .old-price { color: #dc2626; text-decoration: line-through; font-size: 12px; }
+
+    /* Flipkart Toggle */
+    .store-card { margin-bottom: 10px; }
+    .store-main { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+    .offers-toggle { color: var(--primary-orange); font-size: 12px; cursor: pointer; text-decoration: underline; }
+    .offers-box {
+        display: none;
+        background: #fff3e0;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 4px;
+        font-size: 13px;
+        border-left: 3px solid var(--primary-orange);
+        width: 100%;
+    }
+    .offers-box li { margin-bottom: 4px; list-style: disc; margin-left: 15px; }
+
+    /* Specs Grid */
+    .specs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .spec-block {
+        background: var(--bg-white);
+        border: 1px solid var(--border-color);
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .spec-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 8px;
+    }
+    .spec-heading { font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+    .spec-icon { color: var(--primary-orange); font-size: 14px; }
+
+    .rating { text-align: right; font-size: 11px; }
+    .stars { color: var(--primary-orange); }
+    .stars .fa-regular { color: #ccc; }
+
+    .spec-list { font-size: 13px; color: var(--text-dark-gray); }
+    .spec-list li { margin-bottom: 4px; line-height: 1.4; }
+
+    .footer-btns {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    .btn-outline { background: white; border: 1px solid var(--primary-orange); color: var(--primary-orange); padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: 600; width: 100%; }
+    .btn-solid { background: var(--text-black); color: white; border: 1px solid var(--text-black); padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: 600; width: 100%; }
+
+    /* --- SECTIONS --- */
+    .section-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 40px 0 20px 0;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+    }
+    .section-title h2 { font-size: 20px; font-family: 'Fjalla One', sans-serif; border-left: 5px solid var(--primary-orange); padding-left: 10px; line-height: 1; }
+    .section-title a { color: var(--primary-orange); font-weight: 600; font-size: 13px; }
+
+    .competitors-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 40px;
+    }
+
+    .card {
+        background: var(--bg-white);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .score-circle {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--primary-orange);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: bold;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+
+    .card img { height: 140px; object-fit: contain; margin: 10px 0; width: 100%; }
+    .card h4 { font-size: 15px; margin-bottom: 5px; min-height: 40px; display: flex; align-items: center; justify-content: center; }
+    .status { font-size: 12px; color: green; margin-bottom: 5px; }
+    .card .price { display: block; margin-bottom: 10px; font-size: 17px; font-weight: 700; }
+    .card .buy { display: inline-block; color: var(--primary-orange); font-weight: 600; font-size: 13px; }
+
+    .similar-list { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+    .similar-list a {
+        background: var(--bg-white);
+        border: 1px solid var(--border-color);
+        padding: 6px 15px;
+        border-radius: 20px;
+        font-size: 13px;
+        color: var(--text-black);
+        transition: all 0.2s;
+    }
+    .similar-list a:hover { border-color: var(--primary-orange); color: var(--primary-orange); }
+
+    /* --- FULL SPECS --- */
+    .specs-container {
+        background: var(--bg-white);
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        margin-bottom: 40px;
+    }
+
+    .tabs {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        margin-bottom: 25px;
+        padding-bottom: 5px;
+        scrollbar-width: none; /* Firefox */
+    }
+    .tabs::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+    .tab {
+        white-space: nowrap;
+        padding: 8px 16px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--text-light-gray);
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+    }
+    .tab.active { background: var(--primary-orange); color: white; border-color: var(--primary-orange); }
+
+    .spec-section { margin-bottom: 25px; }
+    .section-header {
+        font-size: 16px;
+        color: var(--primary-orange);
+        font-weight: 700;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .spec-row {
+        display: flex;
+        padding: 10px 0;
+        border-bottom: 1px solid #f0f0f0;
+        align-items: flex-start;
+    }
+    .spec-label {
+        width: 35%;
+        color: var(--text-light-gray);
+        font-size: 13px;
+        font-weight: 500;
+        padding-right: 10px;
+    }
+    .spec-value {
+        width: 65%;
+        color: var(--text-black);
+        font-size: 13px;
+        font-weight: 600;
+        word-break: break-word; /* Prevents overflow on long text */
+    }
+
+    /* Highlight Box */
+    .highlight-box { background: white; border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 40px; }
+    .highlight-row { display: flex; border-bottom: 1px solid #eee; }
+    .highlight-row:last-child { border-bottom: none; }
+    .highlight-label { width: 30%; padding: 12px 15px; background: #fdfdfd; font-weight: 600; font-size: 13px; color: var(--text-dark-gray); }
+    .highlight-value { width: 70%; padding: 12px 15px; font-size: 13px; color: var(--text-black); word-break: break-word; }
+
+    /* Slider */
+    .slider-wrapper { position: relative; margin-bottom: 40px; }
+    .slider {
+        display: flex;
+        overflow-x: auto;
+        gap: 15px;
+        scroll-behavior: smooth;
+        padding: 10px 5px 20px 5px;
+        scrollbar-width: none;
+    }
+    .slider::-webkit-scrollbar { display: none; }
+    
+    .slider .card { min-width: 160px; flex-shrink: 0; }
+    .image-box { position: relative; height: 160px; display: flex; align-items: center; justify-content: center; }
+    .image-box .score {
+        position: absolute; top: 5px; left: 5px;
+        background: var(--primary-orange); color: white;
+        padding: 3px 6px; border-radius: 4px; font-size: 10px; text-align: center; line-height: 1.2;
+    }
+    .arrow {
+        position: absolute; top: 40%; transform: translateY(-50%);
+        background: white; border: 1px solid #ddd; width: 32px; height: 32px;
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer; border-radius: 50%; box-shadow: var(--shadow);
+        z-index: 10; font-size: 18px;
+    }
+    .arrow.right { right: -10px; }
+    .arrow.left { left: -10px; display: none; } /* Only right arrow for now */
+
+    /* Footer Links */
+    .links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
+    .sub-title { font-weight: 700; margin-bottom: 10px; color: var(--text-black); border-bottom: 2px solid var(--primary-orange); display: inline-block; font-size: 15px; }
+    .link-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dotted #ccc; font-size: 13px; cursor: pointer; }
+    .link-item:hover { color: var(--primary-orange); }
+
+    /* Modal */
+    .gallery-modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0; top: 0; width: 100%; height: 100%;
+        background-color: rgba(0,0,0,0.95);
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .gallery-content { position: relative; width: 90%; max-width: 500px; }
+    .gallery-content img { width: 100%; border: 2px solid white; border-radius: 4px; }
+    .nav { position: absolute; top: 50%; color: white; font-size: 30px; cursor: pointer; background: transparent; border: none; padding: 10px; }
+    .prev { left: -30px; } .next { right: -30px; }
+    .close-btn { position: absolute; top: 20px; right: 25px; color: white; font-size: 35px; cursor: pointer; }
+    .thumbs { display: flex; gap: 10px; margin-top: 20px; justify-content: center; flex-wrap: wrap; }
+    .thumbs img { width: 50px; height: 50px; object-fit: cover; cursor: pointer; border: 2px solid transparent; opacity: 0.6; }
+    .thumbs img:hover, .thumbs img.active { border-color: var(--primary-orange); opacity: 1; }
+
+    /* --- RESPONSIVE MEDIA QUERIES (MOBILE LAYOUT) --- */
+    @media (max-width: 768px) {
+        /* Stack Hero Section */
+        .hero-section {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        /* Reorder: Image first, then content */
+        .phone-card { order: 1; }
+        .specs-main { order: 2; }
+
+        /* Affiliate Cards: Vertical Stack */
+        .affiliate-card, .store-main {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 10px;
+        }
+        
+        .store-info { justify-content: center; text-align: center; }
+        .store-info img { margin: 0 auto; }
+        
+        .price-info {
+            text-align: center;
+            margin: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .buy-btn { width: 100%; padding: 12px; }
+
+        /* Specs Grid: 2 columns on mobile */
+        .specs-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        /* Competitors Grid: 2 columns */
+        .competitors-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .card { padding: 10px; }
+        .card img { height: 120px; }
+        
+        /* Full Specs Table: Vertical Layout */
+        .spec-row {
+            flex-direction: column;
+            gap: 2px;
+        }
+        .spec-label, .spec-value {
+            width: 100%;
+        }
+        .spec-label {
+            color: var(--primary-orange);
+            font-weight: 700;
+            font-size: 12px;
+            padding: 0;
+        }
+        .spec-value {
+            color: var(--text-dark-gray);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        /* Highlight Box: Vertical */
+        .highlight-row { flex-direction: column; }
+        .highlight-label, .highlight-value { width: 100%; padding: 10px; border-bottom: 1px solid #eee; }
+        .highlight-label { background: #fdfdfd; }
+
+        /* Links Grid: 1 column */
+        .links-grid { grid-template-columns: 1fr; }
+
+        /* Hide arrows on mobile slider */
+        .arrow { display: none; }
+
+        /* Footer adjustments */
+        .footer-btns { flex-direction: column; }
+    }
+</style>
 </head>
 
 <body>
-<div class="container">
 
 <!-- HEADER -->
-<div class="header">
-<h1 class="fjalla-one-regular">Tecno Camon 40 Pro</h1>
-<div class="buy-btn" style="background-color: #f27507;">+ Compare</div>
-</div>
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="brand-title">
+            <i class="fa-solid fa-mobile-screen-button text-orange"></i> 91Mobiles
+        </div>
+        <div class="header-actions">
+            <a href="#" class="buy-btn">Compare</a>
+        </div>
+    </div>
+</header>
 
-<!-- PRODUCT -->
-<div class="main">
+<div class="container">
 
-<div class="phone-card">
-<div class="upcoming">Upcoming</div>
-<div class="score-badge " style="background-color: rgba(44, 182, 13, 1);">85%<span>Score</span></div>
-<div class="phone-img"><img src="https://i.guim.co.uk/img/media/18badfc0b64b09f917fd14bbe47d73fd92feeb27/189_335_5080_3048/master/5080.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=1562112c7a64da36ae0a5e75075a0d12"></div>
-<a class="view-photos" id="openGallery">View All Photos (5)</a>
+    <!-- PAGE TITLE -->
+    <div class="page-header">
+        <h1 class="fjalla">Tecno Camon 40 Pro</h1>
+        <span>Updated: Oct 24, 2024</span>
+    </div>
 
-</div>
+    <!-- HERO SECTION -->
+    <div class="hero-section">
+        
+        <!-- LEFT: IMAGE -->
+        <div class="phone-card">
+            <div class="upcoming-badge">Upcoming</div>
+            <div class="score-badge">85%<span>Score</span></div>
+            <div class="phone-img">
+                <img src="https://i.guim.co.uk/img/media/18badfc0b64b09f917fd14bbe47d73fd92feeb27/189_335_5080_3048/master/5080.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=1562112c7a64da36ae0a5e75075a0d12" alt="Tecno Camon 40 Pro">
+            </div>
+            <a class="view-photos" id="openGallery">View Photos (5)</a>
+        </div>
 
-<div class="key-specs">
-<h2>Key Specs</h2>
-<div class="android">
-    <i class="fa-brands fa-android android-icon"></i>
-    <span class="fjalla-one-regular">Android v15</span>
-</div>
+        <!-- RIGHT: INFO & BUY -->
+        <div class="specs-main">
+            
+            <!-- Affiliate Section -->
+            <div class="affiliate-box">
+                <h3>Buy From Trusted Stores</h3>
 
-<div class="affiliate-box">
-    <h3>Buy From Trusted Stores</h3>
+                <!-- Amazon -->
+                <a href="https://www.amazon.in/?tag=YOUR_AMAZON_AFFILIATE_ID" target="_blank" rel="nofollow sponsored noopener" class="affiliate-card">
+                    <div class="store-info">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png" alt="Amazon">
+                        <div>
+                            <span class="store-name">Amazon</span>
+                            <span class="store-sub">Fast Delivery</span>
+                        </div>
+                    </div>
+                    <div class="price-info">
+                        <span class="price">₹26,998</span>
+                        <span class="old-price">₹29,999</span>
+                    </div>
+                    <div class="buy-btn">Buy Now</div>
+                </a>
 
-    <div class="affiliate-links">
+                <!-- Flipkart -->
+                <div class="store-card">
+                    <a href="https://www.flipkart.com/?affid=YOUR_ID" target="_blank" rel="nofollow sponsored" class="affiliate-card store-main">
+                        <div class="store-left" style="display:flex; align-items:center; gap:10px; width:100%;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Flipkart_logo.svg" alt="Flipkart" style="height: 25px;">
+                            <div class="store-text">
+                                <div class="store-name">Flipkart</div>
+                                <span class="offers-toggle" onclick="toggleOffers(event)">View Bank Offers</span>
+                            </div>
+                        </div>
+                       <div class="price-info" style="width:100%; justify-content:space-between;">
+                            <div>
+                                <span class="price">₹26,998</span>
+                                <span class="old-price" style="font-size:11px;">₹29,999</span>
+                            </div>
+                            <div class="buy-btn" style="padding: 6px 12px; font-size: 12px;">Buy</div>
+                        </div>
+                    </a>
+                    <!-- Toggleable Offers -->
+                    <div class="offers-box">
+                        <ul>
+                            <li>10% Instant Discount on HDFC Cards</li>
+                            <li>₹1,500 Off on SBI Credit Card EMI</li>
+                            <li>No Cost EMI up to 6 Months</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-        <!-- AMAZON -->
-        <a href="https://www.amazon.in/?tag=YOUR_AMAZON_AFFILIATE_ID"
-   target="_blank"
-   rel="nofollow sponsored noopener"
-   class="affiliate-card amazon">
+            <!-- Quick Specs Grid -->
+            <div>
+                <h3 class="fjalla" style="font-size:18px; margin-bottom:10px; border-bottom:2px solid #eee; padding-bottom:5px;">Key Specs</h3>
+                <div class="specs-grid">
+                    <!-- Performance -->
+                    <div class="spec-block">
+                        <div class="spec-title">
+                            <span class="spec-heading"><i class="fa-solid fa-gauge-high spec-icon"></i> Performance</span>
+                            <div class="rating">
+                                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+                            </div>
+                        </div>
+                        <ul class="spec-list">
+                            <li>Dimensity 7300</li>
+                            <li>Octa Core</li>
+                            <li>8 GB RAM</li>
+                        </ul>
+                    </div>
 
-    <div class="store-info">
-        <img src="https://thumbs.dreamstime.com/b/amazon-logo-editorial-illustrative-white-background-eps-download-vector-jpeg-banner-ai-amazon-logo-editorial-illustrative-208329107.jpg" alt="Amazon">
-        <div>
-            <span class="store-name">Amazon</span>
-            <span class="store-sub">Best Price • Fast Delivery</span>
+                    <!-- Display -->
+                    <div class="spec-block">
+                        <div class="spec-title">
+                            <span class="spec-heading"><i class="fa-solid fa-mobile-screen spec-icon"></i> Display</span>
+                            <div class="rating">
+                                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+                            </div>
+                        </div>
+                        <ul class="spec-list">
+                            <li>6.78" AMOLED</li>
+                            <li>FHD+ Resolution</li>
+                            <li>144 Hz</li>
+                        </ul>
+                    </div>
+
+                    <!-- Camera -->
+                    <div class="spec-block">
+                        <div class="spec-title">
+                            <span class="spec-heading"><i class="fa-solid fa-camera spec-icon"></i> Camera</span>
+                            <div class="rating">
+                                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+                            </div>
+                        </div>
+                        <ul class="spec-list">
+                            <li>50 MP + 8 MP</li>
+                            <li>50 MP Front</li>
+                            <li>4K Video</li>
+                        </ul>
+                    </div>
+
+                    <!-- Battery -->
+                    <div class="spec-block">
+                        <div class="spec-title">
+                            <span class="spec-heading"><i class="fa-solid fa-battery-full spec-icon"></i> Battery</span>
+                            <div class="rating">
+                                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+                            </div>
+                        </div>
+                        <ul class="spec-list">
+                            <li>5200 mAh</li>
+                            <li>45W Charging</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-btns">
+                <button class="btn-outline">Add To Compare</button>
+                <button class="btn-solid">See Full Specs</button>
+            </div>
+
         </div>
     </div>
 
-    <!-- PRICE -->
-    <div class="price-info">
-    <span class="price"
-          style="
-            color:#121212;
-            font-weight:700;
-            font-size:20px;
-            letter-spacing:0.2px;
-          ">
-        ₹26,998
-    </span>
+    <!-- COMPETITORS -->
+    <div class="section-title">
+        <h2>Competitors</h2>
+        <a href="#">View All ›</a>
+    </div>
 
-    <span class="old-price"
-          style="
-            color:#dc2626;
-            text-decoration:line-through;
-            font-size:14px;
-            margin-left:8px;
-          ">
-        ₹29,999
-    </span>
-</div>
-
-
-    <div class="buy-btn">Buy Now</div>
-</a>
-
-
-        <!-- FLIPKART -->
-      <div class="store-card">
-
-    <!-- MAIN ROW (COMPACT) -->
-    <a href="https://www.flipkart.com/?affid=YOUR_ID"
-       target="_blank"
-       rel="nofollow sponsored"
-       class="store-main">
-
-        <div class="store-left">
-            <img src="https://i.pinimg.com/736x/aa/70/8d/aa708d1f97a04f6f5a208213f89e1e67.jpg" alt="Flipkart">
-            <div class="store-text">
-                <div class="store-name">Flipkart</div>
-
-                <!-- ONLY clickable text -->
-                <span class="store-sub" onclick="toggleOffers(event)">
-                    Bank Offers Available
-                </span>
-            </div>
+    <div class="competitors-grid">
+        <div class="card">
+            <div class="score-circle">99%</div>
+            <img src="https://www.top10mobileshop.com/images/top10mobiles.com/thumbnail/product/2024/08/685137324202408060741.jpg">
+            <h4>iQOO Neo 10R</h4>
+            <div class="status">Available</div>
+            <div class="price">₹26,998</div>
+            <a href="#" class="buy">Buy Now ›</a>
         </div>
+        <div class="card">
+            <div class="score-circle">95%</div>
+            <img src="https://cdn.beebom.com/mobile/tecno-phantom-v-fold-2/tecno-phantom-v-fold2-front-back-2.png">
+            <h4>Tecno Pova 5G</h4>
+            <div class="status">Upcoming</div>
+            <div class="price">₹24,999</div>
+            <a href="#" class="buy">View Details ›</a>
+        </div>
+        <div class="card">
+            <div class="score-circle">88%</div>
+            <img src="https://www.top10mobileshop.com/images/top10mobiles.com/thumbnail/product/2024/06/923819279202406170523.jpeg">
+            <h4>Vivo V50</h4>
+            <div class="status">Available</div>
+            <div class="price">₹31,999</div>
+            <a href="#" class="buy">Buy Now ›</a>
+        </div>
+        <div class="card">
+            <div class="score-circle">92%</div>
+            <img src="https://www.top10mobileshop.com/images/top10mobiles.com/thumbnail/product/2024/06/923819279202406170523.jpeg">
+            <h4>Realme 16 Pro</h4>
+            <div class="status">Available</div>
+            <div class="price">₹33,699</div>
+            <a href="#" class="buy">Buy Now ›</a>
+        </div>
+    </div>
 
-       <div class="price-info">
-    <span class="price"
-          style="
-            color:#121212;
-            font-weight:700;
-            font-size:20px;
-            letter-spacing:0.2px;
-          ">
-        ₹26,998
-    </span>
-
-    <span class="old-price"
-          style="
-            color:#dc2626;
-            text-decoration:line-through;
-            font-size:14px;
-            margin-left:8px;
-          ">
-        ₹29,999
-    </span>
-</div>
-
-
-        <div class="buy-btn">Buy Now</div>
-    </a>
-
-    <!-- OFFERS SHOWN BELOW CARD -->
-    <div class="offers-box">
-        <ul>
-            <li>10% Instant Discount on HDFC Cards</li>
-            <li>₹1,500 Off on SBI Credit Card EMI</li>
-            <li>No Cost EMI up to 6 Months</li>
+    <!-- SIMILAR PHONES -->
+    <div class="mb-20">
+        <h3 class="fjalla" style="font-size: 18px; margin-bottom: 15px;">Similar Phones</h3>
+        <ul class="similar-list">
+            <li><a href="#" class="phone-link">Motorola Edge 70</a></li>
+            <li><a href="#" class="phone-link">Redmi Note 15</a></li>
+            <li><a href="#" class="phone-link">POCO M8</a></li>
+            <li><a href="#" class="phone-link">OnePlus Nord CE</a></li>
+            <li><a href="#" class="phone-link">Moto G67</a></li>
+            <li><a href="#" class="phone-link">Vivo V60e</a></li>
+            <li><a href="#" class="phone-link">Realme P4x</a></li>
+            <li><a href="#" class="phone-link">Oppo K13 5G</a></li>
         </ul>
     </div>
 
-</div>
-
-
-
-    </div>
-</div>
-
-
-
-<div class="spec-block">
-<div class="spec-title">
-    <i class="fa-solid fa-gauge-high spec-icon"></i>
-    <span class="spec-heading">Performance</span>
-
-    <div class="rating">
-         
-    <div class="stars">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-regular fa-star"></i>
-    </div>
-        <label>Very Good</label>
-    </div>
-</div>
-
-<ul class="spec-list">
-<li>MediaTek Dimensity 7300 Ultimate</li>
-<li>Octa Core (2.5 GHz + 2 GHz)</li>
-<li>8 GB RAM</li>
-</ul>
-</div>
-
-<div class="spec-block">
-<div class="spec-title">
-   <div class="rating">
-         
-    <div class="stars">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-regular fa-star"></i>
-    </div>
-        <label>Very Good</label>
-    </div>
-</div>
-
-<ul class="spec-list">
-<li>6.78″ AMOLED Curved</li>
-<li>FHD+ Resolution</li>
-<li>144 Hz Refresh Rate</li>
-<li>Gorilla Glass Protection</li>
-</ul>
-</div>
-
-<div class="spec-block">
-<div class="spec-title">
-    <i class="fa-solid fa-camera spec-icon"></i>
-    <span class="spec-heading">Rear Camera</span>
-
-    <div class="rating">
-         
-    <div class="stars">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-regular fa-star"></i>
-    </div>
-        <label>Very Good</label>
-    </div>
-</div>
-
-<ul class="spec-list">
-<li>50 MP + 8 MP Dual Camera</li>
-<li>Dual LED Flash</li>
-<li>4K @60 fps Video</li>
-</ul>
-</div>
-
-<div class="spec-block">
-<div class="spec-title">
-    <i class="fa-solid fa-camera-rotate spec-icon"></i>
-    <span class="spec-heading">Front Camera</span>
-
-    <div class="rating">
-         
-    <div class="stars">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-regular fa-star"></i>
-    </div>
-        <label>Very Good</label>
-    </div>
-</div>
-
-<ul class="spec-list">
-<li>50 MP Wide Angle</li>
-<li>4K @30 fps Video</li>
-</ul>
-</div>
-
-<div class="spec-block">
-<div class="spec-title">
-    <i class="fa-solid fa-battery-full spec-icon"></i>
-    <span class="spec-heading">Battery</span>
-
-    <div class="rating">
-         
-    <div class="stars">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-regular fa-star"></i>
-    </div>
-        <label>Very Good</label>
-    </div>
-</div>
-
-<ul class="spec-list">
-<li>5200 mAh</li>
-<li>45W Super Charging</li>
-</ul>
-</div>
-
-<div class="spec-block">
-<div class="spec-title">
-    <i class="fa-solid fa-gear spec-icon"></i>
-    <ul class="spec-list"><span class="spec-heading">General</span></ul>
-</div>
-
-<ul class="spec-list">
-<li>Dual SIM (Nano + Nano)</li>
-<li>5G Supported</li>
-<li>256 GB Storage (Non-expandable)</li>
-<li>Dust & Water Resistant</li>
-</ul>
-</div>
-
-<div class="footer-btns">
-<button class="add-compare">Add To Compare</button>
-<button class="full-specs">See Full Specs</button>
-</div>
-
-</div>
-</div>
-
-<!-- COMPETITORS -->
-<div class="section-title">
-<h2>Competitors For Tecno Camon 40 Pro</h2>
-<a href="#">View Alternatives ›</a>
-</div>
-
-<div class="competitors">
-
-<div class="cards">
-  
-
-<div class="card">
-<div class="score-circle" style="--percent:99;">
-    <span>99%</span>
-</div>
-<div>
-  <img src="https://www.top10mobileshop.com/images/top10mobiles.com/thumbnail/product/2024/08/685137324202408060741.jpg">
-<h4>iQOO Neo 10R</h4>
-<div class="status">Available</div>
-<div class="price">₹26,998</div>
-<a 
-  href="https://www.amazon.in/dp/YOUR_AFFILIATE_PRODUCT_ID?tag=yourtag-21"
-  class="buy"
-  target="_blank"
-  rel="nofollow sponsored noopener"
->
-  Buy From Amazon ›
-</a>
-
-</div>
-</div>
-
-
-
-<div class="card">
-<div class="score-circle" style="--percent:99;">
-    <span>99%</span>
-</div>
-<div>
-  <img src="https://www.top10mobileshop.com/images/top10mobiles.com/thumbnail/product/2024/08/685137324202408060741.jpg">
-<h4>iQOO Neo 10R</h4>
-<div class="status">Available</div>
-<div class="price">₹26,998</div>
-<a 
-  href="https://www.amazon.in/dp/YOUR_AFFILIATE_PRODUCT_ID?tag=yourtag-21"
-  class="buy"
-  target="_blank"
-  rel="nofollow sponsored noopener"
->
-  Buy From Amazon ›
-</a>
-
-</div>
-</div>
-
-<div class="card">
-<div class="score-circle" style="--percent:99;">
-    <span>99%</span>
-</div>
-<div>
-  <img src="https://www.top10mobileshop.com/images/top10mobiles.com/thumbnail/product/2024/08/685137324202408060741.jpg">
-<h4>iQOO Neo 10R</h4>
-<div class="status">Available</div>
-<div class="price">₹26,998</div>
-<a 
-  href="https://www.amazon.in/dp/YOUR_AFFILIATE_PRODUCT_ID?tag=yourtag-21"
-  class="buy"
-  target="_blank"
-  rel="nofollow sponsored noopener"
->
-  Buy From Amazon ›
-</a>
-
-</div>
-</div>
-
-<div class="card">
-<div class="score-circle" style="--percent:88;">
-    <span>88%</span>
-</div>
-<img src="vivo.png">
-<h4>Vivo V50</h4>
-<div class="status">Available</div>
-<div class="price">₹31,999</div>
-<div class="buy">Buy From Amazon ›</div>
-
-
-</div>
-
-</div>
-
-<div class="similar">
-<h3>Similar Phones</h3>
-<ul class="phone-list">
-    <li><a href="#" class="phone-link">Motorola Edge 70</a></li>
-    <li><a href="#" class="phone-link">Xiaomi Redmi Note 15</a></li>
-    <li><a href="#" class="phone-link">POCO M8</a></li>
-    <li><a href="#" class="phone-link">OnePlus Nord CE 5G</a></li>
-    <li><a href="#" class="phone-link">Moto G67 Power</a></li>
-    <li><a href="#" class="phone-link">Vivo V60e</a></li>
-    <li><a href="#" class="phone-link">Realme P4x</a></li>
-    <li><a href="#" class="phone-link">Oppo K13 5G</a></li>
-    <li><a href="#" class="phone-link">Vivo T4 Pro</a></li>
-</ul>
-
-</div>
-
-</div>
-
-<!-- RECENTLY VIEWED -->
-<div class="section-title">
-<h2>Recently Viewed & Recommended</h2>
-</div>
-
-<div class="recent-grid">
-
-  <!-- Card 1 -->
-  <div class="recent-card">
-    <div class="score-circle" style="--percent:99;">
-    <span>99%</span>
-</div>
-
-    <img src="https://cdn.beebom.com/mobile/tecno-phantom-v-fold-2/tecno-phantom-v-fold2-front-back-2.png" alt="Xiaomi 17 Pro Max">
-
-    <h4>Xiaomi 17 Pro Max</h4>
-
-    <div class="price upcoming-price">Expected ₹89,999</div>
-    
-
-    <a href="https://www.amazon.in/?tag=yourtag-21"
-       class="buy-btn"
-       target="_blank"
-       rel="nofollow sponsored noopener">
-       Buy on Amazon
-    </a>
-  </div>
-
-  <div class="recent-card">
-    <div class="score-circle" style="--percent:99;">
-    <span>99%</span>
-</div>
-
-    <img src="https://cdn.beebom.com/mobile/tecno-phantom-v-fold-2/tecno-phantom-v-fold2-front-back-2.png" alt="Xiaomi 17 Pro Max">
-
-    <h4>Xiaomi 17 Pro Max</h4>
-
-    <div class="price upcoming-price">Expected ₹89,999</div>
-    
-
-    <a href="https://www.amazon.in/?tag=yourtag-21"
-       class="buy-btn"
-       target="_blank"
-       rel="nofollow sponsored noopener">
-       Buy on Amazon
-    </a>
-  </div>
-  <div class="recent-card">
-    <div class="score-circle" style="--percent:99;">
-    <span>99%</span>
+    <!-- FULL SPECS -->
+    <div class="section-title">
+        <h2>Full Specifications</h2>
     </div>
 
-    <img src="https://cdn.beebom.com/mobile/tecno-phantom-v-fold-2/tecno-phantom-v-fold2-front-back-2.png" alt="Xiaomi 17 Pro Max">
-
-    <h4>Xiaomi 17 Pro Max</h4>
-
-    <div class="price upcoming-price">Expected ₹89,999</div>
-   
-
-    <a href="https://www.amazon.in/?tag=yourtag-21"
-       class="buy-btn"
-       target="_blank"
-       rel="nofollow sponsored noopener">
-       Buy on Amazon
-    </a>
-  </div>
-  <!-- Card 2 -->
-  <div class="recent-card">
-    <div class="score-circle" style="--percent:99;">
-    <span>99%</span>
-    </div>
-
-    <img src="https://www.top10mobileshop.com/images/top10mobiles.com/thumbnail/product/2024/06/923819279202406170523.jpeg" alt="Realme 16 Pro">
-
-    <h4>Realme 16 Pro</h4>
-
-    <div class="price">₹33,699</div>
-
-    <a href="https://www.amazon.in/?tag=yourtag-21"
-       class="buy-btn"
-       target="_blank"
-       rel="nofollow sponsored noopener">
-       Buy on Amazon
-    </a>
-  </div>
-
-  <!-- Card 3 -->
-  <div class="recent-card">
-    <div class="score-circle" style="--percent:99;">
-    <span>99%</span>
-    </div>
-
-    <img src="https://www.top10mobileshop.com/images/top10mobiles.com/thumbnail/product/2024/06/923819279202406170523.jpeg" alt="Vivo V60 Lite">
-
-    <h4>Vivo V60 Lite</h4>
-
-    <div class="price upcoming-price">Expected ₹24,999</div>
-    
-
-    <a href="https://www.amazon.in/?tag=yourtag-21"
-       class="buy-btn"
-       target="_blank"
-       rel="nofollow sponsored noopener">
-       Buy on Amazon
-    </a>
-  </div>
-
-  <!-- Card 4 -->
-  <div class="recent-card">
-    <div class="score-circle" style="--percent:99;">
-    <span>99%</span>
-</div>
-    <img src="moto.png" alt="Motorola Signature">
-
-    <h4>Motorola Signature</h4>
-
-    <div class="price upcoming-price">Expected ₹19,999</div>
-    
-
-    <a href="https://www.amazon.in/?tag=yourtag-21"
-       class="buy-btn"
-       target="_blank"
-       rel="nofollow sponsored noopener">
-       Buy on Amazon
-    </a>
-  </div>
-
-</div>
-
-
-<!-- POPULAR COMPARISONS -->
-<div class="section-title">
-<h2>Popular Comparisons</h2>
-</div>
-
-<div class="compare-list">
-<div class="compare-item"><img src="https://www.top10mobileshop.com/images/top10mobiles.com/thumbnail/product/2024/06/923819279202406170523.jpeg">Tecno Camon 40 Pro <strong>vs</strong> <img src="https://www.top10mobileshop.com/images/top10mobiles.com/thumbnail/product/2024/06/923819279202406170523.jpeg">iQOO Z10</div>
-<div class="compare-item"><img src="phone.png">Tecno Camon 40 Pro <strong>vs</strong> iQOO Neo 10R</div>
-<div class="compare-item"><img src="phone.png">Tecno Camon 40 Pro <strong>vs</strong> Tecno Pova Curve 5G</div>
-<div class="compare-item"><img src="phone.png">Tecno Camon 40 Pro <strong>vs</strong> Motorola Edge 60 Pro</div>
-</div>
-
-
-</div>
-<div class="container">
-
-    <!-- TITLE -->
-    <div class="page-title">Tecno Camon 40 Pro Specifications</div>
-
-    <!-- TABS -->
-    <div class="tabs">
-        <div class="tab active">General</div>
-        <div class="tab">Performance</div>
-        <div class="tab">Display</div>
-        <div class="tab">Design</div>
-        <div class="tab">Rear Camera</div>
-        <div class="tab">Front Camera</div>
-        <div class="tab">Battery</div>
-        <div class="tab">Storage</div>
-        <div class="tab">Connectivity</div>
-    </div>
-
-    <!-- SPEC CARD -->
-    <div class="spec-card">
+    <div class="specs-container">
+        <div class="tabs">
+            <div class="tab active">General</div>
+            <div class="tab">Performance</div>
+            <div class="tab">Display</div>
+            <div class="tab">Camera</div>
+            <div class="tab">Battery</div>
+        </div>
 
         <!-- GENERAL -->
-        <div class="section-header">General</div>
-
-        <div class="spec-row">
-            <div class="spec-label">Operating System</div>
-            <div class="spec-value">Android v15</div>
+        <div class="spec-section">
+            <div class="section-header"><i class="fa-solid fa-circle-info"></i> General</div>
+            <div class="spec-row">
+                <div class="spec-label">OS</div>
+                <div class="spec-value">Android v15</div>
+            </div>
+            <div class="spec-row">
+                <div class="spec-label">Custom UI</div>
+                <div class="spec-value">HiOS</div>
+            </div>
         </div>
-
-        <div class="spec-row">
-            <div class="spec-label">OS Updates</div>
-            <div class="spec-value">3 Years</div>
-        </div>
-
-        <div class="spec-row">
-            <div class="spec-label">Custom UI</div>
-            <div class="spec-value">HiOS</div>
-        </div>
-
-        <div class="divider"></div>
 
         <!-- PERFORMANCE -->
-        <div class="performance-header">
-            <h3>Performance</h3>
-
-            <div class="rating-wrap">
-                <div class="rating-bar">
-                    <span class="active"></span>
-                    <span class="active"></span>
-                    <span class="active"></span>
-                    <span class="active"></span>
-                    <span></span>
-                </div>
-                <div class="rating-text">(Very Good)</div>
-                <div class="caret">⌃</div>
+        <div class="spec-section">
+            <div class="section-header"><i class="fa-solid fa-microchip"></i> Performance</div>
+            <div class="spec-row">
+                <div class="spec-label">Chipset</div>
+                <div class="spec-value">MediaTek Dimensity 7300 Ultimate</div>
+            </div>
+            <div class="spec-row">
+                <div class="spec-label">CPU</div>
+                <div class="spec-value">Octa core (2.5 GHz, Quad core, Cortex A78 + 2 GHz, Quad core, Cortex A55)</div>
+            </div>
+            <div class="spec-row">
+                <div class="spec-label">RAM</div>
+                <div class="spec-value">8 GB</div>
             </div>
         </div>
 
-        <div class="spec-row">
-            <div class="spec-label">Chipset</div>
-            <div class="spec-value">MediaTek Dimensity 7300 Ultimate</div>
-        </div>
-
-        <div class="spec-row">
-            <div class="spec-label">CPU</div>
-            <div class="spec-value">
-                Octa core (2.5 GHz, Quad core, Cortex A78 +  
-                2 GHz, Quad core, Cortex A55)
+        <!-- DISPLAY -->
+        <div class="spec-section">
+            <div class="section-header"><i class="fa-solid fa-desktop"></i> Display</div>
+            <div class="spec-row">
+                <div class="spec-label">Size</div>
+                <div class="spec-value">6.78 inches (17.22 cm)</div>
+            </div>
+            <div class="spec-row">
+                <div class="spec-label">Resolution</div>
+                <div class="spec-value">1080x2436 px (FHD+)</div>
+            </div>
+            <div class="spec-row">
+                <div class="spec-label">Refresh Rate</div>
+                <div class="spec-value">144 Hz</div>
             </div>
         </div>
 
-        <div class="spec-row">
-            <div class="spec-label">Architecture</div>
-            <div class="spec-value">64 bit</div>
-        </div>
-
-        <div class="spec-row">
-            <div class="spec-label">Fabrication</div>
-            <div class="spec-value">4 nm</div>
-        </div>
-
-        <div class="spec-row">
-            <div class="spec-label">Graphics (GPU)</div>
-            <div class="spec-value">Mali-G615 MC2</div>
-        </div>
-
-        <div class="spec-row">
-            <div class="spec-label">RAM</div>
-            <div class="spec-value">8 GB</div>
-        </div>
-
-    </div>
-    <div class="container">
-
-    <!-- FEATURED -->
-    <div class="section-title">Featured</div>
-
-    <div class="featured">
-        <img src="https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Communication/Mobiles/Images/304761_0_coxfuc.png?tr=w-600" alt="iQOO Neo 10R">
-        <div class="featured-info">
-            <h4>iQOO Neo 10R</h4>
-            <div class="featured-price">
-                ₹26,998
-                <span>amazon.in</span>
+        <!-- CAMERA -->
+        <div class="spec-section">
+            <div class="section-header"><i class="fa-solid fa-camera"></i> Camera</div>
+            <div class="spec-row">
+                <div class="spec-label">Rear</div>
+                <div class="spec-value">50 MP + 8 MP Dual Camera</div>
+            </div>
+            <div class="spec-row">
+                <div class="spec-label">Features</div>
+                <div class="spec-value">Dual LED Flash, OIS</div>
+            </div>
+            <div class="spec-row">
+                <div class="spec-label">Front</div>
+                <div class="spec-value">50 MP Wide Angle</div>
             </div>
         </div>
-        <a href="https://www.flipkart.com/?affid=YOUR_ID"
-   class="go-store"
-   target="_blank"
-   rel="nofollow sponsored noopener">
-   Go To Store
-</a>
 
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- DISPLAY -->
-    <div class="display-header">
-        <h3>Display</h3>
-
-        <div class="rating">
-            <div class="bar">
-                <span class="active"></span>
-                <span class="active"></span>
-                <span class="active"></span>
-                <span class="active"></span>
-                <span class="active"></span>
+        <!-- BATTERY -->
+        <div class="spec-section">
+            <div class="section-header"><i class="fa-solid fa-battery-full"></i> Battery</div>
+            <div class="spec-row">
+                <div class="spec-label">Capacity</div>
+                <div class="spec-value">5200 mAh</div>
             </div>
-            <div class="rating-text">(Excellent)</div>
-            <div class="caret">⌄</div>
-        </div>
-    </div>
-
-    <!-- DISPLAY SPECS -->
-    <div class="spec-row">
-        <div class="spec-label">Display Type</div>
-        <div class="spec-value">AMOLED (Curved Display)</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Screen Size</div>
-        <div class="spec-value">6.78 inches (17.22 cm)</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Resolution</div>
-        <div class="spec-value">1080x2436 px (FHD+)</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Refresh Rate</div>
-        <div class="spec-value">144 Hz</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Pixel Density</div>
-        <div class="spec-value">393 ppi</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Screen to Body Ratio (calculated)</div>
-        <div class="spec-value">89.23 %</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Screen Protection</div>
-        <div class="spec-value">Corning Gorilla Glass, Glass 7i</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Bezel-less Display</div>
-        <div class="spec-value">Yes with punch-hole display</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Screen to Body Ratio (claimed by the brand)</div>
-        <div class="spec-value">94 %</div>
-    </div>
-
-</div>
-<div class="container">
-
-    <!-- DESIGN -->
-    <div class="section-title">Design</div>
-
-    <div class="spec-row">
-        <div class="spec-label">Height</div>
-        <div class="spec-value">164.32 mm</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Width</div>
-        <div class="spec-value">74.56 mm</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Thickness</div>
-        <div class="spec-value">7.29 mm</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Weight</div>
-        <div class="spec-value">179 grams</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Water Resistance</div>
-        <div class="spec-value">
-            Yes, Water resistant, IP68, IP69<br>
-            (up to 30 minutes in a depth of 2 meter)
-        </div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Ruggedness</div>
-        <div class="spec-value">Dust proof</div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- REAR CAMERA -->
-    <div class="rating-header">
-        <h3>Rear Camera</h3>
-        <div class="rating">
-            <div class="bar">
-                <span class="active"></span>
-                <span class="active"></span>
-                <span class="active"></span>
-                <span class="active"></span>
-                <span></span>
+            <div class="spec-row">
+                <div class="spec-label">Charging</div>
+                <div class="spec-value">45W Super Charging</div>
             </div>
-            <div class="rating-text">(Very Good)</div>
-            <div class="caret">⌄</div>
         </div>
     </div>
 
-    <div class="spec-label" style="margin-bottom:8px;">Resolution</div>
-
-    <div class="table-wrap">
-        <table>
-            <thead>
-                <tr>
-                    <th>Camera</th>
-                    <th>Aperture</th>
-                    <th>Lens Features</th>
-                    <th>Focal Length</th>
-                    <th>Sensor Size</th>
-                    <th>Sensor Name</th>
-                    <th>Pixel Size</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Primary</td>
-                    <td>f/1.9</td>
-                    <td>Wide Angle</td>
-                    <td>23 mm</td>
-                    <td>1/1.56"</td>
-                    <td>Sony LYT 700C</td>
-                    <td>2.0µm</td>
-                </tr>
-                <tr>
-                    <td>Secondary</td>
-                    <td>-</td>
-                    <td>Ultra-Wide Angle</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Autofocus</div>
-        <div class="spec-value">Yes</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">OIS</div>
-        <div class="spec-value">Yes</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Flash</div>
-        <div class="spec-value">Yes, Dual LED Flash</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Image Resolution</div>
-        <div class="spec-value">8150 x 6150 Pixels</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Settings</div>
-        <div class="spec-value">Exposure compensation, ISO control</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Shooting Modes</div>
-        <div class="spec-value">
-            Continuous Shooting<br>
-            High Dynamic Range mode (HDR)
+    <!-- HIGHLIGHTS BOX -->
+    <div class="highlight-box">
+        <div style="padding: 15px; border-bottom: 1px solid #eee;">
+            <h3 class="fjalla" style="color: var(--primary-orange);">Key Highlights</h3>
         </div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Camera Features</div>
-        <div class="spec-value">
-            Digital Zoom<br>
-            Auto Flash<br>
-            Face detection<br>
-            Touch to focus
-        </div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Video Recording</div>
-        <div class="spec-value">
-            4k @60 fps<br>
-            Full HD @30 fps
-        </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- FRONT CAMERA -->
-    <div class="rating-header">
-        <h3>Front Camera</h3>
-        <div class="rating">
-            <div class="bar">
-                <span class="active"></span>
-                <span class="active"></span>
-                <span class="active"></span>
-                <span class="active"></span>
-                <span class="active"></span>
-            </div>
-            <div class="rating-text">(Excellent)</div>
-            <div class="caret">⌄</div>
-        </div>
-    </div>
-
-    <div class="spec-label" style="margin-bottom:8px;">Resolution</div>
-
-    <div class="table-wrap">
-        <table>
-            <thead>
-                <tr>
-                    <th>Camera</th>
-                    <th>MP</th>
-                    <th>Aperture</th>
-                    <th>Lens Features</th>
-                    <th>Focal Length</th>
-                    <th>Sensor Size</th>
-                    <th>Pixel Size</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Primary</td>
-                    <td>50 MP</td>
-                    <td>f/2.5</td>
-                    <td>Wide Angle</td>
-                    <td>24 mm</td>
-                    <td>1/2.8"</td>
-                    <td>0.64µm</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Autofocus</div>
-        <div class="spec-value">Yes, Phase Detection Autofocus</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Video Recording</div>
-        <div class="spec-value">
-            4k @30 fps<br>
-            Full HD @30/60 fps
-        </div>
-    </div>
-
-</div>
-<div class="container">
-
-    <!-- BATTERY -->
-    <div class="rating-header">
-        <h3>Battery</h3>
-        <div class="ratings">
-    <div class="stars">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-regular fa-star"></i>
-    </div>
-    
-    
-</div>
-
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Capacity</div>
-        <div class="spec-value">5200 mAh</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Quick Charging</div>
-        <div class="spec-value">
-            Yes, 45W Super Charging, 50% in 23 minutes
-        </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- STORAGE -->
-    <div class="rating-header">
-        <h3>Storage</h3>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Internal Storage</div>
-        <div class="spec-value">256 GB</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Expandable Storage</div>
-        <div class="spec-value">No</div>
-    </div>
-
-</div>
-<div class="container">
-
-    <!-- NETWORK & CONNECTIVITY -->
-    <div class="section-title">Network & Connectivity</div>
-
-    <div class="spec-row">
-        <div class="spec-label">SIM Slot(s)</div>
-        <div class="spec-value">Dual SIM</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">SIM Type</div>
-        <div class="spec-value">SIM1: Nano, SIM2: Nano</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Network Support</div>
-        <div class="spec-value">5G, 4G</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">VoLTE</div>
-        <div class="spec-value">Yes</div>
-    </div>
-
-    <!-- SIM 1 -->
-    <div class="spec-row">
-        <div class="spec-label">SIM 1</div>
-        <div class="spec-value">
-            5G bands, 4G bands
-            <span class="toggle">Collapse ⌃</span>
-        </div>
-    </div>
-
-    <div class="band-table">
-        <table>
-            <thead>
-                <tr>
-                    <th>Bands</th>
-                    <th>Features</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>5G bands</td>
-                    <td>
-                        FDD N3<br>
-                        TDD N40
-                    </td>
-                </tr>
-                <tr>
-                    <td>4G bands</td>
-                    <td>
-                        TD-LTE 2300 (band 40)<br>
-                        FD-LTE 1800 (band 3)
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- SIM 2 -->
-    <div class="spec-row">
-        <div class="spec-label">SIM 2</div>
-        <div class="spec-value">
-            5G bands, 4G bands
-            <span class="toggle">Expand ⌄</span>
-        </div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Wi-Fi</div>
-        <div class="spec-value">
-            Yes, Wi-Fi 5 (802.11 a/b/g/n/ac) 5GHz
-        </div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Wi-Fi Features</div>
-        <div class="spec-value">Mobile Hotspot</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Bluetooth</div>
-        <div class="spec-value">Yes</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">GPS</div>
-        <div class="spec-value">Yes with A-GPS</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">NFC</div>
-        <div class="spec-value">Yes</div>
-    </div>
-     <div class="section-title">Multimedia</div>
-
-    <div class="spec-row">
-        <div class="spec-label">Stereo Speakers</div>
-        <div class="spec-value">Yes</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Audio Jack</div>
-        <div class="spec-value">USB Type-C</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Audio Features</div>
-        <div class="spec-value">Dolby Atmos</div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- SENSORS -->
-    <div class="section-title">Sensors</div>
-
-    <div class="spec-row">
-        <div class="spec-label">Fingerprint Sensor</div>
-        <div class="spec-value">Yes</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Fingerprint Sensor Position</div>
-        <div class="spec-value">On-screen</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Fingerprint Sensor Type</div>
-        <div class="spec-value">Optical</div>
-    </div>
-
-    <div class="spec-row">
-        <div class="spec-label">Other Sensors</div>
-        <div class="spec-value">
-            Light sensor, Proximity sensor, Accelerometer,
-            Compass, Gyroscope
-        </div>
-    </div>
-    
-
-</div>
-<div class="highlights-header">
-        <div class="highlight-bar"></div>
-        <h2>Tecno Camon 40 Pro Key Highlights</h2>
-    </div>
-
-    <!-- HIGHLIGHTS TABLE -->
-    <div class="highlights-box">
-
         <div class="highlight-row">
             <div class="highlight-label">Processor</div>
             <div class="highlight-value">MediaTek Dimensity 7300 Ultimate</div>
         </div>
-
-        <div class="highlight-row">
-            <div class="highlight-label">RAM &amp; Storage</div>
-            <div class="highlight-value">8 GB RAM + 256 GB</div>
-        </div>
-
         <div class="highlight-row">
             <div class="highlight-label">Display</div>
-            <div class="highlight-value">6.78", 1080 x 2436 Resolution</div>
+            <div class="highlight-value">6.78", 1080 x 2436, 144Hz</div>
         </div>
-
         <div class="highlight-row">
-            <div class="highlight-label">Rear Camera</div>
-            <div class="highlight-value">50 MP + 8 MP</div>
+            <div class="highlight-label">Camera</div>
+            <div class="highlight-value">50 MP + 8 MP Dual</div>
         </div>
-
-        <div class="highlight-row">
-            <div class="highlight-label">Front Camera</div>
-            <div class="highlight-value">50 MP</div>
-        </div>
-
         <div class="highlight-row">
             <div class="highlight-label">Battery</div>
-            <div class="highlight-value">5200 mAh</div>
+            <div class="highlight-value">5200 mAh, 45W Fast Charging</div>
         </div>
-</div>
-
-<div class="section-header">
-    <div class="section-bar"></div>
-    <h2>Popular Mobiles</h2>
-</div>
-
-<!-- SLIDER -->
-<div class="slider-wrapper">
-
-    <div class="slider" id="slider">
-
-        <!-- CARD 1 -->
-        <div class="card">
-            <div class="image-box">
-                <div class="score" style="background-color: #f56e1b;">90%<br><span>Spec Score</span></div>
-                <img src="https://www.top10mobileshop.com/images/top10mobiles.com/thumbnail/product/2024/06/923819279202406170523.jpeg">
-            </div>
-            <div class="card-body">
-                <h4>Oppo Reno15</h4>
-                <div class="price">₹45,999</div>
-                <a 
-                href="https://www.amazon.in/dp/YOUR_AFFILIATE_PRODUCT_ID?tag=yourtag-21"
-                class="buy"
-                target="_blank"
-                rel="nofollow sponsored noopener"
-                >
-                Buy From Amazon ›
-                </a>
-            </div>
+        <div class="highlight-row">
+            <div class="highlight-label">RAM</div>
+            <div class="highlight-value">8 GB RAM</div>
         </div>
-
-        <!-- CARD 2 -->
-        <div class="card">
-            <div class="image-box">
-                <div class="score"  style="background-color: #f56e1b;">90%<br><span>Spec Score</span></div>
-                <img src="realmeplus.png">
-            </div>
-            <div class="card-body">
-                <h4>Realme 16 Pro Plus</h4>
-                <div class="price">₹39,999</div>
-                <a 
-                href="https://www.amazon.in/dp/YOUR_AFFILIATE_PRODUCT_ID?tag=yourtag-21"
-                class="buy"
-                target="_blank"
-                rel="nofollow sponsored noopener"
-                >
-                Buy From Amazon ›
-                </a>
-            </div>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="card">
-            <div class="image-box">
-                <div class="score" style="background-color: #f56e1b;">89%<br><span>Spec Score</span></div>
-                <img src="moto.png">
-            </div>
-            <div class="card-body">
-                <h4>Motorola Edge 70</h4>
-                <div class="price">₹29,999</div>
-                <a 
-                href="https://www.amazon.in/dp/YOUR_AFFILIATE_PRODUCT_ID?tag=yourtag-21"
-                class="buy"
-                target="_blank"
-                rel="nofollow sponsored noopener"
-                >
-                Buy From Amazon ›
-                </a>
-            </div>
-        </div>
-
-        <!-- CARD 4 -->
-        <div class="card">
-            <div class="image-box">
-                <img src="https://www.top10mobileshop.com/images/top10mobiles.com/thumbnail/product/2024/06/923819279202406170523.jpeg">
-            </div>
-            <div class="card-body">
-                <h4>Realme 16 Pro</h4>
-                <div class="price">₹33,699</div>
-                <a 
-                href="https://www.amazon.in/dp/YOUR_AFFILIATE_PRODUCT_ID?tag=yourtag-21"
-                class="buy"
-                target="_blank"
-                rel="nofollow sponsored noopener"
-                >
-                Buy From Amazon ›
-                </a>
-            </div>
-        </div>
-
-        <!-- CARD 5 -->
-        <div class="card">
-            <div class="image-box">
-                <div class="score" style="background-color: #f56e1b;">93%<br><span>Spec Score</span></div>
-                <img src="oppomini.png">
-            </div>
-            <div class="card-body">
-                <h4>Oppo Mini</h4>
-                <div class="price">₹59,999</div>
-                <a 
-                href="https://www.amazon.in/dp/YOUR_AFFILIATE_PRODUCT_ID?tag=yourtag-21"
-                class="buy"
-                target="_blank"
-                rel="nofollow sponsored noopener"
-                >
-                Buy From Amazon ›
-                </a>
-            </div>
-        </div>
-
-        <!-- ADD MORE CARDS EASILY -->
-        <div class="card">
-            <div class="image-box">
-                <div class="score" style="background-color: #f56e1b;">91%<br><span>Spec Score</span></div>
-                <img src="vivo.png">
-            </div>
-            <div class="card-body">
-                <h4>Vivo X Lite</h4>
-                <div class="price">₹27,999</div>
-                <a 
-                href="https://www.amazon.in/dp/YOUR_AFFILIATE_PRODUCT_ID?tag=yourtag-21"
-                class="buy"
-                target="_blank"
-                rel="nofollow sponsored noopener"
-                >
-                Buy From Amazon ›
-                </a>
-            </div>
-        </div>
-
     </div>
 
-    <!-- RIGHT ARROW -->
-    <div class="arrow right" onclick="slideRight()">›</div>
+    <!-- POPULAR MOBILES SLIDER -->
+    <div class="section-title">
+        <h2>Popular Mobiles</h2>
+    </div>
+    
+    <div class="slider-wrapper">
+        <div class="arrow right" onclick="slideRight()">›</div>
+        <div class="slider" id="slider">
+            <div class="card">
+                <div class="image-box">
+                    <div class="score">90%</div>
+                    <img src="https://www.top10mobileshop.com/images/top10mobiles.com/thumbnail/product/2024/06/923819279202406170523.jpeg">
+                </div>
+                <div class="card-body" style="padding: 10px; text-align: center;">
+                    <h4>Oppo Reno15</h4>
+                    <div class="price">₹45,999</div>
+                    <a href="#" class="buy">Buy Now</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image-box">
+                    <div class="score">90%</div>
+                    <img src="https://www.top10mobileshop.com/images/top10mobiles.com/thumbnail/product/2024/06/923819279202406170523.jpeg">
+                </div>
+                <div class="card-body" style="padding: 10px; text-align: center;">
+                    <h4>Realme 16 Pro</h4>
+                    <div class="price">₹39,999</div>
+                    <a href="#" class="buy">Buy Now</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image-box">
+                    <div class="score">89%</div>
+                    <img src="https://cdn.beebom.com/mobile/tecno-phantom-v-fold-2/tecno-phantom-v-fold2-front-back-2.png">
+                </div>
+                <div class="card-body" style="padding: 10px; text-align: center;">
+                    <h4>Moto Edge 70</h4>
+                    <div class="price">₹29,999</div>
+                    <a href="#" class="buy">Buy Now</a>
+                </div>
+            </div>
+             <div class="card">
+                <div class="image-box">
+                    <div class="score">91%</div>
+                    <img src="https://www.top10mobileshop.com/images/top10mobiles.com/thumbnail/product/2024/06/923819279202406170523.jpeg">
+                </div>
+                <div class="card-body" style="padding: 10px; text-align: center;">
+                    <h4>Vivo X Lite</h4>
+                    <div class="price">₹27,999</div>
+                    <a href="#" class="buy">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-</div>
-<div class="container">
-
-    <!-- HEADER -->
-    <div class="section-header">
-        <div class="section-bar"></div>
+    <!-- FOOTER LINKS -->
+    <div class="section-title">
         <h2>Popular Links</h2>
     </div>
-
-    <!-- GRID -->
     <div class="links-grid">
-
-        <!-- LEFT COLUMN -->
         <div>
-
-            <div class="single-link">
-                <div>All Upcoming Phones</div>
-                <span>›</span>
-            </div>
-
             <div class="sub-title">Latest Launches</div>
             <div class="link-box">
-                <div class="link-item">
-                    Oppo Reno15 <span>›</span>
-                </div>
-                <div class="link-item">
-                    Realme 16 Pro Plus <span>›</span>
-                </div>
-                <div class="link-item">
-                    Realme 16 pro <span>›</span>
-                </div>
-                <div class="link-item">
-                    Oppo Reno15 Pro Mini <span>›</span>
-                </div>
-                <div class="link-item">
-                    OnePlus 15R <span>›</span>
-                </div>
+                <div class="link-item">Oppo Reno15 <span>›</span></div>
+                <div class="link-item">Realme 16 Pro <span>›</span></div>
+                <div class="link-item">OnePlus 15R <span>›</span></div>
+                <div class="link-item">Vivo V60e <span>›</span></div>
             </div>
-
         </div>
-
-        <!-- RIGHT COLUMN -->
         <div>
-
             <div class="sub-title">By Price</div>
-            <div class="link-box" style="margin-bottom:30px;">
-                <div class="link-item">
-                    Best Phones Under 10,000 <span>›</span>
-                </div>
-                <div class="link-item">
-                    Best Phones Under 15,000 <span>›</span>
-                </div>
-                <div class="link-item">
-                    Best Phones Under 20,000 <span>›</span>
-                </div>
-                <div class="link-item">
-                    Best phones in any price range <span>›</span>
-                </div>
-            </div>
-
-            <div class="sub-title">Phones By Top Brands</div>
             <div class="link-box">
-                <div class="link-item">
-                    Samsung Mobiles <span>›</span>
-                </div>
-                <div class="link-item">
-                    Vivo Mobiles <span>›</span>
-                </div>
-                <div class="link-item highlight">
-                    Motorola Mobiles <span>›</span>
-                </div>
-                <div class="link-item">
-                    Realme Mobiles <span>›</span>
-                </div>
+                <div class="link-item">Under 10,000 <span>›</span></div>
+                <div class="link-item">Under 15,000 <span>›</span></div>
+                <div class="link-item">Under 20,000 <span>›</span></div>
+                <div class="link-item">Best Value Phones <span>›</span></div>
             </div>
-
         </div>
-
     </div>
+
+    <!-- FOOTER -->
+    <footer style="background: var(--text-black); color: white; padding: 30px 0; text-align: center; margin-top: 50px; font-size: 12px;">
+        <div class="container">
+            <p class="fjalla" style="font-size: 18px; margin-bottom: 10px;">91Mobiles</p>
+            <p style="color: #888;">&copy; 2024. All rights reserved.</p>
+        </div>
+    </footer>
 
 </div>
 
+<!-- GALLERY MODAL -->
 <div class="gallery-modal" id="galleryModal">
     <span class="close-btn" id="closeGallery">&times;</span>
-
     <div class="gallery-content">
         <button class="nav prev" id="prevImg">&#10094;</button>
-
-        <img id="galleryImage" src="img1.jpg" alt="Phone Image">
-
+        <img id="galleryImage" src="" alt="Phone Image">
         <button class="nav next" id="nextImg">&#10095;</button>
     </div>
-
     <div class="thumbs">
-        <img src="img1.jpg" onclick="showImage(0)">
-        <img src="img2.jpg" onclick="showImage(1)">
-        <img src="img3.jpg" onclick="showImage(2)">
-        <img src="img4.jpg" onclick="showImage(3)">
-        <img src="img5.jpg" onclick="showImage(4)">
+        <img src="https://images.unsplash.com/photo-1726574686436-5ef90358e032?fm=jpg&q=60&w=500" onclick="showImage(0)">
+        <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?fm=jpg&q=60&w=500" onclick="showImage(1)">
+        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?fm=jpg&q=60&w=500" onclick="showImage(2)">
+        <img src="https://images.unsplash.com/photo-1585060544812-6b45742d762f?fm=jpg&q=60&w=500" onclick="showImage(3)">
     </div>
 </div>
 
-
-
 <script>
-function slideRight(){
-    const slider = document.getElementById("slider");
-    slider.scrollBy({
-        left:240,
-        behavior:"smooth"
-    });
-}
+    // --- OFFERS TOGGLE ---
+    function toggleOffers(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const card = e.target.closest('.store-card');
+        const box = card.querySelector('.offers-box');
+        box.style.display = box.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // --- SLIDER ---
+    function slideRight(){
+        const slider = document.getElementById("slider");
+        slider.scrollBy({
+            left: 200,
+            behavior: "smooth"
+        });
+    }
+
+    // --- GALLERY ---
+    const images = [
+        "https://images.unsplash.com/photo-1726574686436-5ef90358e032?fm=jpg&q=60&w=1000",
+        "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?fm=jpg&q=60&w=1000",
+        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?fm=jpg&q=60&w=1000",
+        "https://images.unsplash.com/photo-1585060544812-6b45742d762f?fm=jpg&q=60&w=1000"
+    ];
+    let currentIndex = 0;
+    const modal = document.getElementById("galleryModal");
+    const galleryImg = document.getElementById("galleryImage");
+
+    document.getElementById("openGallery").onclick = () => {
+        modal.style.display = "flex";
+        showImage(0);
+    };
+
+    document.getElementById("closeGallery").onclick = () => {
+        modal.style.display = "none";
+    };
+
+    window.onclick = (e) => {
+        if (e.target === modal) modal.style.display = "none";
+    };
+
+    function showImage(index){
+        currentIndex = index;
+        galleryImg.src = images[index];
+        // Update active thumb
+        document.querySelectorAll('.thumbs img').forEach((img, i) => {
+            if(i === index) img.classList.add('active');
+            else img.classList.remove('active');
+        });
+    }
+
+    document.getElementById("nextImg").onclick = () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+    };
+
+    document.getElementById("prevImg").onclick = () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+    };
 </script>
-<script>
-const images = [
-    "https://images.unsplash.com/photo-1726574686436-5ef90358e032?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aXBob25lJTIwMTN8ZW58MHx8MHx8fDA%3D",
-    "img2.jpg",
-    "img3.jpg",
-    "img4.jpg",
-    "img5.jpg"
-];
-
-let currentIndex = 0;
-
-const modal = document.getElementById("galleryModal");
-const galleryImg = document.getElementById("galleryImage");
-
-document.getElementById("openGallery").onclick = () => {
-    modal.style.display = "block";
-    showImage(0);
-};
-
-document.getElementById("closeGallery").onclick = () => {
-    modal.style.display = "none";
-};
-
-window.onclick = (e) => {
-    if (e.target === modal) modal.style.display = "none";
-};
-
-function showImage(index){
-    currentIndex = index;
-    galleryImg.src = images[index];
-}
-
-document.getElementById("nextImg").onclick = () => {
-    currentIndex = (currentIndex + 1) % images.length;
-    showImage(currentIndex);
-};
-
-document.getElementById("prevImg").onclick = () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    showImage(currentIndex);
-};
-</script>
-<script>
-
-</script>
-<script>
-function toggleOffers(e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    const card = e.target.closest('.store-card');
-    const box = card.querySelector('.offers-box');
-
-    box.style.display = box.style.display === 'block' ? 'none' : 'block';
-}
-</script>
-
-
-
-
-
 
 </body>
 </html>
