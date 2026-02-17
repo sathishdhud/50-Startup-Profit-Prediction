@@ -193,7 +193,7 @@
     /* --- UTILITIES --- */
     .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
     .card { background: var(--bg-white); border: 1px solid var(--border-color); border-radius: var(--radius); margin-bottom: 20px; box-shadow: var(--shadow); overflow: hidden; }
-    .card-header { padding: 12px 15px; border-bottom: 1px solid var(--border-color); font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; background: #fff; }
+    .card-header { padding: 12px 15px; border-bottom: 1px solid var(--border-color); font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 8px; background: #fff; }
     .card-header i { color: var(--primary); }
     .card-body { padding: 15px; }
     .text-orange { color: var(--primary); }
@@ -288,10 +288,39 @@
 
     /* Full Specs List */
     .spec-section { margin-bottom: 25px; }
-    .spec-title { font-size: 15px; font-weight: 800; color: var(--primary); text-transform: uppercase; margin-bottom: 10px; border-left: 4px solid var(--primary); padding-left: 10px; background: #fafafa; padding: 8px 10px; }
-    .spec-row { display: flex; border-bottom: 1px solid #f5f5f5; padding: 10px 0; }
-    .spec-key { width: 35%; color: #666; font-size: 13px; font-weight: 500; }
-    .spec-val { width: 65%; color: #222; font-size: 13px; font-weight: 600; }
+   .spec-title {
+    position: relative;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+
+    /* more space for thick border */
+    padding: 12px 14px 12px 46px;
+    background: #fafafa;
+}
+
+/* EXTRA THICK scribble */
+.spec-title::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 4px;
+    bottom: 4px;
+
+    /* WIDTH INCREASED */
+    width: 38px;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 160'%3E%3Cpath d='M20 0 L6 14 L21 28 L7 42 L20 56 L6 70 L21 84 L7 98 L20 112 L6 126 L18 140 L10 156' fill='none' stroke='%23ff7a00' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.spec-row { display: flex; border-bottom: 1px solid #f5f5f5; padding: 10px 0; }
+    .spec-key { width: 35%; color: #666; font-size: 16px; font-weight: 500; }
+    .spec-val { width: 65%; color: #222; font-size: 16px; font-weight: 600; }
 
     /* --- NEW: PHOTO GALLERY STYLES --- */
     .gallery-grid {
@@ -382,7 +411,7 @@
         @media (max-width: 400px) {
             .spec-row, .hl-table tr { flex-direction: column; display: flex; }
             .spec-key, .spec-val, .hl-table td { width: 100%; padding: 4px 0; border: none; }
-            .spec-key { color: var(--primary); font-size: 11px; text-transform: uppercase; margin-bottom: 2px; }
+            .spec-key { color: var(--primary); font-size: 16px; text-transform: uppercase; margin-bottom: 2px; }
             .hl-table td:first-child { color: var(--primary); font-size: 11px; text-transform: uppercase; }
         }
     }
@@ -476,6 +505,11 @@
     color: #333;
     line-height: 1.6;
 }
+@media (max-width: 767px) {
+    .product-short-desc {
+        display: none;
+    }
+}
 
 
 
@@ -502,7 +536,7 @@
     <!-- LOGO IMAGE -->
     <a href="/" style="display:flex;align-items:center;">
         <img 
-            src="./white_logo.png" 
+            src="https://maaney.store/white_logo.png" 
             alt="Maaney Logo"
             style="height:40px;width:auto;object-fit:contain;"
         >
@@ -875,7 +909,7 @@
 
     <!-- FEATURES -->
     <div id="features" class="tab-content">
-        <ul class="feature-list">
+        <ul class="feature-list hl-ul">
             <li>Large 6,300mAh battery for all-day usage</li>
             <li>Smooth 90Hz display experience</li>
             <li>Android 15 with Realme UI optimizations</li>
