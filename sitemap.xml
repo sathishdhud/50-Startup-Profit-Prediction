@@ -209,6 +209,12 @@
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
   </url>
+  <url>
+      <loc>https://maaney.store/mobiles/realme-p4-lite</loc>
+      <lastmod>2026-02-16</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+  </url>
 
 
 </urlset>
