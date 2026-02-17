@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tecno Camon 40 Pro - Full Specs & Reviews | TechStore India</title>
+<title>Tecno Camon 40 Pro - Full Specs & Reviews | Maaney Store India</title>
 
 <!-- ================= SEO OPTIMIZATION ================= -->
 <meta name="description" content="Tecno Camon 40 Pro full specifications, features, and reviews. Check best prices on Amazon & Flipkart. 6.78 inch AMOLED, 8GB RAM, 256GB Storage, 50MP Camera, 5200mAh Battery.">
 <meta name="keywords" content="Tecno Camon 40 Pro, Tecno Camon 40 Pro specs, Tecno Camon 40 Pro price, Tecno mobile 2024, 8GB RAM mobile, 50MP camera phone, Tecno Camon 40 Pro review">
-<meta name="author" content="TechStore India">
+<meta name="author" content="Maaney Store India">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.yourwebsite.com/tecno-camon-40-pro">
 
@@ -26,6 +26,9 @@
 <meta property="twitter:description" content="Check full specs, 50MP camera samples, and best prices for Tecno Camon 40 Pro.">
 <meta property="twitter:image" content="https://i.guim.co.uk/img/media/18badfc0b64b09f917fd14bbe47d73fd92feeb27/189_335_5080_3048/master/5080.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=1562112c7a64da36ae0a5e75075a0d12">
 
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 <!-- ================= SCHEMA.ORG JSON-LD ================= -->
 <script type="application/ld+json">
 {
@@ -101,7 +104,12 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Roboto', sans-serif; background: var(--bg-body); color: var(--text-dark); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+     body {
+      margin: 0;
+      background: #f5f7fa; /* Light grey background like 91mobiles */
+      font-family: 'Poppins', sans-serif;
+      color: #212121;
+    }
     a { text-decoration: none; color: inherit; transition: 0.2s; }
     ul { list-style: none; }
     img { max-width: 100%; display: block; }
@@ -117,7 +125,7 @@
     .fw-bold { font-weight: 700; }
 
     /* --- HEADER --- */
-    .top-bar { background: #111; color: #fff; font-size: 11px; padding: 6px 0; text-align: right; }
+    .top-bar { background: #111; color: #fff; font-size: 11px; padding: 6px 0; text-align: left;padding-left: 6px; }
     .main-header { background: #fff; padding: 15px 0; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; }
     .header-flex { display: flex; justify-content: space-between; align-items: center; }
     .logo { font-size: 24px; font-weight: 900; letter-spacing: -1px; color: var(--text-dark); }
@@ -206,6 +214,18 @@
     .spec-key { width: 35%; color: #666; font-size: 13px; font-weight: 500; }
     .spec-val { width: 65%; color: #222; font-size: 13px; font-weight: 600; }
 
+   .top-strip {
+  background: #f44f08;
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 0;
+
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+
     /* --- NEW: PHOTO GALLERY STYLES --- */
     .gallery-grid {
         display: grid;
@@ -291,15 +311,59 @@
 </head>
 <body>
 
-    <!-- Top Bar -->
-    <div class="top-bar">India's #1 Gadgets Research Portal</div>
+   <!-- TOP STRIP FULL WIDTH -->
+<div style="width:100%;background:#ff6600;">
+  
+  <!-- CONTENT CONTAINER -->
+  <div 
+    class="container d-flex justify-content-between align-items-center"
+    style="
+      max-width:1200px;
+      margin:0 auto;
+      padding:6px 12px;
+      color:#fff;
+      font-size:12px;
+    "
+  >
+    <!-- LEFT -->
+    <div style="display:flex;align-items:center;gap:6px;">
+      <i class="fas fa-tag"></i>
+      <span>India's Best Price Comparison Engine</span>
+    </div>
+
+    <!-- RIGHT (DESKTOP ONLY) -->
+    <div class="d-none d-md-flex" style="gap:16px;">
+      <span><i class="fas fa-download"></i> Download App</span>
+      <span><i class="fas fa-headset"></i> Support</span>
+    </div>
+
+  </div>
+</div>
+
 
     <!-- Header -->
     <header class="main-header">
-        <div class="container header-flex">
-            <a href="#" class="logo">TECH<span>STORE</span></a>
-            <button class="btn-nav"><i class="fa-solid fa-scale-balanced"></i> Compare</button>
-        </div>
+        <div class="container header-flex" style="display:flex;align-items:center;justify-content:space-between;">
+    
+    <!-- LOGO IMAGE -->
+    <a href="/" style="display:flex;align-items:center;">
+        <img 
+            src="./white_logo.png" 
+            alt="Maaney Logo"
+            style="height:40px;width:auto;object-fit:contain;"
+        >
+    </a>
+
+    <!-- COMPARE BUTTON -->
+    <button 
+        class="btn-nav" 
+        style="display:flex;align-items:center;gap:6px;padding:8px 15px;font-weight:600;">
+        <i class="fa-solid fa-scale-balanced"></i>
+        Compare
+    </button>
+
+</div>
+
     </header>
 
     <!-- Title Section -->
@@ -662,12 +726,46 @@
     </div>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <a href="#" class="logo" style="color:white; display:block; margin-bottom:10px;">TECH<span>STORE</span></a>
-            <p>&copy; 2024 TechStore India. All rights reserved.</p>
+   <footer style="background:#111;color:#aaa;padding:30px 0;margin-top:40px;">
+    <div class="container" style="max-width:1200px;margin:auto;padding:0 16px;text-align:center;">
+
+        <!-- LOGO -->
+        <div class="container header-flex" style="display:flex;align-items:center;justify-content:space-between;">
+    
+    <!-- LOGO IMAGE -->
+    <a href="/" style="display:flex;align-items:center;">
+        <img 
+            src="logo.png" 
+            alt="Maaney Store Logo"
+            style="height:40px;width:auto;object-fit:contain;"
+        >
+    </a>
+
+    
+
+</div>
+
+
+        <!-- FOOTER LINKS -->
+        <div style="margin:14px 0;display:flex;flex-wrap:wrap;justify-content:center;gap:14px;font-size:13px;">
+            <a href="/about-us" style="color:#bbb;">About Us</a>
+            <a href="/contact-us" style="color:#bbb;">Contact</a>
+            <a href="/privacy-policy" style="color:#bbb;">Privacy Policy</a>
+            <a href="/terms-and-conditions" style="color:#bbb;">Terms & Conditions</a>
+            <a href="/disclaimer" style="color:#bbb;">Disclaimer</a>
+            <a href="/sitemap.xml" style="color:#bbb;">Sitemap</a>
         </div>
-    </footer>
+
+        <!-- COPYRIGHT -->
+        <p style="font-size:12px;color:#777;margin-top:10px;">
+            &copy; 2026 Maaney Store India. All rights reserved.
+        </p>
+
+    </div>
+</footer>
+
+
+    
 
     <!-- JavaScript -->
     <script>
