@@ -280,8 +280,15 @@
     .story-content span { font-size: 11px; color: #999; }
 
     /* Footer */
-    footer { background: #111; color: #888; padding: 30px 0; text-align: center; font-size: 12px; margin-top: 40px; }
 
+    .top-strip {
+      background: #f44f08;
+      color: #fff;
+      font-size: 12px;
+      padding: 6px 0;
+    }
+    
+    
     /* --- MOBILE OVERRIDES --- */
     @media (max-width: 991px) {
         .store-row { flex-direction: column; align-items: flex-start; gap: 8px; }
@@ -334,12 +341,16 @@
 </head>
 <body>
 
-   <!-- Top Bar -->
-<div class="top-bar">
-    <div class="top-bar-inner">
-        <h5>India's #1 Gadgets Research Portal</h5>
+ <div class="top-strip">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div><i class="fas fa-tag me-2"></i> India's Best Price Comparison Engine</div>
+      <div class="d-none d-md-block">
+        <span class="me-3"><i class="fas fa-download me-1"></i> Download App</span>
+        <span><i class="fas fa-headset me-1"></i> Support</span>
+      </div>
     </div>
-</div>
+  </div>
+
 
 
     <!-- Header -->
@@ -727,49 +738,8 @@
     </div>
 
     <!-- Footer -->
-   <footer style="background:#111;color:#aaa;padding:30px 0;margin-top:40px;">
-    <div class="container" style="max-width:1200px;margin:auto;padding:0 16px;text-align:center;">
+  
 
-        <!-- LOGO -->
-        <div class="container header-flex" style="display:flex;align-items:center;justify-content:space-between;">
-    
-    <!-- LOGO IMAGE -->
-    <a href="/" style="display:flex;align-items:center;">
-        <img 
-            src="logo.png" 
-            alt="TechStore Logo"
-            style="height:40px;width:auto;object-fit:contain;"
-        >
-    </a>
-
-    <!-- COMPARE BUTTON -->
-    <button 
-        class="btn-nav" 
-        style="display:flex;align-items:center;gap:6px;padding:8px 15px;font-weight:600;">
-        <i class="fa-solid fa-scale-balanced"></i>
-        Compare
-    </button>
-
-</div>
-
-
-        <!-- FOOTER LINKS -->
-        <div style="margin:14px 0;display:flex;flex-wrap:wrap;justify-content:center;gap:14px;font-size:13px;">
-            <a href="/about-us" style="color:#bbb;">About Us</a>
-            <a href="/contact-us" style="color:#bbb;">Contact</a>
-            <a href="/privacy-policy" style="color:#bbb;">Privacy Policy</a>
-            <a href="/terms-and-conditions" style="color:#bbb;">Terms & Conditions</a>
-            <a href="/disclaimer" style="color:#bbb;">Disclaimer</a>
-            <a href="/sitemap.xml" style="color:#bbb;">Sitemap</a>
-        </div>
-
-        <!-- COPYRIGHT -->
-        <p style="font-size:12px;color:#777;margin-top:10px;">
-            &copy; 2026 Maaney Store India. All rights reserved.
-        </p>
-
-    </div>
-</footer>
 
 
     
@@ -800,6 +770,7 @@
             btn.classList.toggle('active');
         }
     </script>
+    <script src="./footer.js"></script>
 
 </body>
 </html>
