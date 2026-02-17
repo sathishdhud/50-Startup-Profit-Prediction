@@ -82,11 +82,87 @@
 <!-- FontAwesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+ <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 <style>
+   .young-serif-regular {
+  font-family: "Young Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.line-seed-jp-regular {
+  font-family: "LINE Seed JP", sans-serif;
+  font-weight: 400;
+  font-style: bold;
+  color: #000000;
+}
+
+
+        
+        .dongle-regular {
+            font-family: "Dongle", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: large;
+        }
+        
+        .oswald {
+            font-family: "Oswald", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+        }
+        
+        .special-gothic-expanded-one-regular {
+            font-family: "Special Gothic Expanded One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        .lexend {
+            font-family: "Lexend", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        .cabin-font-600 {
+            font-family: "Cabin", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+        }
+        
+        .cabin-font-700 {
+            font-family: "Cabin", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+        }
+        
+        .cabin-font-700-bold {
+            font-family: "Cabin", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-size: large;
+            font-style: bold;
+            font-variation-settings: "wdth" 200;
+        }
+        
     /* --- VARIABLES & RESET --- */
+
+
     :root {
         --primary: #ff6600;
         --primary-dark: #cc5200;
@@ -337,12 +413,40 @@
     }
 }
 
+.breadcrumb {
+  font-size: 12px;
+  color: #999;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.breadcrumb a {
+  color: #666;
+}
+
+.breadcrumb a:hover {
+  color: #ff6600;
+  text-decoration: underline;
+}
+
+.breadcrumb span {
+  color: #bbb;
+}
+
+.breadcrumb strong {
+  color: #222;
+  font-weight: 600;
+}
+
+
 </style>
 </head>
 <body>
 
  <div class="top-strip">
-    <div class="container d-flex justify-content-between align-items-center">
+    <div class="container d-flex justify-content-between align-items-center young-serif-regular">
       <div><i class="fas fa-tag me-2"></i> India's Best Price Comparison Engine</div>
       <div class="d-none d-md-block">
         <span class="me-3"><i class="fas fa-download me-1"></i> Download App</span>
@@ -368,7 +472,7 @@
 
     <!-- COMPARE BUTTON -->
     <button 
-        class="btn-nav" 
+        class="btn-nav cabin-font-600" 
         style="display:flex;align-items:center;gap:6px;padding:8px 15px;font-weight:600;">
         <i class="fa-solid fa-scale-balanced"></i>
         Compare
@@ -380,9 +484,18 @@
 
     <!-- Title Section -->
     <div class="container breadcrumb-area">
-        <div class="breadcrumb">Home > Tecno > Camon Series > <strong>Tecno Camon 40 Pro</strong></div>
-        <h1 class="product-title">Tecno Camon 40 Pro</h1>
-        <div class="tags">
+       <nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a>
+  <span>›</span>
+  <a href="/tecno">Tecno</a>
+  <span>›</span>
+  <a href="/tecno/camon-series">Camon Series</a>
+  <span>›</span>
+  <strong>Tecno Camon 40 Pro</strong>
+</nav>
+
+        <h1 class="product-title cabin-font-700-bold">Tecno Camon 40 Pro</h1>
+        <div class="tags cabin-font-600">
             <span class="tag-pill"><i class="fa-solid fa-memory"></i> 8 GB RAM</span>
             <span class="tag-pill"><i class="fa-solid fa-hard-drive"></i> 256 GB Storage</span>
             <span class="tag-pill"><i class="fa-solid fa-battery-full"></i> 5200 mAh</span>
@@ -396,15 +509,15 @@
         <!-- LEFT COLUMN (Sidebar) -->
         <aside>
             <!-- Image -->
-            <div class="card">
-                <div class="img-box">
-                    <div class="score-badge">85<span>Score</span></div>
+            <div class="card ">
+                <div class="img-box cabin-font-600">
+                    <div class="score-badge ">85<span>Score</span></div>
                     <img src="https://i.guim.co.uk/img/media/18badfc0b64b09f917fd14bbe47d73fd92feeb27/189_335_5080_3048/master/5080.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=1562112c7a64da36ae0a5e75075a0d12" class="main-prod-img" alt="Tecno Camon 40 Pro">
                 </div>
             </div>
 
             <!-- Pricing -->
-            <div class="card">
+            <div class="card cabin-font-600">
                 <div class="card-header"><i class="fa-solid fa-cart-shopping"></i> Best Price</div>
                 <div class="card-body">
                     <div class="store-row">
@@ -431,7 +544,7 @@
             </div>
 
             <!-- Price Trend -->
-            <div class="card">
+            <div class="card cabin-font-600">
                 <div class="card-header"><i class="fa-solid fa-chart-line"></i> Price Trend</div>
                 <div class="card-body">
                     <div class="chart-box">
@@ -448,7 +561,7 @@
            
 
             <!-- Accessories -->
-            <div class="card">
+            <div class="card cabin-font-600 cabin-font-600">
                 <div class="card-header"><i class="fa-solid fa-plug"></i> Accessories</div>
                 <div class="card-body">
                     <div class="acc-grid">
@@ -476,7 +589,7 @@
         <main>
             
             <!-- Feedback -->
-            <div class="card">
+            <div class="card cabin-font-600">
                 <div class="card-header"><i class="fa-solid fa-thumbs-up"></i> User Feedback</div>
                 <div class="card-body">
                     <div class="feedback-row">
@@ -490,7 +603,7 @@
             </div>
 
             <!-- Key Highlights Table -->
-            <div class="card">
+            <div class="card cabin-font-600">
                 <div class="card-header"><i class="fa-solid fa-star"></i> Key Highlights</div>
                 <div class="card-body" style="padding: 0 15px;">
                     <table class="hl-table">
@@ -507,7 +620,7 @@
             </div>
 
             <!-- Full Specifications Tabs -->
-            <div class="card">
+            <div class="card cabin-font-600">
                 <div class="tabs">
                     <button class="tab-btn active" onclick="openTab(event, 'specs')">Full Specs</button>
                     <button class="tab-btn" onclick="openTab(event, 'features')">Features</button>
@@ -517,11 +630,11 @@
                 </div>
 
                 <!-- FULL SPECS CONTENT -->
-                <div id="specs" class="tab-content active">
+                <div id="specs" class="tab-content active ">
                     
                     <!-- 1. General -->
-                    <div class="spec-section">
-                        <div class="spec-title">General</div>
+                    <div class="spec-section cabin-font-600">
+                        <div class="spec-title cabin-font-600-bold">General</div>
                         <div class="spec-row"><div class="spec-key">Launch Date</div><div class="spec-val">October 24, 2024 (Expected)</div></div>
                         <div class="spec-row"><div class="spec-key">Operating System</div><div class="spec-val">Android v15</div></div>
                         <div class="spec-row"><div class="spec-key">Custom UI</div><div class="spec-val">HiOS</div></div>
@@ -530,9 +643,9 @@
                     </div>
 
                     <!-- 2. Performance -->
-                    <div class="spec-section">
-                        <div class="spec-title">Performance</div>
-                        <div class="spec-row"><div class="spec-key">Processor</div><div class="spec-val">MediaTek Dimensity 7300 Ultimate</div></div>
+                    <div class="spec-section cabin-font-600">
+                        <div class="spec-title cabin-font-600-bold">Performance</div>
+                        <div class="spec-row "><div class="spec-key">Processor</div><div class="spec-val">MediaTek Dimensity 7300 Ultimate</div></div>
                         <div class="spec-row"><div class="spec-key">CPU Core</div><div class="spec-val">Octa Core (2.5 GHz Quad + 2 GHz Quad)</div></div>
                         <div class="spec-row"><div class="spec-key">Architecture</div><div class="spec-val">64 bit</div></div>
                         <div class="spec-row"><div class="spec-key">Graphics</div><div class="spec-val">Mali-G615 MC2</div></div>
@@ -540,8 +653,8 @@
                     </div>
 
                     <!-- 3. Display -->
-                    <div class="spec-section">
-                        <div class="spec-title">Display</div>
+                    <div class="spec-section cabin-font-600">
+                        <div class="spec-title cabin-font-600-bold">Display</div>
                         <div class="spec-row"><div class="spec-key">Size</div><div class="spec-val">6.78 inches (17.22 cm)</div></div>
                         <div class="spec-row"><div class="spec-key">Resolution</div><div class="spec-val">1080 x 2436 (FHD+)</div></div>
                         <div class="spec-row"><div class="spec-key">Refresh Rate</div><div class="spec-val">144 Hz</div></div>
@@ -551,7 +664,7 @@
                     </div>
 
                     <!-- 4. Rear Camera -->
-                    <div class="spec-section">
+                    <div class="spec-section cabin-font-600">
                         <div class="spec-title">Rear Camera</div>
                         <div class="spec-row"><div class="spec-key">Setup</div><div class="spec-val">50 MP + 8 MP Dual</div></div>
                         <div class="spec-row"><div class="spec-key">Main Sensor</div><div class="spec-val">50 MP f/1.8, Wide Angle, Primary Camera</div></div>
@@ -563,8 +676,8 @@
                     </div>
 
                     <!-- 5. Front Camera -->
-                    <div class="spec-section">
-                        <div class="spec-title">Front Camera</div>
+                    <div class="spec-section cabin-font-600">
+                        <div class="spec-title cabin-font-600-bold">Front Camera</div>
                         <div class="spec-row"><div class="spec-key">Resolution</div><div class="spec-val">50 MP</div></div>
                         <div class="spec-row"><div class="spec-key">Aperture</div><div class="spec-val">f/2.2</div></div>
                         <div class="spec-row"><div class="spec-key">Sensor Type</div><div class="spec-val">CMOS</div></div>
@@ -572,8 +685,8 @@
                     </div>
 
                     <!-- 6. Battery -->
-                    <div class="spec-section">
-                        <div class="spec-title">Battery</div>
+                    <div class="spec-section cabin-font-600">
+                        <div class="spec-title cabin-font-600-bold">Battery</div>
                         <div class="spec-row"><div class="spec-key">Capacity</div><div class="spec-val">5200 mAh</div></div>
                         <div class="spec-row"><div class="spec-key">Type</div><div class="spec-val">Li-Polymer</div></div>
                         <div class="spec-row"><div class="spec-key">Charging</div><div class="spec-val">45W Super Charging</div></div>
@@ -582,8 +695,8 @@
                     </div>
 
                     <!-- 7. Storage -->
-                    <div class="spec-section">
-                        <div class="spec-title">Storage</div>
+                    <div class="spec-section cabin-font-600">
+                        <div class="spec-title cabin-font-600-bold">Storage</div>
                         <div class="spec-row"><div class="spec-key">Internal Memory</div><div class="spec-val">256 GB</div></div>
                         <div class="spec-row"><div class="spec-key">Expandable Memory</div><div class="spec-val">No</div></div>
                         <div class="spec-row"><div class="spec-key">RAM Type</div><div class="spec-val">LPDDR4X</div></div>
@@ -591,8 +704,8 @@
                     </div>
 
                     <!-- 8. Network & Connectivity -->
-                    <div class="spec-section">
-                        <div class="spec-title">Network & Connectivity</div>
+                    <div class="spec-section cabin-font-600">
+                        <div class="spec-title cabin-font-600-bold">Network & Connectivity</div>
                         <div class="spec-row"><div class="spec-key">SIM Slot</div><div class="spec-val">Dual SIM (Nano + Nano)</div></div>
                         <div class="spec-row"><div class="spec-key">5G Support</div><div class="spec-val">Yes (Indian Bands)</div></div>
                         <div class="spec-row"><div class="spec-key">4G / 3G / 2G</div><div class="spec-val">Available</div></div>
@@ -605,7 +718,7 @@
 
                 </div> <!-- End Specs -->
 
-                <div id="features" class="tab-content">
+                <div id="features" class="tab-content cabin-font-600">
                     <ul style="list-style: disc; padding-left: 20px; line-height: 1.8; color: #444;">
                         <li>In-display Fingerprint Sensor</li>
                         <li>Face Unlock with AI support</li>
@@ -617,7 +730,7 @@
                 </div>
 
                 <!-- NEW PHOTOS TAB CONTENT -->
-                <div id="photos" class="tab-content">
+                <div id="photos" class="tab-content cabin-font-600">
                     <div class="gallery-grid">
                         <!-- Photo 1 -->
                         <div class="photo-card">
@@ -647,7 +760,7 @@
                     </div>
                 </div>
 
-                <div id="reviews" class="tab-content">
+                <div id="reviews" class="tab-content cabin-font-600">
                     <p style="text-align: center; color: #888; padding: 20px;">No user reviews yet. Be the first to review this product!</p>
                 </div>
             </div>
@@ -684,7 +797,7 @@
             <!-- Popular Links -->
             <div class="card">
                 <div class="card-header"><i class="fa-solid fa-link"></i> Popular Links</div>
-                <div class="card-body">
+                <div class="card-body cabin-font-600">
                     <div class="links-grid">
                         <div class="link-col">
                             <h4>Latest Launches</h4>
@@ -706,7 +819,7 @@
 
             <!-- Recent Stories -->
             <div class="card">
-                <div class="card-header"><i class="fa-solid fa-newspaper"></i> Recent Stories</div>
+                <div class="card-header cabin-font-600"><i class="fa-solid fa-newspaper"></i> Recent Stories</div>
                 <div class="card-body">
                     <div class="story-item">
                         <img src="https://picsum.photos/seed/news1/80/60" class="story-img" alt="News">
