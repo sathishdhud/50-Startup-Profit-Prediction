@@ -83,7 +83,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 <style>
     /* --- VARIABLES & RESET --- */
     :root {
@@ -117,7 +118,7 @@
     .fw-bold { font-weight: 700; }
 
     /* --- HEADER --- */
-    .top-bar { background: #111; color: #fff; font-size: 11px; padding: 6px 0; text-align: right; }
+    .top-bar { background: #111; color: #fff; font-size: 11px; padding: 6px 0; text-align: left; padding-left: 10px;}
     .main-header { background: #fff; padding: 15px 0; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; }
     .header-flex { display: flex; justify-content: space-between; align-items: center; }
     .logo { font-size: 24px; font-weight: 900; letter-spacing: -1px; color: var(--text-dark); }
@@ -223,6 +224,7 @@
         border: 1px solid #f0f0f0;
         border-radius: 6px;
         overflow: hidden;
+        
         background: #fff;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
@@ -683,10 +685,27 @@
     <div class="container" style="max-width:1200px;margin:auto;padding:0 16px;text-align:center;">
 
         <!-- LOGO -->
-        <a href="/" 
-           style="display:inline-block;font-size:22px;font-weight:900;color:#fff;letter-spacing:-0.5px;margin-bottom:12px;">
-            MAANEY<span style="color:#ff6600;">STORE</span>
-        </a>
+        <div class="container header-flex" style="display:flex;align-items:center;justify-content:space-between;">
+    
+    <!-- LOGO IMAGE -->
+    <a href="/" style="display:flex;align-items:center;">
+        <img 
+            src="logo.png" 
+            alt="TechStore Logo"
+            style="height:40px;width:auto;object-fit:contain;"
+        >
+    </a>
+
+    <!-- COMPARE BUTTON -->
+    <button 
+        class="btn-nav" 
+        style="display:flex;align-items:center;gap:6px;padding:8px 15px;font-weight:600;">
+        <i class="fa-solid fa-scale-balanced"></i>
+        Compare
+    </button>
+
+</div>
+
 
         <!-- FOOTER LINKS -->
         <div style="margin:14px 0;display:flex;flex-wrap:wrap;justify-content:center;gap:14px;font-size:13px;">
