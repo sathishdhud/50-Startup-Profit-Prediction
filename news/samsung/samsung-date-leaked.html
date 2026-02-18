@@ -627,6 +627,38 @@
   }
 }
 
+ .meta-link {
+    color:#111;
+    text-decoration:none;
+    font-weight:600;
+  }
+
+  .meta-icon {
+    margin-right:5px;
+    color:#ff9800;
+    font-size:12px;
+  }
+
+  .meta-sep {
+    color:#ccc;
+  }
+
+  /* MOBILE OPTIMIZATION — FORCE 2 LINES */
+  @media (max-width: 576px) {
+    #articleMeta {
+      font-size:12.5px;
+      gap:6px 10px;
+    }
+
+    .meta-sep {
+      display:none; /* removes clutter */
+    }
+
+    #articleMeta span {
+      white-space:nowrap;
+    }
+  }
+
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-S60YQL9TZ2"></script>
   <script>
@@ -687,11 +719,46 @@
         Samsung Galaxy S26 Launch Date Leaked: <strong>February 25</strong> Could Signal a Major Flagship Shift
     </h1>
 
-    <div class="meta-info poppins-light">
-        <span><i class="fa fa-calendar-alt me-1"></i> Feb 16, 2026</span>
-        <span><i class="fa fa-user me-1"></i> Dhuda Sathish</span>
-        <span><i class="fa fa-clock me-1"></i> 6 Min Read</span>
-    </div>
+    <!-- AUTHOR & UPDATE META -->
+<div id="articleMeta"
+     style="
+        display:flex;
+        flex-wrap:wrap;
+        align-items:center;
+        gap:8px 12px;
+        font-size:13px;
+        color:#555;
+        margin:14px 0 18px;
+        line-height:1.6;
+     ">
+
+    <span>
+        <i class="fa fa-pen-nib meta-icon"></i>
+        <strong>By</strong>
+        <a href="/author/dhuda-sathish" class="meta-link">
+            Dhuda Sathish
+        </a>
+    </span>
+
+    <span class="meta-sep">•</span>
+
+    <span>
+        <i class="fa fa-user-edit meta-icon"></i>
+        <strong>Updated</strong>
+        <a href="/editorial-team" class="meta-link">
+            Maaney Editorial
+        </a>
+    </span>
+
+    <span class="meta-sep">•</span>
+
+    <span>
+        <i class="fa fa-clock meta-icon"></i>
+        <span id="timeAgo"></span>
+    </span>
+
+</div>
+
     <!-- KEY HIGHLIGHTS (RESPONSIVE) -->
 <div class="article-section">
 
@@ -1349,6 +1416,37 @@
   });
 </script>
 
+<script>
+  const lastUpdated = new Date("2026-02-18T12:17:00");
+
+  function timeAgo(date) {
+    const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
+
+    if (seconds < 60) return "just now";
+
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) return `${minutes} min ago`;
+
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours} hour${hours > 1 ? "s" : ""} ago`;
+
+    const days = Math.floor(hours / 24);
+    if (days < 7) return `${days} day${days > 1 ? "s" : ""} ago`;
+
+    return date.toLocaleDateString("en-IN", {
+      day: "numeric",
+      month: "short",
+      year: "numeric"
+    });
+  }
+
+  function updateTimeAgo() {
+    document.getElementById("timeAgo").textContent = timeAgo(lastUpdated);
+  }
+
+  updateTimeAgo();
+  setInterval(updateTimeAgo, 60000);
+</script>
 
 </body>
 </html>
