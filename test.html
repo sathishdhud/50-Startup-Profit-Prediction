@@ -59,10 +59,6 @@
             transition: all 0.2s ease;
             border-bottom: 1px solid var(--border);
         }
-        .product-row img{
-            width: 64px;
-                height: 64px;
-        }
 
         .product-row:hover {
             background: var(--card);
@@ -170,6 +166,30 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+        }
+
+        /* Brand Logo Overlay */
+        .brand-logo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            padding: 4px 6px;
+            border-bottom-right-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 1.3px solid #5ba4f3;
+            border-left:0px;
+            border-top: 0px;;
+        }
+
+        .brand-logo-overlay img {
+            height: 12px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
         }
 
         /* Animations */
@@ -432,15 +452,20 @@
             return sorted;
         }
 
-        // Get source color
+        // Get source style and logo
         function getSourceStyle(source) {
-            if (!source) return { bg: '#F3F4F6', color: '#374151' };
+            if (!source) return { bg: '#F3F4F6', color: '#374151', img: '', name: 'Store' };
+            
+            const s = source.toLowerCase();
             const styles = {
-                'amazon': { bg: '#FEF3C7', color: '#92400E' },
-                'flipkart': { bg: '#ffffff', color: '#1E40AF',img:'./brands/flipkart.png' },
+                'amazon': { bg: '#232F3E', color: '#FFFFFF', img: './brands/amazon.png', name: 'Amazon' },
+                'flipkart': { bg: '#ffffff', color: '#FFFFFF', img: './brands/flipkart.png', name: 'Flipkart' },
+                'reliance': { bg: '#FFFFFF', color: '#333333', img: './brands/reliance.png', name: 'Reliance' },
+                'croma': { bg: '#1976D2', color: '#FFFFFF', img: './brands/croma.png', name: 'Croma' },
             };
-            const key = Object.keys(styles).find(k => source.toLowerCase().includes(k));
-            return key ? styles[key] : { bg: '#F3F4F6', color: '#374151' };
+
+            const key = Object.keys(styles).find(k => s.includes(k));
+            return key ? styles[key] : { bg: '#F3F4F6', color: '#374151', img: '', name: source };
         }
 
         // Generate star rating
@@ -478,6 +503,20 @@
             return div.innerHTML;
         }
 
+        // Render Brand Logo HTML
+        function renderBrandLogo(sourceStyle) {
+            if (!sourceStyle.img) return ''; // Return empty if no image
+            return `
+                <div class="brand-logo-overlay" style="background-color: ${sourceStyle.bg};">
+                    <img 
+                        src="${sourceStyle.img}" 
+                        alt="${sourceStyle.name}"
+                        onerror="this.parentElement.innerHTML='<span class=\'text-xs font-bold\' style=\'color:${sourceStyle.color}\'>${sourceStyle.name}</span>'"
+                    >
+                </div>
+            `;
+        }
+
         // Render product row (Desktop Only)
         function renderDesktopRow(product, index, bestDeal) {
             const isBestDeal = bestDeal && product.id === bestDeal.id;
@@ -487,7 +526,8 @@
 
             return `
                 <div class="product-row p-4 hidden sm:flex items-center gap-4 animate-in" style="animation-delay: ${delay}ms;">
-                    <div class="flex-shrink-0">
+                    <!-- Image Container with Logo Overlay -->
+                    <div class="flex-shrink-0 relative">
                         <div class="w-20 h-20 sm:w-16 sm:h-16 bg-gray-50 rounded-lg overflow-hidden border border-gray-100">
                             <img 
                                 src="${product.image || 'https://via.placeholder.com/80'}" 
@@ -497,24 +537,12 @@
                                 onerror="this.src='https://via.placeholder.com/80?text=No+Img'"
                             >
                         </div>
+                        ${renderBrandLogo(sourceStyle)}
                     </div>
 
                     <div class="flex-1 min-w-0">
                         <div class="flex items-start gap-2 mb-1">
                             ${isBestDeal ? '<span class="best-deal text-[9px] font-bold px-1.5 py-0.5 rounded flex-shrink-0">BEST DEAL</span>' : ''}
-                           <span 
-  class="source-badge px-1.5 py-0.5 rounded flex-shrink-0 flex items-center justify-center"
-  style="background: ${sourceStyle.bg};"
->
-  <img
-    src="${sourceStyle.img}"
-    alt="${escapeHtml(source)}"
-    class="h-3 w-auto object-contain"
-    loading="lazy"
-    onerror="this.style.display='none'"
-  />
-</span>
-
                         </div>
                         <h3 class="text-sm font-medium text-black leading-snug line-clamp-2 mb-1">
                             ${escapeHtml(product.title)}
@@ -559,25 +587,9 @@
 
             return `
                 <div class="mobile-card block sm:hidden animate-in" style="animation-delay: ${delay}ms;">
-                    <div class="flex items-center justify-between mb-2">
-                        <span 
-  class="source-badge px-1.5 py-0.5 rounded flex-shrink-0 flex items-center justify-center"
-  style="background: ${sourceStyle.bg};"
->
-  <img
-    src="${sourceStyle.img}"
-    alt="${escapeHtml(source)}"
-    class="h-3 w-auto object-contain"
-    loading="lazy"
-    onerror="this.style.display='none'"
-  />
-</span>
-
-                        ${isBestDeal ? '<span class="best-deal text-[9px] font-bold px-1.5 py-0.5 rounded">BEST DEAL</span>' : ''}
-                    </div>
-
                     <div class="flex gap-3 mb-3">
-                        <div class="w-20 h-20 bg-gray-50 rounded-lg overflow-hidden border border-gray-100 flex-shrink-0">
+                        <!-- Image Container with Logo Overlay -->
+                        <div class="w-20 h-20 bg-gray-50 rounded-lg overflow-hidden border border-gray-100 flex-shrink-0 relative">
                             <img 
                                 src="${product.image || 'https://via.placeholder.com/80'}" 
                                 alt="${escapeHtml(product.title)}"
@@ -585,8 +597,13 @@
                                 loading="lazy"
                                 onerror="this.src='https://via.placeholder.com/80?text=No+Img'"
                             >
+                            ${renderBrandLogo(sourceStyle)}
                         </div>
+                        
                         <div class="flex-1 min-w-0 flex flex-col justify-center">
+                            <div class="mb-1">
+                                ${isBestDeal ? '<span class="best-deal text-[9px] font-bold px-1.5 py-0.5 rounded">BEST DEAL</span>' : ''}
+                            </div>
                             <h3 class="text-sm font-medium text-black leading-snug line-clamp-2 mb-1">
                                 ${escapeHtml(product.title)}
                             </h3>
