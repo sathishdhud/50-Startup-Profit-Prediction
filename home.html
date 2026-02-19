@@ -508,16 +508,6 @@
     }
 
     /* ================= FOOTER ================= */
-    .footer {
-      background: #212121;
-      color: #bbb;
-      padding: 40px 0 20px;
-      margin-top: 50px;
-      font-size: 13px;
-    }
-    .footer h5 { color: #fff; font-size: 15px; margin-bottom: 20px; font-weight: 600; }
-    .footer ul li { margin-bottom: 10px; }
-    .footer ul li a:hover { color: #f44f08; }
     
     .social-icons a {
       display: inline-flex;
@@ -807,52 +797,7 @@
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-6 mb-4">
-          <h5 class="poppins">About Maaney</h5>
-          <p class="mb-4">Maaney is leading price comparison portal in India. We help you find best deals on Mobiles, Electronics, and Fashion across Amazon, Flipkart, Myntra, and more.</p>
-          <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 mb-4">
-          <h5>Quick Links</h5>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Careers</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-2 col-md-6 mb-4">
-          <h5>Categories</h5>
-          <ul>
-            <li><a href="#">Mobile Phones</a></li>
-            <li><a href="#">Laptops</a></li>
-            <li><a href="#">Cameras</a></li>
-            <li><a href="#">Tablets</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-          <h5>Subscribe to Newsletter</h5>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Your Email Address">
-            <button class="btn btn-orange" type="button">Subscribe</button>
-          </div>
-          <p class="small text-muted">We respect your privacy. No spam.</p>
-        </div>
-      </div>
-      <div class="border-top border-secondary pt-3 mt-3 text-center">
-        <p class="mb-0">© <span id="year"></span> Maaney Store. All Rights Reserved.</p>
-      </div>
-    </div>
-  </footer>
+ 
 
   <!-- AUTH POPUP -->
   <div id="maaneyAuthPopup" class="maaney-modal-overlay">
@@ -1200,7 +1145,7 @@
 
     // ================= INIT =================
     document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById("year").innerText = new Date().getFullYear();
+      
       renderProducts();
       renderNews();
       renderVideos();
@@ -1223,5 +1168,6 @@
     }
 
   </script>
+  <script src="./footer.js"></script>
 </body>
 </html>
