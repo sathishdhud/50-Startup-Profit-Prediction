@@ -221,6 +221,11 @@
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
   </url>
-
+<url>
+      <loc>https://maaney.store/news/google/google-pixel-10a-launch</loc>
+      <lastmod>2026-02-19</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+  </url>
 
 </urlset>

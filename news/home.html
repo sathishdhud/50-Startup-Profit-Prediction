@@ -659,7 +659,10 @@
     <script>
         // --- CONFIGURATION ---
         // Simulate "Today" as Feb 20, 2026 to make the "days ago" logic realistic for the demo data.
-        const SIMULATED_TODAY = new Date('2026-02-20T12:00:00'); 
+        const SIMULATED_TODAY = new Date(
+  new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' })
+);
+
 
         // --- HEADER RIGHT DATA (4 News Items) ---
         const headerNewsItems = [
@@ -704,13 +707,25 @@
         // --- DATA STORE (Main Feed) ---
         const articles = [
             {
+  id: 2,
+  img: "https://maaney.store/news/google/news-google-pixel-10a.png",
+  category: "Mobiles",
+  title: "Google Pixel 10a Launched in India With 5,100mAh Battery, Tensor G4 and AI-Powered Camera",
+  excerpt: "Google has officially launched the Pixel 10a in India, bringing a massive 5,100mAh battery, Tensor G4 chipset, and a new 48MP AI-powered camera system. The mid-range Pixel focuses on long software support, improved performance, and practical AI features for everyday users.",
+  author: "Maaney Editorial",
+  date: "2026-02-19T8:00:00",
+  link: "https://maaney.store/news/google/google-pixel-10a-launch"
+}
+,
+            {
+                
     id: 1,
     img: "https://maaney.store/news/android/news-android-17-beta.png",
     category: "News",
     title: "Android 17 Beta Released for Google Pixel with Smarter Privacy Controls and UI Improvements",
     excerpt: "Google has officially rolled out the Android 17 Beta for supported Pixel devices, introducing smarter privacy controls, refined user interface elements, and system-level performance optimizations. The beta update offers an early look at Android’s next-generation features ahead of the stable release.",
     author: "Maaney Editorial",
-    date: "2026-02-19T12:00:00",
+    date: "2026-02-18T12:00:00",
     link: "https://maaney.store/news/android/android-17-beta-pixel"
 }
 ,
