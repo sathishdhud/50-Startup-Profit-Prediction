@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PhoneCompare - Find the Best Deals</title>
+    <title>Maaney - Find the Best Deals</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,7 +56,7 @@
             box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
         }
 
-        /* Product Row */
+        /* Product Row (Desktop) */
         .product-row {
             transition: all 0.2s ease;
             border-bottom: 1px solid var(--border);
@@ -64,6 +64,20 @@
 
         .product-row:hover {
             background: var(--card);
+        }
+
+        /* Mobile Card Style */
+        .mobile-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .mobile-card:active {
+            background: #f9fafb;
         }
 
         /* Buttons */
@@ -168,14 +182,29 @@
             color: #FBBF24;
         }
 
-        /* Responsive */
-        @media (max-width: 640px) {
-            .product-row {
-                flex-direction: column;
-                gap: 12px;
-            }
+        /* Pagination */
+        .pagination-btn {
+            border: 1px solid var(--border);
+            transition: all 0.15s ease;
         }
 
+        .pagination-btn:hover:not(:disabled) {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pagination-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        /* Responsive */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
@@ -190,15 +219,15 @@
     <header class="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
             <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-orange-500 flex items-center justify-center">
-                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-                    </svg>
-                </div>
-                <h1 class="text-lg font-bold tracking-tight">
-                    Phone<span class="accent-text">Compare</span>
-                </h1>
+                <a href="/" class="flex items-center gap-2">
+                    <img 
+                        src="./white_logo.png" 
+                        alt="Maaney Logo"
+                        class="h-8 w-auto object-contain"
+                    />
+                </a>
             </div>
+
             <div class="text-xs text-gray-400" id="lastUpdate"></div>
         </div>
     </header>
@@ -230,14 +259,6 @@
                     <span>Search</span>
                 </button>
             </div>
-
-            <!-- Quick Search Tags -->
-            <div class="flex flex-wrap gap-2 mt-3">
-                <button class="quick-tag text-xs px-3 py-1.5 rounded-full bg-white border border-gray-200 text-gray-600 hover:border-orange-400 hover:text-orange-500 transition-colors" data-query="Samsung A56 5G">Samsung A56 5G</button>
-                <button class="quick-tag text-xs px-3 py-1.5 rounded-full bg-white border border-gray-200 text-gray-600 hover:border-orange-400 hover:text-orange-500 transition-colors" data-query="iPhone 15 Pro">iPhone 15 Pro</button>
-                <button class="quick-tag text-xs px-3 py-1.5 rounded-full bg-white border border-gray-200 text-gray-600 hover:border-orange-400 hover:text-orange-500 transition-colors" data-query="OnePlus 12">OnePlus 12</button>
-                <button class="quick-tag text-xs px-3 py-1.5 rounded-full bg-white border border-gray-200 text-gray-600 hover:border-orange-400 hover:text-orange-500 transition-colors" data-query="Realme GT 6">Realme GT 6</button>
-            </div>
         </div>
     </section>
 
@@ -250,11 +271,11 @@
                     <h2 id="resultsTitle" class="text-xl font-bold text-black">Search Results</h2>
                     <p id="resultsCount" class="text-xs text-gray-500 mt-0.5"></p>
                 </div>
-                <div class="flex items-center gap-2 overflow-x-auto">
-                    <button class="filter-tab px-3 py-1.5 rounded-md text-xs font-medium active" data-filter="all">All</button>
-                    <button class="filter-tab px-3 py-1.5 rounded-md text-xs font-medium" data-filter="price-low">Low to High</button>
-                    <button class="filter-tab px-3 py-1.5 rounded-md text-xs font-medium" data-filter="price-high">High to Low</button>
-                    <button class="filter-tab px-3 py-1.5 rounded-md text-xs font-medium" data-filter="rating">Top Rated</button>
+                <div class="flex items-center gap-2 overflow-x-auto pb-1">
+                    <button class="filter-tab px-3 py-1.5 rounded-md text-xs font-medium whitespace-nowrap active" data-filter="all">All</button>
+                    <button class="filter-tab px-3 py-1.5 rounded-md text-xs font-medium whitespace-nowrap" data-filter="price-low">Low to High</button>
+                    <button class="filter-tab px-3 py-1.5 rounded-md text-xs font-medium whitespace-nowrap" data-filter="price-high">High to Low</button>
+                    <button class="filter-tab px-3 py-1.5 rounded-md text-xs font-medium whitespace-nowrap" data-filter="rating">Top Rated</button>
                 </div>
             </div>
         </div>
@@ -306,7 +327,10 @@
         </div>
 
         <!-- Products List -->
-        <div id="productsList" class="bg-white border border-gray-200 rounded-lg overflow-hidden"></div>
+        <div id="productsList"></div>
+
+        <!-- Pagination Controls -->
+        <div id="pagination" class="hidden mt-6 flex justify-center items-center gap-2 flex-wrap"></div>
     </main>
 
     <!-- Footer -->
@@ -322,6 +346,10 @@
         let currentFilter = 'all';
         let currentQuery = '';
         let isLoading = false;
+        
+        // Pagination State
+        let currentPage = 1;
+        const itemsPerPage = 10;
 
         // DOM Elements
         const searchInput = document.getElementById('searchInput');
@@ -335,7 +363,7 @@
         const resultsCount = document.getElementById('resultsCount');
         const lastUpdate = document.getElementById('lastUpdate');
         const filterTabs = document.querySelectorAll('.filter-tab');
-        const quickTags = document.querySelectorAll('.quick-tag');
+        const paginationContainer = document.getElementById('pagination');
 
         // API Configuration
         const API_BASE = 'https://maaney-backend1.onrender.com/api/compare';
@@ -433,14 +461,14 @@
             return best;
         }
 
-        // Render product row
-        function renderProductRow(product, index, bestDeal) {
+        // Render product row (Desktop Only - Hidden on mobile)
+        function renderDesktopRow(product, index, bestDeal) {
             const isBestDeal = bestDeal && product.id === bestDeal.id;
             const sourceStyle = getSourceStyle(product.source);
             const delay = Math.min(index * 30, 300);
 
             return `
-                <div class="product-row p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 animate-in" style="animation-delay: ${delay}ms;">
+                <div class="product-row p-4 hidden sm:flex items-center gap-4 animate-in" style="animation-delay: ${delay}ms;">
                     <!-- Left: Image -->
                     <div class="flex-shrink-0">
                         <div class="w-20 h-20 sm:w-16 sm:h-16 bg-gray-50 rounded-lg overflow-hidden border border-gray-100">
@@ -495,22 +523,181 @@
             `;
         }
 
+        // Render Mobile Card (Mobile Only - Hidden on desktop)
+        function renderMobileCard(product, index, bestDeal) {
+            const isBestDeal = bestDeal && product.id === bestDeal.id;
+            const sourceStyle = getSourceStyle(product.source);
+            const delay = Math.min(index * 30, 300);
+
+            return `
+                <div class="mobile-card block sm:hidden animate-in" style="animation-delay: ${delay}ms;">
+                    <!-- Top Badges -->
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="source-badge px-1.5 py-0.5 rounded" style="background: ${sourceStyle.bg}; color: ${sourceStyle.color};">${product.source}</span>
+                        ${isBestDeal ? '<span class="best-deal text-[9px] font-bold px-1.5 py-0.5 rounded">BEST DEAL</span>' : ''}
+                    </div>
+
+                    <!-- Content Area -->
+                    <div class="flex gap-3 mb-3">
+                        <div class="w-20 h-20 bg-gray-50 rounded-lg overflow-hidden border border-gray-100 flex-shrink-0">
+                            <img 
+                                src="${product.thumbnail}" 
+                                alt="${product.title}"
+                                class="w-full h-full object-contain"
+                                loading="lazy"
+                                onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 80 80%22><rect fill=%22%23f3f4f6%22 width=%2280%22 height=%2280%22/><text x=%2240%22 y=%2240%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%239ca3af%22 font-size=%2210%22>No Img</text></svg>'"
+                            >
+                        </div>
+                        <div class="flex-1 min-w-0 flex flex-col justify-center">
+                            <h3 class="text-sm font-medium text-black leading-snug line-clamp-2 mb-1">
+                                ${product.title}
+                            </h3>
+                            <div class="flex items-center gap-1 flex-wrap">
+                                ${product.rating ? `
+                                    <div class="flex items-center">
+                                        ${generateStars(product.rating)}
+                                    </div>
+                                ` : ''}
+                                ${product.rating ? `<span class="text-xs text-gray-500">${product.rating}</span>` : ''}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Action -->
+                    <div class="flex items-center justify-between border-t border-gray-100 pt-3">
+                        <p class="text-lg font-bold accent-text">${product.price}</p>
+                        <a 
+                            href="${product.url}" 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn-buy px-4 py-2 rounded-md text-xs font-medium flex items-center gap-1"
+                        >
+                            <span>Buy Now</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render Pagination
+        function renderPagination(totalItems) {
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            
+            if (totalPages <= 1) {
+                paginationContainer.classList.add('hidden');
+                return;
+            }
+
+            paginationContainer.classList.remove('hidden');
+            paginationContainer.innerHTML = '';
+
+            // Previous Button
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'pagination-btn px-3 py-1.5 rounded-md text-xs font-medium';
+            prevBtn.innerHTML = '&larr; Prev';
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.addEventListener('click', () => changePage(currentPage - 1));
+            paginationContainer.appendChild(prevBtn);
+
+            // Page Numbers
+            const maxVisiblePages = 5;
+            let startPage = Math.max(1, currentPage - 2);
+            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+            if (endPage - startPage < maxVisiblePages - 1) {
+                startPage = Math.max(1, endPage - maxVisiblePages + 1);
+            }
+
+            if (startPage > 1) {
+                const firstBtn = createPageButton(1);
+                paginationContainer.appendChild(firstBtn);
+                if (startPage > 2) {
+                    const dots = document.createElement('span');
+                    dots.className = 'px-2 text-gray-400 text-xs';
+                    dots.textContent = '...';
+                    paginationContainer.appendChild(dots);
+                }
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                const pageBtn = createPageButton(i);
+                paginationContainer.appendChild(pageBtn);
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    const dots = document.createElement('span');
+                    dots.className = 'px-2 text-gray-400 text-xs';
+                    dots.textContent = '...';
+                    paginationContainer.appendChild(dots);
+                }
+                const lastBtn = createPageButton(totalPages);
+                paginationContainer.appendChild(lastBtn);
+            }
+
+            // Next Button
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'pagination-btn px-3 py-1.5 rounded-md text-xs font-medium';
+            nextBtn.innerHTML = 'Next &rarr;';
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.addEventListener('click', () => changePage(currentPage + 1));
+            paginationContainer.appendChild(nextBtn);
+        }
+
+        function createPageButton(page) {
+            const btn = document.createElement('button');
+            btn.className = `pagination-btn w-8 h-8 rounded-md text-xs font-medium ${currentPage === page ? 'active' : ''}`;
+            btn.textContent = page;
+            btn.addEventListener('click', () => changePage(page));
+            return btn;
+        }
+
+        function changePage(page) {
+            currentPage = page;
+            renderProducts(allProducts);
+            // Scroll to top of list smoothly
+            productsList.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
         // Render products
         function renderProducts(products) {
             const validProducts = filterValidProducts(products);
             const sortedProducts = sortProducts(validProducts, currentFilter);
             const bestDeal = findBestDeal(sortedProducts);
 
+            // Update count text
+            const validCount = sortedProducts.length;
+            resultsCount.textContent = `${validCount} products found`;
+
             if (sortedProducts.length === 0) {
                 productsList.innerHTML = '';
                 noResults.classList.remove('hidden');
+                paginationContainer.classList.add('hidden');
                 return;
             }
 
             noResults.classList.add('hidden');
-            productsList.innerHTML = sortedProducts.map((product, index) => 
-                renderProductRow(product, index, bestDeal)
-            ).join('');
+
+            // Calculate pagination slice
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const paginatedProducts = sortedProducts.slice(startIndex, endIndex);
+
+            // Generate HTML for both layouts
+            let html = '';
+            paginatedProducts.forEach((product, index) => {
+                html += renderDesktopRow(product, index, bestDeal);
+                html += renderMobileCard(product, index, bestDeal);
+            });
+
+            // Add bottom border for desktop list
+            html += '<div class="hidden sm:block border-b border-gray-200"></div>';
+
+            productsList.innerHTML = html;
+            renderPagination(validCount);
         }
 
         // Fetch products from API
@@ -519,6 +706,7 @@
 
             isLoading = true;
             currentQuery = query;
+            currentPage = 1; // Reset to page 1 on new search
 
             // Show loading
             resultsHeader.classList.add('hidden');
@@ -543,9 +731,6 @@
                     loadingState.classList.add('hidden');
                     resultsHeader.classList.remove('hidden');
                     resultsTitle.innerHTML = `Results for "<span class="accent-text">${query}</span>"`;
-                    
-                    const validCount = filterValidProducts(allProducts).length;
-                    resultsCount.textContent = `${validCount} products found`;
                     
                     if (data.data.timestamp) {
                         const date = new Date(data.data.timestamp);
@@ -577,19 +762,12 @@
             }
         });
 
-        quickTags.forEach(tag => {
-            tag.addEventListener('click', () => {
-                const query = tag.dataset.query;
-                searchInput.value = query;
-                fetchProducts(query);
-            });
-        });
-
         filterTabs.forEach(tab => {
             tab.addEventListener('click', () => {
                 filterTabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
                 currentFilter = tab.dataset.filter;
+                currentPage = 1; // Reset page on filter change
                 renderProducts(allProducts);
             });
         });
