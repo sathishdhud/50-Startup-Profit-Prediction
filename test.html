@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root {
             --bg: #FFFFFF;
@@ -68,7 +69,7 @@
         .mobile-card {
             background: white;
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 6px;
             padding: 16px;
             margin-bottom: 12px;
             transition: all 0.2s ease;
@@ -116,17 +117,18 @@
 
         /* Custom Horizontal Scrollbar */
         .filter-container::-webkit-scrollbar {
-            height: 6px;
+            height: 2px;
+            display: none; /* Hide scrollbar by default */
         }
 
         .filter-container::-webkit-scrollbar-track {
             background: #f1f1f1;
-            border-radius: 10px;
+            border-radius: 2px;
         }
 
         .filter-container::-webkit-scrollbar-thumb {
             background: #F97316; /* Accent color */
-            border-radius: 10px;
+            border-radius: 5px;
         }
 
         .filter-container::-webkit-scrollbar-thumb:hover {
@@ -147,11 +149,7 @@
             white-space: nowrap;
         }
 
-        .filter-tab:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            background: #fff7ed;
-        }
+        
 
         .filter-tab.active {
             background: var(--accent);
@@ -254,10 +252,25 @@
                 transition-duration: 0.01ms !important;
             }
         }
+        .top-strip {
+      background: #f44f08;
+      color: #fff;
+      font-size: 12px;
+      padding: 6px 0;
+    }
     </style>
 </head>
 <body class="min-h-screen bg-white">
-
+<!-- TOP STRIP -->
+  <div class="top-strip">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div><i class="fas fa-tag me-2"></i> India's Best Price Comparison Engine</div>
+      <div class="d-none d-md-block">
+        <span class="me-3"><i class="fas fa-download me-1"></i> Download App</span>
+        <span><i class="fas fa-headset me-1"></i> Support</span>
+      </div>
+    </div>
+  </div>
     <!-- Header -->
     <header class="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
@@ -317,16 +330,16 @@
         <!-- Filter Bar (Horizontal Scroll) -->
         <div id="filterBar" class="hidden mb-4">
             <div class="filter-container">
-                <button class="filter-tab px-4 py-2 rounded-lg text-sm font-medium active" data-filter="all">
+                <button class="filter-tab px-4 py-2 rounded-md text-sm font-medium active" data-filter="all">
                     All
                 </button>
-                <button class="filter-tab px-4 py-2 rounded-lg text-sm font-medium" data-filter="price-low">
+                <button class="filter-tab px-4 py-2 rounded-md text-sm font-medium" data-filter="price-low">
                     Price: Low to High
                 </button>
-                <button class="filter-tab px-4 py-2 rounded-lg text-sm font-medium" data-filter="price-high">
+                <button class="filter-tab px-4 py-2 rounded-md text-sm font-medium" data-filter="price-high">
                     Price: High to Low
                 </button>
-                <button class="filter-tab px-4 py-2 rounded-lg text-sm font-medium" data-filter="rating">
+                <button class="filter-tab px-4 py-2 rounded-md text-sm font-medium" data-filter="rating">
                     Top Rated
                 </button>
             </div>
