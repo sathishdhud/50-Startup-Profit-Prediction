@@ -227,5 +227,10 @@
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
   </url>
-
+  <url>
+      <loc>https://maaney.store/news/nothing/nothing-phone-4a-community-review</loc>
+      <lastmod>2026-02-19</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+  </url>
 </urlset>
