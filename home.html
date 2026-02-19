@@ -1111,9 +1111,9 @@
 
     // ================= HERO SLIDER =================
     const slides = [
-      { img: "./mobiles/google-pixel-10a/image1.pngs", title: "Big Billion Days Sale" },
-      { img: "./mobiles/samsung-galaxy-s26-ultra/samsung-galaxy-s26-ultra-hero.jpg", title: "Republic Day Special" },
-      { img: "./mobiles/xiaomi-redmi-13c/xiaomi-redmi-13c-hero.jpg", title: "New Launches" }
+      { img: "./news/nothing/nothing-4a-community-review.pngs", title: "Nothing 4a Community Program",desc:"Test the upcoming Nothing Phone (4a) series before launch." ,btn:"Apply Now", btnLink:"/news/nothing/nothing-phone-4a-community-review"},
+      { img: "./mobiles/samsung-galaxy-s26-ultra/samsung-galaxy-s26-ultra-hero.jpg", title: "Republic Day Special" ,desc:"Celebrate Republic Day with exclusive deals on top smartphones.", btn:"Shop Deals", btnLink:"/deals/republic-day"},
+      { img: "./mobiles/xiaomi-redmi-13c/xiaomi-redmi-13c-hero.jpg", title: "New Launches", desc:"Discover the latest smartphones just launched in the market.", btn:"Explore Now", btnLink:"/news" }
     ];
 
     let currentSlide = 0;
@@ -1127,8 +1127,8 @@
         div.innerHTML = `
           <div class="hero-content">
             <h2 class="fw-bold bebas-neue" style="font-size: 32px;">${s.title}</h2>
-            <p>Best Deals on Top Brands</p>
-            <button class="btn btn-orange mt-2">Shop Now</button>
+            <p>${s.desc}</p>
+            <button class="btn btn-orange mt-2" onclick="window.location.href='${s.btnLink}'">${s.btn}</button>
           </div>
         `;
         sliderContainer.insertBefore(div, sliderContainer.children[sliderContainer.children.length - 2]);
