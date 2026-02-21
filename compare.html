@@ -3,13 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maaney - Find the Best Deals & Compare Prices Online</title><meta name="title" content="Maaney - Find the Best Deals & Compare Prices Online"><meta name="description" content="Compare prices, find the best deals, and discover products across top stores. Save money on electronics, mobiles, and more with Maaney's smart price comparison engine."><meta name="keywords" content="Maaney, Price Comparison, Best Deals, Online Shopping, Compare Prices, Mobile Prices, Electronics, Amazon, Flipkart, Cheap Mobiles"><meta name="robots" content="index, follow"><meta name="language" content="English"><meta name="author" content="Maaney"><!-- Canonical URL (Prevents duplicate content issues) --><link rel="canonical" href="https://yourdomain.com/" /><!-- Open Graph / Facebook (Social Media Indexing) --><meta property="og:type" content="website"><meta property="og:url" content="https://maaney.store.com/compare"><meta property="og:title" content="Maaney - Find the Best Deals & Compare Prices Online"><meta property="og:description" content="Compare prices and find the best deals across top stores. Save money on electronics and mobiles with Maaney."><meta property="og:image" content="https://maaney.store/compare.png"><meta property="og:site_name" content="Maaney"><!-- Twitter (Social Media Indexing) --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://maaney.store/compare"><meta property="twitter:title" content="Maaney - Find the Best Deals & Compare Prices Online"><meta property="twitter:description" content="Compare prices and find the best deals across top stores. Save money on electronics and mobiles with Maaney."><meta property="twitter:image" content="https://maaney.store/compare.png"><!-- Favicon & Branding --><link rel="icon" type="image/png" href="./favicon.svg"><link rel="apple-touch-icon" href="./white_logo.png"><meta name="theme-color" content="#F97316"><!-- Fonts & Stylesheets --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"><!-- External Scripts --><script src="https://cdn.tailwindcss.com"></script><script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <title>Maaney - Find the Best Deals & Compare Prices Online</title>
+    <meta name="title" content="Maaney - Find the Best Deals & Compare Prices Online">
+    <meta name="description" content="Compare prices, find the best deals, and discover products across top stores. Save money on electronics, mobiles, and more with Maaney's smart price comparison engine.">
+    <meta name="keywords" content="Maaney, Price Comparison, Best Deals, Online Shopping, Compare Prices, Mobile Prices, Electronics, Amazon, Flipkart, Cheap Mobiles">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="author" content="Maaney">
+    <link rel="canonical" href="https://yourdomain.com/" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://maaney.store.com/compare">
+    <meta property="og:title" content="Maaney - Find the Best Deals & Compare Prices Online">
+    <meta property="og:description" content="Compare prices and find the best deals across top stores. Save money on electronics and mobiles with Maaney.">
+    <meta property="og:image" content="https://maaney.store/compare.png">
+    <meta property="og:site_name" content="Maaney">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://maaney.store/compare">
+    <meta property="twitter:title" content="Maaney - Find the Best Deals & Compare Prices Online">
+    <meta property="twitter:description" content="Compare prices and find the best deals across top stores. Save money on electronics and mobiles with Maaney.">
+    <meta property="twitter:image" content="https://maaney.store/compare.png">
+    <link rel="icon" type="image/png" href="./favicon.svg">
+    <link rel="apple-touch-icon" href="./white_logo.png">
+    <meta name="theme-color" content="#F97316">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root {
             --bg: #FFFFFF;
@@ -21,11 +42,7 @@
             --card: #FAFAFA;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'DM Sans', sans-serif;
@@ -35,15 +52,9 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Space Grotesk', sans-serif;
-        }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif; }
+        .accent-text { color: var(--accent); }
 
-        .accent-text {
-            color: var(--accent);
-        }
-
-        /* Search Input */
         .search-input {
             transition: all 0.2s ease;
             border: 1px solid var(--border);
@@ -55,17 +66,13 @@
             box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
         }
 
-        /* Product Row (Desktop) */
         .product-row {
             transition: all 0.2s ease;
             border-bottom: 1px solid var(--border);
         }
 
-        .product-row:hover {
-            background: var(--card);
-        }
+        .product-row:hover { background: var(--card); }
 
-        /* Mobile Card Style */
         .mobile-card {
             background: white;
             border: 1px solid var(--border);
@@ -75,15 +82,20 @@
             transition: all 0.2s ease;
         }
 
-        .mobile-card:active {
-            background: #f9fafb;
-        }
+        .mobile-card:active { background: #f9fafb; }
 
         /* Buttons */
         .btn-buy {
             background: var(--accent);
             color: white;
             transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            text-decoration: none;
         }
 
         .btn-buy:hover {
@@ -91,9 +103,8 @@
             transform: translateY(-1px);
         }
 
-        .btn-buy:active {
-            transform: translateY(0);
-        }
+        .btn-buy:active { transform: translateY(0); }
+        .btn-buy:disabled { opacity: 0.7; cursor: wait; }
 
         .btn-search {
             background: var(--accent);
@@ -101,55 +112,28 @@
             transition: all 0.2s ease;
         }
 
-        .btn-search:hover {
-            background: #EA580C;
-        }
+        .btn-search:hover { background: #EA580C; }
 
-        /* Filter Tabs Container */
         .filter-container {
             display: flex;
             gap: 8px;
             overflow-x: auto;
-            padding-bottom: 8px; /* Space for scrollbar */
+            padding-bottom: 8px;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
         }
 
-        /* Custom Horizontal Scrollbar */
-        .filter-container::-webkit-scrollbar {
-            height: 2px;
-            display: none; /* Hide scrollbar by default */
-        }
+        .filter-container::-webkit-scrollbar { height: 2px; display: none; }
+        .filter-container { scrollbar-width: thin; scrollbar-color: #F97316 #f1f1f1; }
 
-        .filter-container::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 2px;
-        }
-
-        .filter-container::-webkit-scrollbar-thumb {
-            background: #F97316; /* Accent color */
-            border-radius: 5px;
-        }
-
-        .filter-container::-webkit-scrollbar-thumb:hover {
-            background: #EA580C;
-        }
-
-        /* Hide scrollbar for Firefox */
-        .filter-container {
-            scrollbar-width: thin;
-            scrollbar-color: #F97316 #f1f1f1;
-        }
-
-        /* Filter Tab Button */
         .filter-tab {
             transition: all 0.15s ease;
             border: 1px solid var(--border);
-            flex-shrink: 0; /* Prevent shrinking */
+            flex-shrink: 0;
             white-space: nowrap;
+            cursor: pointer;
+            background: white;
         }
-
-        
 
         .filter-tab.active {
             background: var(--accent);
@@ -158,15 +142,6 @@
             box-shadow: 0 2px 4px rgba(249, 115, 22, 0.2);
         }
 
-        /* Source Badge */
-        .source-badge {
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Brand Logo Overlay */
         .brand-logo-overlay {
             position: absolute;
             top: 0;
@@ -180,7 +155,7 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             border: 1.3px solid #5ba4f3;
             border-left:0px;
-            border-top: 0px;;
+            border-top: 0px;
         }
 
         .brand-logo-overlay img {
@@ -190,17 +165,13 @@
             filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
         }
 
-        /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .animate-in {
-            animation: fadeIn 0.3s ease forwards;
-        }
+        .animate-in { animation: fadeIn 0.3s ease forwards; }
 
-        /* Loading Skeleton */
         .skeleton {
             background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
             background-size: 200% 100%;
@@ -212,21 +183,18 @@
             100% { background-position: -200% 0; }
         }
 
-        /* Best Deal Badge */
         .best-deal {
             background: #059669;
             color: white;
         }
 
-        /* Rating Stars */
-        .star-filled {
-            color: #FBBF24;
-        }
+        .star-filled { color: #FBBF24; }
 
-        /* Pagination */
         .pagination-btn {
             border: 1px solid var(--border);
             transition: all 0.15s ease;
+            background: white;
+            cursor: pointer;
         }
 
         .pagination-btn:hover:not(:disabled) {
@@ -234,10 +202,7 @@
             color: var(--accent);
         }
 
-        .pagination-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
+        .pagination-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
         .pagination-btn.active {
             background: var(--accent);
@@ -245,45 +210,41 @@
             border-color: var(--accent);
         }
 
-        /* Responsive */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
                 transition-duration: 0.01ms !important;
             }
         }
+        
         .top-strip {
-      background: #f44f08;
-      color: #fff;
-      font-size: 12px;
-      padding: 6px 0;
-    }
+            background: #f44f08;
+            color: #fff;
+            font-size: 12px;
+            padding: 6px 0;
+        }
     </style>
 </head>
 <body class="min-h-screen bg-white">
-<!-- TOP STRIP -->
-  <div class="top-strip">
-    <div class="container d-flex justify-content-between align-items-center">
-      <div><i class="fas fa-tag me-2"></i> India's Best Price Comparison Engine</div>
-      <div class="d-none d-md-block">
-        <span class="me-3"><i class="fas fa-download me-1"></i> Download App</span>
-        <span><i class="fas fa-headset me-1"></i> Support</span>
-      </div>
+    <!-- TOP STRIP -->
+    <div class="top-strip">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div><i class="fas fa-tag me-2"></i> India's Best Price Comparison Engine</div>
+            <div class="d-none d-md-block">
+                <span class="me-3"><i class="fas fa-download me-1"></i> Download App</span>
+                <span><i class="fas fa-headset me-1"></i> Support</span>
+            </div>
+        </div>
     </div>
-  </div>
+
     <!-- Header -->
     <header class="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
             <div class="flex items-center gap-2">
                 <a href="/" class="flex items-center gap-2">
-                    <img 
-                        src="./white_logo.png" 
-                        alt="Maaney Logo"
-                        class="h-8 w-auto object-contain"
-                    />
+                    <img src="./white_logo.png" alt="Maaney Logo" class="h-8 w-auto object-contain"/>
                 </a>
             </div>
-
             <div class="text-xs text-gray-400" id="lastUpdate"></div>
         </div>
     </header>
@@ -296,19 +257,9 @@
                     <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                     </svg>
-                    <input 
-                        type="text" 
-                        id="searchInput"
-                        class="search-input w-full pl-10 pr-4 py-2.5 rounded-lg bg-white text-sm placeholder-gray-400"
-                        placeholder="Search products (e.g., Samsung, iPhone)"
-                        aria-label="Search for products"
-                    >
+                    <input type="text" id="searchInput" class="search-input w-full pl-10 pr-4 py-2.5 rounded-lg bg-white text-sm placeholder-gray-400" placeholder="Search products (e.g., Samsung, iPhone)" aria-label="Search for products">
                 </div>
-                <button 
-                    id="searchBtn"
-                    class="btn-search px-5 py-2.5 rounded-lg text-sm font-medium flex items-center justify-center gap-2"
-                    aria-label="Search"
-                >
+                <button id="searchBtn" class="btn-search px-5 py-2.5 rounded-lg text-sm font-medium flex items-center justify-center gap-2" aria-label="Search">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                     </svg>
@@ -320,32 +271,20 @@
 
     <!-- Results Section -->
     <main class="max-w-6xl mx-auto px-4 py-6">
-        
-        <!-- Results Title -->
         <div id="resultsHeader" class="hidden mb-3">
             <h2 id="resultsTitle" class="text-xl font-bold text-black">Search Results</h2>
             <p id="resultsCount" class="text-xs text-gray-500 mt-0.5"></p>
         </div>
 
-        <!-- Filter Bar (Horizontal Scroll) -->
         <div id="filterBar" class="hidden mb-4">
             <div class="filter-container">
-                <button class="filter-tab px-4 py-2 rounded-md text-sm font-medium active" data-filter="all">
-                    All
-                </button>
-                <button class="filter-tab px-4 py-2 rounded-md text-sm font-medium" data-filter="price-low">
-                    Price: Low to High
-                </button>
-                <button class="filter-tab px-4 py-2 rounded-md text-sm font-medium" data-filter="price-high">
-                    Price: High to Low
-                </button>
-                <button class="filter-tab px-4 py-2 rounded-md text-sm font-medium" data-filter="rating">
-                    Top Rated
-                </button>
+                <button class="filter-tab px-4 py-2 rounded-md text-sm font-medium active" data-filter="all">All</button>
+                <button class="filter-tab px-4 py-2 rounded-md text-sm font-medium" data-filter="price-low">Price: Low to High</button>
+                <button class="filter-tab px-4 py-2 rounded-md text-sm font-medium" data-filter="price-high">Price: High to Low</button>
+                <button class="filter-tab px-4 py-2 rounded-md text-sm font-medium" data-filter="rating">Top Rated</button>
             </div>
         </div>
 
-        <!-- Loading State -->
         <div id="loadingState" class="hidden space-y-3">
             <div class="bg-white border border-gray-100 rounded-lg p-4 flex gap-4">
                 <div class="skeleton w-16 h-16 rounded-lg flex-shrink-0"></div>
@@ -355,17 +294,8 @@
                 </div>
                 <div class="skeleton w-20 h-8 rounded"></div>
             </div>
-            <div class="bg-white border border-gray-100 rounded-lg p-4 flex gap-4">
-                <div class="skeleton w-16 h-16 rounded-lg flex-shrink-0"></div>
-                <div class="flex-1">
-                    <div class="skeleton h-4 w-3/4 rounded mb-2"></div>
-                    <div class="skeleton h-3 w-1/2 rounded"></div>
-                </div>
-                <div class="skeleton w-20 h-8 rounded"></div>
-            </div>
         </div>
 
-        <!-- Error State -->
         <div id="errorState" class="hidden text-center py-16">
             <svg class="w-12 h-12 mx-auto text-gray-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
@@ -374,7 +304,6 @@
             <p class="text-xs text-gray-500" id="errorMessage">Please try again later</p>
         </div>
 
-        <!-- No Results -->
         <div id="noResults" class="hidden text-center py-16">
             <svg class="w-12 h-12 mx-auto text-gray-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -383,7 +312,6 @@
             <p class="text-xs text-gray-500">Try searching with different keywords</p>
         </div>
 
-        <!-- Initial State -->
         <div id="initialState" class="text-center py-16">
              <svg class="w-12 h-12 mx-auto text-gray-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
@@ -395,11 +323,9 @@
         <!-- Products List -->
         <div id="productsList"></div>
 
-        <!-- Pagination Controls -->
         <div id="pagination" class="hidden mt-6 flex justify-center items-center gap-2 flex-wrap"></div>
     </main>
 
-    <!-- Footer -->
     <footer class="border-t border-gray-100 mt-8 py-6">
         <div class="max-w-6xl mx-auto px-4 text-center">
             <p class="text-xs text-gray-400">Prices may vary. Always verify on the store before purchasing.</p>
@@ -407,18 +333,22 @@
     </footer>
 
     <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
         // Supabase Configuration
         const supabaseUrl = "https://xvjdhxtyaktagrevixjt.supabase.co";
         const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh2amRoeHR5YWt0YWdyZXZpeGp0Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MTQ5NDM2OCwiZXhwIjoyMDg3MDcwMzY4fQ.4lnn65a5V1RDe-CtqaWMEr1r0Z0WKId3frzbjExNBN0";
-        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+        const supabase = createClient(supabaseUrl, supabaseKey);
+
+        // Affiliate API Configuration
+        const AFFILIATE_API_URL = "https://ekaro-api.affiliaters.in/api/converter/public";
+        const AFFILIATE_TOKEN = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTk5NTRmMTIxMjRjODNjMjY0NTI3NDMiLCJlYXJua2FybyI6IjQ3NjAyMzYiLCJpYXQiOjE3NzE2NTcwMTN9.Q-D3pAjob9pUOoDb5G7NOMa57Up79j2ZKz3ZYZXeANw";
 
         // State
         let allProducts = [];
         let currentFilter = 'all';
         let currentQuery = '';
         let isLoading = false;
-        
-        // Pagination State
         let currentPage = 1;
         const itemsPerPage = 10;
 
@@ -438,7 +368,8 @@
         const filterTabs = document.querySelectorAll('.filter-tab');
         const paginationContainer = document.getElementById('pagination');
 
-        // Extract numeric price
+        // --- Helper Functions ---
+
         function extractPrice(priceStr) {
             if (!priceStr) return 0;
             if (typeof priceStr === 'number') return priceStr;
@@ -446,29 +377,19 @@
             return match ? parseFloat(match[0]) : 0;
         }
 
-        // Sort products
         function sortProducts(products, filter) {
             const sorted = [...products];
             switch(filter) {
-                case 'price-low':
-                    sorted.sort((a, b) => extractPrice(a.price) - extractPrice(b.price));
-                    break;
-                case 'price-high':
-                    sorted.sort((a, b) => extractPrice(b.price) - extractPrice(a.price));
-                    break;
-                case 'rating':
-                    sorted.sort((a, b) => (b.rating || 0) - (a.rating || 0));
-                    break;
-                default:
-                    sorted.sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
+                case 'price-low': sorted.sort((a, b) => extractPrice(a.price) - extractPrice(b.price)); break;
+                case 'price-high': sorted.sort((a, b) => extractPrice(b.price) - extractPrice(a.price)); break;
+                case 'rating': sorted.sort((a, b) => (b.rating || 0) - (a.rating || 0)); break;
+                default: sorted.sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
             }
             return sorted;
         }
 
-        // Get source style and logo
         function getSourceStyle(source) {
             if (!source) return { bg: '#F3F4F6', color: '#374151', img: '', name: 'Store' };
-            
             const s = source.toLowerCase();
             const styles = {
                 'amazon': { bg: '#232F3E', color: '#FFFFFF', img: './brands/amazon.png', name: 'Amazon' },
@@ -476,12 +397,10 @@
                 'reliance': { bg: '#FFFFFF', color: '#333333', img: './brands/reliance.png', name: 'Reliance' },
                 'croma': { bg: '#1976D2', color: '#FFFFFF', img: './brands/croma.png', name: 'Croma' },
             };
-
             const key = Object.keys(styles).find(k => s.includes(k));
             return key ? styles[key] : { bg: '#F3F4F6', color: '#374151', img: '', name: source };
         }
 
-        // Generate star rating
         function generateStars(rating) {
             if (!rating) return '';
             const fullStars = Math.floor(rating);
@@ -493,7 +412,6 @@
             return html;
         }
 
-        // Find best deal
         function findBestDeal(products) {
             if (products.length === 0) return null;
             let best = null;
@@ -508,151 +426,158 @@
             return best;
         }
 
-        // Escape HTML
         function escapeHtml(text) {
             if (!text) return '';
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
         }
-
-        // Render Brand Logo HTML
-        function renderBrandLogo(sourceStyle) {
-            if (!sourceStyle.img) return ''; // Return empty if no image
-            return `
-                <div class="brand-logo-overlay" style="background-color: ${sourceStyle.bg};">
-                    <img 
-                        src="${sourceStyle.img}" 
-                        alt="${sourceStyle.name}"
-                        onerror="this.parentElement.innerHTML='<span class=\'text-xs font-bold\' style=\'color:${sourceStyle.color}\'>${sourceStyle.name}</span>'"
-                    >
-                </div>
-            `;
+        
+        function escapeAttr(text) {
+            return text ? text.replace(/"/g, '&quot;') : '';
         }
 
-        // Render product row (Desktop Only)
+        function renderBrandLogo(sourceStyle) {
+            if (!sourceStyle.img) return '';
+            return `
+                <div class="brand-logo-overlay" style="background-color: ${sourceStyle.bg};">
+                    <img src="${sourceStyle.img}" alt="${sourceStyle.name}"
+                        onerror="this.parentElement.innerHTML='<span class=\'text-xs font-bold\' style=\'color:${sourceStyle.color}\'>${sourceStyle.name}</span>'">
+                </div>`;
+        }
+
+        // --- Affiliate Conversion Logic ---
+
+        async function convertLink(originalUrl) {
+            try {
+                const response = await fetch(AFFILIATE_API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': AFFILIATE_TOKEN,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        deal: `Buy now ${originalUrl}`,
+                        convert_option: "convert_only"
+                    })
+                });
+
+                const result = await response.json();
+                
+                if (result.success && result.data) {
+                    // API returns "Buy now https://..."
+                    // We extract just the URL part
+                    const parts = result.data.split(' ');
+                    return parts.length > 1 ? parts[1] : result.data;
+                } else {
+                    console.error('Conversion failed:', result);
+                    return originalUrl; // Fallback
+                }
+            } catch (error) {
+                console.error('Error converting link:', error);
+                return originalUrl; // Fallback
+            }
+        }
+
+        async function handleBuyClick(event) {
+            const button = event.currentTarget;
+            const originalUrl = button.dataset.link;
+            
+            // Visual feedback
+            const originalContent = button.innerHTML;
+            button.innerHTML = 'Converting...';
+            button.disabled = true;
+
+            const convertedUrl = await convertLink(originalUrl);
+
+            // Restore button visually before redirect
+            button.innerHTML = originalContent;
+            button.disabled = false;
+
+            // Open link
+            window.open(convertedUrl, '_blank');
+        }
+
+        // --- Rendering Functions ---
+
         function renderDesktopRow(product, index, bestDeal) {
             const isBestDeal = bestDeal && product.id === bestDeal.id;
             const source = product.source || product.brand || 'Store';
             const sourceStyle = getSourceStyle(source);
             const delay = Math.min(index * 30, 300);
+            const safeLink = escapeAttr(product.link);
 
             return `
                 <div class="product-row p-4 hidden sm:flex items-center gap-4 animate-in" style="animation-delay: ${delay}ms;">
-                    <!-- Image Container with Logo Overlay -->
                     <div class="flex-shrink-0 relative">
                         <div class="w-20 h-20 sm:w-16 sm:h-16 bg-gray-50 rounded-lg overflow-hidden border border-gray-100">
-                            <img 
-                                src="${product.image || 'https://via.placeholder.com/80'}" 
-                                alt="${escapeHtml(product.title)}"
-                                class="w-full h-full object-contain"
-                                loading="lazy"
-                                onerror="this.src='https://via.placeholder.com/80?text=No+Img'"
-                            >
+                            <img src="${product.image || 'https://via.placeholder.com/80'}" alt="${escapeHtml(product.title)}" class="w-full h-full object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/80?text=No+Img'">
                         </div>
                         ${renderBrandLogo(sourceStyle)}
                     </div>
-
                     <div class="flex-1 min-w-0">
                         <div class="flex items-start gap-2 mb-1">
                             ${isBestDeal ? '<span class="best-deal text-[9px] font-bold px-1.5 py-0.5 rounded flex-shrink-0">BEST DEAL</span>' : ''}
                         </div>
-                        <h3 class="text-sm font-medium text-black leading-snug line-clamp-2 mb-1">
-                            ${escapeHtml(product.title)}
-                        </h3>
+                        <h3 class="text-sm font-medium text-black leading-snug line-clamp-2 mb-1">${escapeHtml(product.title)}</h3>
                         <div class="flex items-center gap-2 flex-wrap">
-                            ${product.rating ? `
-                                <div class="flex items-center gap-1">
-                                    ${generateStars(product.rating)}
-                                    <span class="text-xs text-gray-500">${product.rating}</span>
-                                </div>
-                            ` : ''}
+                            ${product.rating ? `<div class="flex items-center gap-1">${generateStars(product.rating)}<span class="text-xs text-gray-500">${product.rating}</span></div>` : ''}
                             ${product.rating_count ? `<span class="text-xs text-gray-400">(${product.rating_count.toLocaleString()} reviews)</span>` : ''}
                         </div>
                     </div>
-
                     <div class="flex items-center gap-3 sm:flex-col sm:items-end flex-shrink-0 w-full sm:w-auto">
                         <div class="text-right">
                             <p class="text-lg font-bold accent-text">₹${extractPrice(product.price).toLocaleString()}</p>
                         </div>
-                        <a 
-                            href="${product.link || '#'}" 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn-buy px-4 py-1.5 rounded-md text-xs font-medium flex items-center gap-1 ml-auto sm:ml-0"
-                        >
+                        <button data-link="${safeLink}" class="btn-buy px-4 py-1.5 rounded-md text-xs font-medium ml-auto sm:ml-0">
                             <span>Buy</span>
                             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                             </svg>
-                        </a>
+                        </button>
                     </div>
-                </div>
-            `;
+                </div>`;
         }
 
-        // Render Mobile Card (Mobile Only)
         function renderMobileCard(product, index, bestDeal) {
             const isBestDeal = bestDeal && product.id === bestDeal.id;
             const source = product.source || product.brand || 'Store';
             const sourceStyle = getSourceStyle(source);
             const delay = Math.min(index * 30, 300);
+            const safeLink = escapeAttr(product.link);
 
             return `
                 <div class="mobile-card block sm:hidden animate-in" style="animation-delay: ${delay}ms;">
                     <div class="flex gap-3 mb-3">
-                        <!-- Image Container with Logo Overlay -->
                         <div class="w-20 h-20 bg-gray-50 rounded-lg overflow-hidden border border-gray-100 flex-shrink-0 relative">
-                            <img 
-                                src="${product.image || 'https://via.placeholder.com/80'}" 
-                                alt="${escapeHtml(product.title)}"
-                                class="w-full h-full object-contain"
-                                loading="lazy"
-                                onerror="this.src='https://via.placeholder.com/80?text=No+Img'"
-                            >
+                            <img src="${product.image || 'https://via.placeholder.com/80'}" alt="${escapeHtml(product.title)}" class="w-full h-full object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/80?text=No+Img'">
                             ${renderBrandLogo(sourceStyle)}
                         </div>
-                        
                         <div class="flex-1 min-w-0 flex flex-col justify-center">
-                            <div class="mb-1">
-                                ${isBestDeal ? '<span class="best-deal text-[9px] font-bold px-1.5 py-0.5 rounded">BEST DEAL</span>' : ''}
-                            </div>
-                            <h3 class="text-sm font-medium text-black leading-snug line-clamp-2 mb-1">
-                                ${escapeHtml(product.title)}
-                            </h3>
+                            <div class="mb-1">${isBestDeal ? '<span class="best-deal text-[9px] font-bold px-1.5 py-0.5 rounded">BEST DEAL</span>' : ''}</div>
+                            <h3 class="text-sm font-medium text-black leading-snug line-clamp-2 mb-1">${escapeHtml(product.title)}</h3>
                             <div class="flex items-center gap-1 flex-wrap">
-                                ${product.rating ? `
-                                    <div class="flex items-center">
-                                        ${generateStars(product.rating)}
-                                    </div>
-                                ` : ''}
+                                ${product.rating ? `<div class="flex items-center">${generateStars(product.rating)}</div>` : ''}
                                 ${product.rating ? `<span class="text-xs text-gray-500">${product.rating}</span>` : ''}
                             </div>
                         </div>
                     </div>
-
                     <div class="flex items-center justify-between border-t border-gray-100 pt-3">
                         <p class="text-lg font-bold accent-text">₹${extractPrice(product.price).toLocaleString()}</p>
-                        <a 
-                            href="${product.link || '#'}" 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn-buy px-4 py-2 rounded-md text-xs font-medium flex items-center gap-1"
-                        >
+                        <button data-link="${safeLink}" class="btn-buy px-4 py-2 rounded-md text-xs font-medium">
                             <span>Buy Now</span>
                             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                             </svg>
-                        </a>
+                        </button>
                     </div>
-                </div>
-            `;
+                </div>`;
         }
 
-        // Render Pagination
+        // --- Pagination Logic ---
+
         function renderPagination(totalItems) {
             const totalPages = Math.ceil(totalItems / itemsPerPage);
-            
             if (totalPages <= 1) {
                 paginationContainer.classList.add('hidden');
                 return;
@@ -661,7 +586,6 @@
             paginationContainer.classList.remove('hidden');
             paginationContainer.innerHTML = '';
 
-            // Previous Button
             const prevBtn = document.createElement('button');
             prevBtn.className = 'pagination-btn px-3 py-1.5 rounded-md text-xs font-medium';
             prevBtn.innerHTML = '&larr;';
@@ -669,14 +593,10 @@
             prevBtn.addEventListener('click', () => changePage(currentPage - 1));
             paginationContainer.appendChild(prevBtn);
 
-            // Page Numbers Logic
             const maxVisiblePages = 5;
             let startPage = Math.max(1, currentPage - 2);
             let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-
-            if (endPage - startPage < maxVisiblePages - 1) {
-                startPage = Math.max(1, endPage - maxVisiblePages + 1);
-            }
+            if (endPage - startPage < maxVisiblePages - 1) startPage = Math.max(1, endPage - maxVisiblePages + 1);
 
             if (startPage > 1) {
                 paginationContainer.appendChild(createPageButton(1));
@@ -702,7 +622,6 @@
                 paginationContainer.appendChild(createPageButton(totalPages));
             }
 
-            // Next Button
             const nextBtn = document.createElement('button');
             nextBtn.className = 'pagination-btn px-3 py-1.5 rounded-md text-xs font-medium';
             nextBtn.innerHTML = '&rarr;';
@@ -725,11 +644,11 @@
             productsList.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        // Render products
+        // --- Main Render Function ---
+
         function renderProducts(products) {
             const sortedProducts = sortProducts(products, currentFilter);
             const bestDeal = findBestDeal(sortedProducts);
-
             resultsCount.textContent = `${sortedProducts.length} products found`;
 
             if (sortedProducts.length === 0) {
@@ -740,8 +659,6 @@
             }
 
             noResults.classList.add('hidden');
-
-            // Pagination logic
             const startIndex = (currentPage - 1) * itemsPerPage;
             const endIndex = startIndex + itemsPerPage;
             const paginatedProducts = sortedProducts.slice(startIndex, endIndex);
@@ -751,22 +668,26 @@
                 html += renderDesktopRow(product, index, bestDeal);
                 html += renderMobileCard(product, index, bestDeal);
             });
-
             html += '<div class="hidden sm:block border-b border-gray-200"></div>';
 
             productsList.innerHTML = html;
+            
+            // Attach event listeners to the new Buy buttons
+            document.querySelectorAll('.btn-buy').forEach(btn => {
+                btn.addEventListener('click', handleBuyClick);
+            });
+
             renderPagination(sortedProducts.length);
         }
 
-        // Fetch products from Supabase
+        // --- Fetch Logic ---
+
         async function fetchProducts(query) {
             if (!query.trim() || isLoading) return;
-
             isLoading = true;
             currentQuery = query;
             currentPage = 1;
 
-            // Show loading
             initialState.classList.add('hidden');
             resultsHeader.classList.add('hidden');
             filterBar.classList.add('hidden');
@@ -786,7 +707,6 @@
                 if (error) throw error;
 
                 allProducts = data || [];
-                
                 loadingState.classList.add('hidden');
                 
                 if (allProducts.length > 0) {
@@ -798,7 +718,6 @@
                 } else {
                     noResults.classList.remove('hidden');
                 }
-
             } catch (error) {
                 console.error('Fetch error:', error);
                 loadingState.classList.add('hidden');
@@ -809,15 +728,11 @@
             }
         }
 
-        // Event Listeners
-        searchBtn.addEventListener('click', () => {
-            fetchProducts(searchInput.value);
-        });
+        // --- Event Listeners ---
 
+        searchBtn.addEventListener('click', () => fetchProducts(searchInput.value));
         searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                fetchProducts(searchInput.value);
-            }
+            if (e.key === 'Enter') fetchProducts(searchInput.value);
         });
 
         filterTabs.forEach(tab => {
@@ -830,16 +745,10 @@
             });
         });
 
-        // Focus styles
-        searchInput.addEventListener('focus', () => {
-            searchInput.parentElement.classList.add('ring-2', 'ring-orange-200');
-        });
+        searchInput.addEventListener('focus', () => searchInput.parentElement.classList.add('ring-2', 'ring-orange-200'));
+        searchInput.addEventListener('blur', () => searchInput.parentElement.classList.remove('ring-2', 'ring-orange-200'));
 
-        searchInput.addEventListener('blur', () => {
-            searchInput.parentElement.classList.remove('ring-2', 'ring-orange-200');
-        });
-
-        // Initialize with default search
+        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             const defaultQuery = 'redmi';
             searchInput.value = defaultQuery;
