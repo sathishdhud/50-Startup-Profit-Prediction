@@ -263,5 +263,11 @@
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
   </url>
+  <url>
+      <loc>https://maaney.store/news/huawei/huawei-has-two-new-mid-range-kirin-chips-for-2026-smartphones</loc>
+      <lastmod>2026-02-21</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+  </url>
 
 </urlset>
