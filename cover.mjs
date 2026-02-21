@@ -13,7 +13,7 @@ const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 const OUTPUT_DIR = './compare'; 
 
 // Your Website Domain (WITHOUT trailing slash)
-const BASE_URL = 'https://maaney.store/generated';
+const BASE_URL = 'https://maaney.store/compare';
 
 const ITEMS_PER_PAGE = 10;
 
