@@ -727,6 +727,7 @@
             <a href="/author/dhuda-sathish" class="meta-link" rel="author">
                 Dhuda Sathish
             </a>
+
         </span>
 
         <span class="meta-sep">•</span>
@@ -742,8 +743,10 @@
         <span class="meta-sep">•</span>
 
         <span>
-            <i class="fa fa-clock meta-icon"></i>
-            <time datetime="2026-02-21T11:00:00+05:30" itemprop="dateModified"></time>
+            <i class="fa fa-clock meta-icon" aria-hidden="true"></i>
+            <strong>Updated</strong>
+            <!-- ADDED ID HERE -->
+            <time id="timeAgo" datetime="2026-02-20T11:50:00+05:30" itemprop="dateModified"></time>
         </span>
 
     </div>
@@ -1285,7 +1288,7 @@
 </script>
 
 <script>
-  const lastUpdated = new Date("2026-02-19T09:00:00");
+  const lastUpdated = new Date("2026-02-21T14:00:00");
 
   function timeAgo(date) {
     const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
