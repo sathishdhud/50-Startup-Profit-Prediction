@@ -1,294 +1,228 @@
-import express from 'express';
-import { createClient } from '@supabase/supabase-js';
-import fs from 'fs-extra';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-// ==========================================================
-// CONFIGURATION
-// ==========================================================
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Supabase Configuration
-const SUPABASE_URL = "https://xvjdhxtyaktagrevixjt.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh2amRoeHR5YWt0YWdyZXZpeGp0Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MTQ5NDM2OCwiZXhwIjoyMDg3MDcwMzY4fQ.4lnn65a5V1RDe-CtqaWMEr1r0Z0WKId3frzbjExNBN0";
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-// Output Directory for Generated Files
-const OUTPUT_DIR = path.join(__dirname, 'output');
-const ITEMS_PER_PAGE = 10;
-
-// Ensure output directory exists
-fs.ensureDirSync(OUTPUT_DIR);
-
-// ==========================================================
-// HELPER FUNCTIONS (Logic for HTML Generation)
-// ==========================================================
-
-function extractPrice(priceStr) {
-    if (!priceStr) return 0;
-    if (typeof priceStr === 'number') return priceStr;
-    const match = String(priceStr).replace(/,/g, '').match(/[\d.]+/);
-    return match ? parseFloat(match[0]) : 0;
-}
-
-function escapeHtml(text) {
-    if (!text) return '';
-    return String(text)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-}
-
-function escapeAttr(text) {
-    if (!text) return '';
-    return String(text).replace(/"/g, '&quot;');
-}
-
-function getSourceStyle(source) {
-    if (!source) return { bg: '#F3F4F6', color: '#374151', img: '', name: 'Store' };
-    const s = source.toLowerCase();
-    const styles = {
-        'amazon': { bg: '#232F3E', color: '#FFFFFF', img: './brands/amazon.png', name: 'Amazon' },
-        'flipkart': { bg: '#ffffff', color: '#FFFFFF', img: './brands/flipkart.png', name: 'Flipkart' },
-        'reliance': { bg: '#FFFFFF', color: '#333333', img: './brands/reliance.png', name: 'Reliance' },
-        'croma': { bg: '#1976D2', color: '#FFFFFF', img: './brands/croma.png', name: 'Croma' },
-    };
-    const key = Object.keys(styles).find(k => s.includes(k));
-    return key ? styles[key] : { bg: '#F3F4F6', color: '#374151', img: '', name: source };
-}
-
-function generateStars(rating) {
-    if (!rating) return '';
-    const fullStars = Math.floor(rating);
-    let html = '';
-    for (let i = 0; i < 5; i++) {
-        const starClass = i < fullStars ? 'star-filled' : 'text-gray-300';
-        html += `<svg class="w-3 h-3 ${starClass} inline" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>`;
-    }
-    return html;
-}
-
-function findBestDeal(products) {
-    if (products.length === 0) return null;
-    let best = null;
-    let lowestPrice = Infinity;
-    products.forEach(p => {
-        const price = extractPrice(p.price);
-        if (price > 0 && price < lowestPrice) {
-            lowestPrice = price;
-            best = p;
-        }
-    });
-    return best;
-}
-
-// ==========================================================
-// HTML RENDERING COMPONENTS
-// ==========================================================
-
-function renderBrandLogo(sourceStyle) {
-    if (!sourceStyle.img) return '';
-    return `
-        <div class="brand-logo-overlay" style="background-color: ${sourceStyle.bg};">
-            <img src="${sourceStyle.img}" alt="${sourceStyle.name}"
-                onerror="this.parentElement.innerHTML='<span class=\\'text-xs font-bold\\' style=\\'color:${sourceStyle.color}\\'>${sourceStyle.name}</span>'">
-        </div>`;
-}
-
-function renderProductHTML(product, bestDeal) {
-    const isBestDeal = bestDeal && product.id === bestDeal.id;
-    const source = product.source || product.brand || 'Store';
-    const sourceStyle = getSourceStyle(source);
-    const safeLink = escapeAttr(product.link);
-    const price = extractPrice(product.price).toLocaleString();
-
-    const desktopHTML = `
-        <div class="product-row p-4 hidden sm:flex items-center gap-4 animate-in">
-            <div class="flex-shrink-0 relative">
-                <div class="w-20 h-20 sm:w-16 sm:h-16 bg-gray-50 rounded-lg overflow-hidden border border-gray-100">
-                    <img src="${product.image || 'https://via.placeholder.com/80'}" alt="${escapeHtml(product.title)}" class="w-full h-full object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/80?text=No+Img'">
-                </div>
-                ${renderBrandLogo(sourceStyle)}
-            </div>
-            <div class="flex-1 min-w-0">
-                <div class="flex items-start gap-2 mb-1">
-                    ${isBestDeal ? '<span class="best-deal text-[9px] font-bold px-1.5 py-0.5 rounded flex-shrink-0">BEST DEAL</span>' : ''}
-                </div>
-                <h3 class="text-sm font-medium text-black leading-snug line-clamp-2 mb-1">${escapeHtml(product.title)}</h3>
-                <div class="flex items-center gap-2 flex-wrap">
-                    ${product.rating ? `<div class="flex items-center gap-1">${generateStars(product.rating)}<span class="text-xs text-gray-500">${product.rating}</span></div>` : ''}
-                    ${product.rating_count ? `<span class="text-xs text-gray-400">(${product.rating_count.toLocaleString()} reviews)</span>` : ''}
-                </div>
-            </div>
-            <div class="flex items-center gap-3 sm:flex-col sm:items-end flex-shrink-0 w-full sm:w-auto">
-                <div class="text-right">
-                    <p class="text-lg font-bold accent-text">₹${price}</p>
-                </div>
-                <button data-link="${safeLink}" class="btn-buy px-4 py-1.5 rounded-md text-xs font-medium ml-auto sm:ml-0">
-                    <span>Buy</span>
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                    </svg>
-                </button>
-            </div>
-        </div>`;
-
-    const mobileHTML = `
-        <div class="mobile-card block sm:hidden animate-in">
-            <div class="flex gap-3 mb-3">
-                <div class="w-20 h-20 bg-gray-50 rounded-lg overflow-hidden border border-gray-100 flex-shrink-0 relative">
-                    <img src="${product.image || 'https://via.placeholder.com/80'}" alt="${escapeHtml(product.title)}" class="w-full h-full object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/80?text=No+Img'">
-                    ${renderBrandLogo(sourceStyle)}
-                </div>
-                <div class="flex-1 min-w-0 flex flex-col justify-center">
-                    <div class="mb-1">${isBestDeal ? '<span class="best-deal text-[9px] font-bold px-1.5 py-0.5 rounded">BEST DEAL</span>' : ''}</div>
-                    <h3 class="text-sm font-medium text-black leading-snug line-clamp-2 mb-1">${escapeHtml(product.title)}</h3>
-                    <div class="flex items-center gap-1 flex-wrap">
-                        ${product.rating ? `<div class="flex items-center">${generateStars(product.rating)}</div>` : ''}
-                        ${product.rating ? `<span class="text-xs text-gray-500">${product.rating}</span>` : ''}
-                    </div>
-                </div>
-            </div>
-            <div class="flex items-center justify-between border-t border-gray-100 pt-3">
-                <p class="text-lg font-bold accent-text">₹${price}</p>
-                <button data-link="${safeLink}" class="btn-buy px-4 py-2 rounded-md text-xs font-medium">
-                    <span>Buy Now</span>
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                    </svg>
-                </button>
-            </div>
-        </div>`;
-
-    return desktopHTML + mobileHTML;
-}
-
-function renderPagination(currentPage, totalPages, baseFileName) {
-    if (totalPages <= 1) return '';
-    let pagesHtml = '';
-
-    // Previous Button
-    if (currentPage > 1) {
-        const prevLink = currentPage === 2 ? `/${baseFileName}.html` : `/${baseFileName}-${currentPage - 1}.html`;
-        pagesHtml += `<a href="${prevLink}" class="pagination-btn">« Prev</a>`;
-    } else {
-        pagesHtml += `<span class="pagination-btn disabled">« Prev</span>`;
-    }
-
-    // Page Numbers
-    for (let i = 1; i <= totalPages; i++) {
-        if (i === currentPage) {
-            pagesHtml += `<span class="pagination-btn active">${i}</span>`;
-        } else {
-            const link = i === 1 ? `/${baseFileName}.html` : `/${baseFileName}-${i}.html`;
-            pagesHtml += `<a href="${link}" class="pagination-btn">${i}</a>`;
-        }
-    }
-
-    // Next Button
-    if (currentPage < totalPages) {
-        const nextLink = `/${baseFileName}-${currentPage + 1}.html`;
-        pagesHtml += `<a href="${nextLink}" class="pagination-btn">Next »</a>`;
-    } else {
-        pagesHtml += `<span class="pagination-btn disabled">Next »</span>`;
-    }
-
-    return `<div class="flex justify-center items-center gap-2 mt-8 mb-4">${pagesHtml}</div>`;
-}
-
-function generateFullHTML(query, products, bestDeal, currentPage, totalPages, baseFileName) {
-    const safeQuery = escapeHtml(query);
-    const productsHTML = products.map(p => renderProductHTML(p, bestDeal)).join('');
-    const paginationHTML = renderPagination(currentPage, totalPages, baseFileName);
-
-    const pageTitle = currentPage > 1 ? `Page ${currentPage} - ${safeQuery}` : `${safeQuery} - Best Deals`;
-    const seoTitle = `${pageTitle} | Maaney`;
-    const seoDesc = `Compare ${safeQuery} prices across top stores. Find the best deals on ${safeQuery} and save money.`;
-
-    return `
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${seoTitle}</title>
-    <meta name="title" content="${seoTitle}">
-    <meta name="description" content="${seoDesc}">
-    <link rel="icon" type="image/png" href="/favicon.svg">
+    <title>Maaney - Find the Best Deals & Compare Prices Online</title>
+    <meta name="title" content="Maaney - Find the Best Deals & Compare Prices Online">
+    <meta name="description" content="Compare prices, find the best deals, and discover products across top stores. Save money on electronics, mobiles, and more with Maaney's smart price comparison engine.">
+    <meta name="keywords" content="Maaney, Price Comparison, Best Deals, Online Shopping, Compare Prices, Mobile Prices, Electronics, Amazon, Flipkart, Cheap Mobiles">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="author" content="Maaney">
+    <link rel="canonical" href="https://yourdomain.com/" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://maaney.store.com/compare">
+    <meta property="og:title" content="Maaney - Find the Best Deals & Compare Prices Online">
+    <meta property="og:description" content="Compare prices and find the best deals across top stores. Save money on electronics and mobiles with Maaney.">
+    <meta property="og:image" content="https://maaney.store/compare.png">
+    <meta property="og:site_name" content="Maaney">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://maaney.store/compare">
+    <meta property="twitter:title" content="Maaney - Find the Best Deals & Compare Prices Online">
+    <meta property="twitter:description" content="Compare prices and find the best deals across top stores. Save money on electronics and mobiles with Maaney.">
+    <meta property="twitter:image" content="https://maaney.store/compare.png">
+    <link rel="icon" type="image/png" href="./favicon.svg">
+    <link rel="apple-touch-icon" href="./white_logo.png">
+    <meta name="theme-color" content="#F97316">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <style>
         :root {
-            --bg: #FFFFFF; --fg: #0A0A0A; --muted: #6B7280; --accent: #F97316;
-            --accent-light: #FFF7ED; --border: #E5E5E5; --card: #FAFAFA;
+            --bg: #FFFFFF;
+            --fg: #0A0A0A;
+            --muted: #6B7280;
+            --accent: #F97316;
+            --accent-light: #FFF7ED;
+            --border: #E5E5E5;
+            --card: #FAFAFA;
         }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--fg); line-height: 1.5; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
         h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif; }
         .accent-text { color: var(--accent); }
-        .search-input { transition: all 0.2s ease; border: 1px solid var(--border); }
-        .search-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1); }
-        .product-row { transition: all 0.2s ease; border-bottom: 1px solid var(--border); }
-        .product-row:hover { background: var(--card); }
-        .mobile-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 16px; margin-bottom: 12px; transition: all 0.2s ease; }
-        .mobile-card:active { background: #f9fafb; }
-        .btn-buy { background: var(--accent); color: white; transition: all 0.2s ease; border: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 4px; text-decoration: none; }
-        .btn-buy:hover { background: #EA580C; transform: translateY(-1px); }
-        .btn-buy:active { transform: translateY(0); }
-        .btn-buy:disabled { opacity: 0.7; cursor: wait; }
-        .btn-search { background: var(--accent); color: white; transition: all 0.2s ease; }
-        .btn-search:hover { background: #EA580C; }
-        .brand-logo-overlay { position: absolute; top: 0; left: 0; z-index: 10; padding: 4px 6px; border-bottom-right-radius: 8px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1.3px solid #5ba4f3; border-left:0px; border-top: 0px; }
-        .brand-logo-overlay img { height: 12px; width: auto; object-fit: contain; filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1)); }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-in { animation: fadeIn 0.3s ease forwards; }
-        .best-deal { background: #059669; color: white; }
-        .star-filled { color: #FBBF24; }
 
-        /* Pagination Styles */
-        .pagination-btn {
-            padding: 8px 16px;
-            border: 1px solid var(--border);
-            background: white;
-            color: #374151;
-            border-radius: 6px;
-            font-size: 14px;
-            cursor: pointer;
+        .search-input {
             transition: all 0.2s ease;
-            text-decoration: none;
+            border: 1px solid var(--border);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+        }
+
+        .product-row {
+            transition: all 0.2s ease;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .product-row:hover { background: var(--card); }
+
+        .mobile-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .mobile-card:active { background: #f9fafb; }
+
+        /* Buttons */
+        .btn-buy {
+            background: var(--accent);
+            color: white;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-        }
-        .pagination-btn:hover {
-            background: #F9FAFB;
-            border-color: #D1D5DB;
+            gap: 4px;
             text-decoration: none;
         }
+
+        .btn-buy:hover {
+            background: #EA580C;
+            transform: translateY(-1px);
+        }
+
+        .btn-buy:active { transform: translateY(0); }
+        .btn-buy:disabled { opacity: 0.7; cursor: wait; }
+
+        .btn-search {
+            background: var(--accent);
+            color: white;
+            transition: all 0.2s ease;
+        }
+
+        .btn-search:hover { background: #EA580C; }
+
+        .filter-container {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .filter-container::-webkit-scrollbar { height: 2px; display: none; }
+        .filter-container { scrollbar-width: thin; scrollbar-color: #F97316 #f1f1f1; }
+
+        .filter-tab {
+            transition: all 0.15s ease;
+            border: 1px solid var(--border);
+            flex-shrink: 0;
+            white-space: nowrap;
+            cursor: pointer;
+            background: white;
+        }
+
+        .filter-tab.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            box-shadow: 0 2px 4px rgba(249, 115, 22, 0.2);
+        }
+
+        .brand-logo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            padding: 4px 6px;
+            border-bottom-right-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 1.3px solid #5ba4f3;
+            border-left:0px;
+            border-top: 0px;
+        }
+
+        .brand-logo-overlay img {
+            height: 12px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-in { animation: fadeIn 0.3s ease forwards; }
+
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .best-deal {
+            background: #059669;
+            color: white;
+        }
+
+        .star-filled { color: #FBBF24; }
+
+        .pagination-btn {
+            border: 1px solid var(--border);
+            transition: all 0.15s ease;
+            background: white;
+            cursor: pointer;
+        }
+
+        .pagination-btn:hover:not(:disabled) {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .pagination-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
         .pagination-btn.active {
             background: var(--accent);
             color: white;
             border-color: var(--accent);
         }
-        .pagination-btn.disabled {
-            opacity: 0.5;
-            pointer-events: none;
-            cursor: default;
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
         }
         
-        .top-strip { background: #f44f08; color: #fff; font-size: 12px; padding: 6px 0; }
+        .top-strip {
+            background: #f44f08;
+            color: #fff;
+            font-size: 12px;
+            padding: 6px 0;
+        }
     </style>
 </head>
 <body class="min-h-screen bg-white">
@@ -296,54 +230,100 @@ function generateFullHTML(query, products, bestDeal, currentPage, totalPages, ba
     <div class="top-strip">
         <div class="container d-flex justify-content-between align-items-center">
             <div><i class="fas fa-tag me-2"></i> India's Best Price Comparison Engine</div>
+            <div class="d-none d-md-block">
+                <span class="me-3"><i class="fas fa-download me-1"></i> Download App</span>
+                <span><i class="fas fa-headset me-1"></i> Support</span>
+            </div>
         </div>
     </div>
 
     <!-- Header -->
     <header class="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
-            <a href="/" class="flex items-center gap-2">
-                 <span class="text-xl font-bold text-gray-800">Maaney</span>
-            </a>
-            <div class="text-xs text-gray-400" id="lastUpdate">Updated: ${new Date().toLocaleTimeString()}</div>
+            <div class="flex items-center gap-2">
+                <a href="/" class="flex items-center gap-2">
+                    <img src="./white_logo.png" alt="Maaney Logo" class="h-8 w-auto object-contain"/>
+                </a>
+            </div>
+            <div class="text-xs text-gray-400" id="lastUpdate"></div>
         </div>
     </header>
 
     <!-- Search Section -->
     <section class="border-b border-gray-100 bg-gray-50/50">
         <div class="max-w-6xl mx-auto px-4 py-6">
-            <form action="/search" method="GET" class="flex flex-col sm:flex-row gap-3">
+            <div class="flex flex-col sm:flex-row gap-3">
                 <div class="relative flex-1">
                     <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                     </svg>
-                    <input type="text" name="q" class="search-input w-full pl-10 pr-4 py-2.5 rounded-lg bg-white text-sm placeholder-gray-400" placeholder="Search products (e.g., Samsung, iPhone)" value="${safeQuery}">
+                    <input type="text" id="searchInput" class="search-input w-full pl-10 pr-4 py-2.5 rounded-lg bg-white text-sm placeholder-gray-400" placeholder="Search products (e.g., Samsung, iPhone)" aria-label="Search for products">
                 </div>
-                <button type="submit" class="btn-search px-5 py-2.5 rounded-lg text-sm font-medium flex items-center justify-center gap-2">
+                <button id="searchBtn" class="btn-search px-5 py-2.5 rounded-lg text-sm font-medium flex items-center justify-center gap-2" aria-label="Search">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                     </svg>
                     <span>Search</span>
                 </button>
-            </form>
+            </div>
         </div>
     </section>
 
     <!-- Results Section -->
     <main class="max-w-6xl mx-auto px-4 py-6">
-        <div class="mb-3">
-            <h1 class="text-xl font-bold text-black">Results for "<span class="accent-text">${safeQuery}</span>"</h1>
-            <p class="text-xs text-gray-500 mt-0.5">Page ${currentPage} of ${totalPages}</p>
+        <div id="resultsHeader" class="hidden mb-3">
+            <h2 id="resultsTitle" class="text-xl font-bold text-black">Search Results</h2>
+            <p id="resultsCount" class="text-xs text-gray-500 mt-0.5"></p>
+        </div>
+
+        <div id="filterBar" class="hidden mb-4">
+            <div class="filter-container">
+                <button class="filter-tab px-4 py-2 rounded-md text-sm font-medium active" data-filter="all">All</button>
+                <button class="filter-tab px-4 py-2 rounded-md text-sm font-medium" data-filter="price-low">Price: Low to High</button>
+                <button class="filter-tab px-4 py-2 rounded-md text-sm font-medium" data-filter="price-high">Price: High to Low</button>
+                <button class="filter-tab px-4 py-2 rounded-md text-sm font-medium" data-filter="rating">Top Rated</button>
+            </div>
+        </div>
+
+        <div id="loadingState" class="hidden space-y-3">
+            <div class="bg-white border border-gray-100 rounded-lg p-4 flex gap-4">
+                <div class="skeleton w-16 h-16 rounded-lg flex-shrink-0"></div>
+                <div class="flex-1">
+                    <div class="skeleton h-4 w-3/4 rounded mb-2"></div>
+                    <div class="skeleton h-3 w-1/2 rounded"></div>
+                </div>
+                <div class="skeleton w-20 h-8 rounded"></div>
+            </div>
+        </div>
+
+        <div id="errorState" class="hidden text-center py-16">
+            <svg class="w-12 h-12 mx-auto text-gray-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+            </svg>
+            <h3 class="text-sm font-semibold text-gray-700 mb-1">Something went wrong</h3>
+            <p class="text-xs text-gray-500" id="errorMessage">Please try again later</p>
+        </div>
+
+        <div id="noResults" class="hidden text-center py-16">
+            <svg class="w-12 h-12 mx-auto text-gray-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <h3 class="text-sm font-semibold text-gray-700 mb-1">No products found</h3>
+            <p class="text-xs text-gray-500">Try searching with different keywords</p>
+        </div>
+
+        <div id="initialState" class="text-center py-16">
+             <svg class="w-12 h-12 mx-auto text-gray-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            <h3 class="text-sm font-semibold text-gray-700 mb-1">Find the Best Deals</h3>
+            <p class="text-xs text-gray-500">Search for products to compare prices across stores</p>
         </div>
 
         <!-- Products List -->
-        <div id="productsList">
-            ${productsHTML}
-            <div class="hidden sm:block border-b border-gray-200"></div>
-        </div>
-        
-        <!-- Pagination -->
-        ${paginationHTML}
+        <div id="productsList"></div>
+
+        <div id="pagination" class="hidden mt-6 flex justify-center items-center gap-2 flex-wrap"></div>
     </main>
 
     <footer class="border-t border-gray-100 mt-8 py-6">
@@ -352,177 +332,498 @@ function generateFullHTML(query, products, bestDeal, currentPage, totalPages, ba
         </div>
     </footer>
 
-    <!-- Client-side Script for Affiliate Conversion -->
     <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+        // Supabase Configuration
+        const supabaseUrl = "https://xvjdhxtyaktagrevixjt.supabase.co";
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh2amRoeHR5YWt0YWdyZXZpeGp0Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MTQ5NDM2OCwiZXhwIjoyMDg3MDcwMzY4fQ.4lnn65a5V1RDe-CtqaWMEr1r0Z0WKId3frzbjExNBN0";
+        const supabase = createClient(supabaseUrl, supabaseKey);
+
+        // Affiliate API Configuration
         const AFFILIATE_API_URL = "https://ekaro-api.affiliaters.in/api/converter/public";
         const AFFILIATE_TOKEN = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTk5NTRmMTIxMjRjODNjMjY0NTI3NDMiLCJlYXJua2FybyI6IjQ3NjAyMzYiLCJpYXQiOjE3NzE2NTcwMTN9.Q-D3pAjob9pUOoDb5G7NOMa57Up79j2ZKz3ZYZXeANw";
+
+        // State
+        let allProducts = [];
+        let currentFilter = 'all';
+        let currentQuery = '';
+        let isLoading = false;
+        let currentPage = 1;
+        const itemsPerPage = 10;
+
+        // DOM Elements
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const resultsHeader = document.getElementById('resultsHeader');
+        const filterBar = document.getElementById('filterBar');
+        const productsList = document.getElementById('productsList');
+        const loadingState = document.getElementById('loadingState');
+        const errorState = document.getElementById('errorState');
+        const noResults = document.getElementById('noResults');
+        const initialState = document.getElementById('initialState');
+        const resultsTitle = document.getElementById('resultsTitle');
+        const resultsCount = document.getElementById('resultsCount');
+        const lastUpdate = document.getElementById('lastUpdate');
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const paginationContainer = document.getElementById('pagination');
+
+        // --- Helper Functions ---
+
+        function extractPrice(priceStr) {
+            if (!priceStr) return 0;
+            if (typeof priceStr === 'number') return priceStr;
+            const match = String(priceStr).replace(/,/g, '').match(/[\d.]+/);
+            return match ? parseFloat(match[0]) : 0;
+        }
+
+        function sortProducts(products, filter) {
+            const sorted = [...products];
+            switch(filter) {
+                case 'price-low': sorted.sort((a, b) => extractPrice(a.price) - extractPrice(b.price)); break;
+                case 'price-high': sorted.sort((a, b) => extractPrice(b.price) - extractPrice(a.price)); break;
+                case 'rating': sorted.sort((a, b) => (b.rating || 0) - (a.rating || 0)); break;
+                default: sorted.sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
+            }
+            return sorted;
+        }
+
+        function getSourceStyle(source) {
+            if (!source) return { bg: '#F3F4F6', color: '#374151', img: '', name: 'Store' };
+            const s = source.toLowerCase();
+            const styles = {
+                'amazon': { bg: '#232F3E', color: '#FFFFFF', img: './brands/amazon.png', name: 'Amazon' },
+                'flipkart': { bg: '#ffffff', color: '#FFFFFF', img: './brands/flipkart.png', name: 'Flipkart' },
+                'reliance': { bg: '#FFFFFF', color: '#333333', img: './brands/reliance.png', name: 'Reliance' },
+                'croma': { bg: '#1976D2', color: '#FFFFFF', img: './brands/croma.png', name: 'Croma' },
+            };
+            const key = Object.keys(styles).find(k => s.includes(k));
+            return key ? styles[key] : { bg: '#F3F4F6', color: '#374151', img: '', name: source };
+        }
+
+        function generateStars(rating) {
+            if (!rating) return '';
+            const fullStars = Math.floor(rating);
+            let html = '';
+            for (let i = 0; i < 5; i++) {
+                const starClass = i < fullStars ? 'star-filled' : 'text-gray-300';
+                html += `<svg class="w-3 h-3 ${starClass} inline" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>`;
+            }
+            return html;
+        }
+
+        function findBestDeal(products) {
+            if (products.length === 0) return null;
+            let best = null;
+            let lowestPrice = Infinity;
+            products.forEach(p => {
+                const price = extractPrice(p.price);
+                if (price > 0 && price < lowestPrice) {
+                    lowestPrice = price;
+                    best = p;
+                }
+            });
+            return best;
+        }
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        function escapeAttr(text) {
+            return text ? text.replace(/"/g, '&quot;') : '';
+        }
+
+        function renderBrandLogo(sourceStyle) {
+            if (!sourceStyle.img) return '';
+            return `
+                <div class="brand-logo-overlay" style="background-color: ${sourceStyle.bg};">
+                    <img src="${sourceStyle.img}" alt="${sourceStyle.name}"
+                        onerror="this.parentElement.innerHTML='<span class=\'text-xs font-bold\' style=\'color:${sourceStyle.color}\'>${sourceStyle.name}</span>'">
+                </div>`;
+        }
+
+        // --- Affiliate Conversion Logic ---
 
         async function convertLink(originalUrl) {
             try {
                 const response = await fetch(AFFILIATE_API_URL, {
                     method: 'POST',
-                    headers: { 'Authorization': AFFILIATE_TOKEN, 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ deal: 'Buy now ' + originalUrl, convert_option: "convert_only" })
+                    headers: {
+                        'Authorization': AFFILIATE_TOKEN,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        deal: `Buy now ${originalUrl}`,
+                        convert_option: "convert_only"
+                    })
                 });
+
                 const result = await response.json();
+                
                 if (result.success && result.data) {
+                    // The API returns format: "Buy now https://ekaro.in/..."
+                    // We need to extract the URL part
                     let link = result.data;
-                    if (link.startsWith("Buy now ")) link = link.substring(8);
-                    if (link.startsWith('http://') || link.startsWith('https://')) return link;
+                    
+                    // Check if it contains the prefix and strip it
+                    if (link.startsWith("Buy now ")) {
+                        link = link.substring(8); // Remove "Buy now "
+                    }
+                    
+                    // Ensure it's a valid absolute URL
+                    if (link.startsWith('http://') || link.startsWith('https://')) {
+                        return link;
+                    } else {
+                        // If API returns relative path or garbage, log and fallback
+                        console.warn('API returned invalid URL format:', link);
+                        return originalUrl;
+                    }
+                } else {
+                    console.error('Conversion failed:', result);
+                    return originalUrl; // Fallback
                 }
-                return originalUrl;
-            } catch (error) { return originalUrl; }
+            } catch (error) {
+                console.error('Error converting link:', error);
+                return originalUrl; // Fallback
+            }
         }
 
         async function handleBuyClick(event) {
             const button = event.currentTarget;
             const originalUrl = button.dataset.link;
+            
             if (!originalUrl) return;
+
+            // 1. Open the window immediately to avoid popup blockers
             const win = window.open('', '_self');
+
+            // 2. Write a loading state HTML to the new window
             if (win) {
-                win.document.write('<html><head><title>Redirecting...</title><style>body{font-family:sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;background:#f8fafc;color:#334155;}</style></head><body><div>Generating your deal link...</div></body></html>');
+                win.document.write(`
+                    <html>
+                        <head>
+                            <title>Redirecting...</title>
+                            <style>
+                                body { 
+                                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+                                    display: flex; 
+                                    justify-content: center; 
+                                    align-items: center; 
+                                    height: 100vh; 
+                                    margin: 0; 
+                                    background: #f8fafc; 
+                                    color: #334155; 
+                                }
+                                .loader { 
+                                    text-align: center; 
+                                }
+                                .spinner { 
+                                    width: 40px; 
+                                    height: 40px; 
+                                    border: 4px solid #e2e8f0; 
+                                    border-top: 4px solid #F97316; 
+                                    border-radius: 50%; 
+                                    animation: spin 1s linear infinite; 
+                                    margin: 0 auto 16px auto; 
+                                }
+                                @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+                            </style>
+                        </head>
+                        <body>
+                            <div class="loader">
+                                <div class="spinner"></div>
+                                <p>Generating your deal link...</p>
+                            </div>
+                        </body>
+                    </html>
+                `);
             }
+            
+            // Visual feedback on button
+            const originalContent = button.innerHTML;
+            button.innerHTML = 'Wait...';
             button.disabled = true;
-            const convertedUrl = await convertLink(originalUrl);
-            if (win) win.location.href = convertedUrl;
-            button.disabled = false;
+
+            try {
+                // 3. Call API to get the link
+                const convertedUrl = await convertLink(originalUrl);
+
+                // 4. Redirect the new window to the affiliate link
+                if (win) {
+                    win.location.href = convertedUrl;
+                }
+            } catch (err) {
+                console.error(err);
+                if (win) {
+                    win.document.body.innerHTML = '<p style="text-align:center;margin-top:50px;">Could not load the deal. Please try again.</p>';
+                }
+            } finally {
+                // Restore button
+                button.innerHTML = originalContent;
+                button.disabled = false;
+            }
         }
 
-        document.querySelectorAll('.btn-buy').forEach(btn => btn.addEventListener('click', handleBuyClick));
+        // --- Rendering Functions ---
+
+        function renderDesktopRow(product, index, bestDeal) {
+            const isBestDeal = bestDeal && product.id === bestDeal.id;
+            const source = product.source || product.brand || 'Store';
+            const sourceStyle = getSourceStyle(source);
+            const delay = Math.min(index * 30, 300);
+            const safeLink = escapeAttr(product.link);
+
+            return `
+                <div class="product-row p-4 hidden sm:flex items-center gap-4 animate-in" style="animation-delay: ${delay}ms;">
+                    <div class="flex-shrink-0 relative">
+                        <div class="w-20 h-20 sm:w-16 sm:h-16 bg-gray-50 rounded-lg overflow-hidden border border-gray-100">
+                            <img src="${product.image || 'https://via.placeholder.com/80'}" alt="${escapeHtml(product.title)}" class="w-full h-full object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/80?text=No+Img'">
+                        </div>
+                        ${renderBrandLogo(sourceStyle)}
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-start gap-2 mb-1">
+                            ${isBestDeal ? '<span class="best-deal text-[9px] font-bold px-1.5 py-0.5 rounded flex-shrink-0">BEST DEAL</span>' : ''}
+                        </div>
+                        <h3 class="text-sm font-medium text-black leading-snug line-clamp-2 mb-1">${escapeHtml(product.title)}</h3>
+                        <div class="flex items-center gap-2 flex-wrap">
+                            ${product.rating ? `<div class="flex items-center gap-1">${generateStars(product.rating)}<span class="text-xs text-gray-500">${product.rating}</span></div>` : ''}
+                            ${product.rating_count ? `<span class="text-xs text-gray-400">(${product.rating_count.toLocaleString()} reviews)</span>` : ''}
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 sm:flex-col sm:items-end flex-shrink-0 w-full sm:w-auto">
+                        <div class="text-right">
+                            <p class="text-lg font-bold accent-text">₹${extractPrice(product.price).toLocaleString()}</p>
+                        </div>
+                        <button data-link="${safeLink}" class="btn-buy px-4 py-1.5 rounded-md text-xs font-medium ml-auto sm:ml-0">
+                            <span>Buy</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>`;
+        }
+
+        function renderMobileCard(product, index, bestDeal) {
+            const isBestDeal = bestDeal && product.id === bestDeal.id;
+            const source = product.source || product.brand || 'Store';
+            const sourceStyle = getSourceStyle(source);
+            const delay = Math.min(index * 30, 300);
+            const safeLink = escapeAttr(product.link);
+
+            return `
+                <div class="mobile-card block sm:hidden animate-in" style="animation-delay: ${delay}ms;">
+                    <div class="flex gap-3 mb-3">
+                        <div class="w-20 h-20 bg-gray-50 rounded-lg overflow-hidden border border-gray-100 flex-shrink-0 relative">
+                            <img src="${product.image || 'https://via.placeholder.com/80'}" alt="${escapeHtml(product.title)}" class="w-full h-full object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/80?text=No+Img'">
+                            ${renderBrandLogo(sourceStyle)}
+                        </div>
+                        <div class="flex-1 min-w-0 flex flex-col justify-center">
+                            <div class="mb-1">${isBestDeal ? '<span class="best-deal text-[9px] font-bold px-1.5 py-0.5 rounded">BEST DEAL</span>' : ''}</div>
+                            <h3 class="text-sm font-medium text-black leading-snug line-clamp-2 mb-1">${escapeHtml(product.title)}</h3>
+                            <div class="flex items-center gap-1 flex-wrap">
+                                ${product.rating ? `<div class="flex items-center">${generateStars(product.rating)}</div>` : ''}
+                                ${product.rating ? `<span class="text-xs text-gray-500">${product.rating}</span>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-gray-100 pt-3">
+                        <p class="text-lg font-bold accent-text">₹${extractPrice(product.price).toLocaleString()}</p>
+                        <button data-link="${safeLink}" class="btn-buy px-4 py-2 rounded-md text-xs font-medium">
+                            <span>Buy Now</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>`;
+        }
+
+        // --- Pagination Logic ---
+
+        function renderPagination(totalItems) {
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            if (totalPages <= 1) {
+                paginationContainer.classList.add('hidden');
+                return;
+            }
+
+            paginationContainer.classList.remove('hidden');
+            paginationContainer.innerHTML = '';
+
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'pagination-btn px-3 py-1.5 rounded-md text-xs font-medium';
+            prevBtn.innerHTML = '&larr;';
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.addEventListener('click', () => changePage(currentPage - 1));
+            paginationContainer.appendChild(prevBtn);
+
+            const maxVisiblePages = 5;
+            let startPage = Math.max(1, currentPage - 2);
+            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+            if (endPage - startPage < maxVisiblePages - 1) startPage = Math.max(1, endPage - maxVisiblePages + 1);
+
+            if (startPage > 1) {
+                paginationContainer.appendChild(createPageButton(1));
+                if (startPage > 2) {
+                    const dots = document.createElement('span');
+                    dots.className = 'px-2 text-gray-400 text-xs';
+                    dots.textContent = '...';
+                    paginationContainer.appendChild(dots);
+                }
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                paginationContainer.appendChild(createPageButton(i));
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    const dots = document.createElement('span');
+                    dots.className = 'px-2 text-gray-400 text-xs';
+                    dots.textContent = '...';
+                    paginationContainer.appendChild(dots);
+                }
+                paginationContainer.appendChild(createPageButton(totalPages));
+            }
+
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'pagination-btn px-3 py-1.5 rounded-md text-xs font-medium';
+            nextBtn.innerHTML = '&rarr;';
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.addEventListener('click', () => changePage(currentPage + 1));
+            paginationContainer.appendChild(nextBtn);
+        }
+
+        function createPageButton(page) {
+            const btn = document.createElement('button');
+            btn.className = `pagination-btn w-8 h-8 rounded-md text-xs font-medium ${currentPage === page ? 'active' : ''}`;
+            btn.textContent = page;
+            btn.addEventListener('click', () => changePage(page));
+            return btn;
+        }
+
+        function changePage(page) {
+            currentPage = page;
+            renderProducts(allProducts);
+            productsList.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // --- Main Render Function ---
+
+        function renderProducts(products) {
+            const sortedProducts = sortProducts(products, currentFilter);
+            const bestDeal = findBestDeal(sortedProducts);
+            resultsCount.textContent = `${sortedProducts.length} products found`;
+
+            if (sortedProducts.length === 0) {
+                productsList.innerHTML = '';
+                noResults.classList.remove('hidden');
+                paginationContainer.classList.add('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const paginatedProducts = sortedProducts.slice(startIndex, endIndex);
+
+            let html = '';
+            paginatedProducts.forEach((product, index) => {
+                html += renderDesktopRow(product, index, bestDeal);
+                html += renderMobileCard(product, index, bestDeal);
+            });
+            html += '<div class="hidden sm:block border-b border-gray-200"></div>';
+
+            productsList.innerHTML = html;
+            
+            // Attach event listeners to the new Buy buttons
+            document.querySelectorAll('.btn-buy').forEach(btn => {
+                btn.addEventListener('click', handleBuyClick);
+            });
+
+            renderPagination(sortedProducts.length);
+        }
+
+        // --- Fetch Logic ---
+
+        async function fetchProducts(query) {
+            if (!query.trim() || isLoading) return;
+            isLoading = true;
+            currentQuery = query;
+            currentPage = 1;
+
+            initialState.classList.add('hidden');
+            resultsHeader.classList.add('hidden');
+            filterBar.classList.add('hidden');
+            productsList.innerHTML = '';
+            noResults.classList.add('hidden');
+            errorState.classList.add('hidden');
+            loadingState.classList.remove('hidden');
+
+            try {
+                const { data, error } = await supabase
+                    .from('products')
+                    .select('*')
+                    .ilike('title', `%${query}%`)
+                    .order('created_at', { ascending: false })
+                    .limit(50);
+
+                if (error) throw error;
+
+                allProducts = data || [];
+                loadingState.classList.add('hidden');
+                
+                if (allProducts.length > 0) {
+                    resultsHeader.classList.remove('hidden');
+                    filterBar.classList.remove('hidden');
+                    resultsTitle.innerHTML = `Results for "<span class="accent-text">${query}</span>"`;
+                    lastUpdate.textContent = `Updated: ${new Date().toLocaleTimeString()}`;
+                    renderProducts(allProducts);
+                } else {
+                    noResults.classList.remove('hidden');
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+                loadingState.classList.add('hidden');
+                errorState.classList.remove('hidden');
+                document.getElementById('errorMessage').textContent = 'Failed to fetch products. Please try again.';
+            } finally {
+                isLoading = false;
+            }
+        }
+
+        // --- Event Listeners ---
+
+        searchBtn.addEventListener('click', () => fetchProducts(searchInput.value));
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') fetchProducts(searchInput.value);
+        });
+
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentFilter = tab.dataset.filter;
+                currentPage = 1;
+                renderProducts(allProducts);
+            });
+        });
+
+        searchInput.addEventListener('focus', () => searchInput.parentElement.classList.add('ring-2', 'ring-orange-200'));
+        searchInput.addEventListener('blur', () => searchInput.parentElement.classList.remove('ring-2', 'ring-orange-200'));
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            const defaultQuery = 'redmi';
+            searchInput.value = defaultQuery;
+            fetchProducts(defaultQuery);
+        });
     </script>
 </body>
-</html>`;
-}
-
-// ==========================================================
-// GENERATION LOGIC
-// ==========================================================
-
-async function generatePage(query) {
-    console.log(`[Generator] Starting generation for: "${query}"`);
-
-    const { data, error } = await supabase
-        .from('products')
-        .select('*')
-        .ilike('title', `%${query}%`)
-        .order('created_at', { ascending: false });
-
-    if (error) {
-        console.error('[Generator] Database Error:', error);
-        return null;
-    }
-
-    if (!data || data.length === 0) {
-        return null;
-    }
-
-    const queryWords = query.trim().toLowerCase().split(/\s+/);
-    // Create folder based on first word (e.g., 'google')
-    const folderName = queryWords[0]; 
-    // Base file name (e.g., 'google-pixel')
-    const baseFileName = queryWords.join('-');
-    
-    const dirPath = path.join(OUTPUT_DIR, folderName);
-    await fs.ensureDir(dirPath);
-
-    const bestDeal = findBestDeal(data);
-    const totalProducts = data.length;
-    const totalPages = Math.ceil(totalProducts / ITEMS_PER_PAGE);
-
-    console.log(`[Generator] Found ${totalProducts} items. Generating ${totalPages} pages.`);
-
-    const generatedFiles = [];
-
-    for (let i = 0; i < totalPages; i++) {
-        const currentPage = i + 1;
-        const startIndex = i * ITEMS_PER_PAGE;
-        const endIndex = startIndex + ITEMS_PER_PAGE;
-        const chunk = data.slice(startIndex, endIndex);
-
-        // Determine filename: query.html for page 1, query-2.html for page 2
-        let fileName = `${baseFileName}.html`;
-        if (currentPage > 1) {
-            fileName = `${baseFileName}-${currentPage}.html`;
-        }
-        
-        const filePath = path.join(dirPath, fileName);
-        const htmlContent = generateFullHTML(query, chunk, bestDeal, currentPage, totalPages, baseFileName);
-        
-        await fs.writeFile(filePath, htmlContent);
-        generatedFiles.push(fileName);
-    }
-
-    console.log(`[Generator] Success! Files created in ${dirPath}`);
-    return { folder: folderName, file: `${baseFileName}.html` }; // Return first page info for redirect
-}
-
-// ==========================================================
-// SERVER ROUTING
-// ==========================================================
-
-// Serve static files from 'output' directory
-app.use(express.static(OUTPUT_DIR));
-
-// Serve brands logos if you have them locally
-app.use('/brands', express.static(path.join(__dirname, 'brands')));
-
-// Home Route
-app.get('/', (req, res) => {
-    res.send(`
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Maaney Price Comparison</title>
-            <script src="https://cdn.tailwindcss.com"></script>
-        </head>
-        <body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center">
-            <div class="text-center p-8 bg-white shadow-xl rounded-2xl max-w-md w-full">
-                <h1 class="text-3xl font-bold text-gray-800 mb-4">Maaney Search</h1>
-                <p class="text-gray-500 mb-6">Find the best prices instantly.</p>
-                <form action="/search" method="GET" class="flex gap-2">
-                    <input type="text" name="q" placeholder="e.g. Google Pixel" class="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
-                    <button type="submit" class="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">Go</button>
-                </form>
-            </div>
-        </body>
-        </html>
-    `);
-});
-
-// Search Route
-app.get('/search', async (req, res) => {
-    const query = req.query.q;
-
-    if (!query) {
-        return res.redirect('/');
-    }
-
-    const cleanQuery = query.trim().toLowerCase();
-    const queryWords = cleanQuery.split(/\s+/);
-    const folderName = queryWords[0];
-    const baseFileName = queryWords.join('-');
-    
-    // Construct expected path for Page 1
-    const filePath = path.join(OUTPUT_DIR, folderName, `${baseFileName}.html`);
-
-    // Check if file exists
-    const exists = await fs.pathExists(filePath);
-
-    if (!exists) {
-        console.log(`[Server] Page not found for "${query}". Generating now...`);
-        await generatePage(cleanQuery);
-    }
-
-    // Redirect to the generated static file
-    // The file is inside OUTPUT_DIR/folderName/fileName
-    // Since we serve OUTPUT_DIR as static root, the URL is /folderName/fileName
-    return res.redirect(`/${folderName}/${baseFileName}.html`);
-});
-
-// Start Server
-app.listen(PORT, () => {
-    console.log(`🚀 Server running at http://localhost:${PORT}`);
-    console.log(`📂 Output directory: ${OUTPUT_DIR}`);
-});
+</html>
