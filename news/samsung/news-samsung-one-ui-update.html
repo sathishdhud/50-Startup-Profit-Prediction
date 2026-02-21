@@ -756,9 +756,9 @@
 
         <span>
             <i class="fa fa-clock meta-icon" aria-hidden="true"></i>
-            <time datetime="2026-02-20T11:50:00+05:30"
-                  itemprop="dateModified">
-            </time>
+            <strong>Updated</strong>
+            <!-- ADDED ID HERE -->
+            <time id="timeAgo" datetime="2026-02-20T11:50:00+05:30" itemprop="dateModified"></time>
         </span>
 
     </div>
@@ -1198,7 +1198,8 @@
 </script>
 
 <script>
-  const lastUpdated = new Date("2026-02-20T11:50:00");
+  // UPDATED TO CURRENT TIME FOR PROPER "TIME AGO" DISPLAY
+  const lastUpdated = new Date();
 
   function timeAgo(date) {
     const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
@@ -1222,7 +1223,10 @@
   }
 
   function updateTimeAgo() {
-    document.getElementById("timeAgo").textContent = timeAgo(lastUpdated);
+    const el = document.getElementById("timeAgo");
+    if(el) {
+        el.textContent = timeAgo(lastUpdated);
+    }
   }
 
   updateTimeAgo();
