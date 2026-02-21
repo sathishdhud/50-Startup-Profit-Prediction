@@ -49,10 +49,10 @@ function getSourceStyle(source) {
     if (!source) return { bg: '#F3F4F6', color: '#374151', img: '', name: 'Store' };
     const s = source.toLowerCase();
     const styles = {
-        'amazon': { bg: '#232F3E', color: '#FFFFFF', img: './brands/amazon.png', name: 'Amazon' },
-        'flipkart': { bg: '#ffffff', color: '#FFFFFF', img: './brands/flipkart.png', name: 'Flipkart' },
-        'reliance': { bg: '#FFFFFF', color: '#333333', img: './brands/reliance.png', name: 'Reliance' },
-        'croma': { bg: '#1976D2', color: '#FFFFFF', img: './brands/croma.png', name: 'Croma' },
+        'amazon': { bg: '#232F3E', color: '#FFFFFF', img: 'https://maaney.store/brands/amazon.png', name: 'Amazon' },
+        'flipkart': { bg: '#ffffff', color: '#FFFFFF', img: 'https://maaney.store/brands/flipkart.png', name: 'Flipkart' },
+        'reliance': { bg: '#FFFFFF', color: '#333333', img: 'https://maaney.store/brands/reliance.png', name: 'Reliance' },
+        'croma': { bg: '#1976D2', color: '#FFFFFF', img: 'https://maaney.store/brands/croma.png', name: 'Croma' },
     };
     const key = Object.keys(styles).find(k => s.includes(k));
     return key ? styles[key] : { bg: '#F3F4F6', color: '#374151', img: '', name: source };
@@ -426,7 +426,7 @@ function generateFullHTML(query, products, bestDeal, currentPage, totalPages, ba
         <div class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
             <div class="flex items-center gap-2">
                 <a href="/" class="flex items-center gap-2">
-                    <img src="./white_logo.png" alt="Maaney Logo" class="h-8 w-auto object-contain"/>
+                    <img src="https://maaney.store/white_logo.png" alt="Maaney Logo" class="h-8 w-auto object-contain"/>
                 </a>
             </div>
             <div class="text-xs text-gray-400" id="lastUpdate">Updated: ${new Date().toLocaleTimeString()}</div>
