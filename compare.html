@@ -465,10 +465,23 @@
                 const result = await response.json();
                 
                 if (result.success && result.data) {
-                    // API returns "Buy now https://..."
-                    // We extract just the URL part
-                    const parts = result.data.split(' ');
-                    return parts.length > 1 ? parts[1] : result.data;
+                    // The API returns format: "Buy now https://ekaro.in/..."
+                    // We need to extract the URL part
+                    let link = result.data;
+                    
+                    // Check if it contains the prefix and strip it
+                    if (link.startsWith("Buy now ")) {
+                        link = link.substring(8); // Remove "Buy now "
+                    }
+                    
+                    // Ensure it's a valid absolute URL
+                    if (link.startsWith('http://') || link.startsWith('https://')) {
+                        return link;
+                    } else {
+                        // If API returns relative path or garbage, log and fallback
+                        console.warn('API returned invalid URL format:', link);
+                        return originalUrl;
+                    }
                 } else {
                     console.error('Conversion failed:', result);
                     return originalUrl; // Fallback
@@ -483,19 +496,76 @@
             const button = event.currentTarget;
             const originalUrl = button.dataset.link;
             
-            // Visual feedback
+            if (!originalUrl) return;
+
+            // 1. Open the window immediately to avoid popup blockers
+            const win = window.open('', '_self');
+
+            // 2. Write a loading state HTML to the new window
+            if (win) {
+                win.document.write(`
+                    <html>
+                        <head>
+                            <title>Redirecting...</title>
+                            <style>
+                                body { 
+                                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+                                    display: flex; 
+                                    justify-content: center; 
+                                    align-items: center; 
+                                    height: 100vh; 
+                                    margin: 0; 
+                                    background: #f8fafc; 
+                                    color: #334155; 
+                                }
+                                .loader { 
+                                    text-align: center; 
+                                }
+                                .spinner { 
+                                    width: 40px; 
+                                    height: 40px; 
+                                    border: 4px solid #e2e8f0; 
+                                    border-top: 4px solid #F97316; 
+                                    border-radius: 50%; 
+                                    animation: spin 1s linear infinite; 
+                                    margin: 0 auto 16px auto; 
+                                }
+                                @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+                            </style>
+                        </head>
+                        <body>
+                            <div class="loader">
+                                <div class="spinner"></div>
+                                <p>Generating your deal link...</p>
+                            </div>
+                        </body>
+                    </html>
+                `);
+            }
+            
+            // Visual feedback on button
             const originalContent = button.innerHTML;
-            button.innerHTML = 'Converting...';
+            button.innerHTML = 'Wait...';
             button.disabled = true;
 
-            const convertedUrl = await convertLink(originalUrl);
+            try {
+                // 3. Call API to get the link
+                const convertedUrl = await convertLink(originalUrl);
 
-            // Restore button visually before redirect
-            button.innerHTML = originalContent;
-            button.disabled = false;
-
-            // Open link
-            window.open(convertedUrl, '_blank');
+                // 4. Redirect the new window to the affiliate link
+                if (win) {
+                    win.location.href = convertedUrl;
+                }
+            } catch (err) {
+                console.error(err);
+                if (win) {
+                    win.document.body.innerHTML = '<p style="text-align:center;margin-top:50px;">Could not load the deal. Please try again.</p>';
+                }
+            } finally {
+                // Restore button
+                button.innerHTML = originalContent;
+                button.disabled = false;
+            }
         }
 
         // --- Rendering Functions ---
