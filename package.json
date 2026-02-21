@@ -1,5 +1,27 @@
 {
   "dependencies": {
-    "axios": "^1.13.5"
-  }
+    "@supabase/supabase-js": "^2.97.0",
+    "axios": "^1.13.5",
+    "express": "^5.2.1",
+    "fs-extra": "^11.3.3"
+  },
+  "name": "download",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cover.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sathishdhud/50-Startup-Profit-Prediction.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sathishdhud/50-Startup-Profit-Prediction/issues"
+  },
+  "homepage": "https://github.com/sathishdhud/50-Startup-Profit-Prediction#readme"
 }
