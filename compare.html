@@ -820,9 +820,18 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            const defaultQuery = 'redmi';
-            searchInput.value = defaultQuery;
-            fetchProducts(defaultQuery);
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const queryParam = urlParams.get('q');
+            
+            // Determine the search query:
+            // 1. Use URL parameter if present
+            // 2. Otherwise default to 'vivo v70 elite'
+            const defaultQuery = 'vivo v70 elite';
+            const query = queryParam ? queryParam : defaultQuery;
+            
+            searchInput.value = query;
+            fetchProducts(query);
         });
     </script>
 </body>
