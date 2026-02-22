@@ -29,7 +29,7 @@
             font-family: 'DM Sans', sans-serif;
             background: var(--bg);
             color: var(--fg);
-            overflow: hidden; /* Prevent bounce scroll on iOS */
+            overflow: hidden; 
             height: 100vh;
             height: -webkit-fill-available;
         }
@@ -213,27 +213,38 @@
         
         .source-badge img { height: 12px; }
 
-        /* Loading Skeleton */
-        .skeleton-reel {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-            z-index: 1;
+        /* Loading Indicator */
+        .loading-indicator {
+            text-align: center;
+            padding: 20px;
+            color: rgba(255,255,255,0.5);
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
-        @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+        .loading-indicator.hidden { display: none; }
+        
+        .spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-top-color: #F97316;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* Best Deal Tag */
-        .best-deal-tag {
-            background: #059669;
+        /* Error State */
+        .error-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
             color: white;
-            font-size: 10px;
-            font-weight: 700;
-            padding: 2px 6px;
-            border-radius: 4px;
-            margin-left: 8px;
-            vertical-align: middle;
+            z-index: 50;
         }
     </style>
 </head>
@@ -246,7 +257,6 @@
         </svg>
         <h1 class="text-2xl font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">Mobile Only Feature</h1>
         <p class="text-gray-500 max-w-sm">Please open this page on a mobile device to enjoy the swipeable deals feed experience.</p>
-        <a href="/" class="mt-6 px-6 py-2 bg-orange-500 text-white rounded-lg">Go to Desktop Site</a>
     </div>
 
     <!-- Mobile App -->
@@ -256,13 +266,22 @@
             <div class="flex items-center gap-2">
                 <img src="./white_logo.png" alt="Maaney" class="h-6 opacity-90">
             </div>
-            <div class="text-xs opacity-70">Swipe for deals</div>
+            <div class="text-xs opacity-70 flex items-center gap-1">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                Live Deals
+            </div>
         </header>
 
         <!-- Feed Container -->
         <main id="feedContainer" class="feed-container">
-            <!-- Slides will be injected here -->
+            <!-- Reels will be injected here -->
         </main>
+        
+        <!-- Loading Indicator at bottom -->
+        <div id="loadingIndicator" class="loading-indicator">
+            <div class="spinner"></div>
+            <span>Loading more deals...</span>
+        </div>
     </div>
 
     <script type="module">
@@ -278,7 +297,11 @@
         const AFFILIATE_TOKEN = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTk5NTRmMTIxMjRjODNjMjY0NTI3NDMiLCJlYXJua2FybyI6IjQ3NjAyMzYiLCJpYXQiOjE3NzE2NTcwMTN9.Q-D3pAjob9pUOoDb5G7NOMa57Up79j2ZKz3ZYZXeANw";
 
         const feedContainer = document.getElementById('feedContainer');
-        let products = [];
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        
+        let isLoading = false;
+        let hasError = false;
+        const BATCH_SIZE = 10;
 
         // --- Helper Functions ---
 
@@ -336,13 +359,11 @@
             const originalUrl = button.dataset.link;
             if (!originalUrl) return;
 
-            // Mobile specific: Open in new tab but show loading on button
             button.innerHTML = 'Redirecting...';
             button.disabled = true;
             button.style.opacity = '0.7';
 
             try {
-                // Use _blank for feed experience so user doesn't lose scroll position
                 const win = window.open('', '_blank');
                 if(win) win.document.write('<html><head><title>Loading...</title></head><body style="display:flex;justify-content:center;align-items:center;height:100vh;margin:0;font-family:sans-serif;background:#111;color:#fff;">Redirecting to store...</body></html>');
                 
@@ -369,127 +390,186 @@
             const price = extractPrice(product.price);
             const safeTitle = escapeHtml(product.title);
             const safeLink = product.link || '#';
+            
             const imageHtml = product.image 
-                ? `<img src="${product.image}" alt="${safeTitle}" class="reel-bg-image" onerror="this.style.display='none'">` 
+                ? `<img src="${product.image}" alt="${safeTitle}" class="reel-bg-image" loading="lazy" onerror="this.style.display='none'">` 
                 : `<div class="reel-bg-image" style="display:flex;align-items:center;justify-content:center;font-size:4rem;">📦</div>`;
 
-            return `
-                <div class="reel-item">
-                    <!-- Background Image -->
-                    ${imageHtml}
-                    
-                    <!-- Gradients -->
-                    <div class="gradient-top"></div>
-                    <div class="gradient-bottom"></div>
+            const el = document.createElement('div');
+            el.className = 'reel-item';
+            el.innerHTML = `
+                ${imageHtml}
+                <div class="gradient-top"></div>
+                <div class="gradient-bottom"></div>
 
-                    <!-- Right Sidebar Actions -->
-                    <div class="action-sidebar">
-                        <!-- Source -->
-                        <div class="action-btn">
-                            <div class="action-icon-circle" style="background: ${sourceStyle.bg}; border: 1px solid rgba(255,255,255,0.2);">
-                                ${sourceStyle.img 
-                                    ? `<img src="${sourceStyle.img}" alt="${sourceStyle.name}" style="width:24px; height:24px; object-fit:contain;" onerror="this.style.display='none'">` 
-                                    : `<span style="color:${sourceStyle.color}; font-weight:bold; font-size:12px;">${sourceStyle.name.charAt(0)}</span>`
-                                }
-                            </div>
-                            <span class="action-text">${sourceStyle.name}</span>
+                <div class="action-sidebar">
+                    <div class="action-btn">
+                        <div class="action-icon-circle" style="background: ${sourceStyle.bg}; border: 1px solid rgba(255,255,255,0.2);">
+                            ${sourceStyle.img 
+                                ? `<img src="${sourceStyle.img}" alt="${sourceStyle.name}" style="width:24px; height:24px; object-fit:contain;" onerror="this.style.display='none'">` 
+                                : `<span style="color:${sourceStyle.color}; font-weight:bold; font-size:12px;">${sourceStyle.name.charAt(0)}</span>`
+                            }
                         </div>
-
-                        <!-- Share (Generic) -->
-                        <div class="action-btn" onclick="if(navigator.share) navigator.share({title: '${safeTitle}', url: window.location.href})">
-                            <div class="action-icon-circle">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
-                            </div>
-                            <span class="action-text">Share</span>
-                        </div>
+                        <span class="action-text">${sourceStyle.name}</span>
                     </div>
+                    <div class="action-btn" onclick="if(navigator.share) navigator.share({title: '${safeTitle}', url: window.location.href})">
+                        <div class="action-icon-circle">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+                        </div>
+                        <span class="action-text">Share</span>
+                    </div>
+                </div>
 
-                    <!-- Bottom Content -->
-                    <div class="content-layer">
-                        <div class="flex items-end justify-between gap-4">
-                            <div class="flex-1 pr-4">
-                                <!-- Source Badge -->
-                                <div class="source-badge">
-                                    <span>Sold by ${sourceStyle.name}</span>
-                                </div>
-                                
-                                <!-- Price -->
-                                <div class="flex items-baseline gap-2 mb-1">
-                                    <span class="price-tag">₹${price.toLocaleString()}</span>
-                                    ${product.rating ? `<span class="text-xs text-yellow-400">★ ${product.rating}</span>` : ''}
-                                </div>
-                                
-                                <!-- Title -->
-                                <h2 class="product-title">${safeTitle}</h2>
+                <div class="content-layer">
+                    <div class="flex items-end justify-between gap-4">
+                        <div class="flex-1 pr-4">
+                            <div class="source-badge">
+                                <span>Sold by ${sourceStyle.name}</span>
                             </div>
-
-                            <!-- Buy Button -->
-                            <div>
-                                <button data-link="${safeLink}" class="btn-buy-reel" onclick="event.stopPropagation()">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                                    <span>Buy</span>
-                                </button>
+                            <div class="flex items-baseline gap-2 mb-1">
+                                <span class="price-tag">₹${price.toLocaleString()}</span>
+                                ${product.rating ? `<span class="text-xs text-yellow-400">★ ${product.rating}</span>` : ''}
                             </div>
+                            <h2 class="product-title">${safeTitle}</h2>
+                        </div>
+                        <div>
+                            <button data-link="${safeLink}" class="btn-buy-reel" onclick="event.stopPropagation()">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                                <span>Buy</span>
+                            </button>
                         </div>
                     </div>
                 </div>
             `;
+            
+            // Attach event listener directly to button
+            const btn = el.querySelector('.btn-buy-reel');
+            btn.addEventListener('click', handleBuyClick);
+            
+            return el;
         }
 
-        async function initFeed() {
-            // 1. Get URL param or default
-            const urlParams = new URLSearchParams(window.location.search);
-            const queryParam = urlParams.get('q');
-            const query = queryParam ? queryParam : 'vivo v70 elite';
+        // --- Data Fetching Logic (Random Continuous) ---
 
-            // 2. Show Loading Skeletons
-            let skeletons = '';
-            for(let i=0; i<5; i++) skeletons += `<div class="reel-item"><div class="skeleton-reel"></div></div>`;
-            feedContainer.innerHTML = skeletons;
+        async function fetchRandomBatch() {
+            if (isLoading) return;
+            isLoading = true;
+            loadingIndicator.classList.remove('hidden');
 
-            // 3. Fetch Data
             try {
-                const { data, error } = await supabase
+                // Strategy: 
+                // 1. Generate a random UUID. 
+                // 2. Query database for rows with ID greater than this random UUID.
+                // This simulates random selection and is extremely fast on indexed columns.
+                // We assume 'id' is a UUID. If your ID is an integer, use Math.random() * maxInt.
+                
+                const randomSeed = crypto.randomUUID(); 
+                
+                // Try to get items AFTER the random seed
+                let query = supabase
                     .from('products')
                     .select('*')
-                    .ilike('title', `%${query}%`)
-                    .order('created_at', { ascending: false })
-                    .limit(20);
+                    .gt('id', randomSeed) 
+                    .limit(BATCH_SIZE);
+
+                let { data, error } = await query;
 
                 if (error) throw error;
 
-                products = data || [];
+                // If we didn't get enough items (reached end of table), wrap around
+                if (!data || data.length < BATCH_SIZE) {
+                    const remaining = BATCH_SIZE - (data ? data.length : 0);
+                    if (remaining > 0) {
+                        const { data: extraData, error: extraError } = await supabase
+                            .from('products')
+                            .select('*')
+                            .lt('id', randomSeed)
+                            .limit(remaining);
+                            
+                        if (extraError) throw extraError;
+                        if (extraData) {
+                            data = (data || []).concat(extraData);
+                        }
+                    }
+                }
 
-                if (products.length > 0) {
-                    feedContainer.innerHTML = products.map(p => renderReel(p)).join('');
-                    // Attach listeners
-                    document.querySelectorAll('.btn-buy-reel').forEach(btn => {
-                        btn.addEventListener('click', handleBuyClick);
+                // Render items
+                if (data && data.length > 0) {
+                    data.forEach(product => {
+                        const reelEl = renderReel(product);
+                        feedContainer.appendChild(reelEl);
                     });
                 } else {
-                    feedContainer.innerHTML = `
-                        <div class="reel-item flex items-center justify-center">
-                            <div class="text-center p-8">
-                                <svg class="w-16 h-16 mx-auto text-gray-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                <h3 class="text-lg font-bold text-gray-300">No Deals Found</h3>
-                                <p class="text-sm text-gray-500 mt-2">Try searching for something else.</p>
-                            </div>
-                        </div>`;
+                    // No data found at all
+                    if (feedContainer.children.length === 0) {
+                        feedContainer.innerHTML = `
+                            <div class="reel-item flex items-center justify-center">
+                                <div class="text-center p-8">
+                                    <h3 class="text-lg font-bold text-gray-300">No Deals Available</h3>
+                                    <p class="text-sm text-gray-500 mt-2">Check back later.</p>
+                                </div>
+                            </div>`;
+                    }
                 }
 
             } catch (err) {
-                console.error(err);
-                feedContainer.innerHTML = `
-                    <div class="reel-item flex items-center justify-center">
-                        <div class="text-center p-8">
-                            <h3 class="text-lg font-bold text-red-400">Connection Error</h3>
-                            <p class="text-sm text-gray-500 mt-2">Please check your internet.</p>
-                        </div>
-                    </div>`;
+                console.error('Fetch Error:', err);
+                hasError = true;
+                // Only show error if feed is empty
+                if (feedContainer.children.length === 0) {
+                     feedContainer.innerHTML = `
+                        <div class="reel-item flex items-center justify-center">
+                            <div class="text-center p-8">
+                                <h3 class="text-lg font-bold text-red-400">Connection Error</h3>
+                                <p class="text-sm text-gray-500 mt-2">Please check your internet.</p>
+                            </div>
+                        </div>`;
+                }
+            } finally {
+                isLoading = false;
+                loadingIndicator.classList.add('hidden');
             }
         }
 
-        // Start
+        // --- Infinite Scroll Observer ---
+
+        const observer = new IntersectionObserver((entries) => {
+            // If the last item is visible, load more
+            if (entries[0].isIntersecting && !isLoading && !hasError) {
+                fetchRandomBatch();
+            }
+        }, {
+            rootMargin: '0px 0px 200% 0px', // Trigger when item is near viewport (2 screens away)
+            threshold: 0
+        });
+
+        // --- Initialization ---
+
+        async function initFeed() {
+            // Load first batch immediately
+            await fetchRandomBatch();
+
+            // Observe the last item for infinite scrolling
+            // We re-observe the newest last item after every batch
+            const observeLastItem = () => {
+                const items = feedContainer.querySelectorAll('.reel-item');
+                if (items.length > 0) {
+                    // Observe the item 2nd from bottom to ensure pre-loading
+                    const targetIndex = Math.max(0, items.length - 2);
+                    observer.observe(items[targetIndex]);
+                }
+            };
+
+            // Initial observation
+            observeLastItem();
+
+            // Re-observe after every batch append
+            const mutationObserver = new MutationObserver(() => {
+                observeLastItem();
+            });
+            mutationObserver.observe(feedContainer, { childList: true });
+        }
+
         initFeed();
     </script>
 </body>
