@@ -2,9 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://maaney.store/compare/vivo/vivo-v70-elite.html</loc>
-      <lastmod>2026-02-22T05:21:50.501Z</lastmod>
+      <lastmod>2026-02-22T10:06:02.809Z</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
-   
+   <url>
+      <loc>https://maaney.store/compare/realme/realme-p4-lite.html</loc>
+      <lastmod>2026-02-22T10:06:02.809Z</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
 </urlset>
