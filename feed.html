@@ -3,17 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Maaney - Deals Feed</title>
-    <meta name="title" content="Maaney - Deals Feed">
-    <meta name="description" content="Swipe through the best deals on electronics and mobiles.">
-    <link rel="icon" type="image/png" href="./favicon.svg">
-    <link rel="apple-touch-icon" href="./white_logo.png">
+
+    <!-- ===================== SEO META ===================== -->
+    <title>Live Deals Feed in India – Mobiles & Electronics | Maaney</title>
+    <meta name="description" content="Explore Maaney’s live deals feed with the latest mobile and electronics offers in India. Swipe through trending discounts, verified sellers, and updated prices.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://maaney.store/feed">
+
+    <!-- ===================== THEME & ICONS ===================== -->
     <meta name="theme-color" content="#FFFFFF">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <link rel="apple-touch-icon" href="./white_logo.png">
+
+    <!-- ===================== OPEN GRAPH ===================== -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Maaney">
+    <meta property="og:url" content="https://maaney.store/feed">
+    <meta property="og:title" content="Live Deals Feed – Mobiles & Electronics | Maaney">
+    <meta property="og:description" content="Swipe through the latest mobile and electronics deals in India. Prices and offers updated in real time on Maaney.">
+    <meta property="og:image" content="https://maaney.store/og/deals-feed.png">
+
+    <!-- ===================== TWITTER ===================== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Live Deals Feed in India – Maaney">
+    <meta name="twitter:description" content="Discover trending deals on mobiles and electronics. Updated daily.">
+    <meta name="twitter:image" content="https://maaney.store/og/deals-feed.png">
+
+    <!-- ===================== FRESHNESS ===================== -->
+    <meta name="last-modified" content="2026-02-22">
+
+    <!-- ===================== FONTS ===================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- ===================== STYLES & SCRIPTS ===================== -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+    <!-- ===================== STRUCTURED DATA ===================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Maaney Live Deals Feed",
+      "url": "https://maaney.store/feed",
+      "description": "A live, swipeable deals feed showcasing the latest mobile and electronics offers in India.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Maaney",
+        "url": "https://maaney.store"
+      },
+      "dateModified": "2026-02-22"
+    }
+    </script>
+
     <style>
         :root {
             --bg: #FFFFFF;
@@ -104,7 +148,7 @@
             left: 0;
             width: 100%;
             height: 120px;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.8), transparent);
+            background: linear-gradient(to bottom, rgba(255,255,255,0.9), transparent);
             z-index: 2;
         }
 
@@ -114,7 +158,7 @@
             left: 0;
             width: 100%;
             height: 55%;
-            background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0.9), rgba(255,255,255,0.4), transparent);
+            background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0.95), rgba(255,255,255,0.6), transparent);
             z-index: 2;
         }
 
@@ -150,7 +194,7 @@
         .action-icon-circle {
             width: 48px;
             height: 48px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 50%;
             display: flex;
@@ -202,18 +246,18 @@
         .btn-buy-reel:active { transform: scale(0.95); }
 
         /* Source Badge */
-       .source-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #ffffff;
-    padding: 4px 12px;
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 600;
-    color: #111;
-    border: 1px solid #e5e7eb; /* light gray */
-}
+        .source-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #ffffff;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #111;
+            border: 1px solid #e5e7eb;
+        }
         
         .source-badge img { height: 12px; }
 
@@ -263,16 +307,10 @@
         <!-- Header -->
         <header class="header-light absolute top-0 left-0 right-0 z-50 p-4 flex items-center justify-between" style="padding-top: calc(16px + env(safe-area-inset-top));">
             <div class="flex items-center gap-2">
-    <img 
-        src="./white_logo.png" 
-        alt="Maaney logo"
-        class="h-8 w-auto object-contain"
-        loading="lazy"
-    >
-</div>
-            <div class="text-xs text-gray-500 flex items-center gap-1">
-                
+                <!-- Fallback text if logo is not visible on white background -->
+                <span class="text-xl font-bold text-gray-900" style="font-family: 'Space Grotesk'">Maaney</span>
             </div>
+            <div class="text-xs text-gray-500 flex items-center gap-1"></div>
         </header>
 
         <!-- Feed Container -->
@@ -281,9 +319,9 @@
         </main>
         
         <!-- Loading Indicator at bottom -->
-        <div id="loadingIndicator" class="loading-indicator">
+        <div id="loadingIndicator" class="loading-indicator hidden">
             <div class="spinner"></div>
-            <span>Loading more deals...</span>
+            <span>Fetching new deals...</span>
         </div>
     </div>
 
@@ -305,6 +343,9 @@
         let isLoading = false;
         let hasError = false;
         const BATCH_SIZE = 10;
+
+        // Memory to prevent duplicates in the current session
+        const loadedIds = new Set();
 
         // --- Helper Functions ---
 
@@ -400,6 +441,9 @@
 
             const el = document.createElement('div');
             el.className = 'reel-item';
+            // Store ID on element for deduplication checks
+            el.dataset.id = product.id;
+            
             el.innerHTML = `
                 ${imageHtml}
                 <div class="gradient-top"></div>
@@ -407,22 +451,15 @@
 
                 <div class="action-sidebar">
                    <div class="action-btn">
-    <div class="action-icon-circle" style="background:${sourceStyle.bg}; border:1px solid rgba(0,0,0,0.1); overflow:hidden;">
-        ${
-            sourceStyle.img
-            ? `<img 
-                src="${sourceStyle.img}" 
-                alt="${sourceStyle.name}" 
-                style="width:100%; height:100%; object-fit:cover; border-radius:50%;"
-                onerror="this.style.display='none'"
-              >`
-            : `<span style="color:${sourceStyle.color}; font-weight:bold; font-size:12px;">
-                ${sourceStyle.name.charAt(0)}
-              </span>`
-        }
-    </div>
-    <span class="action-text">${sourceStyle.name}</span>
-</div>
+                        <div class="action-icon-circle" style="background:${sourceStyle.bg}; border:1px solid rgba(0,0,0,0.1); overflow:hidden;">
+                            ${
+                                sourceStyle.img
+                                ? `<img src="${sourceStyle.img}" alt="${sourceStyle.name}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;" onerror="this.style.display='none'">`
+                                : `<span style="color:${sourceStyle.color}; font-weight:bold; font-size:12px;">${sourceStyle.name.charAt(0)}</span>`
+                            }
+                        </div>
+                        <span class="action-text">${sourceStyle.name}</span>
+                   </div>
                     <div class="action-btn" onclick="if(navigator.share) navigator.share({title: '${safeTitle}', url: window.location.href})">
                         <div class="action-icon-circle">
                             <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
@@ -439,12 +476,12 @@
                             </div>
                             <div class="flex items-baseline gap-2 mb-1">
                                 <span class="price-tag">₹${price.toLocaleString()}</span>
-                               ${product.rating ? `
-  <span style="font-size:14px; font-weight:700; color:#000;">
-    <span style="color:#facc15; margin-right:2px;">★</span>
-    ${product.rating}
-  </span>
-` : ''}
+                                ${product.rating ? `
+                                    <span style="font-size:14px; font-weight:700; color:#000;">
+                                        <span style="color:#facc15; margin-right:2px;">★</span>
+                                        ${product.rating}
+                                    </span>
+                                ` : ''}
                             </div>
                             <h2 class="product-title">${safeTitle}</h2>
                         </div>
@@ -474,10 +511,9 @@
 
             try {
                 // Strategy: 
-                // 1. Generate a random UUID. 
-                // 2. Query database for rows with ID greater than this random UUID.
-                // This simulates random selection and is extremely fast on indexed columns.
-                // We assume 'id' is a UUID. If your ID is an integer, use Math.random() * maxInt.
+                // 1. Generate a random UUID to act as a random starting point in the database.
+                // 2. Query rows greater than this ID.
+                // 3. If we hit the end of the database, wrap around to the beginning.
                 
                 const randomSeed = crypto.randomUUID(); 
                 
@@ -492,7 +528,7 @@
 
                 if (error) throw error;
 
-                // If we didn't get enough items (sharereached end of table), wrap around
+                // If we didn't get enough items (reached end of table), wrap around
                 if (!data || data.length < BATCH_SIZE) {
                     const remaining = BATCH_SIZE - (data ? data.length : 0);
                     if (remaining > 0) {
@@ -509,12 +545,24 @@
                     }
                 }
 
-                // Render items
+                // Render items, checking for duplicates in current session
                 if (data && data.length > 0) {
+                    let addedCount = 0;
                     data.forEach(product => {
-                        const reelEl = renderReel(product);
-                        feedContainer.appendChild(reelEl);
+                        // Only add if not already in the DOM/Set
+                        if (!loadedIds.has(product.id)) {
+                            loadedIds.add(product.id);
+                            const reelEl = renderReel(product);
+                            feedContainer.appendChild(reelEl);
+                            addedCount++;
+                        }
                     });
+
+                    // If we filtered out too many duplicates, try once more for a fresh batch
+                    // This handles edge cases where the randomizer picks mostly seen items
+                    if (addedCount < 3 && data.length > 0) {
+                        fetchRandomBatch(); 
+                    }
                 } else {
                     // No data found at all
                     if (feedContainer.children.length === 0) {
@@ -550,7 +598,7 @@
         // --- Infinite Scroll Observer ---
 
         const observer = new IntersectionObserver((entries) => {
-            // If the last item is visible, load more
+            // If the observed item is visible, load more
             if (entries[0].isIntersecting && !isLoading && !hasError) {
                 fetchRandomBatch();
             }
@@ -566,7 +614,6 @@
             await fetchRandomBatch();
 
             // Observe the last item for infinite scrolling
-            // We re-observe the newest last item after every batch
             const observeLastItem = () => {
                 const items = feedContainer.querySelectorAll('.reel-item');
                 if (items.length > 0) {
