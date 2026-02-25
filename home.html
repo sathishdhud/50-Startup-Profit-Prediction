@@ -49,7 +49,8 @@
     /* ================= RESET & BASE ================= */
     body {
       margin: 0;
-      background: #f5f5f5; /* Light grey background like 91mobiles */
+       background-color: #f5f5f5; /* fallback */
+  
       font-family: 'Poppins', sans-serif;
       color: #212121;
     }
@@ -825,6 +826,18 @@
   <script>
     // ================= PRODUCT DATA =================
     const products = [
+    {
+  brand: "Samsung",
+  title: "Samsung Galaxy S26 5G Flagship Smartphone",
+  price: "79,999",
+  old: "84,999",
+  off: 6,
+  cat: "Mobile",
+  status: "Available",
+  img: "./mobiles/samsung-s26/image1.png",
+  link: "./mobiles/samsung-s26",
+  desc: "6.3-inch 120Hz Dynamic AMOLED 2X | Flagship Snapdragon / Exynos Processor | 50MP Triple Camera | Fast Charging Battery"
+},
       {
   brand: "Vivo",
   title: "Vivo V70 Elite 5G Premium Smartphone with ZEISS Camera",
