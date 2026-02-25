@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maaney Store Blog - Tech News, Reviews & Launches</title>
+    <title>Maaney Store Reviews - In-Depth Tech Reviews & Hands-On</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -111,7 +111,6 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            /* Stronger gradient for readability */
             background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.6) 40%, transparent);
             padding: 40px 30px;
             color: white;
@@ -121,18 +120,18 @@
             height: 100%;
             box-sizing: border-box;
         }
-      .hero-overlay .category-tag {
-    color: #ffffff;
-    padding: 0px 2px;          /* bigger padding */
-    font-size: 18px;            /* bigger text */
-    font-weight: 800;           /* stronger emphasis */
-    text-transform: uppercase;
-    border-radius: 6px;         /* slightly rounder */
-    align-self: flex-start;
-    margin-bottom: 2px;         /* exactly 2px */
-    display: inline-block;
-    letter-spacing: 0.6px;      /* premium look */
-}
+        .hero-overlay .category-tag {
+            color: #ffffff;
+            padding: 0px 2px;
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-radius: 6px;
+            align-self: flex-start;
+            margin-bottom: 2px;
+            display: inline-block;
+            letter-spacing: 0.6px;
+        }
 
         .hero-overlay h2 {
             font-size: 28px;
@@ -150,10 +149,9 @@
             flex-direction: column;
             height: 100%;
             position: relative;
-            overflow: hidden; /* Hides scrollbar */
+            overflow: hidden;
         }
 
-        /* Gradient Masks for Top and Bottom of Scroller */
         .hero-right::before, .hero-right::after {
             content: "";
             position: absolute;
@@ -171,25 +169,21 @@
             background: linear-gradient(to top, #ffffff 10%, transparent);
         }
 
-        /* Scrolling Animation Wrapper */
         .hero-scroll-wrapper {
             display: flex;
             flex-direction: column;
-            /* Animation setup */
             animation: scrollUp 20s linear infinite;
         }
         
-        /* Pause on hover */
         .hero-right:hover .hero-scroll-wrapper {
             animation-play-state: paused;
         }
 
         @keyframes scrollUp {
             0% { transform: translateY(0); }
-            100% { transform: translateY(-50%); } /* Moves up by half the content height (since we duplicate items) */
+            100% { transform: translateY(-50%); }
         }
 
-        /* Individual News Items in Scroller */
         .sub-feature-item {
             display: flex;
             align-items: center;
@@ -199,7 +193,7 @@
             color: inherit;
             transition: background 0.2s;
             gap: 15px;
-            flex-shrink: 0; /* Prevents shrinking during animation */
+            flex-shrink: 0;
         }
         .sub-feature-item:hover { background-color: var(--fk-orange-light); }
 
@@ -232,7 +226,7 @@
             font-weight: 500;
         }
 
-        /* --- CONTENT LAYOUT (Main Feed) --- */
+        /* --- CONTENT LAYOUT --- */
         .content-layout {
             display: grid;
             grid-template-columns: 1fr 320px;
@@ -240,12 +234,10 @@
             padding: 0;
         }
 
-        /* Left Column */
         .article-column {
             padding: 40px 50px 40px 50px;
         }
 
-        /* Blog Post Card */
         .blog-list-item {
             border-bottom: 1px solid var(--border);
             padding: 30px 0;
@@ -421,13 +413,12 @@
             }
             .article-column { padding: 30px; }
             
-            /* Header adjustments for Tablet */
             .news-grid-container {
                 height: auto;
                 grid-template-columns: 1fr;
             }
             .hero-left { height: 350px; border-right: none; border-bottom: 1px solid var(--border); }
-            .hero-right { height: 300px; /* Fixed height for scroller on tablet */ }
+            .hero-right { height: 300px; }
             .sub-feature-item { padding: 15px 20px; }
         }
 
@@ -436,12 +427,10 @@
             .main-page-wrapper { margin: 0; border-radius: 0; box-shadow: none; }
             .blog-nav { padding: 15px; }
             
-            /* Mobile Header */
             .hero-left { height: 250px; }
             .hero-overlay h2 { font-size: 20px; }
             .sub-thumb { width: 70px; height: 50px; }
             
-            /* Mobile Blog Card Stack */
             .blog-list-item { flex-direction: column; padding: 20px 0; margin: 0; }
             .blog-thumbnail { width: 100%; height: 200px; }
             .blog-content { align-items: flex-start; text-align: left; }
@@ -460,8 +449,8 @@
           </a>
             
             <div class="d-none d-md-flex align-items-center gap-4 line-seed">
-                <a href="#" class="nav-link-custom active">LATEST NEWS</a>
-                <a href="#" class="nav-link-custom">REVIEWS</a>
+                <a href="#" class="nav-link-custom">LATEST NEWS</a>
+                <a href="#" class="nav-link-custom active">REVIEWS</a>
                 <a href="#" class="nav-link-custom">DEALS</a>
             </div>
 
@@ -471,57 +460,31 @@
             </div>
         </header>
 
-        <!-- NEW NEWS HEADER SECTION -->
+        <!-- HERO HEADER SECTION (Reviews Focus) -->
         <section class="news-header-section">
             <div class="news-grid-container">
                 
-                <!-- LEFT: BIG FEATURE (Upcoming Smartphones) -->
+                <!-- LEFT: BIG FEATURE REVIEW -->
+                <a href="https://maaney.store/news/google/google-pixel-10a-launch"
+                   class="hero-left"
+                   aria-label="Read full review: Google Pixel 10a"
+                   title="Google Pixel 10a Full Review: The New Budget King?">
+                    
+                    <!-- Updated Image for Review Focus -->
+                    <img src="./google/news-google-pixel-10a.png"
+                         alt="Google Pixel 10a Review Hands-On"
+                         loading="lazy">
 
-<!-- ============================================================
-     HERO LEFT CARD — Android 17 Beta Launch
-     SEO-OPTIMISED | SEMANTIC HTML | UNIQUE CONTENT
-     Maaney Store | Updated: 2026-02-17
-     ============================================================ -->
+                    <div class="hero-overlay">
+                        <span class="category-tag">Full Review</span>
+                        <h2>Google Pixel 10a Review: The Budget King Returns with Tensor G4 & AI Tricks</h2>
+                    </div>
+                </a>
 
-<a href="https://maaney.store/news/samsung/news-samsung-one-ui-update"
-   class="hero-left"
-   aria-label="Read full article: Samsung confirms One UI 8.5 update with upgraded Bixby and real-time web access"
-   title="Samsung One UI 8.5 Update Brings Upgraded Bixby With Natural Voice Commands and Real-Time Web Access"
-   rel="bookmark"
-   itemprop="url">
-
-  <!-- ─── HERO IMAGE ────────────────────────────────────────── -->
-  <img src="./samsung/news-samsung-one-ui-update.png"
-       alt="Samsung One UI 8.5 update featuring upgraded Bixby with natural voice commands and real-time web access on Galaxy devices"
-       loading="lazy"
-       width="800"
-       height="450"
-       itemprop="image">
-
-  <!-- ─── OVERLAY: LABEL + HEADLINE ───────────────────────── -->
-  <div class="hero-overlay">
-
-    <!-- Category Tag -->
-    <span class="category-tag"
-          aria-label="Article category: software update confirmed">
-      Update Confirmed
-    </span>
-
-    <!-- H2: Unique, keyword-rich, human-readable headline -->
-    <h2 itemprop="headline">
-      Samsung Confirms One UI 8.5 Update With Upgraded Bixby, Natural Voice Commands and Real-Time Web Access
-    </h2>
-
-  </div>
-
-</a>
-
-
-
-                <!-- RIGHT: 4 NEWS ITEMS WITH AUTO SCROLL -->
+                <!-- RIGHT: SCROLLING REVIEWS -->
                 <div class="hero-right">
                     <div class="hero-scroll-wrapper" id="header-scroller">
-                        <!-- Javascript will populate items here and duplicate them for the loop -->
+                        <!-- Javascript populates review items here -->
                     </div>
                 </div>
 
@@ -533,15 +496,8 @@
             
             <!-- LEFT: MAIN FEED -->
             <main class="article-column">
-
-                <!-- Container where JS will inject posts -->
                 <div id="blog-feed-container"></div>
-
-                <!-- Pagination Container -->
-                <div id="pagination-controls" class="pagination-container">
-                    <!-- Buttons injected via JS -->
-                </div>
-
+                <div id="pagination-controls" class="pagination-container"></div>
             </main>
 
             <!-- RIGHT: SIDEBAR -->
@@ -551,50 +507,48 @@
                     <!-- PRICE / FEATURE BOX -->
                     <div class="sidebar-card price-box line-seed">
                         <h6 style="margin:0;text-transform:uppercase;font-size:12px;letter-spacing:1px;">
-                            Featured Review
+                            Top Rated
                         </h6>
-                        <h4 style="margin: 15px 0 5px 0; font-weight: 700;">Pixel 10a</h4>
-                        <div class="price-old">₹46,999</div>
-                        <div class="price-main">₹41,999*</div>
+                        <h4 style="margin: 15px 0 5px 0; font-weight: 700;">Samsung S26 Ultra</h4>
+                        <div class="price-old">₹1,34,999</div>
+                        <div class="price-main">₹1,29,999*</div>
 
                         <div style="font-size:11px;opacity:.85;">
-                            *Estimated with launch offers
+                            *Best Online Price
                         </div>
 
-                       <a href="https://maaney.store/news/google/google-pixel-10a-launch"
-                           aria-label="Read full iQOO 15R review"
+                        <a href="/news/samsung/samsung-s26"
                            class="btn-buy-custom"
-                       >
-                        READ FULL REVIEW
-                    </a>
-
+                           aria-label="Read Samsung S26 Ultra Review">
+                            READ REVIEW
+                        </a>
                     </div>
 
-                    <!-- TRENDING ARTICLES -->
+                    <!-- TRENDING REVIEWS -->
                     <div class="sidebar-card">
-                        <div class="sidebar-title">Trending Now</div>
+                        <div class="sidebar-title">Popular Reviews</div>
                         
                         <a href="#" class="trending-item">
-                            <img src="https://picsum.photos/seed/trend1/100/100" class="trending-thumb" alt="Thumb">
+                            <img src="https://picsum.photos/seed/review1/100/100" class="trending-thumb" alt="Thumb">
                             <div class="trending-info">
-                                <h6>Flipkart Big Billion Days Dates Leaked</h6>
-                                <span>2 hours ago</span>
+                                <h6>OnePlus 13R Camera Test</h6>
+                                <span>4.5/5 Rating</span>
                             </div>
                         </a>
 
                         <a href="#" class="trending-item">
-                            <img src="https://picsum.photos/seed/trend2/100/100" class="trending-thumb" alt="Thumb">
+                            <img src="https://picsum.photos/seed/review2/100/100" class="trending-thumb" alt="Thumb">
                             <div class="trending-info">
-                                <h6>Best Budget Tablets for Students</h6>
-                                <span>5 hours ago</span>
+                                <h6>Best Wireless Earbuds 2026</h6>
+                                <span>Buyer's Guide</span>
                             </div>
                         </a>
 
                         <a href="#" class="trending-item">
-                            <img src="https://picsum.photos/seed/trend3/100/100" class="trending-thumb" alt="Thumb">
+                            <img src="https://picsum.photos/seed/review3/100/100" class="trending-thumb" alt="Thumb">
                             <div class="trending-info">
-                                <h6>OnePlus 13R India Launch Confirmed</h6>
-                                <span>1 day ago</span>
+                                <h6>MacBook Pro M5 Review</h6>
+                                <span>Editor's Choice</span>
                             </div>
                         </a>
                     </div>
@@ -614,10 +568,10 @@
                     <!-- NEWSLETTER -->
                     <div class="sidebar-card" style="background:#222;color:#fff;">
                         <h5 style="margin-bottom:15px;">
-                            <i class="fa fa-envelope me-2"></i> Tech Deals
+                            <i class="fa fa-star me-2"></i> Review Alerts
                         </h5>
                         <p style="font-size:13px;opacity:.8;">
-                            Weekly updates on smartphone launches, price drops, and exclusive buying guides.
+                            Get notified when we post in-depth reviews and hands-on videos of the latest gadgets.
                         </p>
                         <input type="email" class="form-control form-control-sm mb-2" placeholder="Enter your email" style="background:#ffffff; border:none; color:#000000;">
                         <button class="btn btn-sm btn-warning w-100 fw-bold" style="border-radius:5px;">SUBSCRIBE FREE</button>
@@ -638,7 +592,7 @@
                         </a>
                         <p class="footer-text">
                             &copy; 2026 Maaney Store. All rights reserved. <br>
-                            Tech News, Reviews, and Launch Updates.
+                            Honest Tech Reviews, Comparisons, and Buying Guides.
                         </p>
                         <div class="mt-3">
                             <a href="#" style="color:#999; margin:0 10px; font-size:18px;"><i class="fab fa-twitter"></i></a>
@@ -658,258 +612,120 @@
     <!-- Main Logic Script -->
     <script>
         // --- CONFIGURATION ---
-        // Simulate "Today" as Feb 20, 2026 to make the "days ago" logic realistic for the demo data.
         const SIMULATED_TODAY = new Date(
-  new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' })
-);
+          new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' })
+        );
 
-
-        // --- HEADER RIGHT DATA (4 News Items) ---
+        // --- HEADER RIGHT DATA (Reviews) ---
         const headerNewsItems = [
             {
-                title:"Upcoming Smartphones in Feb 2026: The Ultimate Launch Calendar",
-                img: "https://maaney.store/news/launchCalendar/feb/samsung-s26-feb.png",
-                brand: "Multiple Brands",
+                title:"Samsung Galaxy S26 Ultra Camera Review: 200MP Monster",
+                img: "./samsung/news-samsung-s26-ultra-2.png",
+                brand: "Samsung",
                 date: "2026-02-19T12:00:00",
-                link: "https://maaney.store/news/launchCalendar/feb/upcoming-mobiles-feb-2026"
+                link: "/news/samsung/samsung-s26"
             },
-
             {
-                title: "Vivo V70 & V70 Elite: Price, Specs and What Makes the Elite Model Different",
+                title: "Vivo V70 Elite Hands-On: Is the Zeiss Partnership Worth It?",
                 img: "https://maaney.store/news/vivo/vivo-v70-1.png",
                 brand: "Vivo",
                 date: "2026-02-18T10:00:00",
                 link: "/news/vivo/news-vivo-v70"
             },
             {
-                title: "Google Pixel 10a India Launch Set for February 18",
-                img: "./google/news-google-pixel-10a.png",
-                brand: "Google",
+                title: "iQOO 15R Gaming Review: Snapdragon 8 Gen 5 Tested",
+                img: "./iqoo/news-iqoo-15r.png",
+                brand: "iQOO",
                 date: "2026-02-17T14:30:00",
-                link: "/news/google/google-pixel-10a-launch"
+                link: "/news/iqoo/news-iqoo-15r"
             },
             {
-                title: "Nothing Phone (4a) Series Officially Teased: Colours Revealed",
+                title: "Nothing Phone (4a) First Look: Glyph Interface Evolved",
                 img: "https://maaney.store/news/nothing/news-nothing-4a.png",
                 brand: "Nothing",
                 date: "2026-02-16T09:00:00",
                 link: "https://maaney.store/news/nothing/news-nothing-4a"
             },
             {
-                title: "iQOO 15R Set to Launch in India on Feb 24: Big Battery, Flagship Chip",
-                img: "./iqoo/news-iqoo-15r.png",
-                brand: "iQOO",
+                title: "Top 5 Budget Phones Under ₹20,000 (Feb 2026)",
+                img: "https://maaney.store/news/launchCalendar/feb/samsung-s26-feb.png",
+                brand: "Buying Guide",
                 date: "2026-02-15T11:00:00",
-                link: "/news/iqoo/news-iqoo-15r"
+                link: "#"
             }
         ];
 
-        // --- DATA STORE (Main Feed) ---
+        // --- DATA STORE (Main Feed - Reviews) ---
         const articles = [
             {
-  id: 10,
-  img: "https://maaney.store/news/vivo/vivo-y11-y21-5g-tdra-certification-1.png",
-  category: "News",
-  title: "Vivo Y11 and Vivo Y21 5G Spotted on TDRA Certification, Launch Expected Soon",
-  excerpt: "Vivo Y11 and Vivo Y21 5G have appeared on the UAE’s TDRA certification database, indicating that the company may be preparing for an official launch. Regulatory approvals such as TDRA are typically completed close to launch, suggesting Vivo could reveal more details about these Y-series smartphones in the coming weeks.",
-  author: "Maaney Editorial",
-  date: "2026-02-25T16:00:00",
-  link: "https://maaney.store/news/vivo/vivo-y11-y21-5g-tdra-certification"
-},
-            {
-  id: 9,
-  img: "https://maaney.store/news/samsung/news-smasung-s26-privacy-1.png",
-  category: "News",
-  title: "Samsung Privacy Display Debuts with Galaxy S26, Expansion to More Android Phones Expected",
-  excerpt: "Samsung has introduced its new Privacy Display technology with the upcoming Galaxy S26 series. The feature is designed to reduce screen visibility from side angles, offering built-in anti-peeking protection. Reports suggest the hardware-level privacy display could later expand to more Android smartphones.",
-  author: "Maaney Editorial",
-  date: "2026-02-23T15:30:00",
-  link: "https://maaney.store/news/samsung/samsung-privacy-display-galaxy-s26-more-android-phones-leak"
-},
-            {
-  id: 8,
-  img: "https://maaney.store/news/iqoo/news-iqoo-15r.png",
-  category: "News",
-  title: "iQOO 15R India Launch: Specifications, Expected Price, and Key Details",
-  excerpt: "iQOO is set to launch the iQOO 15R in India with a Snapdragon 8 Gen 5 chipset, a high-refresh-rate AMOLED display, and a massive battery. The smartphone aims to deliver flagship-level performance and long battery life in the premium mid-range segment.",
-  author: "Maaney Editorial",
-  date: "2026-02-22T12:00:00",
-  link: "https://maaney.store/news/iqoo/iqoo-15r-india-launch-date-specification-price-design"
-},
-            {
-  id: 7,
-  img: "https://maaney.store/news/huawei/huawei-has-two-new-mid-range-kirin-chips-for-2026-smartphones-1.png",
-  category: "News",
-  title: "Huawei to Introduce Two New Mid-Range Kirin Chipsets for 2026 Smartphones",
-  excerpt: "Huawei is reportedly preparing two new mid-range Kirin processors for its 2026 smartphone lineup. The upcoming chipsets are expected to focus on balanced performance, improved efficiency, and better graphics capabilities for next-generation Nova and mid-tier devices.",
-  author: "Maaney Editorial",
-  date: "2026-02-21T22:30:00",
-  link: "https://maaney.store/news/huawei/huawei-has-two-new-mid-range-kirin-chips-for-2026-smartphones"
-},
-            {
-  id: 6,
-  img: "https://maaney.store/news/huawei/future-flagship-huawei-phones-to-get-an-incredible-gpu-upgrade-1.png",
-  category: "News",
-  title: "Future Huawei Flagship Phones to Get an Incredible GPU Performance Upgrade",
-  excerpt: "Huawei has highlighted its focus on delivering major GPU performance improvements in upcoming flagship smartphones. The enhancements are expected to boost gaming, AI workloads, and overall graphics efficiency, offering smoother visuals and better power optimization.",
-  author: "Maaney Editorial",
-  date: "2026-02-21T15:30:00",
-  link: "https://maaney.store/news/huawei/future-flagship-huawei-phones-to-get-an-incredible-gpu-upgrade"
-},
-            {
-  id: 5,
-  img: "https://maaney.store/news/poco/poco-x8-pro-x8-pro-max-design-specs-leak.png",
-  category: "News",
-  title: "POCO X8 Pro and X8 Pro Max Leak Reveals Design and Key Specifications Ahead of Launch",
-  excerpt: "Fresh leaks have revealed the design and core specifications of the upcoming POCO X8 Pro and X8 Pro Max. The leaked details hint at OLED displays, MediaTek Dimensity chipsets, and a large battery for the Pro Max variant ahead of the official launch.",
-  author: "Maaney Editorial",
-  date: "2026-02-21T14:00:00",
-  link: "https://maaney.store/news/poco/poco-x8-pro-x8-pro-max-design-specs-leak"
-},
-            {
-  id: 4,
-  img: "https://maaney.store/news/samsung/news-samsung-one-ui-update.png",
-  category: "News",
-  title: "Samsung Confirms One UI 8.5 Update With Upgraded Bixby and Real-Time Web Access",
-  excerpt: "Samsung has officially confirmed a major upgrade to its Bixby voice assistant with the upcoming One UI 8.5 update. The redesigned assistant introduces natural language voice commands and real-time web access, aiming to deliver smarter and more intuitive interactions on Galaxy devices.",
-  author: "Maaney Editorial",
-  date: "2026-02-20T12:00:00",
-  link: "https://maaney.store/news/samsung/news-samsung-one-ui-update"
-},
-  {
-  id: 3,
-  img: "https://maaney.store/news/nothing/nothing-4a-community-review.png",
-  category: "News",
-  title: "Nothing Opens Community Review Program for Phone (4a) Series Ahead of Launch",
-  excerpt: "Nothing has officially announced a Community Review Program for its upcoming Phone (4a) series, inviting community members, creators, and technology enthusiasts to test the device before launch. The initiative focuses on meaningful hands-on impressions through an official and transparent review process.",
-  author: "Maaney Editorial",
-  date: "2026-02-19T12:00:00",
-  link: "https://maaney.store/news/nothing/nothing-phone-4a-community-review"
-}
-
-,
-            {
-                
-    id: 1,
-    img: "https://maaney.store/news/android/news-android-17-beta.png",
-    category: "News",
-    title: "Android 17 Beta Released for Google Pixel with Smarter Privacy Controls and UI Improvements",
-    excerpt: "Google has officially rolled out the Android 17 Beta for supported Pixel devices, introducing smarter privacy controls, refined user interface elements, and system-level performance optimizations. The beta update offers an early look at Android’s next-generation features ahead of the stable release.",
-    author: "Maaney Editorial",
-    date: "2026-02-18T12:00:00",
-    link: "https://maaney.store/news/android/android-17-beta-pixel"
-}
-,
-            {
-                id:1,
-                img:"https://maaney.store/news/vivo/news-vivo-x300-fe-certification-90w-fast-charging.png",
-                category:"News",
-                title:"Vivo X300 FE Spotted on 3C Certification with 90W Fast Charging Support",
-                excerpt:"Vivo’s upcoming X300 FE has been certified by 3C in China, revealing support for 90W fast charging. This suggests the X300 FE will offer rapid charging capabilities, making it a compelling option in the mid-range segment. Here’s what we know about the Vivo X300 FE so far.",
-                author: "Maaney Editorial",
-                date: "2026-02-16T12:00:00",
-                link: "https://maaney.store/news/vivo/vivo-x300-fe-launch"
-            },
-            {
-                id:2,
-                img:"https://maaney.store/news/samsung/news-smasung-s26-privacy-1.png",
-                category:"News",
-                title:"Samsung Galaxy S26 Privacy Features Leak: New Security Hub, Encrypted Storage & More",
-                excerpt:"Leaked details about the Samsung Galaxy S26 reveal a major focus on user privacy with a new Privacy Hub, encrypted storage for sensitive data, and enhanced app permission controls. Here’s a breakdown of the rumored privacy features coming to the S26 series.",
-                author: "Maaney Editorial",
-                date: "2026-02-16T10:00:00",
-                link: "https://maaney.store/news/samsung/samsung-s26-privacy"
-
-            },
-            {
-                id:1,
-                img:"https://maaney.store/news/redmi/news-xiaomi-civi-6-leak-1.png",
-                category:"News",
-                title:"Xiaomi Civi 6 Spotted in Leaked Renders with Dual Front Cameras and Sleek Design",
-                excerpt:"Xiaomi’s upcoming Civi 6 has been revealed in leaked renders, showcasing   a premium design with dual front cameras and a focus on selfie performance. Here’s what we know so far about the Civi 6’s design and features.",
-                author: "Maaney Editorial",
-                date: "2026-02-16T14:00:00",
-                link: "https://maaney.store/news/redmi/xiaomi-civi-6-leaks"
-            },
-            {
-                id:1,
-                img:"./launchCalendar/feb/samsung-s26-feb.png",
-                category:"Launch Calendar",
-                title:"Upcoming Smartphones in Feb 2026: The Ultimate Launch Calendar",
-                excerpt:"February 2026 is shaping up to be one of the most exciting months for smartphone enthusiasts. With major brands like Samsung, Google, Vivo, iQOO, and Nothing all set to unveil new devices. ",
-                author: "Maaney Editorial",
-                date: "2026-02-19T12:00:00",
-                link: "https://maaney.store/news/launchCalendar/feb/upcoming-mobiles-feb-2026"
-            },
-            {
-                id: 1,
+                id: 10,
                 img: "./google/news-google-pixel-10a.png",
-                category: "Reviews",
-                title: "Google Pixel 10a India Launch Set for February 18: Flat Camera Design, Tensor G4 & AI Focus",
-                excerpt: "Google is preparing to shake up its affordable Pixel lineup once again. Unlike previous “a-series” models, Pixel 10a introduces a bold new flush design.",
+                category: "Full Review",
+                title: "Google Pixel 10a Review: The Best Camera Phone Under ₹40,000?",
+                excerpt: "We spent two weeks with the Pixel 10a. From its flat design to the new Tensor G4 chip, here is our verdict on Google's latest budget contender.",
                 author: "Arjun Verma",
-                date: "2026-02-18T10:00:00",
+                date: "2026-02-20T10:00:00",
                 link: "/news/google/google-pixel-10a-launch"
             },
             {
-                id: 2,
-                img: "./samsung/news-samsung-s26-ultra-2.png",
-                category: "News",
-                title: "Samsung Galaxy S26 Ultra: The Camera Revolution We Waited For",
-                excerpt: "Leaked images suggest a 200MP main sensor with massive improvements to low-light video processing. Is this the Android king for 2026?",
-                author: "Sarah Jenkins",
-                date: "2026-02-17T14:30:00",
-                link: "./samsung/samsung-s26"
-            },
-            {
-                id: 3,
-                img: "./infinix/infinix-note-60-pro-verdict.png",
-                category: "Smartphones",
-                title: "Infinix Note 60 Pro Spotted Ahead of India Launch with 144Hz AMOLED & 90W Charging",
-                excerpt: "Infinix teases its upcoming Note 60 Pro featuring a Snapdragon 7s Gen 4 chipset, rear Matrix display, massive 6500mAh battery and ultra-fast charging support.",
+                id: 9,
+                img: "https://maaney.store/news/samsung/news-smasung-s26-privacy-1.png",
+                category: "Video Review",
+                title: "Samsung Galaxy S26 Ultra: 1 Month Later - The Good & The Bad",
+                excerpt: "After using the Galaxy S26 Ultra as our daily driver for a month, we discuss the battery life, camera versatility, and the new privacy features.",
                 author: "Maaney Editorial",
-                date: "2026-02-16T09:15:00",
-                link: "/news/infinix/news-infinix-note-60-pro"
+                date: "2026-02-19T15:30:00",
+                link: "https://maaney.store/news/samsung/samsung-s26"
             },
             {
-                id: 4,
-                img: "https://maaney.store/news/vivo/vivo-v70-1.png",
-                category: "Smartphone Launch",
-                title: "Vivo V70 & V70 Elite: Price, Specs and What Makes the Elite Model Different",
-                excerpt: "Vivo brings its first-ever Elite smartphone to the V-series. From ZEISS-tuned cameras to Snapdragon performance, here’s a detailed breakdown of what sets the V70 lineup apart in India.",
-                author: "Arjun Verma",
-                date: "2026-02-15T10:30:00",
-                link: "/news/vivo/news-vivo-v70"
-            },
-            {
-                id: 5,
-                img: "./iqoo/news-iqoo-15r.png",
-                category: "Smartphones",
-                title: "iQOO 15R Set to Launch in India on Feb 24: Big Battery, Flagship Chip & More",
-                excerpt: "iQOO’s upcoming 15R aims to redefine performance-focused smartphones with a massive 7600mAh battery, Snapdragon 8 Gen 5 chipset, and a smooth 144Hz AMOLED display.",
-                author: "Maaney Tech Desk",
-                date: "2026-02-14T10:30:00",
-                link: "/news/iqoo/news-iqoo-15r"
-            },
-            {
-                id: 6,
-                img: "https://maaney.store/news/nothing/news-nothing-4a.png",
-                category: "Smartphones",
-                title: "Nothing Phone (4a) Series Officially Teased: Colours Revealed, Launch Expected Soon",
-                excerpt: "Nothing has begun teasing its Phone (4a) lineup through official channels, confirming a refreshed colour approach and signaling an imminent launch. Here’s a clear breakdown of what’s officially known so far.",
-                author: "Maaney Tech Desk",
-                date: "2026-02-14T11:00:00",
-                link: "https://maaney.store/news/nothing/news-nothing-4a"
+                id: 8,
+                img: "https://maaney.store/news/iqoo/news-iqoo-15r.png",
+                category: "Gaming",
+                title: "iQOO 15R Review: A Powerhouse for Gamers, But What About Cameras?",
+                excerpt: "The iQOO 15R packs a massive 7600mAh battery and SD 8 Gen 5. We test its gaming performance against the competition.",
+                author: "Maaney Editorial",
+                date: "2026-02-18T12:00:00",
+                link: "https://maaney.store/news/iqoo/iqoo-15r-india-launch"
             },
             {
                 id: 7,
-                img: "https://maaney.store/news/launchCalendar/feb/samsung-s26-feb.png",
-                category: "Smartphone",
-                title: "Upcoming Smartphones in Feb 2026: The Ultimate Launch Calendar",
-                excerpt: "February 2026 is shaping up to be one of the most exciting months for smartphone enthusiasts. With major brands like Samsung, Google, Vivo, iQOO, and Nothing all set to unveil new devices. ",
-                author: "Priya Singh",
-                date: "2026-02-12T16:45:00",
-                link: "https://maaney.store/news/launchCalendar/feb/upcoming-mobiles-feb-2026"
+                img: "https://maaney.store/news/huawei/huawei-has-two-new-mid-range-kirin-chips-for-2026-smartphones-1.png",
+                category: "Hands-On",
+                title: "Huawei Mate 70 Pro Hands-On: Kirin is Back, But is it Enough?",
+                excerpt: "We go hands-on with the new Huawei flagship. A deep dive into the new Kirin chipset performance and HarmonyOS NEXT experience.",
+                author: "Maaney Editorial",
+                date: "2026-02-17T22:30:00",
+                link: "https://maaney.store/news/huawei/huawei-has-two-new-mid-range-kirin-chips-for-2026-smartphones"
+            },
+            {
+                id: 6,
+                img: "https://maaney.store/news/nothing/nothing-4a-community-review.png",
+                category: "Review",
+                title: "Nothing Phone (4a) Review: Minimalism Done Right?",
+                excerpt: "Nothing has launched the Phone (4a). We look at the design, the Glyph interface, and if the specs justify the price tag in 2026.",
+                author: "Maaney Editorial",
+                date: "2026-02-16T12:00:00",
+                link: "https://maaney.store/news/nothing/nothing-phone-4a-community-review"
+            },
+             {
+                id: 5,
+                img: "https://maaney.store/news/vivo/vivo-v70-1.png",
+                category: "Camera Test",
+                title: "Vivo V70 Elite Camera Review: Night Photography King?",
+                excerpt: "Vivo's V-series has always focused on portraits. We test the new Zeiss partnership on the V70 Elite in daylight and low-light scenarios.",
+                author: "Arjun Verma",
+                date: "2026-02-15T12:00:00",
+                link: "/news/vivo/news-vivo-v70"
+            },
+            {
+                id: 4,
+                img: "https://maaney.store/news/poco/poco-x8-pro-x8-pro-max-design-specs-leak.png",
+                category: "Comparison",
+                title: "POCO X8 Pro vs iQOO Neo 11: Which is the Best Value Flagship?",
+                excerpt: "A detailed specs and performance comparison between the two hottest mid-range killers of 2026.",
+                author: "Maaney Editorial",
+                date: "2026-02-14T12:00:00",
+                link: "https://maaney.store/news/poco/poco-x8-pro-x8-pro-max-design-specs-leak"
             }
         ];
 
@@ -925,12 +741,9 @@
 
         // --- FUNCTIONS ---
 
-        // 1. Time Ago Logic (Uses Simulated Date)
         function timeAgo(dateString) {
             const date = new Date(dateString);
-            // Use simulated today instead of real 'new Date()'
             const now = SIMULATED_TODAY; 
-            
             const seconds = Math.floor((now - date) / 1000);
             
             let interval = seconds / 31536000;
@@ -951,11 +764,9 @@
             return "Just now";
         }
 
-        // 2. Render Header Scroller (With Loop Duplication)
         function renderHeaderScroller() {
             let htmlContent = "";
             
-            // Generate HTML for items
             headerNewsItems.forEach(item => {
                 const timeString = timeAgo(item.date);
                 htmlContent += `
@@ -968,15 +779,12 @@
      padding:12px;
      border-radius:5px;
      background:#ffffff;
-     
      margin-bottom:14px;
      transition:transform 0.2s ease, box-shadow 0.2s ease;
    "
    onmouseover="this.style.transform='scale(1.02)';this.style.boxShadow='0 10px 24px rgba(0,0,0,0.12)'"
    onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 6px 18px rgba(0,0,0,0.06)'"
 >
-
-    <!-- Image -->
     <img 
         src="${item.img}" 
         alt="${item.brand}" 
@@ -989,8 +797,6 @@
           background:#f9f9f9;
         "
     >
-
-    <!-- Content -->
     <div style="flex:1;">
         <div style="
             font-size:16px;
@@ -1001,7 +807,6 @@
         " class="line-seed">
             ${item.title}
         </div>
-
         <div style="
             font-size:13px;
             color:#000;
@@ -1010,18 +815,12 @@
             ${item.brand} • ${timeString}
         </div>
     </div>
-
 </a>
-
                 `;
             });
-
-            // To create an infinite loop with CSS animation, we duplicate the list.
-            // The animation moves from 0% to -50% (which is exactly the height of the original list).
             headerScroller.innerHTML = htmlContent + htmlContent; 
         }
 
-        // 3. Render Main Feed Articles
         function renderArticles(page) {
             feedContainer.innerHTML = ""; 
             
@@ -1055,7 +854,6 @@
             }
         }
 
-        // 4. Render Pagination
         function renderPagination() {
             paginationContainer.innerHTML = ""; 
 
@@ -1080,7 +878,6 @@
             paginationContainer.appendChild(nextBtn);
         }
 
-        // 5. Change Page Handler
         function changePage(page) {
             currentPage = page;
             renderArticles(currentPage);
@@ -1089,7 +886,7 @@
 
         // --- INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
-            renderHeaderScroller(); // Render the auto-scrolling right side
+            renderHeaderScroller();
             renderArticles(currentPage);
             renderPagination();
         });
