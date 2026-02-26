@@ -1256,4 +1256,4 @@ async function generatePage(query) {
 }
 
 // Run the generator
-generatePage('redmi a4');
+generatePage('samsung galaxy s26 ultra');

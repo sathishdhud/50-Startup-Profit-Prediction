@@ -305,4 +305,10 @@
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
   </url>
+  <url>
+      <loc>https://maaney.store/compare/samsung/samsung-galaxy-s26-ultra</loc>
+      <lastmod>2026-02-27</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+  </url>
 </urlset>
