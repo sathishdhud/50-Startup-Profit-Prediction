@@ -324,8 +324,14 @@
       <priority>0.7</priority>
   </url>
   <url>
-      <loc>https://maaney.store/review/samsung/samsung-s26</loc>
-      <lastmod>2026-02-27</lastmod>
+      <loc>https://maaney.store/review/samsung-s26</loc>
+      <lastmod>2026-02-28</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+  </url>
+  <url>
+      <loc>https://maaney.store/review</loc>
+      <lastmod>2026-02-28</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
   </url>
