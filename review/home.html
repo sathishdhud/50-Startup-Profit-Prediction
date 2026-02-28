@@ -1,10 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maaney Store Reviews - In-Depth Tech Reviews & Hands-On</title>
+   <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Maaney Store Reviews 2026 – In-Depth Smartphone, Laptop & Gadget Reviews</title>
+
+<meta name="description" content="Explore expert in-depth tech reviews on Maaney Store. We test smartphones, laptops, wearables and gadgets with real-world performance analysis, camera comparisons, battery tests and honest verdicts.">
+
+<meta name="keywords" content="tech reviews 2026, smartphone reviews India, Samsung review, iPhone review, gadget comparison, hands-on tech review, best phones tested, laptop reviews, Maaney Store reviews">
+
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Dhuda Sathish">
+
+<link rel="canonical" href="https://maaney.store/reviews/">
+
+<!-- Open Graph (Social Sharing) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Maaney Store Reviews – Expert Tech Reviews & Real-World Testing">
+<meta property="og:description" content="Unbiased smartphone and gadget reviews with benchmark scores, camera tests and battery performance analysis.">
+<meta property="og:url" content="https://maaney.store/reviews/">
+<meta property="og:site_name" content="Maaney Store">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Maaney Store Reviews – In-Depth Tech Analysis">
+<meta name="twitter:description" content="Real-world tech reviews, performance tests, and honest buying guides.">
+
+<!-- Structured Data for SEO Authority -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Maaney Store Reviews",
+  "description": "In-depth technology reviews including smartphones, laptops and gadgets tested in real-world scenarios.",
+  "url": "https://maaney.store/review",
+  "author": {
+    "@type": "Person",
+    "name": "Dhuda Sathish"
+  }
+}
+</script>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,17 +129,25 @@
 
         /* Left Side: Big Feature */
         .hero-left {
-            position: relative;
-            overflow: hidden;
-            border-right: 1px solid var(--border);
-            cursor: pointer;
-        }
-        .hero-left img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-left img {
+    width: 100%;
+    height: auto;              /* Keeps full image */
+    object-fit: contain;       /* Shows entire image */
+    object-position: center;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+/* Smooth Zoom Effect */
+.hero-left:hover img {
+    transform: scale(1.08);
+}
+        
         .hero-left:hover img { transform: scale(1.05); }
         
         .hero-overlay {
@@ -460,36 +504,36 @@
             </div>
         </header>
 
-        <!-- HERO HEADER SECTION (Reviews Focus) -->
-        <section class="news-header-section">
-            <div class="news-grid-container">
-                
-                <!-- LEFT: BIG FEATURE REVIEW -->
-                <a href="https://maaney.store/news/google/google-pixel-10a-launch"
-                   class="hero-left"
-                   aria-label="Read full review: Google Pixel 10a"
-                   title="Google Pixel 10a Full Review: The New Budget King?">
-                    
-                    <!-- Updated Image for Review Focus -->
-                    <img src="./google/news-google-pixel-10a.png"
-                         alt="Google Pixel 10a Review Hands-On"
-                         loading="lazy">
+        <!-- HERO HEADER SECTION (Samsung Review Focus) -->
+<section class="news-header-section">
+    <div class="news-grid-container">
+        
+        <!-- LEFT: BIG FEATURE REVIEW -->
+        <a href="./samsung-s26/"
+           class="hero-left"
+           aria-label="Read full review: Samsung Galaxy S26 Ultra"
+           title="Samsung Galaxy S26 Ultra Review: 200MP Camera, Snapdragon 8 Elite & Galaxy AI Tested">
+            
+            <!-- Updated Image for Review Focus -->
+            <img src="../mobiles/samsung-s26/image1.png"
+                 alt="Samsung Galaxy S26 Ultra Full Review Hands-On"
+                 loading="lazy">
 
-                    <div class="hero-overlay">
-                        <span class="category-tag">Full Review</span>
-                        <h2>Google Pixel 10a Review: The Budget King Returns with Tensor G4 & AI Tricks</h2>
-                    </div>
-                </a>
-
-                <!-- RIGHT: SCROLLING REVIEWS -->
-                <div class="hero-right">
-                    <div class="hero-scroll-wrapper" id="header-scroller">
-                        <!-- Javascript populates review items here -->
-                    </div>
-                </div>
-
+            <div class="hero-overlay">
+                <span class="category-tag">Full Review</span>
+                <h2>Samsung Galaxy S26 Ultra Review: 200MP Camera Beast with Galaxy AI & Flagship Power</h2>
             </div>
-        </section>
+        </a>
+
+        <!-- RIGHT: SCROLLING REVIEWS -->
+        <div class="hero-right">
+            <div class="hero-scroll-wrapper" id="header-scroller">
+                <!-- Javascript populates review items here -->
+            </div>
+        </div>
+
+    </div>
+</section>
 
         <!-- BLOG CONTENT LAYOUT -->
         <div class="content-layout">
