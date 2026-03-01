@@ -1012,27 +1012,38 @@
 
     // ================= NEWS DATA =================
     const sideNewsData = [
+      {
+    title: "Upcoming Smartphones in India (March 2026): Nothing Phone (4a), Motorola Edge 70 Fusion & More",
+    tag: "News",
+    date:"March 1,2026",
+    img: "https://maaney.store/news/launchcalendar/march/smartphones-launching-india-next-week-nothing-phone-4a-motorola-edge-70-fusion.png",
+    link: "https://maaney.store/news/launchcalendar/march/smartphones-launching-india-next-week-nothing-phone-4a-motorola-edge-70-fusion"
+},
         {
             title: "Google Pixel 10a: Is it worth waiting for?",
             tag: "News",
+            date:"Feb 28,2026",
             img: "./news/google/news-google-pixel-10a-verdict.png",
             link: "/news/google/pixel-10a"
         },
         {
             title: "Infinix Note 60 Pro 5G Review: A Mid-Range Powerhouse",
             tag: "NEWS",
+            date:"Feb 27,2026",
             img: "./news/infinix/infinix-note-60-pro.png",
             link: "/news/infinix/note-60-pro"
         },
         {
             title: "iqoo 15r 5G Review: Flagship Performance at a Mid-Range Price",
             tag: "LEAKS",
+            date:"Feb 25,2026",
             img: "./news/iqoo/news-iqoo-15r.png",
             link: "/news/iqoo/iqoo-15r"
         },
         {
             title: "samsung s26 ultra review: The Ultimate Android Experience?",
             tag: "REVIEW",
+            date:"Feb 24,2026",
             img: "./news/samsung/news-samsung-s26-ultra.png",
             link: "/news/samsung/samsung-s26"
         }
@@ -1114,7 +1125,7 @@
                 <div>
                     <span class="news-tag" style="font-size:9px; padding:2px 6px;">${news.tag}</span>
                     <div class="news-list-title">${news.title}</div>
-                    <div class="news-meta">Today</div>
+                    <div class="news-meta">${news.date}</div>
                 </div>
             </a>
             `;
