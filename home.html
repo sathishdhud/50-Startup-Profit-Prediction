@@ -783,6 +783,19 @@
   <script>
     // ================= PRODUCT DATA =================
     const products = [
+      {
+  brand: "AI+",
+  title: "AI+ Pulse 2 4G Budget Smartphone",
+  price: "6,999",
+  old: "7,499",
+  off: 7,
+  cat: "Mobile",
+  status: "Coming Soon",
+  date:"March 2",
+  img: "./mobiles/ai-pulse-2/image1.png",
+  link: "./mobiles/ai-pulse-2",
+  desc: "6.78-inch HD+ 120Hz Display | Unisoc T7250 Processor | 50MP Dual Camera | 6000mAh Battery | Android 16"
+},
     {
   brand: "Samsung",
   title: "Samsung Galaxy S26 5G Flagship Smartphone",
@@ -815,7 +828,7 @@
   old: "12,999",
   off: 15,
   cat: "Mobile",
-  status: "Coming Soon",
+  status: "available",
   img: "./mobiles/realme-p4-lite/image1.png",
   link: "./mobiles/realme-p4-lite",
   desc: "6.74-inch 90Hz Display | UNISOC T7250 | 6300mAh Battery"
@@ -828,7 +841,7 @@
         old: "48,999",
         off: 8,
         cat: "Mobile",
-        status: "Coming Soon",
+        status: "Available",
         img: "./mobiles/iqoo-15r/image4.png",
         link: "./mobiles/iqoo-15r",
         desc: "6.59-inch 1.5K AMOLED | Snapdragon 8 Gen 5 | 12GB RAM"
@@ -851,7 +864,7 @@
         price: "39,999",
         old: "44,999",
         off: 11,
-        status: "Coming Soon",
+        status: "available",
         cat: "Mobile",
         img: "./mobiles/vivo-v70/image1.png",
         link: "./mobiles/vivo-v70",
@@ -1034,7 +1047,9 @@
 
       products.forEach(p => {
         const badgeClass = p.status === "Coming Soon" ? "pc-badge upcoming" : "pc-badge";
-        const badgeText = p.status === "Coming Soon" ? "Upcoming" : `${p.off}% OFF`;
+        const badgeText = p.status === "Coming Soon" 
+  ? `${p.date}` 
+  : `${p.off}% OFF`;
         const btnText = p.status === "Coming Soon" ? "Notify Me" : "View Price";
         const btnClass = p.status === "Coming Soon" ? "btn-secondary" : "";
         const btnStyle = p.status === "Coming Soon" ? "border: 1px solid #ccc; color:#555;" : "";
