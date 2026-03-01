@@ -714,50 +714,7 @@
       <div class="product-grid" id="grid-latest"></div>
     </section>
 
-    <!-- SECTION 3: BEST DEALS -->
-    <section class="mt-5">
-      <div class="section-title">
-        <span><i class="fas fa-tags text-orange me-2"></i>Best Online Deals Today</span>
-      </div>
-      <div class="row g-3">
-        <div class="col-md-3 col-6">
-            <div class="product-card-91">
-                <div class="pc-image-box"><img src="https://picsum.photos/seed/deal1/200/200.jpg"></div>
-                <div class="pc-content">
-                    <div class="pc-title">Wireless Earbuds</div>
-                    <div class="pc-price">₹899</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-6">
-            <div class="product-card-91">
-                <div class="pc-image-box"><img src="https://picsum.photos/seed/deal2/200/200.jpg"></div>
-                <div class="pc-content">
-                    <div class="pc-title">Smart Watch</div>
-                    <div class="pc-price">₹1,299</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-6">
-            <div class="product-card-91">
-                <div class="pc-image-box"><img src="https://picsum.photos/seed/deal3/200/200.jpg"></div>
-                <div class="pc-content">
-                    <div class="pc-title">Power Bank</div>
-                    <div class="pc-price">₹699</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 col-6">
-            <div class="product-card-91">
-                <div class="pc-image-box"><img src="https://picsum.photos/seed/deal4/200/200.jpg"></div>
-                <div class="pc-content">
-                    <div class="pc-title">Bluetooth Speaker</div>
-                    <div class="pc-price">₹1,499</div>
-                </div>
-            </div>
-        </div>
-      </div>
-    </section>
+    
 
     <!-- SECTION 4: LATEST NEWS  -->
     <section class="mt-5">
@@ -798,7 +755,7 @@
     <section class="mt-5">
       <div class="section-title">
         <span><i class="fas fa-play-circle text-orange me-2"></i>Expert Reviews</span>
-        <a href="/videos">View All Videos <i class="fas fa-chevron-right"></i></a>
+        <a href="/review">View All Videos <i class="fas fa-chevron-right"></i></a>
       </div>
       <div class="row g-3" id="video-grid">
         <!-- Injected by JS -->
@@ -1051,11 +1008,17 @@
 
     // ================= VIDEO DATA =================
     const videoData = [
-        { title: "Samsung Galaxy S26 Ultra Hands On Review", img: "./news/samsung/news-samsung-s26-ultra-2.png" },
-        { title: "Google Pixel 10a vs Pixel 9a Comparison", img: "https://picsum.photos/seed/v1/300/180.jpg" },
-        { title: "Best Budget Smartphones under 15000 in 2025", img: "https://picsum.photos/seed/v2/300/180.jpg" },
-        { title: "iPhone 16 Pro Max Camera Test", img: "https://picsum.photos/seed/v3/300/180.jpg" }
-    ];
+    {
+        title: "Samsung Galaxy S26 4 reasons to Buy",
+        img: "./news/samsung/news-samsung-s26-ultra-2.png",
+        link: "/review/samsung-s26/samsung-s26-4-reasons-to-buy-reasons-to-avoid"
+    },
+    {
+        title: "Samsung Galaxy S26 Review 2026",
+        img: "https://maaney.store/news/samsung/news-smasung-s26-privacy-1.png",
+        link: "/review/samsung-s26"
+    }
+];
 
     // ================= RENDER PRODUCTS =================
     function renderProducts() {
@@ -1143,11 +1106,15 @@
                 <div class="video-card">
                     <div class="video-thumb">
                         <img src="${vid.img}" alt="${vid.title}" onerror="this.src='https://via.placeholder.com/300x180?text=Video'">
-                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                        
                     </div>
                     <div class="video-info">
-                        <div class="video-title">${vid.title}</div>
-                    </div>
+    <div class="video-title">
+        <a href="${vid.link}" style="text-decoration:none; color:inherit;">
+            ${vid.title}
+        </a>
+    </div>
+</div>
                 </div>
             </div>
             `;
