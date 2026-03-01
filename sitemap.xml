@@ -353,4 +353,10 @@
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
   </url>
+  <url>
+      <loc>https://maaney.store/news/honor/honor-magic-v6-foldable-launched-global-mwc-2026</loc>
+      <lastmod>2026-03-01</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+  </url>
 </urlset>
