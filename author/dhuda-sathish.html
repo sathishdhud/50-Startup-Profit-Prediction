@@ -1102,7 +1102,7 @@
                         if (!allArticles.some(a => a.id === article.id || a.title === article.title)) {
                             allArticles.push({
                                 id: article.id,
-                                url: `/article/${article.id}`,
+                                url: `/article/${article.link}`,
                                 img: article.img_url,
                                 title: article.title,
                                 cat: article.type,
