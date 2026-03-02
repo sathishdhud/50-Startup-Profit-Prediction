@@ -1234,27 +1234,18 @@
 
   OneSignalDeferred.push(async function(OneSignal) {
 
-    // Initialize OneSignal
     await OneSignal.init({
       appId: "56c27688-2cac-458c-bfb7-1a063a488eb5",
-
-      // Disable all OneSignal UI elements
-      notifyButton: { enable: false },
-      promptOptions: {
-        slidedown: { enabled: false }
-      }
+      notifyButton: { enable: false }
     });
 
-    // Wait 15 seconds after page fully loads
+    // Ask permission after 15 seconds
     setTimeout(async function () {
-
       const permission = await OneSignal.Notifications.permission;
 
-      // Only ask if user hasn't already allowed or blocked
       if (permission === "default") {
         await OneSignal.Notifications.requestPermission();
       }
-
     }, 15000);
 
   });
