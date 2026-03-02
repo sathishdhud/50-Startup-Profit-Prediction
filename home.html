@@ -1227,28 +1227,6 @@
   </script>
   <script src="./footer.js"></script>
    <!-- OneSignal SDK -->
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-
-  OneSignalDeferred.push(async function(OneSignal) {
-
-    await OneSignal.init({
-      appId: "56c27688-2cac-458c-bfb7-1a063a488eb5",
-      notifyButton: { enable: false }
-    });
-
-    // Ask permission after 15 seconds
-    setTimeout(async function () {
-      const permission = await OneSignal.Notifications.permission;
-
-      if (permission === "default") {
-        await OneSignal.Notifications.requestPermission();
-      }
-    }, 15000);
-
-  });
-</script>
 </body>
 </html>
