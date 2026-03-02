@@ -1226,28 +1226,33 @@
 
   </script>
   <script src="./footer.js"></script>
-   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+   <!-- OneSignal SDK -->
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
 
   OneSignalDeferred.push(async function(OneSignal) {
 
+    // Initialize OneSignal
     await OneSignal.init({
       appId: "56c27688-2cac-458c-bfb7-1a063a488eb5",
 
-      // Disable all OneSignal UI
+      // Disable all OneSignal UI elements
       notifyButton: { enable: false },
-      promptOptions: { slidedown: { enabled: false } }
+      promptOptions: {
+        slidedown: { enabled: false }
+      }
     });
 
-    // Ask native permission after 15 seconds
-    setTimeout(async function() {
+    // Wait 15 seconds after page fully loads
+    setTimeout(async function () {
 
       const permission = await OneSignal.Notifications.permission;
 
+      // Only ask if user hasn't already allowed or blocked
       if (permission === "default") {
-        OneSignal.Notifications.requestPermission();
+        await OneSignal.Notifications.requestPermission();
       }
 
     }, 15000);
