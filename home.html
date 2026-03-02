@@ -1228,13 +1228,19 @@
   <script src="./footer.js"></script>
    <script async src="https://cse.google.com/cse.js?cx=35b3a571bd89b4006">
 </script>
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function(OneSignal) {
     await OneSignal.init({
       appId: "56c27688-2cac-458c-bfb7-1a063a488eb5",
+      notifyButton: { enable: false },
+      promptOptions: { slidedown: { enabled: false } }
     });
+
+    // Ask native permission after 15 seconds
+    setTimeout(() => {
+      OneSignal.showNativePrompt();
+    }, 15000);
   });
 </script>
 </body>
