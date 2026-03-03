@@ -397,7 +397,13 @@
   </url>
   <url>
       <loc>https://maaney.store/news/apple/ipad-air-launched-m4-chip-upgraded-ram-india-price-features-specifications</loc>
-      <lastmod>2026-03-02</lastmod>
+      <lastmod>2026-03-03</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+  </url>
+  <url>
+      <loc>https://maaney.store/news/nothing/nothing-phone-4a-india-exclusive-drop-event-sale-specifications-features</loc>
+      <lastmod>2026-03-03</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
   </url>
