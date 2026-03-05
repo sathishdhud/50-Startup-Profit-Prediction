@@ -461,4 +461,10 @@
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
   </url>
+  <url>
+      <loc>https://maaney.store/news/poco/poco-x8-pro-dimensity-8500-ultra-9500s-chipsets-confirmed</loc>
+      <lastmod>2026-03-05</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+  </url>
 </urlset>
