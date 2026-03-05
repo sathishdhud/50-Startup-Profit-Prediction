@@ -126,7 +126,7 @@
             border-bottom: 1px solid #F0F0F0;
             text-align: center;
             position: sticky;
-            top: 46px;
+            top: 46px; /* Height of main header */
             z-index: 999;
             white-space: nowrap;
             overflow-x: auto;
@@ -187,26 +187,39 @@
             width: 37%;
         }
 
-        /* Phone Image Row */
-        .img-row td {
-            padding: 20px 10px;
+        /* Sticky Table Header (Mobiles Fixed on Scroll) */
+        .comparison-table thead th {
+            position: sticky;
+            top: 90px; /* Height of Main Header (46px) + TOC Nav (44px) */
+            background: #FFFFFF;
+            z-index: 10;
+            border-bottom: 2px solid #EEEEEE;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .comparison-table thead tr:first-child th {
+            padding: 15px 10px;
             background: #FFFFFF;
         }
-        
-        .img-row img {
+
+        .comparison-table thead tr:first-child th:first-child {
+            background-color: #FAFAFA;
+        }
+
+        /* Phone Image in Header */
+        .header-img {
             max-width: 85%;
             height: auto;
-            max-height: 160px;
+            max-height: 140px;
             border-radius: 8px;
             margin-bottom: 8px;
         }
 
         .brand-logo {
-            height: 24px;
+            height: 22px;
             width: auto;
             margin-bottom: 5px;
-            filter: grayscale(100%);
-            opacity: 0.8;
+            opacity: 0.9;
         }
 
         /* Section Headers */
@@ -237,16 +250,18 @@
         }
 
         .phone-model-price {
-            font-size: 0.7rem;
-            color: #888888;
+            font-size: 0.75rem;
+            color: #FF6B35;
+            font-weight: 600;
         }
 
         /* Store Logos in Availability */
         .store-logo {
-            height: 20px;
+            height: 18px;
             width: auto;
             vertical-align: middle;
-            margin-right: 5px;
+            margin: 2px;
+            display: inline-block;
         }
 
         /* Footer */
@@ -330,31 +345,26 @@
         <div class="comparison-container">
             <table class="comparison-table">
                 <thead>
+                    <!-- Fixed Row: Mobile Images & Names -->
                     <tr>
                         <th>Specs</th>
-                        <th>OnePlus 15T</th>
-                        <th>Pixel 10 Pro</th>
+                        <th>
+                            <img src="https://via.placeholder.com/80x24/FFFFFF/000000?text=OnePlus" alt="OnePlus Logo" class="brand-logo">
+                            <br>
+                            <img src="./mobiles/iqoo-15r/image2.png" alt="OnePlus 15T" class="header-img">
+                            <div class="phone-model-name">OnePlus 15T</div>
+                            <div class="phone-model-price">₹54,999</div>
+                        </th>
+                        <th>
+                            <img src="https://via.placeholder.com/80x24/FFFFFF/4285F4?text=Google" alt="Google Logo" class="brand-logo">
+                            <br>
+                            <img src="./mobiles/iqoo-15r/image1.png" alt="Pixel 10 Pro" class="header-img">
+                            <div class="phone-model-name">Pixel 10 Pro</div>
+                            <div class="phone-model-price">₹89,999</div>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Image Row -->
-                    <tr class="img-row">
-                        <td style="background:#FAFAFA;"></td>
-                        <td>
-                            <img src="https://via.placeholder.com/80x24/FFFFFF/000000?text=OnePlus" alt="OnePlus Logo" class="brand-logo">
-                            <br>
-                            <img src="./mobiles/iqoo-15r/image2.png" alt="OnePlus 15T">
-                            <div class="phone-model-name" style="margin-top:10px;">OnePlus 15T</div>
-                            <div class="phone-model-price">₹54,999</div>
-                        </td>
-                        <td>
-                            <img src="https://via.placeholder.com/80x24/FFFFFF/4285F4?text=Google" alt="Google Logo" class="brand-logo">
-                            <br>
-                            <img src="./mobiles/iqoo-15r/image1.png" alt="Pixel 10 Pro">
-                            <div class="phone-model-name" style="margin-top:10px;">Pixel 10 Pro</div>
-                            <div class="phone-model-price">₹89,999</div>
-                        </td>
-                    </tr>
                     <tr>
                         <td>Overall Score</td>
                         <td><strong>91.8 / 100</strong></td>
