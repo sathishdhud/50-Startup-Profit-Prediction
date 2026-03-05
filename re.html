@@ -194,10 +194,19 @@
         }
         
         .img-row img {
-            max-width: 80%;
+            max-width: 85%;
             height: auto;
-            max-height: 180px;
+            max-height: 160px;
             border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .brand-logo {
+            height: 24px;
+            width: auto;
+            margin-bottom: 5px;
+            filter: grayscale(100%);
+            opacity: 0.8;
         }
 
         /* Section Headers */
@@ -230,6 +239,14 @@
         .phone-model-price {
             font-size: 0.7rem;
             color: #888888;
+        }
+
+        /* Store Logos in Availability */
+        .store-logo {
+            height: 20px;
+            width: auto;
+            vertical-align: middle;
+            margin-right: 5px;
         }
 
         /* Footer */
@@ -296,16 +313,15 @@
     <!-- Quick Navigation -->
     <div class="toc-nav">
         <ul class="toc-list">
+            <li><a href="#general">General</a></li>
             <li><a href="#display">Display</a></li>
             <li><a href="#performance">Performance</a></li>
             <li><a href="#camera">Camera</a></li>
             <li><a href="#battery">Battery</a></li>
-            <li><a href="#software">Software</a></li>
-            <li><a href="#build">Build</a></li>
+            <li><a href="#storage">Storage</a></li>
+            <li><a href="#multimedia">Multimedia</a></li>
             <li><a href="#connectivity">Network</a></li>
-            <li><a href="#sensors">Sensors</a></li>
-            <li><a href="#audio">Audio</a></li>
-            <li><a href="#security">Security</a></li>
+            <li><a href="#availability">Availability</a></li>
         </ul>
     </div>
 
@@ -325,20 +341,50 @@
                     <tr class="img-row">
                         <td style="background:#FAFAFA;"></td>
                         <td>
+                            <img src="https://via.placeholder.com/80x24/FFFFFF/000000?text=OnePlus" alt="OnePlus Logo" class="brand-logo">
+                            <br>
                             <img src="./mobiles/iqoo-15r/image2.png" alt="OnePlus 15T">
                             <div class="phone-model-name" style="margin-top:10px;">OnePlus 15T</div>
-                            <div class="phone-model-price">$799</div>
+                            <div class="phone-model-price">₹54,999</div>
                         </td>
                         <td>
+                            <img src="https://via.placeholder.com/80x24/FFFFFF/4285F4?text=Google" alt="Google Logo" class="brand-logo">
+                            <br>
                             <img src="./mobiles/iqoo-15r/image1.png" alt="Pixel 10 Pro">
                             <div class="phone-model-name" style="margin-top:10px;">Pixel 10 Pro</div>
-                            <div class="phone-model-price">$999</div>
+                            <div class="phone-model-price">₹89,999</div>
                         </td>
                     </tr>
                     <tr>
                         <td>Overall Score</td>
                         <td><strong>91.8 / 100</strong></td>
                         <td><strong>92.5 / 100</strong></td>
+                    </tr>
+
+                    <!-- General Section -->
+                    <tr class="section-row" id="general">
+                        <td>General</td>
+                        <td colspan="2" class="winner-text"></td>
+                    </tr>
+                    <tr>
+                        <td>Release Date</td>
+                        <td>January 15, 2025</td>
+                        <td>October 10, 2024</td>
+                    </tr>
+                    <tr>
+                        <td>Launch Price</td>
+                        <td>₹54,999</td>
+                        <td>₹89,999</td>
+                    </tr>
+                    <tr>
+                        <td>Operating System</td>
+                        <td>Android v15</td>
+                        <td>Android v15</td>
+                    </tr>
+                    <tr>
+                        <td>Sim Slots</td>
+                        <td>Dual SIM</td>
+                        <td>Dual SIM (Hybrid)</td>
                     </tr>
 
                     <!-- Display Section -->
@@ -376,6 +422,11 @@
                         <td>Gorilla Glass Victus 2</td>
                         <td>Gorilla Glass Armor</td>
                     </tr>
+                    <tr>
+                        <td>Test Result (Brightness)</td>
+                        <td>Exceptional outdoor visibility</td>
+                        <td>Excellent outdoor visibility</td>
+                    </tr>
 
                     <!-- Performance Section -->
                     <tr class="section-row" id="performance">
@@ -393,19 +444,24 @@
                         <td>12GB</td>
                     </tr>
                     <tr>
-                        <td>Storage</td>
-                        <td>256GB / 512GB / 1TB</td>
-                        <td>128GB / 256GB / 512GB</td>
+                        <td>Architecture</td>
+                        <td>64 bit</td>
+                        <td>64 bit</td>
                     </tr>
                     <tr>
-                        <td>Storage Type</td>
-                        <td>UFS 4.0</td>
-                        <td>UFS 4.0</td>
+                        <td>Test Result (AnTuTu)</td>
+                        <td>2,380,000+ (Top Tier)</td>
+                        <td>1,450,000+ (High)</td>
                     </tr>
                     <tr>
-                        <td>AnTuTu Score</td>
-                        <td>2,380,000+</td>
-                        <td>1,450,000+</td>
+                        <td>Test Result (Geekbench)</td>
+                        <td>Single: 2350 / Multi: 7500</td>
+                        <td>Single: 1920 / Multi: 4800</td>
+                    </tr>
+                    <tr>
+                        <td>Gaming</td>
+                        <td>Genshin Impact (Max Settings) 60fps Stable</td>
+                        <td>Genshin Impact (Max Settings) 55fps Avg</td>
                     </tr>
 
                     <!-- Camera Section -->
@@ -419,24 +475,50 @@
                         <td>50MP Main + 48MP Ultra + 48MP Tele</td>
                     </tr>
                     <tr>
-                        <td>Optical Zoom</td>
-                        <td>3x Optical</td>
-                        <td>5x Optical</td>
-                    </tr>
-                    <tr>
                         <td>Front Camera</td>
                         <td>32 MP</td>
                         <td>42 MP</td>
                     </tr>
                     <tr>
-                        <td>Video Recording</td>
-                        <td>8K @ 30fps</td>
-                        <td>4K @ 60fps</td>
+                        <td>Flash</td>
+                        <td>Dual LED</td>
+                        <td>LED</td>
                     </tr>
                     <tr>
-                        <td>AI Features</td>
-                        <td>AI Eraser 2.0</td>
-                        <td>Magic Eraser, Best Take</td>
+                        <td>Optical Zoom</td>
+                        <td>3x Optical</td>
+                        <td>5x Optical</td>
+                    </tr>
+                    <tr>
+                        <td>Test Result (Daylight)</td>
+                        <td>Natural colors, high detail</td>
+                        <td>High contrast, excellent dynamic range</td>
+                    </tr>
+                    <tr>
+                        <td>Test Result (Low Light)</td>
+                        <td>Good Night Mode</td>
+                        <td>Exceptional Night Sight</td>
+                    </tr>
+
+                    <!-- Storage Section -->
+                    <tr class="section-row" id="storage">
+                        <td>Storage</td>
+                        <td colspan="2" class="winner-text">Winner: OnePlus 15T</td>
+                    </tr>
+                    <tr>
+                        <td>Internal Storage</td>
+                        <td>256GB / 512GB / 1TB</td>
+                        <td>128GB / 256GB / 512GB</td>
+                    </tr>
+                    <tr>
+                        <td>Storage Type</td>
+                        <td>UFS 4.0</td>
+                        <td>UFS 4.0</td>
+                    </tr>
+                    <tr>
+                        <td>Memory Card Slot</td>
+                        <td>No</td>
+                        <td>No</td>
                     </tr>
 
                     <!-- Battery Section -->
@@ -445,61 +527,65 @@
                         <td colspan="2" class="winner-text">Winner: OnePlus 15T</td>
                     </tr>
                     <tr>
-                        <td>Battery</td>
+                        <td>Capacity</td>
                         <td>5800 mAh</td>
                         <td>5000 mAh</td>
                     </tr>
                     <tr>
-                        <td>Wired Charge</td>
+                        <td>Type</td>
+                        <td>Li-Polymer</td>
+                        <td>Li-Polymer</td>
+                    </tr>
+                    <tr>
+                        <td>Wired Charging</td>
                         <td>150W (19 min)</td>
                         <td>45W (75 min)</td>
                     </tr>
                     <tr>
-                        <td>Wireless Charge</td>
+                        <td>Wireless Charging</td>
                         <td>50W</td>
                         <td>23W</td>
                     </tr>
-
-                    <!-- Software Section -->
-                    <tr class="section-row" id="software">
-                        <td>Software</td>
-                        <td colspan="2" class="winner-text">Winner: Pixel 10 Pro</td>
+                    <tr>
+                        <td>Test Result (PCMark)</td>
+                        <td>18 Hours 12 Minutes</td>
+                        <td>14 Hours 30 Minutes</td>
                     </tr>
                     <tr>
-                        <td>OS</td>
-                        <td>OxygenOS 15</td>
-                        <td>Android 15</td>
-                    </tr>
-                    <tr>
-                        <td>Updates</td>
-                        <td>4 Years OS</td>
-                        <td>7 Years OS</td>
+                        <td>Test Result (Charging)</td>
+                        <td>0-100% in 19 mins</td>
+                        <td>0-100% in 75 mins</td>
                     </tr>
 
-                    <!-- Build Section -->
-                    <tr class="section-row" id="build">
-                        <td>Build & Design</td>
-                        <td colspan="2" class="winner-text">Winner: Pixel 10 Pro</td>
+                    <!-- Multimedia Section -->
+                    <tr class="section-row" id="multimedia">
+                        <td>Multimedia</td>
+                        <td colspan="2" class="winner-text">Tie</td>
                     </tr>
                     <tr>
-                        <td>Dimensions</td>
-                        <td>163.1 x 75.8 x 8.9 mm</td>
-                        <td>162.8 x 76.5 x 8.5 mm</td>
+                        <td>Speakers</td>
+                        <td>Stereo Speakers</td>
+                        <td>Stereo Speakers</td>
                     </tr>
                     <tr>
-                        <td>Weight</td>
-                        <td>198 g</td>
-                        <td>212 g</td>
+                        <td>Audio Jack</td>
+                        <td>No</td>
+                        <td>No</td>
                     </tr>
                     <tr>
-                        <td>IP Rating</td>
-                        <td>IP65</td>
-                        <td>IP68</td>
+                        <td>Video Player</td>
+                        <td>MP4, H.265, VP9, AV1</td>
+                        <td>MP4, H.265, VP9, AV1</td>
                     </tr>
                     <tr>
-                        <td>Colors</td>
-                        <td>Ocean, Dawn, Forest</td>
-                        <td>Obsidian, Porcelain, Hazel</td>
+                        <td>Audio Formats</td>
+                        <td>MP3, AAC, FLAC, WAV</td>
+                        <td>MP3, AAC, FLAC, WAV</td>
+                    </tr>
+                    <tr>
+                        <td>FM Radio</td>
+                        <td>No</td>
+                        <td>No</td>
                     </tr>
 
                     <!-- Connectivity Section -->
@@ -513,94 +599,54 @@
                         <td>Yes (Sub-6/mmWave)</td>
                     </tr>
                     <tr>
+                        <td>VoLTE</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
                         <td>WiFi</td>
                         <td>WiFi 7</td>
                         <td>WiFi 7</td>
                     </tr>
                     <tr>
                         <td>Bluetooth</td>
-                        <td>5.4</td>
-                        <td>5.3</td>
+                        <td>v5.4</td>
+                        <td>v5.3</td>
+                    </tr>
+                    <tr>
+                        <td>NFC</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
                     </tr>
                     <tr>
                         <td>USB</td>
-                        <td>USB-C 3.2</td>
-                        <td>USB-C 3.2</td>
-                    </tr>
-                    <tr>
-                        <td>SIM</td>
-                        <td>Dual Nano</td>
-                        <td>Dual Nano / eSIM</td>
+                        <td>USB-C 3.2 Gen 2</td>
+                        <td>USB-C 3.2 Gen 2</td>
                     </tr>
 
-                    <!-- Sensors Section -->
-                    <tr class="section-row" id="sensors">
-                        <td>Sensors</td>
-                        <td colspan="2" class="winner-text">Winner: OnePlus 15T</td>
+                    <!-- Availability & Price Section -->
+                    <tr class="section-row" id="availability">
+                        <td>Availability & Price</td>
+                        <td colspan="2" class="winner-text">Best Value: OnePlus 15T</td>
                     </tr>
                     <tr>
-                        <td>Fingerprint</td>
-                        <td>Ultrasonic (In-display)</td>
-                        <td>Optical (In-display)</td>
+                        <td>Current Price</td>
+                        <td>₹54,999</td>
+                        <td>₹89,999</td>
                     </tr>
                     <tr>
-                        <td>Face Unlock</td>
-                        <td>Yes</td>
-                        <td>Yes</td>
+                        <td>Available Stores</td>
+                        <td>
+                            <img src="https://via.placeholder.com/60x20/2874F0/FFFFFF?text=Flipkart" alt="Flipkart" class="store-logo">
+                            <img src="https://via.placeholder.com/60x20/FF9900/000000?text=Amazon" alt="Amazon" class="store-logo">
+                            <img src="https://via.placeholder.com/60x20/EE3338/FFFFFF?text=Croma" alt="Croma" class="store-logo">
+                        </td>
+                        <td>
+                            <img src="https://via.placeholder.com/60x20/FF9900/000000?text=Amazon" alt="Amazon" class="store-logo">
+                            <img src="https://via.placeholder.com/60x20/2874F0/FFFFFF?text=Flipkart" alt="Flipkart" class="store-logo">
+                        </td>
                     </tr>
-                    <tr>
-                        <td>Gyroscope</td>
-                        <td>Yes</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td>Barometer</td>
-                        <td>Yes</td>
-                        <td>Yes</td>
-                    </tr>
-
-                    <!-- Audio Section -->
-                    <tr class="section-row" id="audio">
-                        <td>Audio</td>
-                        <td colspan="2" class="winner-text">Tie</td>
-                    </tr>
-                    <tr>
-                        <td>Speakers</td>
-                        <td>Stereo Speakers</td>
-                        <td>Stereo Speakers</td>
-                    </tr>
-                    <tr>
-                        <td>3.5mm Jack</td>
-                        <td>No</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td>Dolby Atmos</td>
-                        <td>Yes</td>
-                        <td>Yes</td>
-                    </tr>
-
-                    <!-- Security & Features Section -->
-                    <tr class="section-row" id="security">
-                        <td>Security & Features</td>
-                        <td colspan="2" class="winner-text">Winner: Pixel 10 Pro</td>
-                    </tr>
-                    <tr>
-                        <td>Satellite</td>
-                        <td>No</td>
-                        <td>Yes (Emergency)</td>
-                    </tr>
-                    <tr>
-                        <td>Alert Slider</td>
-                        <td>Yes</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td>Call Screen</td>
-                        <td>No</td>
-                        <td>Yes</td>
-                    </tr>
-
+                    
                     <!-- Pros Cons -->
                     <tr class="section-row">
                         <td colspan="3">Pros</td>
@@ -642,8 +688,8 @@
     <section id="verdict" class="verdict-box">
         <div class="comparison-container">
             <h3 class="verdict-title">Final Verdict</h3>
-            <p class="verdict-text"><strong>Buy OnePlus 15T if:</strong> You want the best performance, extremely fast charging, and great value for money. Ideal for gamers and power users.</p>
-            <p class="verdict-text"><strong>Buy Pixel 10 Pro if:</strong> Camera quality is your priority, you want long software support, and prefer a clean Android experience.</p>
+            <p class="verdict-text"><strong>Buy OnePlus 15T if:</strong> You want the best performance, extremely fast charging, and great value for money at ₹54,999. Ideal for gamers and power users.</p>
+            <p class="verdict-text"><strong>Buy Pixel 10 Pro if:</strong> Camera quality is your priority, you want long software support, and prefer a clean Android experience at a premium price of ₹89,999.</p>
         </div>
     </section>
 
