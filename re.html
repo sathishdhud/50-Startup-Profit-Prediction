@@ -1,269 +1,675 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Tecno Camon 40 Pro</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>OnePlus 15T vs Google Pixel 10 Pro | Maaney Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
 
-<!-- Icons -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFFFF;
+            color: #333333;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
 
-<style>
-body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-    background:#fff;
-    color:#111;
-}
+        /* Header */
+        .main-header {
+            background-color: #FF6B35;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
 
-/* FULL WIDTH CONTAINER */
-.container-fluid{
-    max-width:1400px;
-}
+        .navbar {
+            padding: 8px 0;
+        }
 
-/* HEADER */
-.product-title{
-    font-size:26px;
-    font-weight:700;
-}
-.compare-btn{
-    background:#ff8c00;
-    color:#fff;
-    border:none;
-    padding:8px 16px;
-    border-radius:8px;
-    font-size:14px;
-    font-weight:600;
-}
+        .navbar-brand {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #FFFFFF !important;
+        }
 
-/* IMAGE CARD */
-.image-wrapper{
-    background:#f8f8f8;
-    border-radius:18px;
-    padding:24px;
-    position:relative;
-    text-align:center;
-}
-.phone-img{
-    max-width:230px;
-}
+        /* Dropdown Menu from Right */
+        .nav-dropdown {
+            position: relative;
+        }
 
-/* SCORE */
-.score-badge{
-    position:absolute;
-    top:18px;
-    left:18px;
-    background:#2dbf00;
-    color:#fff;
-    font-weight:700;
-    padding:10px 14px;
-    border-radius:8px;
-    font-size:13px;
-    line-height:1.1;
-}
+        .dropdown-toggle-custom {
+            background: none;
+            border: none;
+            color: white;
+            padding: 5px;
+            cursor: pointer;
+        }
 
-/* VIEW PHOTOS */
-.view-photos{
-    margin-top:16px;
-    width:100%;
-    border:2px solid #ff8c00;
-    background:#fff;
-    color:#ff8c00;
-    padding:10px;
-    border-radius:10px;
-    font-size:14px;
-    font-weight:600;
-}
+        .dropdown-menu-end-custom {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            border-radius: 4px;
+            display: none;
+            z-index: 1001;
+        }
 
-/* SECTION */
-.section-title{
-    font-size:20px;
-    font-weight:700;
-}
+        .dropdown-menu-end-custom.show {
+            display: block;
+        }
 
-/* BUY SECTION */
-.buy-box{
-    border:1px solid #eee;
-    border-radius:18px;
-    padding:22px;
-}
+        .dropdown-menu-end-custom a {
+            display: block;
+            padding: 10px 15px;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
 
-.store-card{
-    border:1px solid #eaeaea;
-    border-radius:14px;
-    padding:18px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    height:100%;
-}
+        .dropdown-menu-end-custom a:last-child {
+            border-bottom: none;
+        }
 
-.store-name{
-    font-size:18px;
-    font-weight:700;
-}
-.store-sub{
-    font-size:13px;
-    color:#1a73e8;
-}
+        .dropdown-menu-end-custom a:hover {
+            background: #f9f9f9;
+        }
 
-.price{
-    font-size:20px;
-    font-weight:700;
-}
-.old-price{
-    font-size:13px;
-    color:#e53935;
-    text-decoration:line-through;
-}
+        /* Banner Image */
+        .banner-container {
+            width: 100%;
+            background: #000;
+        }
 
-.buy-btn{
-    background:#ffa500;
-    border:none;
-    border-radius:10px;
-    padding:10px 18px;
-    font-size:14px;
-    font-weight:600;
-}
+        .banner-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
-/* PERFORMANCE */
-.star{color:#ffb400}
-.rating-text{
-    color:#43a047;
-    font-weight:600;
-    font-size:14px;
-}
-.spec-text{
-    font-size:15px;
-    margin-bottom:6px;
-}
+        /* Container */
+        .comparison-container {
+            width: 100%;
+            max-width: 100%;
+            padding: 0;
+        }
 
-/* MOBILE OPTIMIZATION */
-@media (max-width: 991px){
-    .product-title{
-        font-size:22px;
-    }
+        @media (min-width: 992px) {
+            .comparison-container {
+                max-width: 960px;
+                margin: 0 auto;
+                padding: 0 15px;
+            }
+        }
 
-    .store-card{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:12px;
-    }
+        /* Navigation Tabs */
+        .toc-nav {
+            padding: 12px 5px;
+            background: #FFFFFF;
+            border-bottom: 1px solid #F0F0F0;
+            text-align: center;
+            position: sticky;
+            top: 46px;
+            z-index: 999;
+            white-space: nowrap;
+            overflow-x: auto;
+        }
 
-    .buy-btn{
-        width:100%;
-        padding:14px;
-        font-size:16px;
-    }
+        .toc-list {
+            display: inline-flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-    .price{
-        font-size:22px;
-    }
-}
-</style>
+        .toc-list li a {
+            display: block;
+            padding: 5px 10px;
+            background: #FFFFFF;
+            border: 1px solid #EEEEEE;
+            border-radius: 20px;
+            color: #444444;
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin: 0 3px;
+        }
+
+        /* Table Styling */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            background: #FFFFFF;
+        }
+
+        .comparison-table th, 
+        .comparison-table td {
+            padding: 10px 6px;
+            font-size: 0.75rem;
+            color: #555555;
+            text-align: center;
+            border-bottom: 1px solid #F0F0F0;
+            vertical-align: middle;
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+            width: 26%;
+            text-align: left;
+            font-weight: 600;
+            color: #333333;
+            background-color: #FAFAFA;
+            padding-left: 10px;
+        }
+
+        .comparison-table th:nth-child(2),
+        .comparison-table th:nth-child(3),
+        .comparison-table td:nth-child(2),
+        .comparison-table td:nth-child(3) {
+            width: 37%;
+        }
+
+        /* Phone Image Row */
+        .img-row td {
+            padding: 20px 10px;
+            background: #FFFFFF;
+        }
+        
+        .img-row img {
+            max-width: 80%;
+            height: auto;
+            max-height: 180px;
+            border-radius: 8px;
+        }
+
+        /* Section Headers */
+        .section-row td {
+            background-color: #F5F5F5 !important;
+            color: #333333 !important;
+            font-weight: 700 !important;
+            font-size: 0.7rem !important;
+            text-transform: uppercase;
+            border-bottom: 1px solid #EEEEEE;
+        }
+
+        /* Winner Text on Right */
+        .winner-text {
+            text-align: right;
+            font-weight: 600;
+            color: #FF6B35;
+            font-size: 0.7rem;
+            text-transform: none;
+        }
+
+        /* Phone Model Header */
+        .phone-model-name {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #222222;
+            margin-bottom: 2px;
+        }
+
+        .phone-model-price {
+            font-size: 0.7rem;
+            color: #888888;
+        }
+
+        /* Footer */
+        .main-footer {
+            background-color: #333333;
+            color: #AAAAAA;
+            padding: 20px 15px;
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.75rem;
+        }
+
+        /* Verdict Section */
+        .verdict-box {
+            padding: 20px 15px;
+            background: #FFFFFF;
+        }
+
+        .verdict-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #222222;
+        }
+
+        .verdict-text {
+            font-size: 0.8rem;
+            color: #555555;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container-fluid py-4">
-
-<!-- HEADER -->
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <div class="product-title">Tecno Camon 40 Pro</div>
-    <button class="compare-btn">+ Compare</button>
-</div>
-
-<div class="row g-4">
-
-<!-- LEFT IMAGE -->
-<div class="col-lg-4">
-    <div class="image-wrapper">
-        <div class="score-badge">85%<br>Score</div>
-
-        <img src="/mnt/data/7fc8a9bf-4e62-4c5d-893a-11bed56505e1.png"
-             class="img-fluid phone-img"
-             alt="Tecno Camon 40 Pro">
-
-        <button class="view-photos">View All Photos (5)</button>
-    </div>
-</div>
-
-<!-- RIGHT CONTENT -->
-<div class="col-lg-8">
-
-    <!-- KEY SPECS -->
-    <div class="mb-4">
-        <div class="section-title">Key Specs</div>
-        <div class="text-success fw-semibold mt-1">
-            <i class="fa-brands fa-android"></i> Android v15
-        </div>
-    </div>
-
-    <!-- BUY SECTION -->
-    <div class="buy-box mb-4">
-        <div class="section-title mb-3">Buy From Trusted Stores</div>
-
-        <div class="row g-3">
-            <!-- AMAZON -->
-            <div class="col-lg-6">
-                <div class="store-card">
-                    <div>
-                        <div class="store-name">a Amazon</div>
-                        <div class="store-sub">Best Price • Fast Delivery</div>
-                    </div>
-                    <div class="text-end w-100 w-lg-auto">
-                        <div class="price">₹26,998</div>
-                        <div class="old-price">₹29,999</div>
-                        <button class="buy-btn mt-2">Buy Now</button>
-                    </div>
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg comparison-container">
+            <a class="navbar-brand" href="#">Maaney Store</a>
+            
+            <!-- Dropdown Menu -->
+            <div class="nav-dropdown">
+                <button class="dropdown-toggle-custom" onclick="toggleDropdown()" aria-label="Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" viewBox="0 0 24 24">
+                        <circle cx="12" cy="5" r="2"/>
+                        <circle cx="12" cy="12" r="2"/>
+                        <circle cx="12" cy="19" r="2"/>
+                    </svg>
+                </button>
+                <div id="dropdownMenu" class="dropdown-menu-end-custom">
+                    <a href="#">Home</a>
+                    <a href="#">Mobile</a>
+                    <a href="#">Reviews</a>
+                    <a href="#">News</a>
                 </div>
             </div>
+        </nav>
+    </header>
 
-            <!-- FLIPKART -->
-            <div class="col-lg-6">
-                <div class="store-card">
-                    <div>
-                        <div class="store-name">
-                            <i class="fa-solid fa-bag-shopping text-primary"></i> Flipkart
-                        </div>
-                        <div class="store-sub">Bank Offers Available</div>
-                    </div>
-                    <div class="text-end w-100 w-lg-auto">
-                        <div class="price">₹26,998</div>
-                        <div class="old-price">₹29,999</div>
-                        <button class="buy-btn mt-2">Buy Now</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Header Poster Image -->
+    <div class="banner-container">
+        <img src="./banner1.jpg" alt="Comparison Banner" class="banner-img">
     </div>
 
-    <!-- PERFORMANCE -->
-    <div>
-        <div class="d-flex justify-content-between align-items-center mb-2">
-            <div class="section-title">
-                <i class="fa-solid fa-gauge-high"></i> Performance
-            </div>
-            <div>
-                <i class="fa-solid fa-star star"></i>
-                <i class="fa-solid fa-star star"></i>
-                <i class="fa-solid fa-star star"></i>
-                <i class="fa-solid fa-star star"></i>
-                <i class="fa-regular fa-star text-muted"></i>
-                <span class="rating-text ms-2">Very Good</span>
-            </div>
-        </div>
-
-        <div class="spec-text fw-semibold">MediaTek Dimensity 7300 Ultimate</div>
-        <div class="spec-text">Octa Core (2.5 GHz + 2 GHz)</div>
-        <div class="spec-text">8 GB RAM</div>
+    <!-- Quick Navigation -->
+    <div class="toc-nav">
+        <ul class="toc-list">
+            <li><a href="#display">Display</a></li>
+            <li><a href="#performance">Performance</a></li>
+            <li><a href="#camera">Camera</a></li>
+            <li><a href="#battery">Battery</a></li>
+            <li><a href="#software">Software</a></li>
+            <li><a href="#build">Build</a></li>
+            <li><a href="#connectivity">Network</a></li>
+            <li><a href="#sensors">Sensors</a></li>
+            <li><a href="#audio">Audio</a></li>
+            <li><a href="#security">Security</a></li>
+        </ul>
     </div>
 
-</div>
-</div>
-</div>
+    <!-- Main Comparison Table -->
+    <section id="comparison">
+        <div class="comparison-container">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Specs</th>
+                        <th>OnePlus 15T</th>
+                        <th>Pixel 10 Pro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Image Row -->
+                    <tr class="img-row">
+                        <td style="background:#FAFAFA;"></td>
+                        <td>
+                            <img src="https://via.placeholder.com/160x200/E53935/FFFFFF?text=OnePlus+15T" alt="OnePlus 15T">
+                            <div class="phone-model-name" style="margin-top:10px;">OnePlus 15T</div>
+                            <div class="phone-model-price">$799</div>
+                        </td>
+                        <td>
+                            <img src="https://via.placeholder.com/160x200/4285F4/FFFFFF?text=Pixel+10+Pro" alt="Pixel 10 Pro">
+                            <div class="phone-model-name" style="margin-top:10px;">Pixel 10 Pro</div>
+                            <div class="phone-model-price">$999</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Overall Score</td>
+                        <td><strong>91.8 / 100</strong></td>
+                        <td><strong>92.5 / 100</strong></td>
+                    </tr>
 
+                    <!-- Display Section -->
+                    <tr class="section-row" id="display">
+                        <td>Display</td>
+                        <td colspan="2" class="winner-text">Winner: OnePlus 15T</td>
+                    </tr>
+                    <tr>
+                        <td>Screen Size</td>
+                        <td>6.82 inches</td>
+                        <td>6.7 inches</td>
+                    </tr>
+                    <tr>
+                        <td>Resolution</td>
+                        <td>1440x3168 px</td>
+                        <td>1440x3120 px</td>
+                    </tr>
+                    <tr>
+                        <td>Display Type</td>
+                        <td>LTPO AMOLED</td>
+                        <td>LTPO AMOLED</td>
+                    </tr>
+                    <tr>
+                        <td>Refresh Rate</td>
+                        <td>144 Hz</td>
+                        <td>120 Hz</td>
+                    </tr>
+                    <tr>
+                        <td>Peak Brightness</td>
+                        <td>4500 nits</td>
+                        <td>2500 nits</td>
+                    </tr>
+                    <tr>
+                        <td>Protection</td>
+                        <td>Gorilla Glass Victus 2</td>
+                        <td>Gorilla Glass Armor</td>
+                    </tr>
+
+                    <!-- Performance Section -->
+                    <tr class="section-row" id="performance">
+                        <td>Performance</td>
+                        <td colspan="2" class="winner-text">Winner: OnePlus 15T</td>
+                    </tr>
+                    <tr>
+                        <td>Processor</td>
+                        <td>Snapdragon 8 Gen 4</td>
+                        <td>Google Tensor G5</td>
+                    </tr>
+                    <tr>
+                        <td>RAM</td>
+                        <td>12GB / 16GB</td>
+                        <td>12GB</td>
+                    </tr>
+                    <tr>
+                        <td>Storage</td>
+                        <td>256GB / 512GB / 1TB</td>
+                        <td>128GB / 256GB / 512GB</td>
+                    </tr>
+                    <tr>
+                        <td>Storage Type</td>
+                        <td>UFS 4.0</td>
+                        <td>UFS 4.0</td>
+                    </tr>
+                    <tr>
+                        <td>AnTuTu Score</td>
+                        <td>2,380,000+</td>
+                        <td>1,450,000+</td>
+                    </tr>
+
+                    <!-- Camera Section -->
+                    <tr class="section-row" id="camera">
+                        <td>Camera</td>
+                        <td colspan="2" class="winner-text">Winner: Pixel 10 Pro</td>
+                    </tr>
+                    <tr>
+                        <td>Rear Camera</td>
+                        <td>50MP Main + 50MP Ultra + 64MP Tele</td>
+                        <td>50MP Main + 48MP Ultra + 48MP Tele</td>
+                    </tr>
+                    <tr>
+                        <td>Optical Zoom</td>
+                        <td>3x Optical</td>
+                        <td>5x Optical</td>
+                    </tr>
+                    <tr>
+                        <td>Front Camera</td>
+                        <td>32 MP</td>
+                        <td>42 MP</td>
+                    </tr>
+                    <tr>
+                        <td>Video Recording</td>
+                        <td>8K @ 30fps</td>
+                        <td>4K @ 60fps</td>
+                    </tr>
+                    <tr>
+                        <td>AI Features</td>
+                        <td>AI Eraser 2.0</td>
+                        <td>Magic Eraser, Best Take</td>
+                    </tr>
+
+                    <!-- Battery Section -->
+                    <tr class="section-row" id="battery">
+                        <td>Battery</td>
+                        <td colspan="2" class="winner-text">Winner: OnePlus 15T</td>
+                    </tr>
+                    <tr>
+                        <td>Battery</td>
+                        <td>5800 mAh</td>
+                        <td>5000 mAh</td>
+                    </tr>
+                    <tr>
+                        <td>Wired Charge</td>
+                        <td>150W (19 min)</td>
+                        <td>45W (75 min)</td>
+                    </tr>
+                    <tr>
+                        <td>Wireless Charge</td>
+                        <td>50W</td>
+                        <td>23W</td>
+                    </tr>
+
+                    <!-- Software Section -->
+                    <tr class="section-row" id="software">
+                        <td>Software</td>
+                        <td colspan="2" class="winner-text">Winner: Pixel 10 Pro</td>
+                    </tr>
+                    <tr>
+                        <td>OS</td>
+                        <td>OxygenOS 15</td>
+                        <td>Android 15</td>
+                    </tr>
+                    <tr>
+                        <td>Updates</td>
+                        <td>4 Years OS</td>
+                        <td>7 Years OS</td>
+                    </tr>
+
+                    <!-- Build Section -->
+                    <tr class="section-row" id="build">
+                        <td>Build & Design</td>
+                        <td colspan="2" class="winner-text">Winner: Pixel 10 Pro</td>
+                    </tr>
+                    <tr>
+                        <td>Dimensions</td>
+                        <td>163.1 x 75.8 x 8.9 mm</td>
+                        <td>162.8 x 76.5 x 8.5 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Weight</td>
+                        <td>198 g</td>
+                        <td>212 g</td>
+                    </tr>
+                    <tr>
+                        <td>IP Rating</td>
+                        <td>IP65</td>
+                        <td>IP68</td>
+                    </tr>
+                    <tr>
+                        <td>Colors</td>
+                        <td>Ocean, Dawn, Forest</td>
+                        <td>Obsidian, Porcelain, Hazel</td>
+                    </tr>
+
+                    <!-- Connectivity Section -->
+                    <tr class="section-row" id="connectivity">
+                        <td>Connectivity</td>
+                        <td colspan="2" class="winner-text">Winner: OnePlus 15T</td>
+                    </tr>
+                    <tr>
+                        <td>5G</td>
+                        <td>Yes (Sub-6/mmWave)</td>
+                        <td>Yes (Sub-6/mmWave)</td>
+                    </tr>
+                    <tr>
+                        <td>WiFi</td>
+                        <td>WiFi 7</td>
+                        <td>WiFi 7</td>
+                    </tr>
+                    <tr>
+                        <td>Bluetooth</td>
+                        <td>5.4</td>
+                        <td>5.3</td>
+                    </tr>
+                    <tr>
+                        <td>USB</td>
+                        <td>USB-C 3.2</td>
+                        <td>USB-C 3.2</td>
+                    </tr>
+                    <tr>
+                        <td>SIM</td>
+                        <td>Dual Nano</td>
+                        <td>Dual Nano / eSIM</td>
+                    </tr>
+
+                    <!-- Sensors Section -->
+                    <tr class="section-row" id="sensors">
+                        <td>Sensors</td>
+                        <td colspan="2" class="winner-text">Winner: OnePlus 15T</td>
+                    </tr>
+                    <tr>
+                        <td>Fingerprint</td>
+                        <td>Ultrasonic (In-display)</td>
+                        <td>Optical (In-display)</td>
+                    </tr>
+                    <tr>
+                        <td>Face Unlock</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Gyroscope</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Barometer</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+
+                    <!-- Audio Section -->
+                    <tr class="section-row" id="audio">
+                        <td>Audio</td>
+                        <td colspan="2" class="winner-text">Tie</td>
+                    </tr>
+                    <tr>
+                        <td>Speakers</td>
+                        <td>Stereo Speakers</td>
+                        <td>Stereo Speakers</td>
+                    </tr>
+                    <tr>
+                        <td>3.5mm Jack</td>
+                        <td>No</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Dolby Atmos</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+
+                    <!-- Security & Features Section -->
+                    <tr class="section-row" id="security">
+                        <td>Security & Features</td>
+                        <td colspan="2" class="winner-text">Winner: Pixel 10 Pro</td>
+                    </tr>
+                    <tr>
+                        <td>Satellite</td>
+                        <td>No</td>
+                        <td>Yes (Emergency)</td>
+                    </tr>
+                    <tr>
+                        <td>Alert Slider</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Call Screen</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                    </tr>
+
+                    <!-- Pros Cons -->
+                    <tr class="section-row">
+                        <td colspan="3">Pros</td>
+                    </tr>
+                    <tr>
+                        <td>Advantages</td>
+                        <td>
+                            150W Charge<br>
+                            High Performance<br>
+                            Best Value
+                        </td>
+                        <td>
+                            Best Camera<br>
+                            7 Years Support<br>
+                            IP68
+                        </td>
+                    </tr>
+
+                    <tr class="section-row">
+                        <td colspan="3">Cons</td>
+                    </tr>
+                    <tr>
+                        <td>Disadvantages</td>
+                        <td>
+                            IP65 Only<br>
+                            Shorter Support
+                        </td>
+                        <td>
+                            Slower Charge<br>
+                            Expensive
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Verdict -->
+    <section id="verdict" class="verdict-box">
+        <div class="comparison-container">
+            <h3 class="verdict-title">Final Verdict</h3>
+            <p class="verdict-text"><strong>Buy OnePlus 15T if:</strong> You want the best performance, extremely fast charging, and great value for money. Ideal for gamers and power users.</p>
+            <p class="verdict-text"><strong>Buy Pixel 10 Pro if:</strong> Camera quality is your priority, you want long software support, and prefer a clean Android experience.</p>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        &copy; 2024 Maaney Store. All Rights Reserved.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Dropdown Toggle
+        function toggleDropdown() {
+            document.getElementById("dropdownMenu").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-toggle-custom') && !event.target.closest('.dropdown-toggle-custom')) {
+                var dropdowns = document.getElementsByClassName("dropdown-menu-end-custom");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 </html>
