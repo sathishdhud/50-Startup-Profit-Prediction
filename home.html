@@ -858,6 +858,19 @@ VS
     // ================= PRODUCT DATA =================
     const products = [
       {
+  brand: "Motorola",
+  title: "Motorola Edge 70 Fusion 5G",
+  price: "26,999",
+  old: "29,999",
+  off: 10,
+  cat: "Mobile",
+  status: "Available",
+  date: "March 2026",
+  img: "./mobiles/motorola-edge-70-fusion/image1.png",
+  link: "./mobiles/motorola-edge-70-fusion",
+  desc: "6.78-inch 1.5K Quad-Curved pOLED 144Hz Display | Snapdragon 7s Gen 4 Processor | 50MP Sony LYT-710 + 13MP Ultra-Wide Camera | 32MP Front Camera | 8GB/12GB RAM | 128GB/256GB Storage | 7000mAh Silicon-Carbon Battery | 68W TurboPower Fast Charging | Android 16"
+},
+      {
   brand: "OnePlus",
   title: "OnePlus 15T 5G Smartphone",
   price: "59,999",
@@ -1340,7 +1353,9 @@ function renderNews() {
 }
 
 // Run function
-renderNews();  // ================= RENDER VIDEOS =================
+renderNews();
+
+// ================= RENDER VIDEOS =================
    function renderVideos() {
 
     const gridContainer = document.getElementById('video-grid');
