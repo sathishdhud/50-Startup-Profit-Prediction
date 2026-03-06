@@ -1291,27 +1291,56 @@ VS
 
   }
 
-}function renderNews() {
-        const listContainer = document.getElementById('side-news-list');
-        let html = '';
-        sideNewsData.forEach(news => {
-            html += `
-            <a href="${news.link}" class="news-list-item">
-                <div class="news-list-img">
-                    <img src="${news.img}" alt="${news.title}" onerror="this.src='https://via.placeholder.com/120x80?text=News'">
-                </div>
-                <div>
-                    <span class="news-tag" style="font-size:9px; padding:2px 6px;">${news.tag}</span>
-                    <div class="news-list-title">${news.title}</div>
-                    <div class="news-meta">${news.date}</div>
-                </div>
-            </a>
-            `;
-        });
-        listContainer.innerHTML = html;
-    }
+}
 
-    // ================= RENDER VIDEOS =================
+function renderNews() {
+
+    const listContainer = document.getElementById('side-news-list');
+
+    if (!listContainer || !sideNewsData || sideNewsData.length === 0) return;
+
+    // Sort by latest date
+    const sortedNews = [...sideNewsData].sort((a, b) => {
+        return new Date(b.date) - new Date(a.date);
+    });
+
+    // Get latest 4 news
+    const latestNews = sortedNews.slice(0, 4);
+
+    let html = '';
+
+    latestNews.forEach(news => {
+        html += `
+        <a href="${news.link}" class="news-list-item">
+            <div class="news-list-img">
+                <img src="${news.img}" 
+                     alt="${news.title}" 
+                     loading="lazy"
+                     onerror="this.src='https://via.placeholder.com/120x80?text=News'">
+            </div>
+
+            <div>
+                <span class="news-tag" style="font-size:9px; padding:2px 6px;">
+                    ${news.tag}
+                </span>
+
+                <div class="news-list-title">
+                    ${news.title}
+                </div>
+
+                <div class="news-meta">
+                    ${news.date}
+                </div>
+            </div>
+        </a>
+        `;
+    });
+
+    listContainer.innerHTML = html;
+}
+
+// Run function
+renderNews();  // ================= RENDER VIDEOS =================
    function renderVideos() {
 
     const gridContainer = document.getElementById('video-grid');
