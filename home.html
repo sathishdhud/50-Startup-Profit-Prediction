@@ -323,7 +323,7 @@
       border-bottom-right-radius: 4px;
       font-weight: 600;
     }
-    .pc-badge.upcoming { background: #0084ff; }
+    .pc-badge.upcoming { background: #e98400; }
 
     .pc-content {
       padding: 15px;
@@ -1154,63 +1154,131 @@ VS
 
     // ================= RENDER PRODUCTS =================
     function renderProducts() {
-      const upcomingContainer = document.getElementById('grid-upcoming');
-      const latestContainer = document.getElementById('grid-latest');
-      const upcomingSection = document.getElementById('section-upcoming');
-      const latestSection = document.getElementById('section-latest');
 
-      let upcomingHtml = '';
-      let latestHtml = '';
-      let hasUpcoming = false;
-      let hasLatest = false;
+  const upcomingContainer = document.getElementById('grid-upcoming');
+  const latestContainer = document.getElementById('grid-latest');
+  const upcomingSection = document.getElementById('section-upcoming');
+  const latestSection = document.getElementById('section-latest');
 
-      products.forEach(p => {
-        const badgeClass = p.status === "Coming Soon" ? "pc-badge upcoming" : "pc-badge";
-        const badgeText = p.status === "Coming Soon" 
-  ? `${p.date}` 
-  : `${p.off}% OFF`;
-        const btnText = p.status === "Coming Soon" ? "Notify Me" : "View Price";
-        const btnClass = p.status === "Coming Soon" ? "btn-secondary" : "";
-        const btnStyle = p.status === "Coming Soon" ? "border: 1px solid #ccc; color:#555;" : "";
+  let upcomingHtml = '';
+  let latestHtml = '';
 
-        const cardHtml = `
-          <div class="product-card-91">
-            <span class="${badgeClass}">${badgeText}</span>
-            <div class="pc-image-box">
-              <img src="${p.img}" onerror="this.src='https://via.placeholder.com/200?text=Phone'" alt="${p.title}">
-            </div>
-            <div class="pc-content">
-              <h3 class="pc-title"><a href="${p.link}">${p.title}</a></h3>
-              <div class="pc-specs">${p.desc}</div>
-              <div class="pc-price-box">
-                <div class="pc-price">₹${p.price}</div>
-                <a href="${p.link}" class="pc-buy-btn ${btnClass}" style="${btnStyle}">${btnText}</a>
-              </div>
-            </div>
+  // Generate random soft color
+  function getRandomColor() {
+    const colors = [
+      "#fdf2f8",
+      "#eef2ff",
+      "#f0fdf4",
+      "#fff7ed",
+      "#ecfeff",
+      "#fef9c3",
+      "#f1f5f9",
+      "#fce7f3"
+    ];
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
+
+  // Split products
+  const upcomingProducts = products
+    .filter(p => p.status === "Coming Soon")
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 4);
+
+  const latestProducts = products
+    .filter(p => p.status !== "Coming Soon")
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 4);
+
+  function createCard(p) {
+
+    const badgeClass = p.status === "Coming Soon" ? "pc-badge upcoming" : "pc-badge";
+
+    const badgeText = p.status === "Coming Soon"
+      ? `${p.date}`
+      : `${p.off}% OFF`;
+
+    const btnText = p.status === "Coming Soon"
+      ? "Notify Me"
+      : "View Price";
+
+    const btnClass = p.status === "Coming Soon"
+      ? "btn-secondary"
+      : "";
+
+    const btnStyle = p.status === "Coming Soon"
+      ? "border:1px solid #ccc;color:#555;"
+      : "";
+
+    const bgColor = getRandomColor();
+
+    return `
+      <div class="product-card-91">
+
+        <span class="${badgeClass}">
+          ${badgeText}
+        </span>
+
+        <div class="pc-image-box" style="background:${bgColor};">
+          <img src="${p.img}" 
+               onerror="this.src='https://via.placeholder.com/200?text=Phone'"
+               alt="${p.title}">
+        </div>
+
+        <div class="pc-content">
+
+          <h3 class="pc-title">
+            <a href="${p.link}">${p.title}</a>
+          </h3>
+
+          <div class="pc-specs">
+            ${p.desc}
           </div>
-        `;
 
-        if (p.status === "Coming Soon") {
-          upcomingHtml += cardHtml;
-          hasUpcoming = true;
-        } else {
-          latestHtml += cardHtml;
-          hasLatest = true;
-        }
-      });
+          <div class="pc-price-box">
 
-      if (hasUpcoming) {
-        upcomingContainer.innerHTML = upcomingHtml;
-        upcomingSection.style.display = 'block';
-      }
-      if (hasLatest) {
-        latestContainer.innerHTML = latestHtml;
-        latestSection.style.display = 'block';
-      }
-    }
+            <div class="pc-price">
+              ₹${p.price}
+            </div>
 
-    // ================= RENDER NEWS =================
-    function renderNews() {
+            <a href="${p.link}" 
+               class="pc-buy-btn ${btnClass}" 
+               style="${btnStyle}">
+              ${btnText}
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+    `;
+  }
+
+  // Render Coming Soon
+  if (upcomingProducts.length > 0) {
+
+    upcomingProducts.forEach(p => {
+      upcomingHtml += createCard(p);
+    });
+
+    upcomingContainer.innerHTML = upcomingHtml;
+    upcomingSection.style.display = 'block';
+
+  }
+
+  // Render Available
+  if (latestProducts.length > 0) {
+
+    latestProducts.forEach(p => {
+      latestHtml += createCard(p);
+    });
+
+    latestContainer.innerHTML = latestHtml;
+    latestSection.style.display = 'block';
+
+  }
+
+}function renderNews() {
         const listContainer = document.getElementById('side-news-list');
         let html = '';
         sideNewsData.forEach(news => {
@@ -1231,32 +1299,45 @@ VS
     }
 
     // ================= RENDER VIDEOS =================
-    function renderVideos() {
-        const gridContainer = document.getElementById('video-grid');
-        let html = '';
-        videoData.forEach(vid => {
-            html += `
-            <div class="col-md-3 col-6">
-                <div class="video-card">
-                    <div class="video-thumb">
-                        <img src="${vid.img}" alt="${vid.title}" onerror="this.src='https://via.placeholder.com/300x180?text=Video'">
-                        
-                    </div>
-                    <div class="video-info">
-    <div class="video-title">
-        <a href="${vid.link}" style="text-decoration:none; color:inherit;">
-            ${vid.title}
-        </a>
-    </div>
-</div>
-                </div>
-            </div>
-            `;
-        });
-        gridContainer.innerHTML = html;
-    }
+   function renderVideos() {
 
-    // ================= HERO SLIDER =================
+    const gridContainer = document.getElementById('video-grid');
+    let html = '';
+
+    // Get only first 4 videos
+    const latestVideos = videoData.slice(0, 4);
+
+    latestVideos.forEach(vid => {
+
+        html += `
+        <div class="col-md-3 col-6">
+
+            <div class="video-card">
+
+                <div class="video-thumb">
+                    <img src="${vid.img}" 
+                         alt="${vid.title}" 
+                         onerror="this.src='https://via.placeholder.com/300x180?text=Video'">
+                </div>
+
+                <div class="video-info">
+                    <div class="video-title">
+                        <a href="${vid.link}" style="text-decoration:none; color:inherit;">
+                            ${vid.title}
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        `;
+
+    });
+
+    gridContainer.innerHTML = html;
+
+} // ================= HERO SLIDER =================
     const slides = [
       {
   img: "./news/ai/ai-plus-pulse-2-launched-india-price-specifications.pngg",
