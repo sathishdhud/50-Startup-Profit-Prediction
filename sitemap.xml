@@ -575,4 +575,16 @@
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
   </url>
+   <url>
+      <loc>https://maaney.store/comparison/poco-x8-pro-max-vs-redmi-turbo-5-max</loc>
+      <lastmod>2026-03-09</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+  </url>
+   <url>
+      <loc>https://maaney.store/mobiles/poco-x8-pro-max-5g</loc>
+      <lastmod>2026-03-09</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+  </url>
 </urlset>

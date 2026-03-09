@@ -1020,6 +1020,19 @@ support@maaney.store
     // ================= PRODUCT DATA =================
     const products = [
       {
+  brand: "POCO",
+  title: "POCO X8 Pro Max 5G",
+  price: "57,000",
+  old: "-",
+  off: "-",
+  cat: "Mobile",
+  status: "Coming Soon",
+  date: "March 2026",
+  img: "./mobiles/poco-x8-pro-max-5g/image1.png",
+  link: "./mobiles/poco-x8-pro-max-5g",
+  desc: "6.83-inch 1.5K OLED 120Hz Display | MediaTek Dimensity 9500s Processor | 50MP OIS Main Camera + 8MP Ultra-Wide | 20MP Front Camera | Up to 12GB LPDDR5X RAM | 256GB/512GB UFS 4.1 Storage | 8500mAh Battery | 100W Fast Charging | Android 16 with HyperOS"
+},
+      {
   brand: "Realme",
   title: "Realme C83 5G",
   price: "14,499",
@@ -1406,7 +1419,7 @@ support@maaney.store
       : `${p.off}% OFF`;
 
     const btnText = p.status === "Coming Soon"
-      ? "Notify Me"
+      ? "View Price"
       : "View Price";
 
     const btnClass = p.status === "Coming Soon"
