@@ -216,20 +216,27 @@ class="absolute right-0 top-full mt-2 min-w-[360px] max-w-[420px] w-max bg-white
     <!-- Logic Script -->
     <script>
         // --- 1. Data Definition ---
-        const PRODUCTS = [
-            { id: 1, name: "Samsung Galaxy S26 Ultra", brand: "Samsung", img: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=200&h=250&fit=crop", price: 139999, originalPrice: null, ram: 12, processor: "Snapdragon 8 Elite Gen 5", camera: "200MP + 50MP + 12MP", battery: "5000 mAh", rating: 99, ratingsCount: 4532, store: "Samsung Shop", badge: "Sponsored", date: "11th March 2026",photos:"https://maaney.store",storeurl:"samsung.com" },
-            { id: 2, name: "Samsung Galaxy Z Fold7", brand: "Samsung", img: "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=200&h=250&fit=crop", price: 164999, originalPrice: null, ram: 12, processor: "Snapdragon 8 Elite Gen 5", camera: "200MP + 12MP + 12MP", battery: "4400 mAh", rating: 96, ratingsCount: 2189, store: "Samsung Shop", badge: null, date: "24th Feb 2026" },
-            { id: 3, name: "Samsung Galaxy S26+", brand: "Samsung", img: "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=200&h=250&fit=crop", price: 104999, originalPrice: 109999, ram: 12, processor: "Snapdragon 8 Elite Gen 5", camera: "200MP + 50MP + 12MP", battery: "4900 mAh", rating: 94, ratingsCount: 3456, store: "Amazon", badge: null, date: "18th Feb 2026" },
-            { id: 4, name: "Samsung Galaxy Z Flip7", brand: "Samsung", img: "https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?w=200&h=250&fit=crop", price: 89999, originalPrice: null, ram: 8, processor: "Snapdragon 8 Elite Gen 5", camera: "50MP + 12MP", battery: "3700 mAh", rating: 92, ratingsCount: 1876, store: "Samsung Shop", badge: null, date: "10th Feb 2026" },
-            { id: 5, name: "Samsung Galaxy S26", brand: "Samsung", img: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=200&h=250&fit=crop", price: 79999, originalPrice: 84999, ram: 8, processor: "Exynos 2600", camera: "50MP + 12MP + 12MP", battery: "4000 mAh", rating: 93, ratingsCount: 2678, store: "Flipkart", badge: null, date: "18th Feb 2026" },
-            { id: 6, name: "Samsung Galaxy A76 5G", brand: "Samsung", img: "https://images.unsplash.com/photo-1609252925148-b0f1b515e111?w=200&h=250&fit=crop", price: 32999, originalPrice: 36999, ram: 8, processor: "Snapdragon 7s Gen 3", camera: "108MP + 12MP + 5MP", battery: "5000 mAh", rating: 88, ratingsCount: 1234, store: "Amazon", badge: null, date: "15th Jan 2026" },
-            { id: 7, name: "Samsung Galaxy M56 5G", brand: "Samsung", img: "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=200&h=250&fit=crop", price: 21999, originalPrice: 24999, ram: 6, processor: "Exynos 1480", camera: "50MP + 8MP + 2MP", battery: "6000 mAh", rating: 85, ratingsCount: 856, store: "Samsung Shop", badge: null, date: "5th Jan 2026" },
-            { id: 8, name: "Samsung Galaxy F26 5G", brand: "Samsung", img: "https://images.unsplash.com/photo-1605236453806-6ff36851218e?w=200&h=250&fit=crop", price: 16999, originalPrice: 19999, ram: 6, processor: "Dimensity 6300", camera: "50MP + 5MP + 2MP", battery: "5000 mAh", rating: 82, ratingsCount: 567, store: "Flipkart", badge: null, date: "28th Dec 2025" },
-            { id: 9, name: "Samsung Galaxy A56", brand: "Samsung", img: "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=200&h=250&fit=crop", price: 28999, originalPrice: null, ram: 8, processor: "Exynos 1480", camera: "50MP + 12MP + 5MP", battery: "5000 mAh", rating: 86, ratingsCount: 2100, store: "Amazon", badge: null, date: "10th Jan 2026" },
-            { id: 10, name: "Samsung Galaxy S25 Ultra", brand: "Samsung", img: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=200&h=250&fit=crop", price: 119999, originalPrice: 129999, ram: 12, processor: "Snapdragon 8 Gen 4", camera: "200MP + 50MP + 10MP", battery: "5000 mAh", rating: 97, ratingsCount: 8900, store: "Amazon", badge: null, date: "15th Jan 2025" },
-            { id: 11, name: "Samsung Galaxy M14", brand: "Samsung", img: "https://images.unsplash.com/photo-1605236453806-6ff36851218e?w=200&h=250&fit=crop", price: 11999, originalPrice: 14999, ram: 4, processor: "Exynos 1330", camera: "50MP + 2MP + 2MP", battery: "6000 mAh", rating: 78, ratingsCount: 3400, store: "Flipkart", badge: null, date: "10th Feb 2025" },
-            { id: 12, name: "Samsung Galaxy F14", brand: "Samsung", img: "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=200&h=250&fit=crop", price: 9999, originalPrice: 12000, ram: 4, processor: "Exynos 1330", camera: "50MP + 2MP + 2MP", battery: "6000 mAh", rating: 76, ratingsCount: 2100, store: "Flipkart", badge: null, date: "20th Jan 2025" },
-        ];
+       const PRODUCTS = [
+{
+  id: 1,
+  name: "Samsung Galaxy S26",
+  brand: "Samsung",
+  img: "https://maaney.store/mobiles/samsung-s26/image1.png",
+  price: 79999,
+  originalPrice: 84999,
+  ram: 8,
+  processor: "Exynos 2600",
+  camera: "50MP + 12MP + 12MP",
+  battery: "4000 mAh",
+  rating: 93,
+  ratingsCount: 2678,
+  store: "Samsung Shop",
+  badge: "Featured",
+  date: "18th Feb 2026",
+  photos: "https://maaney.store/mobiles/samsung-s26",
+  storeurl: "https://maaney.store/mobiles/samsung-s26"
+}
+];
 
         const FILTER_DEFINITIONS = {
             price: [

@@ -1555,7 +1555,9 @@
                 <div class="tabs" role="tablist" aria-label="Samsung Galaxy S26 specifications tabs">
                     <button class="tab-btn active" onclick="openTab(event, 'specs')" role="tab">Full Specs</button>
                     <button class="tab-btn" onclick="openTab(event, 'features')" role="tab">Features</button>
-                    <button class="tab-btn" onclick="openTab(event, 'photos')" role="tab">Photos</button>
+                    <button class="tab-btn" onclick="openTab(event, 'photos')" role="tab">
+Photos
+</button>
                     <button class="tab-btn" onclick="openTab(event, 'reviews')" role="tab">Reviews</button>
                 </div>
 
@@ -2365,20 +2367,24 @@ support@maaney.store
     <!-- JavaScript -->
     <script>
         function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-                tabcontent[i].classList.remove("active");
-            }
-            tablinks = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(tabName).style.display = "block";
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.className += " active";
-        }
+
+  const tabs = document.getElementsByClassName("tab-content");
+  for (let i = 0; i < tabs.length; i++) {
+    tabs[i].style.display = "none";
+  }
+
+  const buttons = document.getElementsByClassName("tab-btn");
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].classList.remove("active");
+  }
+
+  document.getElementById(tabName).style.display = "block";
+
+  if (evt) evt.currentTarget.classList.add("active");
+
+  // update URL hash
+  window.location.hash = tabName;
+}
 
         function toggleVote(btn) {
             let siblings = btn.parentElement.children;
@@ -2388,6 +2394,20 @@ support@maaney.store
             btn.classList.toggle('active');
         }
     </script>
+    <script>
+      window.addEventListener("load", function () {
+
+  const hash = window.location.hash.replace("#", "");
+
+  if (hash) {
+    const tab = document.getElementById(hash);
+    if (tab) {
+      openTab(null, hash);
+    }
+  }
+
+});
+      </script>
     <script src="./footer.js"></script>
 
 </body>
