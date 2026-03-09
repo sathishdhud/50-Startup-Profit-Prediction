@@ -1109,7 +1109,7 @@
     // ================= HERO SLIDER =================
     const slides = [
       { img: "https://maaney.store/news/ryzen/amd-expands-ryzen-ai-400-series-lineup-with-desktop-and-pro-processors-at-mwc-2026.webp", title: "AI+ Pulse 2 Launched in India", desc: "AI+ Pulse 2 comes with 6000mAh battery, 120Hz display and budget-friendly pricing.", btn: "Check Price", btnLink: "https://maaney.store/mobiles/ai-pulse-2/" },
-      { img: "https://maaney.store/news/samsung/samsung-galaxy-m17e-5g-launch-india-march-17th.jpg", title: "Republic Day Special", desc: "Celebrate Republic Day with exclusive deals on top smartphones.", btn: "Shop Deals", btnLink: "/deals/republic-day" },
+      { img: "https://maaney.store/news/samsung/samsung-galaxy-m17e-5g-launch-india-march-17th.jpg",url:"https://maaney.store/news/samsung/samsung-galaxy-m17e-5g-launch-india-march-17th", title: "Republic Day Special", desc: "Celebrate Republic Day with exclusive deals on top smartphones.", btn: "Shop Deals", btnLink: "/deals/republic-day" },
       { img: "https://maaney.store/news/samsung/samsung-galaxy-m17e-5g-launch-india-march-17th-1.jpg", title: "New Launches", desc: "Discover the latest smartphones just launched in the market.", btn: "Explore Now", btnLink: "/news" }
     ];
 
@@ -1123,11 +1123,18 @@
         
         // Using requested banner style classes
         div.innerHTML = `
-          <div class="banner-container">
-            <img src="${s.img}" alt="${s.title}" loading="lazy" class="banner-img">
-          </div>
-        `;
-
+  <a href="${s.url}" aria-label="${s.title}" style="display:block;width:100%;height:100%;text-decoration:none;">
+    <div class="banner-container" style="width:100%;background:#000;">
+      <img 
+        src="${s.img}" 
+        alt="${s.title}" 
+        loading="lazy"
+        class="banner-img"
+        style="width:100%;height:auto;display:block;"
+      >
+    </div>
+  </a>
+`;
         // Insert before controls (last 2 children are prev/next buttons)
         sliderContainer.insertBefore(div, sliderContainer.children[sliderContainer.children.length - 2]);
       });
