@@ -47,37 +47,81 @@
 <body class="bg-bg-light text-text-dark min-h-screen flex flex-col">
 
     <!-- Header -->
-    <header class="flex items-center justify-between px-4 py-3 border-b bg-white">
+   <!-- HEADER -->
+<header class="bg-white border-b border-border sticky top-0 z-50">
 
-    <!-- Logo -->
-    <a href="/" class="flex items-center gap-2">
-        <img 
-            src="../../white_logo.png" 
-            alt="Maaney Store Logo"
-            class="h-8 w-auto"
-            width="120"
-            height="32"
-        >
-    </a>
+    <!-- TOP HEADER -->
+    <div class="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
 
-    <!-- Desktop Menu -->
-    <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
-
-        <a href="/" class="hover:text-orange-500">Home</a>
-
-        <a href="/news" class="hover:text-orange-500">News</a>
-
-        <a href="/review" class="hover:text-orange-500">Review</a>
+        <!-- Logo -->
+        <div class="flex items-center gap-4">
+            <a href="/" class="flex items-center gap-2">
+                <img 
+                    src="../../white_logo.png" 
+                    alt="Maaney Store Logo"
+                    class="h-8 w-auto object-contain"
+                    loading="eager"
+                >
+            </a>
+        </div>
 
 
-        <a href="/mobiles/samsung" class="hover:text-orange-500">Samsung</a>
+        <!-- Search + Actions -->
+        <div class="flex items-center gap-3">
 
-    </nav>
+            <!-- Search -->
+            <div class="relative">
 
-    <!-- Mobile Menu Button -->
-    <button onclick="openMenu()" class="sm:hidden p-2">
-        <i data-lucide="menu" class="w-5 h-5"></i>
-    </button>
+                <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Search mobiles..." 
+                class="w-40 sm:w-64 bg-bg-light border border-border rounded-full py-2 pl-9 pr-4 text-sm focus:outline-none focus:border-primary">
+
+                <i data-lucide="search" class="w-4 h-4 text-text-light absolute left-3 top-1/2 -translate-y-1/2"></i>
+
+                <!-- Suggestions -->
+                <div id="searchSuggestions"
+                class="absolute right-0 top-full mt-2 min-w-[360px] max-w-[420px] w-max bg-white border border-gray-200 rounded-xl shadow-xl hidden z-50 max-h-96 overflow-y-auto">
+                </div>
+
+            </div>
+
+
+            <!-- Sign In -->
+            <button class="hidden sm:block px-4 py-1.5 text-sm font-medium text-primary border border-primary rounded-full hover:bg-blue-50">
+                Sign In
+            </button>
+
+
+            <!-- Mobile Menu Button -->
+            <button onclick="openMenu()" class="sm:hidden p-2">
+                <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- DESKTOP NAVIGATION -->
+    <div class="hidden sm:block border-t border-border bg-white">
+
+        <nav class="max-w-7xl mx-auto px-4 flex items-center gap-8 h-12 text-sm font-medium">
+
+            <a href="/" class="hover:text-orange-400">Home</a>
+
+            <a href="/news" class="hover:text-orange-400">News</a>
+
+            <a href="/review" class="hover:text-orange-400">Review</a>
+
+            <a href="/mobiles" class="hover:text-orange-400">Mobiles</a>
+
+            <a href="/mobiles/samsung" class="hover:text-orange-400">Samsung</a>
+
+        </nav>
+
+    </div>
 
 </header>
 
@@ -99,6 +143,7 @@ class="fixed top-0 right-0 w-72 h-full bg-black text-white transform translate-x
 
         <a href="/review" class="hover:text-orange-400">Review</a>
 
+        <a href="/mobiles" class="hover:text-orange-400">Mobiles</a>
 
         <a href="/mobiles/samsung" class="hover:text-orange-400">Samsung</a>
 
@@ -797,6 +842,7 @@ suggestions.classList.add("hidden");
 });
     </script>
     <script>
+
 function openMenu(){
     document.getElementById("mobileMenu").classList.remove("translate-x-full");
     document.getElementById("menuOverlay").classList.remove("hidden");
@@ -806,6 +852,7 @@ function closeMenu(){
     document.getElementById("mobileMenu").classList.add("translate-x-full");
     document.getElementById("menuOverlay").classList.add("hidden");
 }
+
 </script>
 </body>
 </html>
