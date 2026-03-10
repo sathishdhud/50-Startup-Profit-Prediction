@@ -635,4 +635,10 @@
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
   </url>
+  <url>
+      <loc>https://maaney.store/mobiles/apple</loc>
+      <lastmod>2026-03-10</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+  </url>
 </urlset>
