@@ -20,7 +20,6 @@
             --primary-dark: #e55a2b;
             --secondary: #1a1a1a;
             --accent-red: #dc2626;
-            --accent-blue: #2563eb;
             --bg-light: #f4f5f7;
             --bg-white: #ffffff;
             --border: #e0e0e0;
@@ -35,6 +34,7 @@
             background-color: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.5;
+            padding-bottom: 60px; /* Space for bottom social bar */
         }
         a { text-decoration: none; color: inherit; display: block; }
         img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -54,26 +54,62 @@
             align-items: center;
             padding: 15px 2%;
         }
-        .logo { height: 40px; }
+        .logo { height: 40px; z-index: 1100; }
         
-        .nav-links { display: flex; gap: 25px; }
-        .nav-link {
+        /* --- DESKTOP NAVIGATION --- */
+        .nav-links { display: flex; gap: 5px; align-items: center; }
+        
+        .nav-item {
             font-weight: 700;
             font-size: 15px;
             color: var(--text-dark);
-            position: relative;
-            transition: color 0.3s;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            cursor: pointer;
         }
-        .nav-link:hover { color: var(--primary); }
-        .nav-link.active::after {
-            content: "";
+        .nav-item:hover { background: #f0f0f0; color: var(--primary); }
+        .nav-item.active { background: var(--primary); color: white; }
+
+        /* Dropdown Container */
+        .dropdown { position: relative; }
+        .dropdown-menu {
             position: absolute;
-            bottom: -5px;
+            top: 100%;
             left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 2px;
+            background: white;
+            min-width: 150px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+            z-index: 999;
+        }
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-item {
+            padding: 10px 15px;
+            font-size: 14px;
+            font-weight: 600;
+            border-bottom: 1px solid #f0f0f0;
+            transition: 0.2s;
+        }
+        .dropdown-item:last-child { border-bottom: none; }
+        .dropdown-item:hover { background: var(--primary); color: white; }
+
+        /* Arrow Icon */
+        .dropdown > .nav-item::after {
+            content: "\f107";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            margin-left: 8px;
+            font-size: 12px;
         }
 
         .header-actions { display: flex; align-items: center; gap: 15px; }
@@ -91,13 +127,103 @@
         }
         .search-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
 
+        /* Language Switcher Style */
+        .lang-switch-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 8px 15px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .lang-switch-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .lang-switch-btn i { font-size: 12px; }
+
+        /* --- MOBILE MENU ICON --- */
+        .hamburger-btn {
+            display: none; /* Hidden on Desktop */
+            font-size: 22px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* --- MOBILE OVERLAY MENU --- */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+        }
+        .mobile-menu-overlay.active { opacity: 1; visibility: visible; }
+
+        .mobile-menu-content {
+            position: fixed;
+            top: 0; left: 0;
+            width: 280px; height: 100%;
+            background: white;
+            transform: translateX(-100%);
+            transition: 0.3s;
+            z-index: 2001;
+            overflow-y: auto;
+        }
+        .mobile-menu-overlay.active .mobile-menu-content { transform: translateX(0); }
+        
+        .mobile-menu-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .close-btn {
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mobile-nav-list { list-style: none; padding: 20px; }
+        .mobile-nav-item {
+            padding: 12px 0;
+            font-weight: 700;
+            font-size: 16px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        .mobile-submenu {
+            max-height: 0;
+            overflow: hidden;
+            background: #f9f9f9;
+            transition: max-height 0.3s;
+        }
+        .mobile-submenu.active { max-height: 200px; }
+        .mobile-submenu a {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-gray);
+        }
+        .mobile-submenu a:hover { color: var(--primary); background: #f0f0f0; }
+
         /* --- MAIN LAYOUT --- */
         .page-container {
             width: 100%;
             padding: 20px 2%;
         }
 
-        /* --- TOP FEATURED SECTION (DESKTOP: FLEX, MOBILE: STACK) --- */
+        /* --- TOP SECTION --- */
         .top-section {
             display: flex;
             gap: 20px;
@@ -127,6 +253,8 @@
             padding: 40px 25px 25px;
             color: white;
         }
+        
+        /* Badge Styling (Tags) */
         .badge {
             display: inline-block;
             padding: 4px 10px;
@@ -137,7 +265,13 @@
             text-transform: uppercase;
             border-radius: 3px;
             margin-bottom: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 120px; /* Limit tag length */
+            vertical-align: middle;
         }
+        
         .hero-title {
             font-size: 28px;
             font-weight: 900;
@@ -152,14 +286,7 @@
         }
 
         /* Side Two Cards (Desktop) */
-        .hero-side-cards {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            display: flex; /* Default desktop */
-        }
-        
+        .hero-side-cards { flex: 1; display: flex; flex-direction: column; gap: 20px; }
         .side-card {
             flex: 1;
             background: var(--bg-white);
@@ -167,16 +294,12 @@
             overflow: hidden;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: relative;
-            height: 215px; /* Half of main hero minus gap */
+            height: 215px; 
             cursor: pointer;
         }
         .side-card .hero-title { font-size: 18px; }
 
-        /* --- GRID FOR NEXT TWO (MOBILE SPECIFIC) --- */
-        /* On Desktop, the .hero-side-cards handles the two items via flex column inside the top flex row */
-        /* On Mobile, we need a specific grid logic for the "Next Two" items side-by-side */
-        
-        /* --- NEWS LIST SECTION --- */
+        /* --- LIST SECTION --- */
         .list-section {
             background: var(--bg-white);
             border-radius: 8px;
@@ -224,11 +347,7 @@
             overflow: hidden;
             flex-shrink: 0;
         }
-        .list-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+        .list-content { display: flex; flex-direction: column; justify-content: center; }
         .list-title {
             font-size: 18px;
             font-weight: 700;
@@ -273,12 +392,54 @@
         .page-btn:hover { border-color: var(--primary); color: var(--primary); }
         .page-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
 
+        /* --- BOTTOM SOCIAL BAR --- */
+        .bottom-social-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--secondary);
+            padding: 10px 0;
+            z-index: 999;
+            border-top: 1px solid #333;
+        }
+        .social-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+        .social-link {
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            transition: color 0.3s;
+        }
+        .social-link:hover { color: var(--primary); }
+        .social-link span {
+            display: block;
+            font-size: 10px;
+            font-weight: 600;
+            margin-top: 4px;
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Specific Brand Colors on Hover */
+        .social-link.linkedin:hover { color: #0077b5; }
+        .social-link.whatsapp:hover { color: #25D366; }
+        .social-link.telegram:hover { color: #0088cc; }
+        .social-link.twitter:hover { color: #ffffff; }
+
         /* --- RESPONSIVE: MOBILE < 768px --- */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
+            /* Show Hamburger, Hide Desktop Nav */
+            .hamburger-btn { display: block; }
+            .nav-links, .lang-switch-btn { display: none; }
+            
             .header-container { padding: 12px 3%; }
             
-            /* Top Section becomes vertical stack */
+            /* Top Section Stack */
             .top-section {
                 flex-direction: column;
                 gap: 15px;
@@ -286,46 +447,37 @@
             }
 
             /* Main Hero Card Mobile */
-            .hero-main-card {
-                height: 250px;
-                border-radius: 12px;
-            }
+            .hero-main-card { height: 250px; border-radius: 12px; }
             .hero-title { font-size: 20px; }
             .card-overlay { padding: 50px 15px 15px; }
             
-            /* Container for the Next Two items */
+            /* Side Cards: Grid Side by Side */
             .hero-side-cards {
                 display: grid;
-                grid-template-columns: 1fr 1fr; /* Side by Side as requested */
+                grid-template-columns: 1fr 1fr; 
                 gap: 15px;
             }
             
-            /* The Two Cards Mobile */
-            .side-card {
-                height: 200px;
-                border-radius: 10px;
-            }
-            .side-card .badge { font-size: 9px; padding: 3px 6px; }
+            .side-card { height: 200px; border-radius: 10px; }
+            .side-card .badge { font-size: 9px; padding: 3px 6px; max-width: 80px; }
             .side-card .hero-title { font-size: 15px; }
-            .side-card .meta-info { display: none; } /* Hide meta on small cards if needed */
+            .side-card .meta-info { display: none; }
             .side-card .card-overlay { padding: 40px 12px 12px; }
 
             /* List Section Mobile */
             .page-container { padding: 0 3%; }
             .list-section { padding: 15px; border-radius: 12px; }
             
-            .news-list-item {
-                flex-direction: column;
-                gap: 12px;
-            }
-            .list-img {
-                width: 100%;
-                height: 180px;
-            }
+            .news-list-item { flex-direction: column; gap: 12px; }
+            .list-img { width: 100%; height: 180px; }
             .list-title { font-size: 16px; }
             
-            .pagination { margin-top: 20px; gap: 5px; }
-            .page-btn { width: 35px; height: 35px; font-size: 14px; }
+            .pagination { margin-top: 20px; gap: 5px; margin-bottom: 20px; }
+            
+            /* Mobile Social Bar Adjustments */
+            .social-inner { gap: 20px; }
+            .social-link { font-size: 18px; }
+            .social-link span { display: none; } /* Hide text on mobile to save space */
         }
     </style>
 </head>
@@ -334,27 +486,99 @@
     <!-- HEADER -->
     <header class="main-header">
         <div class="header-container">
-            <a href="#"><img src="https://maaney.store/white_logo.png" alt="Logo" class="logo"></a>
+            <!-- Hamburger for Mobile -->
+            <button class="hamburger-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <a href="https://maaney.store"><img src="https://maaney.store/white_logo.png" alt="Logo" class="logo"></a>
             
+            <!-- Desktop Navigation -->
             <nav class="nav-links">
-                <a href="#" class="nav-link active">होम</a>
-                <a href="#" class="nav-link">स्मार्टफोन</a>
-                <a href="#" class="nav-link">गैजेट्स</a>
-                <a href="#" class="nav-link">रिव्यू</a>
-                <a href="#" class="nav-link">वीडियो</a>
+                <!-- Home Link pointing to Main Site -->
+                <a href="https://maaney.store" class="nav-item">Home</a>
+                
+                <!-- Dropdown for News (Current Page Context) -->
+                <div class="dropdown">
+                    <div class="nav-item active">News</div>
+                    <div class="dropdown-menu">
+                        <!-- Categories pointing to main site categories or filters -->
+                        <a href="https://maaney.store/news/samsung" class="dropdown-item">Samsung</a>
+                        <a href="https://maaney.store/news/apple" class="dropdown-item">Apple</a>
+                        <a href="https://maaney.store/news/xiaomi" class="dropdown-item">Xiaomi</a>
+                        <a href="https://maaney.store/news/oneplus" class="dropdown-item">OnePlus</a>
+                    </div>
+                </div>
+
+                <!-- Reviews pointing to Main Site -->
+                <a href="https://maaney.store/reviews" class="nav-item">Reviews</a>
             </nav>
 
             <div class="header-actions">
+                <!-- Language Switcher Dropdown -->
+                <div class="dropdown" style="position: relative;">
+                    <div class="lang-switch-btn">
+                        <i class="fas fa-globe"></i> Hindi <i class="fas fa-chevron-down" style="font-size:10px;"></i>
+                    </div>
+                    <div class="dropdown-menu" style="right: 0; left: auto; min-width: 120px;">
+                        <a href="https://maaney.store" class="dropdown-item">English</a>
+                        <a href="#" class="dropdown-item" style="color: var(--primary);">Hindi</a>
+                    </div>
+                </div>
+                
                 <button class="search-btn"><i class="fas fa-search"></i></button>
             </div>
         </div>
     </header>
 
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-menu-overlay" id="mobileMenu" onclick="closeMobileMenu(event)">
+        <div class="mobile-menu-content" onclick="event.stopPropagation()">
+            <div class="mobile-menu-header">
+                <h3 style="font-weight:800;">Menu</h3>
+                <button class="close-btn" onclick="toggleMobileMenu()">&times;</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <!-- Language Switcher inside Mobile -->
+                <li class="mobile-nav-item" onclick="toggleSubmenu(this)">
+                    Language <i class="fas fa-chevron-down"></i>
+                </li>
+                <div class="mobile-submenu">
+                    <a href="https://maaney.store" style="color: var(--text-dark);">English</a>
+                    <a href="#" style="color: var(--primary); font-weight:700;">Hindi</a>
+                </div>
+
+               <li>
+  <a href="https://maaney.store" 
+     style="display:block; width:100%; padding:12px 16px; line-height:24px; font-weight:600; letter-spacing:0.5px;">
+     Home
+  </a>
+</li>
+
+<li>
+  <a href="https://maaney.store/review" 
+     style="display:block; width:100%; padding:12px 16px; line-height:24px; font-weight:600; letter-spacing:0.5px;">
+     Reviews
+  </a>
+</li>
+                <!-- Accordion Item for News Categories -->
+                <li class="mobile-nav-item" onclick="toggleSubmenu(this)">
+                    News Categories <i class="fas fa-chevron-down"></i>
+                </li>
+                <div class="mobile-submenu">
+                    <a href="https://maaney.store/news/samsung">Samsung</a>
+                    <a href="https://maaney.store/news/apple">Apple</a>
+                    <a href="https://maaney.store/news/xiaomi">Xiaomi</a>
+                    <a href="https://maaney.store/news/oneplus">OnePlus</a>
+                </div>
+            </ul>
+        </div>
+    </div>
+
     <!-- PAGE CONTAINER -->
     <div class="page-container">
         
         <!-- TOP SECTION: 1 Main + 2 Side -->
-        <!-- Logic: First article is Main. Next 2 articles are side cards. -->
         <div class="top-section" id="topSection">
             <!-- Rendered via JS -->
         </div>
@@ -376,13 +600,45 @@
 
     </div>
 
+    <!-- BOTTOM SOCIAL BAR -->
+    <div class="bottom-social-bar">
+        <div class="social-inner">
+            <a href="#" class="social-link linkedin" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+            <a href="#" class="social-link whatsapp" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+            <a href="#" class="social-link telegram" title="Telegram">
+                <i class="fab fa-telegram"></i>
+                <span>Telegram</span>
+            </a>
+            <a href="#" class="social-link twitter" title="X.com">
+                <i class="fab fa-x-twitter"></i>
+                <span>X.com</span>
+            </a>
+        </div>
+    </div>
+
     <script>
         // --- DATA (Hindi) ---
         const newsData = [
             {
+    id: 102,
+    img: "https://maaney.store/news/apple/apple-s-foldable-iphone-to-feature-ipad-like-interface-when-opened.webp",
+    link:"https://maaney.store/hindi/apple/apple-s-foldable-iphone-to-feature-ipad-like-interface-when-opened",
+    cat: "Apple",
+    title: "Apple Foldable iPhone: साइड-बाय-साइड ऐप्स और टैबलेट-स्टाइल लेआउट के साथ",
+    excerpt: "Apple का Foldable iPhone लॉन्च होने की अफवाह है। इसमें साइड-बाय-साइड ऐप्स, फोल्डेबल OLED डिस्प्ले और बड़े स्क्रीन के लिए iOS का अनुकूलन शामिल होगा। यह iPhone की पोर्टेबिलिटी के साथ iPad जैसी मल्टीटास्किंग अनुभव देगा। लॉन्च 2026 में होने की उम्मीद है।",
+    date: "12 मार्च 2026",
+    views: "12K"
+},
+            {
                 id: 1,
                 img: "https://maaney.store/news/apple/iphone-17e-launched-india-price-specifications-sale-date.png",
-                cat: "लेटेस्ट",
+                cat: "Apple",
                 title: "iPhone 17e भारत में लॉन्च: A19 चिप, 48MP कैमरा और MagSafe सपोर्ट के साथ",
                 excerpt: "Apple ने भारत में iPhone 17e लॉन्च कर दिया है। इसमें A19 चिप, 48MP फ्यूजन कैमरा और MagSafe वायरलेस चार्जिंग दी गई है। कीमत ₹64,900 से शुरू होती है।",
                 date: "2 मार्च 2026",
@@ -396,76 +652,12 @@
                 excerpt: "Xiaomi 17 Ultra में Leica ट्यून्ड कैमरा सिस्टम और Snapdragon 8 Elite Gen 5 प्रोसेसर दिया गया है।",
                 date: "11 मार्च 2026",
                 views: "12K"
-            },
-            {
-                id: 3,
-                img: "https://maaney.store/news/samsung/samsung-galaxy-s26-ultra.png",
-                cat: "Samsung",
-                title: "Galaxy S26 Ultra में S Pen के लिए MagSafe केस की वजह से नई वॉर्निंग",
-                excerpt: "Samsung ने चेतावनी दी है कि मैग्नेटिक केस S Pen की परफॉरमेंस को प्रभावित कर सकते हैं।",
-                date: "9 मार्च 2026",
-                views: "9K"
-            },
-            {
-                id: 4,
-                img: "https://maaney.store/news/iqoo/z11x.png",
-                cat: "iQOO",
-                title: "iQOO Z11x 5G भारत में लॉन्च: 7200mAh बैटरी और Dimensity 7400 Turbo",
-                excerpt: "iQOO ने Z11x 5G लॉन्च किया है जो 7200mAh की बैटरी और 120Hz डिस्प्ले के साथ आता है।",
-                date: "12 मार्च 2026",
-                views: "8K"
-            },
-            {
-                id: 5,
-                img: "https://maaney.store/news/oneplus/oneplus-15t-design-revealed-three-colours-ultra-narrow-bezels.webp",
-                cat: "OnePlus",
-                title: "OnePlus 15T का डिज़ाइन रिवील, तीन कलर्स और अल्ट्रा-नैरो बेज़ल्स",
-                excerpt: "OnePlus 15T का डिज़ाइन सामने आ गया है, जिसमें अल्ट्रा-नैरो बेज़ल्स और प्रीमियम बिल्ड दिखाई दे रही है।",
-                date: "12 मार्च 2026",
-                views: "6K"
-            },
-            {
-                id: 6,
-                img: "https://maaney.store/news/vivo/vivo-y51-pro-launched-in-india-price-specifications-sale.png",
-                cat: "Vivo",
-                title: "Vivo Y51 Pro भारत में लॉन्च: 7200mAh बैटरी और 120Hz डिस्प्ले",
-                excerpt: "Vivo Y51 Pro में 7200mAh की बैटरी और MediaTek Dimensity 7360 Ultra प्रोसेसर दिया गया है।",
-                date: "12 मार्च 2026",
-                views: "5K"
-            },
-            {
-                id: 7,
-                img: "https://maaney.store/news/realme/realme-c83-5g-launched-india-price-specifications.png",
-                cat: "Realme",
-                title: "Realme C83 5G लॉन्च: 7000mAh बैटरी और 144Hz डिस्प्ले",
-                excerpt: "Realme C83 5G बजट सेगमेंट में 7000mAh बैटरी और 144Hz डिस्प्ले के साथ आया है।",
-                date: "7 मार्च 2026",
-                views: "7K"
-            },
-            {
-                id: 8,
-                img: "https://maaney.store/news/poco/poco-x8-pro-series-global-launch.png",
-                cat: "POCO",
-                title: "POCO X8 Pro सीरीज का ग्लोबल लॉन्च 17 मार्च को कन्फर्म",
-                excerpt: "POCO ने X8 Pro सीरीज के लॉन्च की तारीख कन्फर्म कर दी है, जिसमें Dimensity प्रोसेसर होगा।",
-                date: "11 मार्च 2026",
-                views: "4K"
-            },
-            {
-                id: 9,
-                img: "https://maaney.store/news/samsung/samsung-galaxy-m17e-price-in-india-tipped-launch-date-specifications.webp",
-                cat: "Samsung",
-                title: "Samsung Galaxy M17e की कीमत लीक, 6000mAh बैटरी मिल सकती है",
-                excerpt: "Samsung के आने वाले M17e की कीमत और स्पेसिफिकेशन लीक हो गए हैं।",
-                date: "12 मार्च 2026",
-                views: "3K"
             }
         ];
 
         // --- PAGINATION STATE ---
         let currentPage = 1;
         const itemsPerPage = 5;
-        // We skip first 3 items because they are in Top Section (Hero + 2 Cards)
         const skipTopItems = 3; 
 
         // --- RENDER FUNCTIONS ---
@@ -480,14 +672,14 @@
 
             container.innerHTML = `
                 <!-- Hero Main -->
-                <a href="#" class="hero-main-card">
+                <a href="${main.link}" class="hero-main-card">
                     <img src="${main.img}" alt="${main.title}">
                     <div class="card-overlay">
                         <span class="badge">${main.cat}</span>
                         <h2 class="hero-title">${main.title}</h2>
                         <div class="meta-info">
-                            <span><i class="far fa-clock me-1"></i>${main.date}</span>
-                            <span><i class="far fa-eye me-1"></i>${main.views} व्यूज</span>
+                            <span><i class="far fa-clock me-1"></i> ${main.date}</span>
+                           
                         </div>
                     </div>
                 </a>
@@ -516,11 +708,8 @@
             const container = document.getElementById('newsListContainer');
             container.innerHTML = '';
 
-            // Calculate slice indexes
             const start = skipTopItems + ( (currentPage - 1) * itemsPerPage );
             const end = start + itemsPerPage;
-            
-            // Get items for this page
             const pageItems = newsData.slice(start, end);
 
             if(pageItems.length === 0 && currentPage > 1) {
@@ -531,7 +720,7 @@
 
             pageItems.forEach(item => {
                 const html = `
-                    <a href="#" class="news-list-item">
+                    <a href="${main.link}" class="news-list-item">
                         <div class="list-img">
                             <img src="${item.img}" alt="${item.title}">
                         </div>
@@ -540,8 +729,8 @@
                             <h3 class="list-title">${item.title}</h3>
                             <p class="list-excerpt">${item.excerpt}</p>
                             <div class="meta-info" style="color: #888;">
-                                <span><i class="far fa-clock me-1"></i>${item.date}</span>
-                                <span><i class="far fa-eye me-1"></i>${item.views}</span>
+                                <span><i class="far fa-clock me-1"></i> ${item.date}</span>
+                               
                             </div>
                         </div>
                     </a>
@@ -557,17 +746,14 @@
 
             let html = '';
 
-            // Prev Button
             html += `<button class="page-btn" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled style="opacity:0.5"' : ''}>
                         <i class="fas fa-chevron-left"></i>
                      </button>`;
 
-            // Page Numbers
             for (let i = 1; i <= totalPages; i++) {
                 html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
             }
 
-            // Next Button
             html += `<button class="page-btn" onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled style="opacity:0.5"' : ''}>
                         <i class="fas fa-chevron-right"></i>
                      </button>`;
@@ -583,9 +769,34 @@
             currentPage = page;
             renderList();
             renderPagination();
-            
-            // Scroll to top of list on page change
             document.querySelector('.list-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // --- MOBILE MENU LOGIC ---
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        function closeMobileMenu(event) {
+            // Only close if clicked outside the content (on overlay)
+            if(event.target.id === 'mobileMenu') {
+                toggleMobileMenu();
+            }
+        }
+
+        function toggleSubmenu(element) {
+            // Find the next sibling which is the submenu div
+            const submenu = element.nextElementSibling;
+            submenu.classList.toggle('active');
+            
+            // Rotate icon
+            const icon = element.querySelector('i');
+            if(submenu.classList.contains('active')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
         }
 
         // --- INIT ---
