@@ -15,13 +15,15 @@ const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage(function(payload) {
 
-  const notificationTitle = payload.notification.title;
+  console.log("FCM Background Message:", payload);
+
+  const notificationTitle = payload.notification?.title || "New Notification";
 
   const notificationOptions = {
-    body: payload.notification.body,
+    body: payload.notification?.body || "",
     icon: "https://maaney.store/logo.png",
     data: {
-      url: payload.data?.link || payload.notification?.click_action || "https://maaney.store"
+      url: payload.data?.link || payload.fcmOptions?.link || "https://maaney.store"
     }
   };
 
@@ -34,17 +36,23 @@ self.addEventListener("notificationclick", function(event) {
 
   event.notification.close();
 
-  const url = event.notification.data.url;
+  const targetUrl = event.notification.data?.url || "https://maaney.store";
 
   event.waitUntil(
-    clients.openWindow(url)
+    clients.matchAll({ type: "window", includeUncontrolled: true }).then(function(clientList) {
+
+      for (let i = 0; i < clientList.length; i++) {
+        const client = clientList[i];
+        if (client.url === targetUrl && "focus" in client) {
+          return client.focus();
+        }
+      }
+
+      if (clients.openWindow) {
+        return clients.openWindow(targetUrl);
+      }
+
+    })
   );
 
-});
-
-self.addEventListener("notificationclick", function(event) {
-  event.notification.close();
-  event.waitUntil(
-    clients.openWindow(event.notification.data.url)
-  );
 });
