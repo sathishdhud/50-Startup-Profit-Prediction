@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +10,7 @@
 
 <!-- Primary SEO -->
 <meta name="title" content="Apple Foldable iPhone Could Bring Side-by-Side Apps and Tablet-Style Layouts">
-<meta name="description" content="Apple’s first foldable iPhone may support side-by-side apps and tablet-style layouts when unfolded. The device is expected to offer iPad-like multitasking on a large foldable display.">
+<meta name="description" content="Apple's first foldable iPhone may support side-by-side apps and tablet-style layouts when unfolded. The device is expected to offer iPad-like multitasking on a large foldable display.">
 <meta name="keywords" content="Apple foldable iPhone, Apple foldable phone news, iPhone Fold multitasking, Apple foldable iPhone side by side apps, Apple foldable iPhone iPad style interface, Apple foldable iPhone launch, Apple foldable iPhone 2026">
 <meta name="author" content="Dhuda Sathish">
 
@@ -29,7 +28,7 @@
 <!-- Open Graph -->
 <meta property="og:type" content="article">
 <meta property="og:title" content="Apple Foldable iPhone Could Bring Side-by-Side Apps and Tablet-Style Layouts">
-<meta property="og:description" content="Apple’s foldable iPhone may introduce iPad-like multitasking with side-by-side apps and tablet-style layouts on a large foldable display.">
+<meta property="og:description" content="Apple's foldable iPhone may introduce iPad-like multitasking with side-by-side apps and tablet-style layouts on a large foldable display.">
 <meta property="og:url" content="https://maaney.store/news/apple/apple-s-foldable-iphone-to-feature-ipad-like-interface-when-opened">
 <meta property="og:image" content="https://maaney.store/news/apple/apple-s-foldable-iphone-to-feature-ipad-like-interface-when-opened.webp">
 <meta property="og:site_name" content="Maaney Store">
@@ -58,7 +57,7 @@
    "@id": "https://maaney.store/news/apple/apple-s-foldable-iphone-to-feature-ipad-like-interface-when-opened"
  },
  "headline": "Apple Foldable iPhone Could Bring Side-by-Side Apps and Tablet-Style Layouts",
- "description": "Apple’s upcoming foldable iPhone may introduce side-by-side apps and tablet-style layouts similar to iPad when unfolded.",
+ "description": "Apple's upcoming foldable iPhone may introduce side-by-side apps and tablet-style layouts similar to iPad when unfolded.",
  "image": [
    "https://maaney.store/news/apple/apple-s-foldable-iphone-to-feature-ipad-like-interface-when-opened.webp"
  ],
@@ -1195,6 +1194,152 @@ font-size:13px;
 margin-top:6px;
 text-decoration:none;
 }
+
+/* =========================================
+   TRENDING NEWS STYLES
+   ========================================= */
+.trending-news-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius:2px;
+    padding: 20px;
+    margin-bottom: 30px;
+    
+}
+
+.trending-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #ff8c2b;
+}
+
+.trending-icon {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #ff8c2b, #ff5f00);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+}
+
+.trending-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+.trending-item {
+    display: flex;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s ease;
+    text-decoration: none;
+}
+
+.trending-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+
+
+.trending-number {
+    font-size: 18px;
+    font-weight: 800;
+    color: #e0e0e0;
+    min-width: 24px;
+    line-height: 1;
+    padding-top: 2px;
+}
+
+.trending-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.trending-category {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-bottom: 6px;
+}
+
+.trending-category.apple { background: #f5f5f7; color: #1d1d1f; }
+.trending-category.samsung { background: #e3f2fd; color: #1565c0; }
+.trending-category.mobile { background: #fff3e0; color: #e65100; }
+.trending-category.tech { background: #e8f5e9; color: #2e7d32; }
+.trending-category.launch { background: #fce4ec; color: #c2185b; }
+.trending-category.default { background: #f0f0f0; color: #555; }
+
+.trending-item-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #111;
+    line-height: 1.4;
+    margin: 0 0 6px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.2s ease;
+}
+
+.trending-item:hover .trending-item-title {
+    color: #ff8c2b;
+}
+
+.trending-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: #888;
+}
+
+.trending-meta i {
+    font-size: 10px;
+}
+
+.trending-thumb {
+    width: 70px;
+    height: 50px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: #f5f5f5;
+}
+
+/* Responsive for trending */
+@media (max-width: 992px) {
+    .trending-news-card {
+        margin-top: 20px;
+    }
+    
+    .trending-item {
+        padding: 12px 0;
+    }
+    
+    .trending-thumb {
+        width: 80px;
+        height: 60px;
+    }
+    
+    .trending-item-title {
+        font-size: 14px;
+    }
+}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S60YQL9TZ2"></script>
 <script>
@@ -1239,7 +1384,7 @@ text-decoration:none;
 
 
 <h1 class="main-title" style="font-weight:bold;">
-Apple’s Foldable iPhone Could Bring Side-by-Side Apps and Tablet-Style Layouts
+Apple's Foldable iPhone Could Bring Side-by-Side Apps and Tablet-Style Layouts
 </h1>
     <!-- AUTHOR & UPDATE META -->
    <div id="articleMeta"
@@ -1291,7 +1436,7 @@ Highlights
 
 <li style="margin-bottom:8px;">
 <a href="https://maaney.store/news/apple/apple-foldable-iphone-side-by-side-apps-tablet-layouts" style="color:#000;font-weight:600;">
-Apple’s foldable iPhone
+Apple's foldable iPhone
 </a> could introduce side-by-side apps for multitasking
 </li>
 
@@ -1691,6 +1836,17 @@ Samsung confirms Galaxy M17e 5G launch date in India with key features expected.
             </p>
         </div>
 
+        <!-- TRENDING NEWS -->
+        <div class="trending-news-card" id="trendingNewsSection" style="background:#000000;">
+            <div class="trending-title-wrapper">
+                
+                <h3 class="trending-title">Trending News</h3>
+            </div>
+            <div id="trendingNewsList">
+                <!-- Trending items will be populated by JavaScript -->
+            </div>
+        </div>
+
     </div>
 </aside>
 
@@ -1819,6 +1975,169 @@ Compare smartphones and find best deals with Maaney Store.
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
+        // Articles Data
+        const articles = [
+            {
+  id: 101,
+  img: "https://maaney.store/news/apple/apple-s-foldable-iphone-to-feature-ipad-like-interface-when-opened.webp",
+  category: "Apple News",
+  title: "Apple Foldable iPhone Could Bring Side-by-Side Apps and Tablet-Style Layouts",
+  excerpt: "The Apple Foldable iPhone is rumored to feature a foldable OLED display with side-by-side app multitasking, tablet-style layouts, and optimized iOS for larger screens. The device could combine iPhone portability with iPad-like functionality, offering enhanced productivity and entertainment experiences. Launch is expected around 2026.",
+  author: "Dhuda Sathish",
+  date: "2026-03-12T23:30:00",
+  link: "https://maaney.store/news/apple/apple-s-foldable-iphone-to-feature-ipad-like-interface-when-opened"
+},
+            {
+  id: 38,
+  img: "https://maaney.store/news/samsung/samsung-galaxy-m17e-price-in-india-tipped-launch-date-specifications.webp",
+  category: "Samsung News",
+  title: "Samsung Galaxy M17e Price in India Tipped Ahead of Launch with 6000mAh Battery",
+  excerpt: "Samsung Galaxy M17e price in India has been tipped ahead of its official launch. The upcoming Galaxy M series smartphone is expected to feature a 6.7-inch 120Hz display, MediaTek Dimensity 6300 processor and a large 6000mAh battery. The device is likely to launch in the budget 5G segment and could compete with popular smartphones from Xiaomi, Realme and iQOO...",
+  author: "Dhuda Sathish",
+  date: "2026-03-12T18:20:00",
+  link: "https://maaney.store/news/samsung/samsung-galaxy-m17e-price-in-india-tipped-launch-date-specifications"
+},
+            {
+  id: 37,
+  img: "https://photos5.appleinsider.com/gallery/67002-140750-iPhone-8-xl.jpg",
+  category: "Apple News",
+  title: "Apple Rolls Out iOS 16.7.15 and iOS 15.8.7 Updates with Coruna Exploit Fix for Older iPhones",
+  excerpt: "Apple has released iOS 16.7.15 and iOS 15.8.7 security updates for older iPhone and iPad models. The updates fix vulnerabilities linked to the Coruna exploit toolkit and address security issues in WebKit and the iOS kernel, helping protect devices from potential cyber threats...",
+  author: "Dhuda Sathish",
+  date: "2026-03-12T14:30:00",
+  link: "https://maaney.store/news/apple/apple-ios-15-update-older-iphone-coruna-exploit-fixes"
+},
+            {
+  id: 36,
+  img: "https://cdn.beebom.com/content/2026/03/z11x-leak-price.jpg",
+  category: "Mobile News",
+  title: "iQOO Z11x 5G Launched in India with 7,200mAh Battery and Dimensity 7400 Turbo Processor",
+  excerpt: "iQOO has officially launched the iQOO Z11x 5G in India featuring a massive 7,200mAh battery and the MediaTek Dimensity 7400 Turbo processor. The smartphone also offers a smooth 120Hz display, 50MP primary camera and modern design aimed at delivering strong performance and long-lasting battery life in the competitive mid-range smartphone segment...",
+  author: "Dhuda Sathish",
+  date: "2026-03-12T14:00:00",
+  link: "https://maaney.store/news/iqoo/iqoo-z11x-5g-launched-in-india-know-price-specs-details"
+},
+            {
+  id: 35,
+  img: "https://maaney.store/news/oneplus/oneplus-15t-design-revealed-three-colours-ultra-narrow-bezels.webp",
+  category: "Mobile News",
+  title: "OnePlus 15T Design Revealed with Three Colours and Ultra-Narrow Bezels",
+  excerpt: "OnePlus has officially revealed the design of the upcoming OnePlus 15T smartphone, showcasing three colour options and ultra-narrow bezels. The compact flagship device is expected to feature a 6.32-inch display, premium build quality and powerful hardware aimed at delivering high-end performance in a smaller form factor...",
+  author: "Dhuda Sathish",
+  date: "2026-03-12T13:30:00",
+  link: "https://maaney.store/news/oneplus/oneplus-15t-design-revealed-three-colours-ultra-narrow-bezels"
+},
+            {
+  id: 34,
+  img: "https://maaney.store/news/oppo/oppo-a6s-5g-launch-india-this-month-colours-specs-exclusive.webp",
+  category: "Mobile News",
+  title: "OPPO A6s 5G Launch Expected in India with Dimensity 6300 Processor and 120Hz Display",
+  excerpt: "OPPO is expected to launch the OPPO A6s 5G in India soon featuring the MediaTek Dimensity 6300 processor, a smooth 120Hz display and a large battery designed for extended daily usage. The upcoming smartphone aims to deliver reliable performance, modern connectivity features including 5G support and improved camera capabilities in the affordable smartphone segment...",
+  author: "Dhuda Sathish",
+  date: "2026-03-12T13:00:00",
+  link: "https://maaney.store/news/oppo/oppo-a6s-5g-launch-india-this-month-colours-specs-exclusive"
+},
+            {
+  id: 33,
+  img: "https://maaney.store/news/vivo/vivo-y51-pro-launched-in-india-price-specifications-sale.png",
+  category: "Mobile News",
+  title: "Vivo Y51 Pro Launched in India with 7,200mAh Battery and Dimensity 7360 Ultra Processor",
+  excerpt: "Vivo has officially launched the Vivo Y51 Pro in India featuring a massive 7,200mAh battery, MediaTek Dimensity 7360 Ultra processor and a smooth 120Hz display. The smartphone is designed to deliver long battery life, reliable performance and modern connectivity features including 5G support, fast charging and improved camera capabilities...",
+  author: "Dhuda Sathish",
+  date: "2026-03-12T12:20:00",
+  link: "https://maaney.store/news/vivo/vivo-y51-pro-launched-in-india-price-specifications-sale"
+}
+        ];
+
+        // Get category class for styling
+        function getCategoryClass(category) {
+            const cat = category ? category.toLowerCase() : '';
+            if (cat.includes('apple')) return 'apple';
+            if (cat.includes('samsung')) return 'samsung';
+            if (cat.includes('mobile')) return 'mobile';
+            if (cat.includes('tech')) return 'tech';
+            if (cat.includes('launch')) return 'launch';
+            return 'default';
+        }
+
+        // Time ago function
+        function getTimeAgo(dateString) {
+            const date = new Date(dateString);
+            const now = new Date();
+            const seconds = Math.floor((now - date) / 1000);
+            
+            if (seconds < 60) return 'Just now';
+            
+            const intervals = {
+                year: 31536000,
+                month: 2592000,
+                week: 604800,
+                day: 86400,
+                hour: 3600,
+                minute: 60
+            };
+
+            for (const [unit, value] of Object.entries(intervals)) {
+                const interval = Math.floor(seconds / value);
+                if (interval >= 1) {
+                    return interval + ' ' + unit + (interval > 1 ? 's' : '') + ' ago';
+                }
+            }
+            return 'Just now';
+        }
+
+        // Render trending news
+        function renderTrendingNews() {
+            const container = document.getElementById('trendingNewsList');
+            if (!container) return;
+
+            // Get top 6 articles
+            const trendingArticles = articles.slice(0, 6);
+            
+            let html = '';
+            
+            trendingArticles.forEach((article, index) => {
+                const categoryClass = getCategoryClass(article.category);
+                const timeAgo = getTimeAgo(article.date);
+                
+                html += `
+<a href="${article.link}" class="trending-item" target="_blank" rel="noopener"
+   style="display:flex; align-items:center; gap:12px; background:#000; color:#fff; padding:12px; border-radius:6px; text-decoration:none; margin-bottom:8px;">
+    
+    <span class="trending-number"
+          style="font-size:18px; font-weight:700; color:#fff; min-width:24px;">
+          ${index + 1}
+    </span>
+
+    <div class="trending-content" style="flex:1;">
+       
+
+        <h4 class="trending-item-title"
+            style="margin:4px 0; font-size:14px; line-height:1.4; font-weight:600; color:#fff;">
+            ${article.title}
+        </h4>
+
+        <div class="trending-meta" style="font-size:12px; color:#ccc;">
+            <span><i class="fa-regular fa-clock"></i> ${timeAgo}</span>
+        </div>
+    </div>
+
+    <img src="${article.img}" alt="${article.title}" class="trending-thumb"
+         loading="lazy"
+         style="width:70px; height:50px; object-fit:cover; border-radius:4px;"
+         onerror="this.src='https://via.placeholder.com/70x50/000000/ffffff?text=News'">
+</a>
+`;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // Initialize trending news on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            renderTrendingNews();
+        });
+
         // Read More Toggle
         const readMoreBtn = document.getElementById('readMoreBtn');
         const readMoreWrapper = document.querySelector('.read-more-wrapper');
@@ -2058,20 +2377,6 @@ document.querySelectorAll('.info-toggle').forEach(toggle => {
 </script>
 <script type="module" src="/js/fcm.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"5ce440e718ae4522800a0efa9262b2ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v67327c56f0bb4ef8b305cae61679db8f1769101564043" integrity="sha512-rdcWY47ByXd76cbCFzznIcEaCN71jqkWBBqlwhF1SY7KubdLKZiEGeP7AyieKZlGP9hbY/MhGrwXzJC/HulNyg==" data-cf-beacon='{"version":"2024.11.0","token":"5ce440e718ae4522800a0efa9262b2ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"5ce440e718ae4522800a0efa9262b2ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"5ce440e718ae4522800a0efa9262b2ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"5ce440e718ae4522800a0efa9262b2ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"5ce440e718ae4522800a0efa9262b2ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"5ce440e718ae4522800a0efa9262b2ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"5ce440e718ae4522800a0efa9262b2ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"5ce440e718ae4522800a0efa9262b2ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"5ce440e718ae4522800a0efa9262b2ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"5ce440e718ae4522800a0efa9262b2ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"5ce440e718ae4522800a0efa9262b2ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"5ce440e718ae4522800a0efa9262b2ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"5ce440e718ae4522800a0efa9262b2ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"5ce440e718ae4522800a0efa9262b2ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
