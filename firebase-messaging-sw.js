@@ -23,10 +23,7 @@ messaging.onBackgroundMessage(function(payload) {
 
   // Get correct URL from payload
   const targetUrl =
-    payload?.data?.url ||
-    payload?.data?.link ||
-    payload?.fcmOptions?.link ||
-    "https://maaney.store";
+    payload?.data?.link;
 
   const notificationTitle = payload.notification?.title || "Maaney News";
 
