@@ -12,64 +12,63 @@ firebase.initializeApp({
 
 const messaging = firebase.messaging();
 
-/* BACKGROUND NOTIFICATION HANDLER */
+
+/* BACKGROUND MESSAGE */
 messaging.onBackgroundMessage(function(payload) {
 
-  console.log("FULL PAYLOAD:", payload);
+  console.log("FCM Payload:", payload);
 
-  // Extract link from any possible field
+  // Extract link from payload
   let targetUrl =
-      payload?.data?.url ||
       payload?.data?.link ||
+      payload?.data?.url ||
       payload?.fcmOptions?.link ||
       "https://maaney.store";
 
-  console.log("Detected URL:", targetUrl);
+  console.log("Notification link:", targetUrl);
 
   const notificationTitle = payload.notification?.title || "Maaney News";
 
   const notificationOptions = {
     body: payload.notification?.body || "",
     icon: "https://maaney.store/logo.png",
+    image: payload.notification?.image,
     data: {
-      url: targetUrl
+      click_action: targetUrl
     }
   };
-
-  //sathish
 
   self.registration.showNotification(notificationTitle, notificationOptions);
 
 });
 
 
-/* NOTIFICATION CLICK HANDLER */
+/* CLICK HANDLER */
 self.addEventListener("notificationclick", function(event) {
 
   event.notification.close();
 
-  let target = event.notification?.data?.url || "https://maaney.store";
+  let url = event.notification?.data?.click_action || "https://maaney.store";
 
-  console.log("Opening URL:", target);
+  console.log("Opening:", url);
 
   event.waitUntil(
 
-    clients.matchAll({ type: "window", includeUncontrolled: true }).then(function(clientList) {
+    clients.matchAll({ type: "window", includeUncontrolled: true })
+      .then(function(clientList) {
 
-      for (let client of clientList) {
+        for (let client of clientList) {
 
-        // If site already open → navigate that tab
-        if (client.url.includes("maaney.store") && "focus" in client) {
-          client.navigate(target);
-          return client.focus();
+          if (client.url.includes("maaney.store") && "focus" in client) {
+            client.navigate(url);
+            return client.focus();
+          }
+
         }
 
-      }
+        return clients.openWindow(url);
 
-      // Otherwise open new tab
-      return clients.openWindow(target);
-
-    })
+      })
 
   );
 
