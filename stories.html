@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Maaney Store News</title>
+
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" default>
+
+<!-- Poppins Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+    /* ========== RESET ========== */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #ffffff;
+        color: #000000;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+    }
+
+    /* ========== SCROLL SNAP CONTAINER ========== */
+    .scroll-container {
+        height: 100vh;
+        width: 100vw;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+    }
+
+    .scroll-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* ========== POSTER CARD LAYOUT ========== */
+    .poster-card {
+        height: 100vh;
+        width: 100%;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        display: flex;
+        flex-direction: column;
+        background: #ffffff;
+        position: relative;
+        /* Push content down by the height of the fixed header (70px) */
+        padding-top: 70px; 
+    }
+
+    /* ========== TOP BANNER IMAGE ========== */
+    .banner-wrapper {
+        width: 100%;
+        height: 360px; /* Fixed rectangular height */
+        position: relative;
+        flex-shrink: 0;
+        overflow: hidden;
+        /* Now sits below the header */
+    }
+
+    .banner-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .category-tag {
+        position: absolute;
+        top: 20px; /* Position relative to the banner, not the header */
+        left: 20px;
+        background: #000000;
+        color: #ffffff;
+        padding: 6px 16px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        border-radius: 50px;
+        letter-spacing: 0.5px;
+        z-index: 5;
+    }
+
+    /* ========== TEXT CONTENT AREA ========== */
+    .content-area {
+        flex: 1;
+        padding: 30px 24px 20px;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .post-paragraph {
+        font-size: 17px;
+        line-height: 1.65;
+        color: #000000;
+        font-weight: 400;
+        margin-bottom: 25px;
+        text-align: left;
+    }
+
+    .meta-inline {
+        font-size: 12px;
+        color: #888;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .meta-inline strong {
+        color: #000;
+        font-weight: 600;
+    }
+
+    /* ========== SOCIAL SHARE BAR ========== */
+    .share-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: auto;
+        background: #f8f8f8;
+        padding: 15px 20px;
+        border-radius: 12px;
+    }
+
+    .share-btn {
+        background: none;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+        color: #333;
+        font-size: 9px;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: transform 0.2s;
+    }
+
+    .share-btn:active {
+        transform: scale(0.9);
+    }
+
+    .share-btn i {
+        font-size: 20px;
+    }
+
+    .share-btn.wa { color: #25D366; }
+    .share-btn.tg { color: #0088cc; }
+    .share-btn.tw { color: #000; }
+    .share-btn.cp { color: #666; }
+
+    /* ========== FIXED HEADER ========== */
+    .app-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+        background: #ffffff;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .header-logo {
+        height: 30px;
+        pointer-events: auto;
+    }
+
+    .header-icons {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        pointer-events: auto;
+    }
+
+    .icon-btn {
+        width: 38px;
+        height: 38px;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        color: #000;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        position: relative;
+    }
+
+    /* ========== DROPDOWN MENU ========== */
+    .menu-dropdown {
+        position: absolute;
+        top: 50px;
+        right: -10px;
+        width: 150px;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        padding: 8px 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.2s ease;
+        z-index: 200;
+        overflow: hidden;
+    }
+
+    .menu-dropdown.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .menu-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 18px;
+        color: #000;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: background 0.2s;
+    }
+
+    .menu-item i {
+        width: 16px;
+        text-align: center;
+        color: #555;
+    }
+
+    .menu-item:active {
+        background: #f5f5f5;
+    }
+
+    /* Small triangle for dropdown */
+    .menu-dropdown::before {
+        content: '';
+        position: absolute;
+        top: -6px;
+        right: 18px;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 6px solid #fff;
+    }
+
+    /* ========== TOAST ========== */
+    .toast {
+        position: fixed;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background: #000;
+        color: #fff;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-size: 13px;
+        font-weight: 500;
+        z-index: 9999;
+        opacity: 0;
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .toast.show {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+
+    /* Adjust for larger phones */
+    @media (min-height: 800px) {
+        .banner-wrapper {
+            height: 240px;
+        }
+        .post-paragraph {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+    }
+</style>
+</head>
+<body>
+
+    <!-- Fixed Header -->
+    <header class="app-header">
+        <img src="https://maaney.store/white_logo.png" alt="Maaney" class="header-logo">
+        
+        <div class="header-icons">
+            <button class="icon-btn" id="searchBtn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            
+            <div style="position: relative;">
+                <button class="icon-btn" id="menuToggle">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </button>
+                
+                <!-- Dropdown Menu -->
+                <div class="menu-dropdown" id="mainMenu">
+                    <a href="#" class="menu-item">
+                        <i class="fa-solid fa-house"></i>
+                        Home
+                    </a>
+                    <a href="#" class="menu-item">
+                        <i class="fa-solid fa-newspaper"></i>
+                        News
+                    </a>
+                    <a href="#" class="menu-item">
+                        <i class="fa-solid fa-star"></i>
+                        Review
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Fullscreen Scroll Container -->
+    <main class="scroll-container" id="scrollContainer">
+        <!-- Articles rendered by JS -->
+    </main>
+
+    <!-- Toast -->
+    <div class="toast" id="toastMsg">Link Copied!</div>
+
+    <script>
+        const articles = [
+            {
+                id: 1,
+                paragraph: "Apple is rumored to introduce its first foldable iPhone with a revolutionary design that allows side-by-side apps and tablet-style layouts. The inner foldable screen is expected to be similar in size to an iPad mini, allowing multiple apps to run simultaneously. Reports suggest the device will feature a high-refresh OLED display and a durable folding mechanism, combining iPhone portability with iPad-like multitasking power.",
+                category: "Apple",
+                image: "https://maaney.store/news/apple/apple-s-foldable-iphone-to-feature-ipad-like-interface-when-opened.webp",
+                author: "Dhuda Sathish",
+                time: "2 hours ago",
+                link: "https://maaney.store/news/apple/apple-s-foldable-iphone-to-feature-ipad-like-interface-when-opened"
+            },
+            {
+                id: 2,
+                paragraph: "Samsung Galaxy M17e price in India has been tipped ahead of its official launch. The upcoming Galaxy M series smartphone is expected to feature a 6.7-inch 120Hz display, MediaTek Dimensity 6300 processor and a large 6000mAh battery. The device is likely to launch in the budget 5G segment and could compete with popular smartphones from Xiaomi, Realme and iQOO, offering great value for money.",
+                category: "Samsung",
+                image: "https://maaney.store/news/samsung/samsung-galaxy-m17e-price-in-india-tipped-launch-date-specifications.webp",
+                author: "Dhuda Sathish",
+                time: "5 hours ago",
+                link: "https://maaney.store/news/samsung/samsung-galaxy-m17e-price-in-india-tipped-launch-date-specifications"
+            },
+            {
+                id: 3,
+                paragraph: "iQOO has officially launched the iQOO Z11x 5G in India featuring a massive 7,200mAh battery and the MediaTek Dimensity 7400 Turbo processor. The smartphone also offers a smooth 120Hz display, 50MP primary camera and modern design aimed at delivering strong performance and long-lasting battery life. This device positions itself as a strong contender in the competitive mid-range smartphone segment.",
+                category: "iQOO",
+                image: "https://cdn.beebom.com/content/2026/03/z11x-leak-price.jpg",
+                author: "Dhuda Sathish",
+                time: "8 hours ago",
+                link: "https://maaney.store/news/iqoo/iqoo-z11x-5g-launched-in-india-know-price-specs-details"
+            },
+            {
+                id: 4,
+                paragraph: "OnePlus has officially revealed the design of the upcoming OnePlus 15T smartphone, showcasing three colour options and ultra-narrow bezels. The compact flagship device is expected to feature a 6.32-inch display, premium build quality and powerful hardware aimed at delivering high-end performance in a smaller form factor, perfect for users who prefer manageable sizes without compromising specs.",
+                category: "OnePlus",
+                image: "https://maaney.store/news/oneplus/oneplus-15t-design-revealed-three-colours-ultra-narrow-bezels.webp",
+                author: "Dhuda Sathish",
+                time: "12 hours ago",
+                link: "https://maaney.store/news/oneplus/oneplus-15t-design-revealed-three-colours-ultra-narrow-bezels"
+            }
+        ];
+
+        const container = document.getElementById('scrollContainer');
+        const menuToggle = document.getElementById('menuToggle');
+        const mainMenu = document.getElementById('mainMenu');
+
+        // Toggle Dropdown Menu
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mainMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', () => {
+            mainMenu.classList.remove('active');
+        });
+
+        // Prevent menu close when clicking inside menu
+        mainMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        function renderApp() {
+            let html = '';
+
+            articles.forEach((article) => {
+                html += `
+                    <article class="poster-card">
+                        <!-- Top Banner Image -->
+                        <div class="banner-wrapper">
+                            <img src="${article.image}" alt="" class="banner-img" loading="lazy">
+                            <div class="category-tag">${article.category}</div>
+                        </div>
+
+                        <!-- Text Content Area -->
+                        <div class="content-area">
+                            <div class="meta-inline">
+                                <span>By <strong>${article.author}</strong></span>
+                                <span>•</span>
+                                <span>${article.time}</span>
+                            </div>
+                            
+                            <!-- Paragraph -->
+                            <p class="post-paragraph">
+                                ${article.paragraph}
+                            </p>
+
+                            <!-- Bottom Share Bar -->
+                            <div class="share-bar">
+                                <button class="share-btn wa" onclick="shareOn('wa', '${article.link}')">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <span>Share</span>
+                                </button>
+                                <button class="share-btn tg" onclick="shareOn('tg', '${article.link}')">
+                                    <i class="fab fa-telegram-plane"></i>
+                                    <span>Send</span>
+                                </button>
+                                <button class="share-btn tw" onclick="shareOn('tw', '${article.link}')">
+                                    <i class="fab fa-x-twitter"></i>
+                                    <span>Post</span>
+                                </button>
+                                <button class="share-btn cp" onclick="copyLink('${article.link}')">
+                                    <i class="fa-regular fa-copy"></i>
+                                    <span>Copy</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function shareOn(platform, url) {
+            let shareUrl = '';
+            switch(platform) {
+                case 'wa':
+                    shareUrl = `https://wa.me/?text=Check%20this%20news:%20${url}`;
+                    break;
+                case 'tg':
+                    shareUrl = `https://t.me/share/url?url=${url}`;
+                    break;
+                case 'tw':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}`;
+                    break;
+            }
+            window.open(shareUrl, '_blank');
+        }
+
+        function copyLink(url) {
+            navigator.clipboard.writeText(url).then(() => {
+                showToast('Link copied to clipboard!');
+            });
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toastMsg');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        renderApp();
+    </script>
+</body>
+</html>
