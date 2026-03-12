@@ -25,6 +25,8 @@ messaging.onBackgroundMessage(function(payload) {
   const targetUrl =
     payload?.data?.link;
 
+    console.log(targetUrl);
+
   const notificationTitle = payload.notification?.title || "Maaney News";
 
   const notificationOptions = {
