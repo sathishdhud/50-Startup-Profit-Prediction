@@ -12,20 +12,18 @@ firebase.initializeApp({
 
 const messaging = firebase.messaging();
 
-
 /* BACKGROUND MESSAGE */
 messaging.onBackgroundMessage(function(payload) {
 
   console.log("FCM Payload:", payload);
 
-  // Extract link from payload
-  let targetUrl =
+  const targetUrl =
       payload?.data?.link ||
       payload?.data?.url ||
       payload?.fcmOptions?.link ||
       "https://maaney.store";
 
-  console.log("Notification link:", targetUrl);
+  console.log("Notification URL:", targetUrl);
 
   const notificationTitle = payload.notification?.title || "Maaney News";
 
@@ -34,7 +32,7 @@ messaging.onBackgroundMessage(function(payload) {
     icon: "https://maaney.store/logo.png",
     image: payload.notification?.image,
     data: {
-      click_action: targetUrl
+      url: targetUrl
     }
   };
 
@@ -48,24 +46,25 @@ self.addEventListener("notificationclick", function(event) {
 
   event.notification.close();
 
-  let url = event.notification?.data?.click_action || "https://maaney.store";
+  let url = event.notification?.data?.url || "https://maaney.store";
 
-  console.log("Opening:", url);
+  console.log("Opening URL:", url);
 
   event.waitUntil(
 
     clients.matchAll({ type: "window", includeUncontrolled: true })
       .then(function(clientList) {
 
+        // If site already open → focus that tab
         for (let client of clientList) {
-
           if (client.url.includes("maaney.store") && "focus" in client) {
-            client.navigate(url);
-            return client.focus();
+            client.focus();
+            client.postMessage({ action: "navigate", url: url });
+            return;
           }
-
         }
 
+        // Otherwise open new tab
         return clients.openWindow(url);
 
       })
