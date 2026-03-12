@@ -14,6 +14,10 @@ const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage(function(payload) {
 
+  console.log("FULL PAYLOAD:", payload);
+  console.log("DATA URL:", payload?.data?.url);
+  console.log("FCM LINK:", payload?.fcmOptions?.link);
+
   console.log("FCM Payload:", payload);
 
   const notificationTitle = payload.notification?.title || "Maaney News";
