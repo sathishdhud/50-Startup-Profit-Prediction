@@ -12,13 +12,21 @@ firebase.initializeApp({
 
 const messaging = firebase.messaging();
 
+
+/* BACKGROUND NOTIFICATION HANDLER */
 messaging.onBackgroundMessage(function(payload) {
 
   console.log("FULL PAYLOAD:", payload);
   console.log("DATA URL:", payload?.data?.url);
+  console.log("DATA LINK:", payload?.data?.link);
   console.log("FCM LINK:", payload?.fcmOptions?.link);
 
-  console.log("FCM Payload:", payload);
+  // Get correct URL from payload
+  const targetUrl =
+    payload?.data?.url ||
+    payload?.data?.link ||
+    payload?.fcmOptions?.link ||
+    "https://maaney.store";
 
   const notificationTitle = payload.notification?.title || "Maaney News";
 
@@ -26,23 +34,45 @@ messaging.onBackgroundMessage(function(payload) {
     body: payload.notification?.body || "",
     icon: "https://maaney.store/logo.png",
     data: {
-      url: payload.fcmOptions?.link || "https://maaney.store"
+      url: targetUrl
     }
   };
+
+  console.log("Final URL used:", targetUrl);
 
   self.registration.showNotification(notificationTitle, notificationOptions);
 
 });
 
 
+/* NOTIFICATION CLICK HANDLER */
 self.addEventListener("notificationclick", function(event) {
 
   event.notification.close();
 
-  const target = event.notification.data?.url || "https://maaney.store";
+  let target = event.notification?.data?.url;
+
+  // Prevent undefined or empty links
+  if (!target || target === "undefined") {
+    target = "https://maaney.store";
+  }
+
+  console.log("Opening URL:", target);
 
   event.waitUntil(
-    clients.openWindow(target)
+    clients.matchAll({ type: "window", includeUncontrolled: true })
+      .then(function(clientList) {
+
+        for (let client of clientList) {
+          if (client.url.includes("maaney.store") && "focus" in client) {
+            client.navigate(target);
+            return client.focus();
+          }
+        }
+
+        return clients.openWindow(target);
+
+      })
   );
 
 });
