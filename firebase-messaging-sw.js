@@ -7,23 +7,22 @@ firebase.initializeApp({
   projectId: "maaney-store-fd6ed",
   storageBucket: "maaney-store-fd6ed.firebasestorage.app",
   messagingSenderId: "213639902345",
-  appId: "1:213639902345:web:209c5352f7a52115c44258",
-  measurementId: "G-8J1V4NB56X"
+  appId: "1:213639902345:web:209c5352f7a52115c44258"
 });
 
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage(function(payload) {
 
-  console.log("FCM Background Message:", payload);
+  console.log("FCM Payload:", payload);
 
-  const notificationTitle = payload.notification?.title || "New Notification";
+  const notificationTitle = payload.notification?.title || "Maaney News";
 
   const notificationOptions = {
     body: payload.notification?.body || "",
     icon: "https://maaney.store/logo.png",
     data: {
-      url: payload.data?.link || payload.fcmOptions?.link || "https://maaney.store"
+      url: payload.fcmOptions?.link || "https://maaney.store"
     }
   };
 
@@ -36,23 +35,10 @@ self.addEventListener("notificationclick", function(event) {
 
   event.notification.close();
 
-  const targetUrl = event.notification.data?.url || "https://maaney.store";
+  const target = event.notification.data?.url || "https://maaney.store";
 
   event.waitUntil(
-    clients.matchAll({ type: "window", includeUncontrolled: true }).then(function(clientList) {
-
-      for (let i = 0; i < clientList.length; i++) {
-        const client = clientList[i];
-        if (client.url === targetUrl && "focus" in client) {
-          return client.focus();
-        }
-      }
-
-      if (clients.openWindow) {
-        return clients.openWindow(targetUrl);
-      }
-
-    })
+    clients.openWindow(target)
   );
 
 });
