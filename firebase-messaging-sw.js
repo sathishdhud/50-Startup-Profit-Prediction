@@ -16,16 +16,29 @@ const messaging = firebase.messaging();
 messaging.onBackgroundMessage(function(payload) {
 
   const notificationTitle = payload.notification.title;
-  
+
   const notificationOptions = {
     body: payload.notification.body,
-    icon: "https://maaney.store/icon.png",
+    icon: "https://maaney.store/logo.png",
     data: {
-      url: payload.notification.click_action
+      url: payload.data?.link || payload.notification?.click_action || "https://maaney.store"
     }
   };
 
   self.registration.showNotification(notificationTitle, notificationOptions);
+
+});
+
+
+self.addEventListener("notificationclick", function(event) {
+
+  event.notification.close();
+
+  const url = event.notification.data.url;
+
+  event.waitUntil(
+    clients.openWindow(url)
+  );
 
 });
 
