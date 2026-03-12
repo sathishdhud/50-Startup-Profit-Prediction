@@ -17,20 +17,26 @@ messaging.onBackgroundMessage(function(payload) {
 
   console.log("FCM Payload:", payload);
 
+  // Prevent duplicate notification
+  if (payload.notification) {
+    console.log("FCM auto notification already handled");
+    return;
+  }
+
   const targetUrl =
       payload?.data?.link ||
       payload?.data?.url ||
       payload?.fcmOptions?.link ||
       "https://maaney.store";
 
-  console.log("Notification URL:", targetUrl);
-
-  const notificationTitle = payload.notification?.title || "Maaney News";
+  const notificationTitle = payload?.data?.title || "Maaney News";
 
   const notificationOptions = {
-    body: payload.notification?.body || "",
+    body: payload?.data?.body || "",
     icon: "https://maaney.store/logo.png",
-    image: payload.notification?.image,
+    image: payload?.data?.image || null,
+    tag: "maaney-news",       // prevent duplicate
+    renotify: false,
     data: {
       url: targetUrl
     }
@@ -55,7 +61,6 @@ self.addEventListener("notificationclick", function(event) {
     clients.matchAll({ type: "window", includeUncontrolled: true })
       .then(function(clientList) {
 
-        // If site already open → focus that tab
         for (let client of clientList) {
           if (client.url.includes("maaney.store") && "focus" in client) {
             client.focus();
@@ -64,7 +69,6 @@ self.addEventListener("notificationclick", function(event) {
           }
         }
 
-        // Otherwise open new tab
         return clients.openWindow(url);
 
       })
