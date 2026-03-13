@@ -1347,6 +1347,38 @@ text-decoration:none;
         font-size: 14px;
     }
 }
+
+/* MOBILE SLIDE MENU */
+
+.mobile-menu{
+    position: fixed;
+    top: 0;
+    left: -260px; /* hidden to left */
+    width: 260px;
+    height: 100%;
+    background: #000; /* black background */
+    padding: 20px;
+    transition: left 0.3s ease;
+    z-index: 9999;
+}
+
+.mobile-menu.active{
+    left: 0; /* slide in */
+}
+
+.mobile-menu a{
+    display: block;
+    padding: 12px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff; /* white text */
+    text-decoration: none;
+    border-bottom: 1px solid #222;
+}
+
+.mobile-menu a:hover{
+    color: #f97316; /* orange hover */
+}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S60YQL9TZ2"></script>
 <script>
@@ -1361,26 +1393,64 @@ text-decoration:none;
     <div class="main-page-wrapper">
         
         <!-- HEADER NAVIGATION -->
-        <header class="blog-nav">
-           <a href="https://maaney.store" class="brand-logo">
-                <img src="https://maaney.store/white_logo.png"
-                     alt="Maaney Store – Tech News & Deals"
-                     height="36"
-                     loading="lazy">
-            </a>
+       <header class="blog-nav d-flex align-items-center justify-content-between">
 
-            
-            <div class="d-none d-md-flex align-items-center gap-4 line-seed nav-links" style="font-size: 14px; font-weight: 700;">
-                <a href="#" style="color: var(--fk-orange); text-decoration: none;">LATEST NEWS</a>
-                <a href="https://maaney.store/review" style="color: #555; text-decoration: none;">REVIEWS</a>
-                <a href="https://maaney.store/" style="color: #555; text-decoration: none;">DEALS</a>
-            </div>
+    <!-- LOGO -->
+    <a href="https://maaney.store" class="brand-logo">
+        <img src="https://maaney.store/white_logo.png"
+             alt="Maaney Store – Tech News & Deals"
+             height="36"
+             loading="lazy">
+    </a>
 
-            <div class="d-flex align-items-center gap-3">
-                <button class="btn btn-sm btn-outline-secondary rounded-circle"><i class="fa fa-search"></i></button>
-                <button class="btn btn-sm btn-dark d-md-none"><i class="fa fa-bars"></i></button>
-            </div>
-        </header>
+    <!-- DESKTOP MENU -->
+    <nav class="d-none d-md-flex align-items-center gap-4 nav-links" 
+         style="font-size:14px;font-weight:700;">
+
+        <a href="https://maaney.store" style="color:#555;text-decoration:none;">HOME</a>
+
+        <a href="https://maaney.store/news" style="color:var(--fk-orange);text-decoration:none;">
+            NEWS
+        </a>
+
+        <a href="https://maaney.store/review" style="color:#555;text-decoration:none;">
+            REVIEWS
+        </a>
+
+        <a href="https://maaney.store/news/samsung" style="color:#555;text-decoration:none;">
+            SAMSUNG
+        </a>
+
+        <a href="https://maaney.store/news/apple" style="color:#555;text-decoration:none;">
+            APPLE
+        </a>
+
+        <a href="https://maaney.store/hindi" style="color:#555;text-decoration:none;">
+            HINDI
+        </a>
+
+    </nav>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button class="btn btn-sm btn-dark d-md-none" onclick="toggleMenu()">
+        <i class="fa fa-bars"></i>
+    </button>
+
+</header>
+
+
+<!-- MOBILE DROPDOWN MENU -->
+<div id="mobileMenu" class="mobile-menu">
+
+    <a href="https://maaney.store">Home</a>
+    <a href="https://maaney.store/news">News</a>
+    <a href="https://maaney.store/review">Reviews</a>
+    <a href="https://maaney.store/news/samsung">Samsung</a>
+    <a href="https://maaney.store/news/apple">Apple</a>
+    <a href="https://maaney.store/hindi">Hindi</a>
+
+</div>
+
 
     
 
@@ -1538,7 +1608,7 @@ margin-top:8px;
 text-align:center;
 line-height:1.4;
 ">
-Image Credit: Realme
+Image Credit: Maaney
 </div>
 
 </div>
@@ -2427,7 +2497,12 @@ document.querySelectorAll('.info-toggle').forEach(toggle => {
 });
 </script>
 <script>
-    
+
+function toggleMenu(){
+    let menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("active");
+}
+
 </script>
 <script type="module" src="/js/fcm.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"5ce440e718ae4522800a0efa9262b2ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
