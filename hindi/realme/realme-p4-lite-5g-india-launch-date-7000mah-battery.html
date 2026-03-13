@@ -1340,6 +1340,25 @@ text-decoration:none;
         font-size: 14px;
     }
 }
+@media(max-width:768px){
+
+.desktop-menu{
+display:none !important;
+}
+
+}
+
+@media(min-width:769px){
+
+#mobileMenu{
+display:none;
+}
+
+header button:last-child{
+display:none;
+}
+
+}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S60YQL9TZ2"></script>
 <script>
@@ -1353,27 +1372,96 @@ text-decoration:none;
 
     <div class="main-page-wrapper">
         
-        <!-- HEADER NAVIGATION -->
-        <header class="blog-nav">
-           <a href="https://maaney.store" class="brand-logo">
-                <img src="https://maaney.store/white_logo.png"
-                     alt="Maaney Store – टेक न्यूज़ और डील्स"
-                     height="36"
-                     loading="lazy">
-            </a>
+       <!-- HEADER -->
+<header style="display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid #eee;background:#fff;position:relative;z-index:999;">
 
-            
-            <div class="d-none d-md-flex align-items-center gap-4 line-seed nav-links" style="font-size: 14px; font-weight: 700;">
-                <a href="#" style="color: var(--fk-orange); text-decoration: none;">ताज़ा खबरें</a>
-                <a href="https://maaney.store/review" style="color: #555; text-decoration: none;">रिव्यू</a>
-                <a href="https://maaney.store/" style="color: #555; text-decoration: none;">डील्स</a>
-            </div>
+<!-- LOGO -->
+<a href="https://maaney.store" style="display:flex;align-items:center;text-decoration:none;">
+<img src="https://maaney.store/white_logo.png"
+alt="Maaney Store – टेक न्यूज़ और डील्स"
+style="height:36px;object-fit:contain;">
+</a>
 
-            <div class="d-flex align-items-center gap-3">
-                <button class="btn btn-sm btn-outline-secondary rounded-circle"><i class="fa fa-search"></i></button>
-                <button class="btn btn-sm btn-dark d-md-none"><i class="fa fa-bars"></i></button>
-            </div>
-        </header>
+
+<!-- DESKTOP MENU -->
+<nav class="desktop-menu"
+style="display:flex;gap:26px;font-size:14px;font-weight:700;align-items:center;">
+
+<a href="https://maaney.store/news"
+style="color:#000;text-decoration:none;">न्यूज़</a>
+
+<a href="https://maaney.store/review"
+style="color:#000;text-decoration:none;">रिव्यू</a>
+
+<a href="https://maaney.store/news/samsung"
+style="color:#000;text-decoration:none;">Samsung</a>
+
+<a href="https://maaney.store/news/apple"
+style="color:#000;text-decoration:none;">Apple</a>
+
+<a href="https://maaney.store/hindi"
+style="color:#000;text-decoration:none;">Hindi</a>
+
+</nav>
+
+
+<!-- ACTION BUTTONS -->
+<div style="display:flex;align-items:center;gap:10px;">
+
+<button style="border:1px solid #ccc;background:#fff;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+<i class="fa fa-search"></i>
+</button>
+
+<button onclick="document.getElementById('mobileMenu').style.right='0'"
+style="background:#000;color:#fff;border:none;width:36px;height:36px;border-radius:6px;">
+<i class="fa fa-bars"></i>
+</button>
+
+</div>
+
+</header>
+
+
+
+<!-- MOBILE RIGHT MENU -->
+<div id="mobileMenu"
+style="position:fixed;top:0;right:-100%;width:260px;height:100%;background:#000;color:#fff;transition:0.35s;padding:20px;z-index:9999;">
+
+<!-- CLOSE -->
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+
+<strong style="font-size:16px;">Menu</strong>
+
+<button onclick="document.getElementById('mobileMenu').style.right='-100%'"
+style="background:none;border:none;color:#fff;font-size:20px;">
+✕
+</button>
+
+</div>
+
+
+<!-- MOBILE LINKS -->
+<nav style="display:flex;flex-direction:column;gap:18px;font-size:16px;font-weight:600;">
+
+<a href="https://maaney.store/news"
+style="color:#fff;text-decoration:none;">न्यूज़</a>
+
+<a href="https://maaney.store/review"
+style="color:#fff;text-decoration:none;">रिव्यू</a>
+
+<a href="https://maaney.store/news/samsung"
+style="color:#fff;text-decoration:none;">Samsung</a>
+
+<a href="https://maaney.store/news/apple"
+style="color:#fff;text-decoration:none;">Apple</a>
+
+<a href="https://maaney.store/hindi"
+style="color:#fff;text-decoration:none;">Hindi</a>
+
+</nav>
+
+</div>
+
 
     
 
