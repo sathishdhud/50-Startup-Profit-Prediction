@@ -77,13 +77,19 @@
         /* Now sits below the header */
     }
 
-    .banner-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
+    .banner{
+    width:100%;
+    height:260px;
+    overflow:hidden;
+    border-radius:8px;
+}
 
+.banner-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:right center;
+}
     .category-tag {
         position: absolute;
         top: 20px; /* Position relative to the banner, not the header */
@@ -352,6 +358,36 @@
     <script>
         const articles = [
             {
+  id: 105,
+  paragraph: "Realme is preparing to launch the Realme P4 Lite 5G smartphone in India on March 19. The upcoming device is expected to feature a massive 7,000mAh battery designed to deliver long-lasting battery life for heavy users. The smartphone may launch as a 5G variant of the Realme P4 Lite and could be available exclusively on Flipkart. It is also expected to feature a dual-tone design along with a vertical camera module.",
+  category: "Realme",
+  image: "https://maaney.store/hindi/realme/realme-p4-lite-5g-india-launch-date-7000mah-battery.webp",
+  author: "Dhuda Sathish",
+  date: "2026-03-13T23:00:00",
+  link: "https://maaney.store/hindi/realme/realme-p4-lite-5g-india-launch-date-7000mah-battery"
+},
+
+{
+  id: 104,
+  paragraph: "Samsung Galaxy Z Flip 8 battery specifications have reportedly leaked ahead of the official launch. According to recent reports, the upcoming foldable smartphone could feature a 4,300mAh battery capacity similar to the Galaxy Z Flip 7. The device may use a dual-cell battery setup and could bring improved power efficiency along with optimized software for better battery performance.",
+  category: "Mobile News",
+  image: "https://maaney.store/news/samsung/samsung-galaxy-z-flip-8-battery-size-expected-features.webp",
+  author: "Dhuda Sathish",
+  date: "2026-03-13T22:40:00",
+  link: "https://maaney.store/news/samsung/samsung-galaxy-z-flip-8-battery-size-expected-features"
+},
+
+{
+  id: 103,
+  paragraph: "Realme 16T 5G and Realme P4R 5G smartphones are reportedly being prepared for launch in India. The devices are expected to arrive in multiple colour options and storage variants. While the company has not officially confirmed the launch timeline yet, leaks suggest that both smartphones could target the mid-range segment with competitive specifications and improved design.",
+  category: "Mobile News",
+  image: "https://maaney.store/news/realme/realme-16t-5g-p4r-india-launch-tipped-colourways-storage-specifications-features-1.webp",
+  author: "Dhuda Sathish",
+  date: "2026-03-13T18:05:00",
+  link: "https://maaney.store/news/realme/realme-16t-5g-p4r-india-launch-tipped-colourways-storage-specifications-features"
+},
+            
+            {
     id: 2,
     paragraph: "Lava has launched the new Lava Bold 2 5G smartphone in India, targeting the affordable 5G segment with a premium-looking design and strong specifications. The device features a 6.67-inch Full HD+ AMOLED display with a 120Hz refresh rate, powered by a MediaTek Dimensity processor for smooth performance and reliable 5G connectivity. It also includes a 50MP primary rear camera and a large 5,000mAh battery with 33W fast charging support, making it a competitive option in the budget smartphone market.",
     category: "Lava",
@@ -444,8 +480,24 @@
 
         <!-- Paragraph -->
         <p class="post-paragraph">
-            ${article.paragraph}
-        </p>
+    ${article.paragraph}
+</p>
+
+<div style="display:flex;align-items:center;gap:15px;margin-top:10px;">
+
+<button onclick="voteUp(this)"
+style="border:1px solid #ddd;background:#f8f8f8;padding:6px 12px;border-radius:6px;cursor:pointer;display:flex;align-items:center;gap:6px;">
+<i class="fa fa-thumbs-up"></i>
+<span>0</span>
+</button>
+
+<button onclick="voteDown(this)"
+style="border:1px solid #ddd;background:#f8f8f8;padding:6px 12px;border-radius:6px;cursor:pointer;display:flex;align-items:center;gap:6px;">
+<i class="fa fa-thumbs-down"></i>
+<span>0</span>
+</button>
+
+</div>
 
         <!-- Bottom Share Bar -->
         <div class="share-bar">
@@ -529,5 +581,16 @@
 
         renderApp();
     </script>
+    <script>
+function voteUp(btn){
+    let count = btn.querySelector("span");
+    count.innerText = parseInt(count.innerText) + 1;
+}
+
+function voteDown(btn){
+    let count = btn.querySelector("span");
+    count.innerText = parseInt(count.innerText) + 1;
+}
+</script>
 </body>
 </html>
