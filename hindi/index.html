@@ -626,6 +626,16 @@
         // --- DATA (Hindi) ---
         const newsData = [
             {
+  id: 104,
+  img: "https://maaney.store/news/lava/lava-bold-2-5g-price-in-india-launch-specifications-features.webp",
+  link: "https://maaney.store/hindi/lava/lava-bold-2-5g-price-in-india-launch-specifications-features",
+  cat: "Lava",
+  title: "Lava Bold 2 5G भारत में लॉन्च: 5000mAh बैटरी और 50MP कैमरा के साथ",
+  excerpt: "Lava ने भारत में नया Lava Bold 2 5G स्मार्टफोन लॉन्च किया है। इसमें 6.67-इंच AMOLED डिस्प्ले, 120Hz रिफ्रेश रेट और MediaTek Dimensity प्रोसेसर दिया गया है। फोन में 50MP प्राइमरी कैमरा और 5000mAh बैटरी के साथ 33W फास्ट चार्जिंग सपोर्ट मिलता है। यह बजट 5G स्मार्टफोन सेगमेंट में एक मजबूत विकल्प हो सकता है।",
+  date: "13 मार्च 2026",
+  views: "9K"
+},
+            {
     id: 102,
     img: "https://maaney.store/news/apple/apple-s-foldable-iphone-to-feature-ipad-like-interface-when-opened.webp",
     link:"https://maaney.store/hindi/apple/apple-s-foldable-iphone-to-feature-ipad-like-interface-when-opened",
@@ -649,6 +659,8 @@
             {
                 id: 2,
                 img: "https://maaney.store/news/xiaomi/xiaomi-17-ultra-launch.png",
+                // ADDED LINK PROPERTY HERE
+                link: "https://maaney.store/hindi/xiaomi/xiaomi-17-ultra-launch", 
                 cat: "Xiaomi",
                 title: "Xiaomi 17 Ultra: Leica कैमरा और Snapdragon 8 Elite Gen 5 के साथ धमाकेदार एंट्री",
                 excerpt: "Xiaomi 17 Ultra में Leica ट्यून्ड कैमरा सिस्टम और Snapdragon 8 Elite Gen 5 प्रोसेसर दिया गया है।",
@@ -721,8 +733,9 @@
             }
 
             pageItems.forEach(item => {
+                // FIX: Changed main.link to item.link
                 const html = `
-                    <a href="${main.link}" class="news-list-item">
+                    <a href="${item.link}" class="news-list-item">
                         <div class="list-img">
                             <img src="${item.img}" alt="${item.title}">
                         </div>
