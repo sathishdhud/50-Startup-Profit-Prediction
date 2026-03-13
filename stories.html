@@ -352,12 +352,21 @@
     <script>
         const articles = [
             {
+    id: 2,
+    paragraph: "Lava has launched the new Lava Bold 2 5G smartphone in India, targeting the affordable 5G segment with a premium-looking design and strong specifications. The device features a 6.67-inch Full HD+ AMOLED display with a 120Hz refresh rate, powered by a MediaTek Dimensity processor for smooth performance and reliable 5G connectivity. It also includes a 50MP primary rear camera and a large 5,000mAh battery with 33W fast charging support, making it a competitive option in the budget smartphone market.",
+    category: "Lava",
+    image: "https://maaney.store/news/lava/lava-bold-2-5g-price-in-india-launch-specifications-features-1.webp",
+    author: "Dhuda Sathish",
+   date: "2026-03-13T15:20:00",
+    link: "https://maaney.store/news/lava/lava-bold-2-5g-price-in-india-launch-specifications-features"
+},
+            {
                 id: 1,
                 paragraph: "Apple is rumored to introduce its first foldable iPhone with a revolutionary design that allows side-by-side apps and tablet-style layouts. The inner foldable screen is expected to be similar in size to an iPad mini, allowing multiple apps to run simultaneously. Reports suggest the device will feature a high-refresh OLED display and a durable folding mechanism, combining iPhone portability with iPad-like multitasking power.",
                 category: "Apple",
                 image: "https://maaney.store/news/apple/apple-s-foldable-iphone-to-feature-ipad-like-interface-when-opened.webp",
                 author: "Dhuda Sathish",
-                time: "2 hours ago",
+                date: "2026-03-12T15:20:00",
                 link: "https://maaney.store/news/apple/apple-s-foldable-iphone-to-feature-ipad-like-interface-when-opened"
             },
             {
@@ -366,7 +375,7 @@
                 category: "Samsung",
                 image: "https://maaney.store/news/samsung/samsung-galaxy-m17e-price-in-india-tipped-launch-date-specifications.webp",
                 author: "Dhuda Sathish",
-                time: "5 hours ago",
+                date: "2026-03-12T13:20:00",
                 link: "https://maaney.store/news/samsung/samsung-galaxy-m17e-price-in-india-tipped-launch-date-specifications"
             },
             {
@@ -375,7 +384,7 @@
                 category: "iQOO",
                 image: "https://cdn.beebom.com/content/2026/03/z11x-leak-price.jpg",
                 author: "Dhuda Sathish",
-                time: "8 hours ago",
+                date: "2026-03-12T10:20:00",
                 link: "https://maaney.store/news/iqoo/iqoo-z11x-5g-launched-in-india-know-price-specs-details"
             },
             {
@@ -384,7 +393,7 @@
                 category: "OnePlus",
                 image: "https://maaney.store/news/oneplus/oneplus-15t-design-revealed-three-colours-ultra-narrow-bezels.webp",
                 author: "Dhuda Sathish",
-                time: "12 hours ago",
+                date: "2026-03-11T15:20:00",
                 link: "https://maaney.store/news/oneplus/oneplus-15t-design-revealed-three-colours-ultra-narrow-bezels"
             }
         ];
@@ -415,47 +424,56 @@
             articles.forEach((article) => {
                 html += `
                     <article class="poster-card">
-                        <!-- Top Banner Image -->
-                        <div class="banner-wrapper">
-                            <img src="${article.image}" alt="" class="banner-img" loading="lazy">
-                            <div class="category-tag">${article.category}</div>
-                        </div>
 
-                        <!-- Text Content Area -->
-                        <div class="content-area">
-                            <div class="meta-inline">
-                                <span>By <strong>${article.author}</strong></span>
-                                <span>•</span>
-                                <span>${article.time}</span>
-                            </div>
-                            
-                            <!-- Paragraph -->
-                            <p class="post-paragraph">
-                                ${article.paragraph}
-                            </p>
+    <!-- Top Banner Image -->
+    <div class="banner-wrapper">
+        <a href="${article.link}">
+            <img src="${article.image}" alt="" class="banner-img" loading="lazy">
+        </a>
+        <div class="category-tag">${article.category}</div>
+    </div>
 
-                            <!-- Bottom Share Bar -->
-                            <div class="share-bar">
-                                <button class="share-btn wa" onclick="shareOn('wa', '${article.link}')">
-                                    <i class="fab fa-whatsapp"></i>
-                                    <span>Share</span>
-                                </button>
-                                <button class="share-btn tg" onclick="shareOn('tg', '${article.link}')">
-                                    <i class="fab fa-telegram-plane"></i>
-                                    <span>Send</span>
-                                </button>
-                                <button class="share-btn tw" onclick="shareOn('tw', '${article.link}')">
-                                    <i class="fab fa-x-twitter"></i>
-                                    <span>Post</span>
-                                </button>
-                                <button class="share-btn cp" onclick="copyLink('${article.link}')">
-                                    <i class="fa-regular fa-copy"></i>
-                                    <span>Copy</span>
-                                </button>
-                            </div>
-                        </div>
-                    </article>
-                `;
+    <!-- Text Content Area -->
+    <div class="content-area">
+
+        <div class="meta-inline">
+            <span>By <strong>${article.author}</strong></span>
+            <span>•</span>
+            <span>${timeAgo(article.date)}</span>
+        </div>
+
+        <!-- Paragraph -->
+        <p class="post-paragraph">
+            ${article.paragraph}
+        </p>
+
+        <!-- Bottom Share Bar -->
+        <div class="share-bar">
+            <button class="share-btn wa" onclick="shareOn('wa', '${article.link}')">
+                <i class="fab fa-whatsapp"></i>
+                <span>Share</span>
+            </button>
+
+            <button class="share-btn tg" onclick="shareOn('tg', '${article.link}')">
+                <i class="fab fa-telegram-plane"></i>
+                <span>Send</span>
+            </button>
+
+            <button class="share-btn tw" onclick="shareOn('tw', '${article.link}')">
+                <i class="fab fa-x-twitter"></i>
+                <span>Post</span>
+            </button>
+
+            <button class="share-btn cp" onclick="copyLink('${article.link}')">
+                <i class="fa-regular fa-copy"></i>
+                <span>Copy</span>
+            </button>
+        </div>
+
+    </div>
+
+</article>
+`;
             });
 
             container.innerHTML = html;
@@ -491,6 +509,23 @@
                 toast.classList.remove('show');
             }, 2000);
         }
+
+        function timeAgo(dateString) {
+    const now = new Date();
+    const past = new Date(dateString);
+    const seconds = Math.floor((now - past) / 1000);
+
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(seconds / 3600);
+    const days = Math.floor(seconds / 86400);
+
+    if (seconds < 60) return "Just now";
+    if (minutes < 60) return minutes + " minutes ago";
+    if (hours < 24) return hours + " hours ago";
+    if (days < 7) return days + " days ago";
+
+    return past.toLocaleDateString();
+}
 
         renderApp();
     </script>
