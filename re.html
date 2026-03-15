@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Phone Search - 91mobiles Style</title>
+<title>Maaney Store - Phone Search</title>
 <!-- Bootstrap 5 CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Google Fonts -->
@@ -21,7 +21,7 @@
     }
 
     body {
-        background: #f5f7fa;
+       background: #f5f7fa;
         color: #333;
         overflow-x: hidden;
     }
@@ -40,6 +40,7 @@
     .navbar {
         background: white;
         box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        height: 70px;
     }
 
     .logo {
@@ -84,8 +85,8 @@
     }
 
     .search-icon {
-        width: 35px;
-        height: 35px;
+        width: 38px;
+        height: 38px;
         border-radius: 50%;
         border: 1px solid #eee;
         display: flex;
@@ -117,6 +118,153 @@
         color: white;
     }
 
+    /* --- Desktop Header Search Styles (Fixed Dropdown) --- */
+    .desktop-search-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .desktop-search-input {
+        width: 0;
+        padding: 0;
+        border: none;
+        transition: all 0.4s ease;
+        background: transparent;
+        font-size: 14px;
+        outline: none;
+        opacity: 0;
+    }
+
+    .desktop-search-input.active {
+        width: 250px;
+        padding: 10px 15px;
+        border: 1px solid #eee;
+        border-radius: 25px;
+        margin-right: 10px;
+        background: #fff;
+        opacity: 1;
+    }
+
+    /* The Dropdown Panel */
+    .search-dropdown-menu {
+        position: absolute;
+        top: 100%; /* Position directly below the parent */
+        right: 0;
+        margin-top: 15px; /* Small gap */
+        width: 350px;
+        background: white;
+       
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        border: 1px solid #eee;
+        z-index: 9999; /* Highest z-index */
+        display: none;
+        max-height: 450px;
+        overflow-y: auto;
+    }
+
+    .search-dropdown-menu.show {
+        display: block;
+        animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .search-result-item {
+        display: flex;
+        align-items: center;
+        padding: 12px 15px;
+        border-bottom: 1px solid #f5f5f5;
+        transition: background 0.2s;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .search-result-item:last-child {
+        border-bottom: none;
+    }
+
+    .search-result-item:hover {
+        background: #fff5ef;
+    }
+
+    .search-result-item img {
+        width: 45px;
+        height: 45px;
+        object-fit: contain;
+        margin-right: 15px;
+        border-radius: 4px;
+        background: #f9f9f9;
+    }
+
+    .search-result-info h6 {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 4px;
+        color: #222;
+    }
+
+    .search-result-info p {
+        font-size: 12px;
+        margin: 0;
+        color: #888;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 220px;
+    }
+
+    .search-no-result {
+        padding: 20px;
+        text-align: center;
+        color: #888;
+    }
+
+    /* Mobile Search Inside Navbar */
+    .mobile-search-bar {
+        display: none;
+        width: 100%;
+        margin-bottom: 15px;
+        position: relative;
+    }
+    
+    @media (max-width: 991px) {
+        .mobile-search-bar {
+            display: block;
+        }
+        .desktop-search-container {
+            display: none !important;
+        }
+    }
+
+    .mobile-search-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        background: #f9f9f9;
+    }
+
+    .mobile-results-container {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        border-radius: 0px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        z-index: 100;
+        max-height: 300px;
+        overflow-y: auto;
+        display: none;
+    }
+    .mobile-results-container.show {
+        display: block;
+    }
+
     /* --- Hero Section --- */
     .hero-section {
         background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4JpRfmm_7XAwWAEpjVoGugues7kmlsw32Fw&s");
@@ -145,26 +293,55 @@
     .title {
         font-size: clamp(28px, 5vw, 42px);
         font-weight: 700;
-        color: #1a1a1a;
+        color: #ffffff;
         margin-bottom: 30px;
     }
 
-    .phone-badge {
-        background: #ff6a00;
-        color: white;
-        padding: 5px 15px;
-        border-radius: 6px;
-        display: inline-block;
-        font-size: 0.9em;
-    }
+   .phone-badge{
+position:relative;
+background:#ffffff;
+color:#ff6a00;
+padding:6px 18px;
+margin: 10px;;
+font-weight:600;
+font-size:0.95em;
+border-radius:6px;
+display:inline-block;
+}
+
+/* left curved shape */
+.phone-badge::before{
+content:"";
+position:absolute;
+left:-8px;
+top:50%;
+transform:translateY(-50%);
+width:14px;
+height:14px;
+background:#ffffff;
+border-radius:50%;
+}
+
+/* right curved shape */
+.phone-badge::after{
+content:" ";
+position:absolute;
+right:-8px;
+top:50%;
+transform:translateY(-50%);
+width:14px;
+height:14px;
+background:#ffffff;
+border-radius:50%;
+}
 
     /* --- Search Tool --- */
     .search-tool {
         background: white;
-        border-radius: 4px; /* Changed to 4px as requested */
+        border-radius: 4px; 
         padding: 30px;
         box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-        max-width: 1400px; /* Increased width */
+        max-width: 1400px; 
         margin: 0 auto;
     }
 
@@ -183,7 +360,7 @@
         width: 100%;
         padding: 14px 16px;
         border: 2px solid #eee;
-        border-radius: 4px; /* Changed to 4px */
+        border-radius: 4px; 
         font-size: 15px;
         color: #333;
         background: #f9f9f9;
@@ -207,7 +384,7 @@
         color: white;
         border: none;
         padding: 16px 40px;
-        border-radius: 4px; /* Changed to 4px */
+        border-radius: 4px; 
         font-size: 16px;
         font-weight: 600;
         cursor: pointer;
@@ -226,7 +403,7 @@
 
     /* --- Retail 100 Section --- */
     .retail-wrapper {
-        margin: 40px 0; /* Full width, no auto margins for container-fluid */
+        margin: 40px 0; 
         background: rgb(255, 111, 0);
         overflow: hidden;
         box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -259,7 +436,6 @@
         font-weight: 800;
     }
 
-    /* Brand Card */
     .brand-box {
         background: white;
         border-radius: 4px;
@@ -267,12 +443,9 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        
         transition: transform 0.2s;
         height: 100%;
     }
-
-    
 
     .brand-left {
         display: flex;
@@ -310,14 +483,6 @@
         font-weight: 600;
     }
 
-    .flag {
-        width: 24px;
-        height: 16px;
-        object-fit: cover;
-        border-radius: 2px;
-        box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-    }
-
     .retail-right {
         background: white;
         padding: 30px;
@@ -327,14 +492,14 @@
 
     /* --- Trending Section --- */
     .trending-container {
-        overflow-x: auto; /* Allows scrolling on small screens */
-        white-space: nowrap; /* Keeps items in a single line */
+        overflow-x: auto; 
+        white-space: nowrap; 
         -webkit-overflow-scrolling: touch;
-        padding-bottom: 10px; /* Space for scrollbar */
+        padding-bottom: 10px; 
     }
 
     .trending-container .tag {
-        display: inline-block; /* Ensures inline display */
+        display: inline-block; 
         padding: 8px 16px;
         background: white;
         border: 1px solid #e0e0e0;
@@ -344,7 +509,7 @@
         cursor: pointer;
         transition: all 0.3s;
         font-weight: 500;
-        margin-right: 10px; /* Gap between tags */
+        margin-right: 10px; 
     }
 
     .trending-container .tag:hover {
@@ -353,124 +518,138 @@
         background: #fff8f5;
     }
 
-    .trending-container .tag.active {
-        background: #ff6a00;
-        color: white;
-        border-color: #ff6a00;
+    /* --- Product Sliders --- */
+    .slider-section {
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.03);
     }
 
-    /* --- Products Section --- */
-    .section-title {
-        font-size: 20px;
-        font-weight: 600;
+    .slider-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #f0f0f0;
+        padding-bottom: 10px;
+    }
+
+    .slider-title {
+        font-size: 18px;
+        font-weight: 700;
         color: #1a1a1a;
     }
 
-    .view-all {
-        color: #ff6a00;
+    .view-all-btn {
+        background: #ff6a00;
+        color: white;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 13px;
         text-decoration: none;
-        font-weight: 500;
-        font-size: 14px;
+        transition: 0.3s;
     }
 
-    .phones-grid {
-        row-gap: 0.8rem; /* 2x Gap between rows */
+    .view-all-btn:hover {
+        background: #e65c00;
+        color: white;
     }
 
-    .phone-card {
-        background: white;
-        border-radius: 4px;
-        overflow: hidden;
-        transition: all 0.3s ease;
-        border: 1px solid #f0f0f0;
-        cursor: pointer;
-        height: 100%;
+    .slider-container {
+        position: relative;
+        margin: 0 -20px;
+        padding: 0 20px;
+    }
+
+    .product-slider {
         display: flex;
-        flex-direction: column;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        gap: 15px;
+        padding-bottom: 10px;
+        scrollbar-width: none;
+    }
+
+    .product-slider::-webkit-scrollbar {
+        display: none;
+    }
+
+    .slide-card {
+        flex: 0 0 auto;
+        width: 180px;
+        background: white;
+        border: 1px solid #f0f0f0;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+        transition: all 0.3s;
+        cursor: pointer;
+        text-decoration: none;
+        color: #333;
     }
 
     
 
-    .phone-image {
-        height: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
-        position: relative;
-    }
-
-    .phone-img-placeholder {
-        font-size: 60px;
-        color: #ccc;
-    }
-
-    .phone-badge-new {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        background: #ff6a00;
-        color: white;
-        padding: 4px 10px;
-        border-radius: 4px;
-        font-size: 10px;
-        font-weight: 600;
-    }
-
-    .phone-info {
-        padding: 20px;
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .phone-name {
-        font-size: 15px;
-        font-weight: 600;
-        color: #1a1a1a;
-        margin-bottom: 8px;
-    }
-
-    .phone-price {
-        font-size: 16px;
-        font-weight: 700;
-        color: #ff6a00;
+    .slide-card img {
+        width: 100%;
+        height: 140px;
+        object-fit: contain;
         margin-bottom: 10px;
     }
 
-    .phone-specs {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
+    .slide-card .name {
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
-    .spec-tag {
-        background: #f5f7fa;
-        padding: 4px 8px;
-        border-radius: 4px;
+    .slide-card .price {
+        font-size: 14px;
+        font-weight: 700;
+        color: #ff6a00;
+        margin-bottom: 5px;
+    }
+
+    .slide-card .spec {
         font-size: 11px;
-        color: #666;
+        color: #888;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
-    .compare-btn {
-        width: 100%;
-        padding: 10px;
-        margin-top: auto; /* Push to bottom */
-        background: #fff;
-        border: 1px solid #e0e0e0;
-        border-radius: 4px;
-        color: #555;
-        font-weight: 500;
+    .slider-nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-80%);
+        width: 35px;
+        height: 35px;
+        background: white;
+        border-radius: 50%;
+        border: 1px solid #eee;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
-        transition: all 0.3s;
-        font-family: 'Poppins', sans-serif;
+        z-index: 10;
+        transition: 0.3s;
     }
 
-    .compare-btn:hover {
+    .slider-nav-btn:hover {
         background: #ff6a00;
         color: white;
         border-color: #ff6a00;
     }
+
+    .slider-nav-btn.prev { left: 0; }
+    .slider-nav-btn.next { right: 0; }
 
     /* Mobile Adjustments */
     @media (max-width: 768px) {
@@ -479,23 +658,11 @@
             align-items: center;
             text-align: center;
         }
-        .retail-left h1 {
-            font-size: 32px;
-        }
-        .phone-image {
-            height: 160px;
-        }
-        .phone-info {
-            padding: 15px;
-        }
-        .search-btn {
-            width: 100%;
-            justify-content: center;
-        }
-        /* Ensure 2 items per row on mobile for brands */
-        .brand-col {
-            width: 50%;
-        }
+        .retail-left h1 { font-size: 32px; }
+        .search-btn { width: 100%; justify-content: center; }
+        .brand-col { width: 50%; }
+        .slider-nav-btn { display: none; }
+        .slide-card { width: 150px; }
     }
 
     /* Animations */
@@ -504,28 +671,16 @@
         to { opacity: 1; transform: translateY(0); }
     }
 
-    .phone-card {
-        animation: fadeIn 0.5s ease-out forwards;
-    }
-
-    .loading {
-        opacity: 0.7;
-        pointer-events: none;
-    }
-
+    .loading { opacity: 0.7; pointer-events: none; }
     .spinner {
-        width: 20px;
-        height: 20px;
+        width: 20px; height: 20px;
         border: 2px solid #fff;
         border-top-color: transparent;
         border-radius: 50%;
         animation: spin 0.8s linear infinite;
         display: inline-block;
     }
-
-    @keyframes spin {
-        to { transform: rotate(360deg); }
-    }
+    @keyframes spin { to { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
@@ -538,25 +693,41 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-        <a class="navbar-brand logo" href="#"><i class="fas fa-mobile-alt"></i> Phone<span>Search</span></a>
+        <a class="navbar-brand logo" href="#">
+    <img src="./white_logo.png" alt="Maaney Store Logo" style="height:40px;">
+</a>
         
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" >
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse" id="navbarNav" style="background-color: #fff;">
+            <!-- Mobile Search Bar -->
+            <div class="mobile-search-bar">
+                <input type="text" placeholder="Search phones..." class="mobile-search-input" id="mobileSearchInput" oninput="handleMobileSearch(this.value)">
+                <div id="mobileSearchResults" class="mobile-results-container"></div>
+            </div>
+
             <ul class="navbar-nav m-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Mobiles</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Compare</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Reviews</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Videos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
             </ul>
+            
             <div class="d-flex gap-3 align-items-center">
-                <div class="search-icon d-none d-md-flex">
-                    <i class="fas fa-search"></i>
+                <!-- Desktop Search (Hidden on mobile) -->
+                <div class="desktop-search-container">
+                    <input type="text" id="desktopSearchInput" class="desktop-search-input" placeholder="Search phone name...">
+                    <div class="search-icon" onclick="toggleDesktopSearch()">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <!-- Dropdown -->
+                    <div id="desktopSearchResults" class="search-dropdown-menu"></div>
                 </div>
-                <a href="#" class="login-btn">Login</a>
+                
+                
             </div>
         </div>
     </div>
@@ -564,15 +735,14 @@
 
 <!-- Hero Section -->
 <div class="hero-section">
-    <div class="container-fluid px-md-5"> <!-- Increased width container -->
+    <div class="container-fluid px-md-5">
         <div class="hero-content">
             <h1 class="title">
-                Simplify Your <span class="phone-badge">Phone</span> Search!
+                Simplify Your <span class="phone-badge"> Phone </span> Search!
             </h1>
             
             <div class="search-tool">
                 <div class="row g-3">
-                    <!-- Field 1 -->
                     <div class="col-md-3 col-sm-6">
                         <div class="field">
                             <label>I'm looking for</label>
@@ -584,50 +754,51 @@
                         </div>
                     </div>
                     
-                    <!-- Field 2 -->
                     <div class="col-md-3 col-sm-6">
                         <div class="field">
                             <label>Brand</label>
                             <select id="brand" class="form-select">
-                                <option>All Brands</option>
-                                <option>Samsung</option>
-                                <option>Apple</option>
-                                <option>OnePlus</option>
-                                <option>Xiaomi</option>
-                                <option>Realme</option>
+                                <option value="All">All Brands</option>
+                                <option value="Samsung">Samsung</option>
+                                <option value="Apple">Apple</option>
+                                <option value="OnePlus">OnePlus</option>
+                                <option value="Xiaomi">Xiaomi</option>
+                                <option value="Realme">Realme</option>
+                                <option value="Vivo">Vivo</option>
+                                <option value="Oppo">Oppo</option>
+                                <option value="Motorola">Motorola</option>
+                                <option value="POCO">POCO</option>
+                                <option value="Infinix">Infinix</option>
                             </select>
                         </div>
                     </div>
                     
-                    <!-- Field 3 -->
                     <div class="col-md-3 col-sm-6">
                         <div class="field">
                             <label>Price Under</label>
                             <select id="price" class="form-select">
-                                <option>₹10,000</option>
-                                <option>₹15,000</option>
-                                <option>₹20,000</option>
-                                <option>₹30,000</option>
-                                <option>₹50,000</option>
-                                <option>No Limit</option>
+                                <option value="999999">No Limit</option>
+                                <option value="10000">₹10,000</option>
+                                <option value="15000">₹15,000</option>
+                                <option value="20000">₹20,000</option>
+                                <option value="30000">₹30,000</option>
+                                <option value="50000">₹50,000</option>
                             </select>
                         </div>
                     </div>
                     
-                    <!-- Field 4 -->
                     <div class="col-md-3 col-sm-6">
                         <div class="field">
                             <label>Features</label>
                             <select id="features" class="form-select">
-                                <option>Overall</option>
-                                <option>Camera</option>
-                                <option>Battery</option>
-                                <option>Gaming</option>
+                                <option value="Overall">Overall</option>
+                                <option value="Camera">Camera</option>
+                                <option value="Battery">Battery</option>
+                                <option value="Gaming">Gaming</option>
                             </select>
                         </div>
                     </div>
 
-                    <!-- Button -->
                     <div class="col-12 text-center">
                         <button class="search-btn" onclick="performSearch()">
                             <i class="fas fa-search"></i> Search Phones
@@ -639,31 +810,18 @@
     </div>
 </div>
 
-<!-- Retail 100 Section (Full Width) -->
+<!-- Retail 100 Section -->
 <div class="container-fluid p-0">
     <div class="retail-wrapper row g-0">
-
-        <!-- Left Side -->
         <div class="col-md-4 retail-left d-flex flex-column justify-content-center align-items-center text-center"
              style="min-height:100%; padding:60px 20px;">
-
-            <h2 style="margin-bottom:12px; font-weight:500;">
-                Market 100 Ranking
-            </h2>
-
-            <h1 style="font-weight:700; line-height:1.2; margin:0;">
-                TOP 10 MOST<br>VALUABLE BRANDS
-            </h1>
-
+            <h2 style="margin-bottom:12px; font-weight:500;">Market 100 Ranking</h2>
+            <h1 style="font-weight:700; line-height:1.2; margin:0;">TOP 10 MOST<br>VALUABLE BRANDS</h1>
         </div>
 
-        <!-- Right Side -->
         <div class="col-md-8 retail-right">
-            <div class="row g-3" id="brandsGrid">
-                <!-- Brands will be injected here by JS -->
-            </div>
+            <div class="row g-3" id="brandsGrid"></div>
         </div>
-
     </div>
 </div>
 
@@ -673,53 +831,38 @@
         <i class="fas fa-fire" style="color: #ff6a00;"></i>
         Trending Searches
     </div>
-    <!-- Inline scrolling container -->
-    <div class="trending-container" id="trendingTags">
-        <!-- Tags will be injected here by JS -->
-    </div>
+    <div class="trending-container" id="trendingTags"></div>
 </div>
 
-<!-- Most Searched Phones -->
-<div class="container py-5">
+<!-- Search Results Container (Initially Hidden) -->
+<div class="container py-5" id="searchResultsContainer" style="display:none;">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="section-title">Most Searched Phones</h2>
-        <a href="#" class="view-all">View All <i class="fas fa-chevron-right"></i></a>
+        <h2 class="section-title" id="resultsTitle">Search Results</h2>
+        <a href="#" class="view-all" onclick="resetView()">clear <i class="fas fa-chevron-right"></i></a>
     </div>
-    
-    <div class="row phones-grid" id="phonesGrid">
-        <!-- Phones will be injected here by JS -->
-    </div>
+    <div class="row phones-grid" id="phonesGrid"></div>
 </div>
+
+<!-- Brand Sliders Container -->
+<div id="slidersContainer"></div>
 
 <!-- Bootstrap JS Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
     // --- Data Definitions ---
-
     const brandsData = [
-
-{ rank: 1, name: "Samsung", img: "https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg", value: "Galaxy Series Leader", growth: "+8.5%", flag: "kr" },
-
-{ rank: 2, name: "Apple", img: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg", value: "iPhone Market Leader", growth: "+6.2%", flag: "us" },
-
-{ rank: 3, name: "Xiaomi", img: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Xiaomi_logo_%282021-%29.svg", value: "Strong Budget Phones", growth: "+5.1%", flag: "cn" },
-
-{ rank: 4, name: "Oppo", img: "https://upload.wikimedia.org/wikipedia/commons/9/94/OPPO_LOGO_2019.svg", value: "Camera Focused", growth: "+4.3%", flag: "cn" },
-
-{ rank: 5, name: "Vivo", img: "https://upload.wikimedia.org/wikipedia/commons/7/77/Vivo_logo_2019.svg", value: "Popular in Asia", growth: "+3.8%", flag: "cn" },
-
-{ rank: 6, name: "Realme", img: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Realme_logo.svg", value: "Youth Focus Brand", growth: "+7.4%", flag: "cn" },
-
-{ rank: 7, name: "OnePlus", img: "https://upload.wikimedia.org/wikipedia/commons/b/b6/Oneplus_logo.svg", value: "Flagship Killer", growth: "+4.9%", flag: "cn" },
-
-{ rank: 8, name: "Motorola", img: "https://upload.wikimedia.org/wikipedia/commons/4/45/Motorola_logo.svg", value: "Edge Series Phones", growth: "+2.6%", flag: "us" },
-
-{ rank: 9, name: "Nothing", img: "https://upload.wikimedia.org/wikipedia/commons/9/99/Nothing_logo.svg", value: "Innovative Design", growth: "+9.1%", flag: "uk" },
-
-{ rank: 10, name: "Google Pixel", img: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg", value: "AI Camera Phones", growth: "+5.7%", flag: "us" }
-
-];
+        { rank: 1, name: "Samsung", img: "https://www.freepnglogos.com/uploads/classic-samsung-logo-png-0.png", users: "1.2B+ Users", value: "Galaxy Series Leader", link: "#" },
+        { rank: 2, name: "Apple", img: "https://cdn-icons-png.flaticon.com/512/0/747.png", users: "1B+ Users", value: "iPhone Market Leader", link: "#" },
+        { rank: 3, name: "Xiaomi", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Xiaomi_logo_%282021-%29.svg/500px-Xiaomi_logo_%282021-%29.svg.png", users: "700M+ Users", value: "Strong Budget Phones", link: "#" },
+        { rank: 4, name: "Vivo", img: "https://crystalpng.com/wp-content/uploads/2025/05/vivo-logo.png", users: "500M+ Users", value: "Popular in Asia", link: "#" },
+        { rank: 5, name: "Oppo", img: "https://crystalpng.com/wp-content/uploads/2025/05/oppo-logo.png", users: "450M+ Users", value: "Camera Focused", link: "#" },
+        { rank: 6, name: "Realme", img: "https://upload.wikimedia.org/wikipedia/commons/9/91/Realme_logo.png", users: "200M+ Users", value: "Youth Focus Brand", link: "#" },
+        { rank: 7, name: "Motorola", img: "https://1000logos.net/wp-content/uploads/2017/04/Motorola-Logo.png", users: "150M+ Users", value: "Edge Series Phones", link: "#" },
+        { rank: 8, name: "OnePlus", img: "https://cdn.worldvectorlogo.com/logos/oneplus-5.svg", users: "120M+ Users", value: "Flagship Killer", link: "#" },
+        { rank: 9, name: "Google Pixel", img: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg", users: "80M+ Users", value: "AI Camera Phones", link: "#" },
+        { rank: 10, name: "Nothing", img: "https://www.pngall.com/wp-content/uploads/13/Nothing-Phone-Logo-PNG.png", users: "20M+ Users", value: "Innovative Design", link: "#" }
+    ];
 
     const trendingTagsData = [
         "iQOO 13", "Moto G08 Power", "Moto G06", "Samsung Galaxy M17 5G", 
@@ -727,140 +870,351 @@
     ];
 
     const phonesData = [
-        { name: "Apple iPhone 17", price: "₹79,990", badge: "NEW", icon: "fab fa-apple", specs: ["6.7\"", "A19 Chip"] },
-        { name: "CMF Phone 2 Pro", price: "₹19,999", badge: null, icon: "fas fa-mobile-alt", color: "#11998e", specs: ["6.5\"", "Dimensity"] },
-        { name: "iQOO Neo 10", price: "₹34,990", badge: null, icon: "fas fa-bolt", color: "#f5576c", specs: ["6.78\"", "Snapdragon"] },
-        { name: "Motorola Edge 60 Pro", price: "₹29,999", badge: null, icon: "fas fa-mobile-alt", color: "#4facfe", specs: ["6.7\"", "144Hz"] },
-        { name: "Nothing Phone (3a)", price: "₹24,999", badge: "TRENDING", badgeColor: "#333", icon: "fas fa-circle", color: "#ff9a9e", specs: ["Glyph", "Stock Android"] },
-        { name: "Samsung Galaxy S25", price: "₹89,999", badge: "NEW", icon: "fas fa-mobile-alt", color: "#333", specs: ["6.8\"", "Exynos"] }
+        { name: "Xiaomi 17 5G", price: "₹69,999", badge: "Expected", img: "./mobiles/xiaomi-17-5g/image1.png", url: "./mobiles/xiaomi-17-5g", specs: ["6.8\" OLED", "Snapdragon 8 Elite"] },
+        { name: "POCO X8 Pro Max 5G", price: "₹57,000", badge: "Coming Soon", img: "./mobiles/poco-x8-pro-max-5g/image1.png", url: "./mobiles/poco-x8-pro-max-5g", specs: ["6.83\" OLED", "Dimensity 9500s"] },
+        { name: "Realme C83 5G", price: "₹14,499", badge: "Available", img: "./mobiles/realme-c83-5g/image1.png", url: "./mobiles/realme-c83-5g", specs: ["6.7\" 144Hz", "Dimensity 6300"] },
+        { name: "Motorola Edge 70 Fusion 5G", price: "₹26,999", badge: "Coming Soon", img: "./mobiles/motorola-edge-70-fusion/image1.png", url: "./mobiles/motorola-edge-70-fusion", specs: ["6.78\" pOLED", "Snapdragon 7s Gen4"] },
+        { name: "OnePlus 15T 5G", price: "₹59,999", badge: "Coming Soon", img: "./mobiles/oneplus-15T/image1.png", url: "./mobiles/oneplus-15T", specs: ["6.3\" AMOLED", "Snapdragon 8 Elite"] },
+        { name: "Vivo X300 FE 5G", price: "₹54,999", badge: "Coming Soon", img: "./mobiles/vivo-x300-fe/image1.png", url: "./mobiles/vivo-x300-fe", specs: ["6.31\" AMOLED", "Snapdragon 8 Gen5"] },
+        { name: "Apple iPhone 17e", price: "₹64,900", badge: "Coming Soon", img: "./mobiles/apple-iphone-17e/image1.png", url: "./mobiles/apple-iphone-17e", specs: ["6.1\" OLED", "Apple A19"] },
+        { name: "AI+ Pulse 2", price: "₹6,999", badge: "Coming Soon", img: "./mobiles/ai-pulse-2/image1.png", url: "./mobiles/ai-pulse-2", specs: ["6.78\" 120Hz", "Unisoc T7250"] },
+        { name: "Samsung Galaxy S26", price: "₹79,999", badge: "Available", img: "./mobiles/samsung-s26/image1.png", url: "./mobiles/samsung-s26", specs: ["6.3\" AMOLED", "Flagship Chip"] },
+        { name: "Vivo V70 Elite", price: "₹51,999", badge: "Available", img: "./mobiles/vivo-v70/image2.png", url: "./mobiles/vivo-v70-elite", specs: ["6.59\" AMOLED", "Snapdragon 8s Gen3"] },
+        { name: "Realme P4 Lite", price: "₹10,999", badge: "Available", img: "./mobiles/realme-p4-lite/image1.png", url: "./mobiles/realme-p4-lite", specs: ["6.74\" 90Hz", "6300mAh"] },
+        { name: "iQOO 15R 5G", price: "₹44,999", badge: "Available", img: "./mobiles/iqoo-15r/image4.png", url: "./mobiles/iqoo-15r", specs: ["6.59\" AMOLED", "Snapdragon 8 Gen5"] },
+        { name: "Infinix Note Edge 5G", price: "₹19,999", badge: "Available", img: "./mobiles/infinix-note-edge-5g/image1.png", url: "./mobiles/infinix-note-edge-5g", specs: ["6.78\" AMOLED", "Dimensity 7100"] },
+        { name: "Vivo V70 5G", price: "₹39,999", badge: "Available", img: "./mobiles/vivo-v70/image1.png", url: "./mobiles/vivo-v70", specs: ["6.7\" AMOLED", "ZEISS Camera"] },
+        { name: "POCO M7 5G", price: "₹11,499", badge: "Trending", img: "./mobiles/mobileU10k/p.png", url: "/mobiles/poco-m7-5g", specs: ["120Hz Display", "Snapdragon 4 Gen2"] },
+        { name: "Samsung Galaxy M06", price: "₹10,621", badge: "Trending", img: "./mobiles/mobileU10k/samsung-m06.png", url: "/mobiles/samsung-mo6", specs: ["6.7\" HD+", "Dimensity 6300"] },
+        { name: "Redmi A4 5G", price: "₹9,678", badge: "Trending", img: "./mobiles/mobileU10k/redmi-a4-5g.png", url: "/mobiles/redmi-a4-5g", specs: ["120Hz LCD", "Snapdragon 4s Gen2"] },
+        { name: "POCO C75 5G", price: "₹8,499", badge: "Trending", img: "./mobiles/mobileU10k/poco-m75-5g.png", url: "./mobiles/poco-c75", specs: ["6.88\" 120Hz", "50MP Camera"] },
+        { name: "Moto G06 Power", price: "₹7,999", badge: "Trending", img: "./mobiles/mobileU10k/moto-g06-5g.png", url: "/mobiles/moto-go6", specs: ["6000mAh Battery", "50MP Camera"] },
+        { name: "Lava Storm Play 5G", price: "₹10,473", badge: "Trending", img: "./mobiles/mobileU10k/lava-storm-play-5g.png", url: "https://fktr.in/oSjtMi6", specs: ["Dimensity 7050", "120Hz Display"] },
+        { name: "Oppo A3X 5G", price: "₹15,999", badge: "Trending", img: "./mobiles/mobileU10k/oppo-a3x-5g.png", url: "https://fktr.in/meABz01", specs: ["120Hz IPS", "Dimensity 6300"] },
+        { name: "Redmi 13C 5G", price: "₹11,483", badge: "Trending", img: "./mobiles/mobileU10k/redmi-13c-5g.png", url: "https://fktr.in/UxzcxMz", specs: ["90Hz Display", "Dimensity 6100+"] },
+        { name: "Samsung Galaxy A07", price: "₹7,986", badge: "Trending", img: "./mobiles/mobileU10k/galaxy-a07-5g.png", url: "https://fktr.in/BUnzaCs", specs: ["Helio G85", "50MP Camera"] }
     ];
 
     // --- Render Functions ---
 
     function renderBrands() {
         const container = document.getElementById('brandsGrid');
-        const html = brandsData.map(brand => {
-            return `
-                <div class="col-6"> <!-- 2 items per row -->
+        container.innerHTML = brandsData.map(brand => `
+            <div class="col-6">
+                <a href="${brand.link}" style="text-decoration:none;color:inherit;">
                     <div class="brand-box">
                         <div class="brand-left">
                             <img src="${brand.img}" alt="${brand.name}">
                             <div class="brand-info">
                                 <div class="rank">${brand.rank}</div>
                                 <div class="value">${brand.value}</div>
-                                <div class="growth">${brand.growth}</div>
+                                <div class="growth">${brand.users}</div>
                             </div>
                         </div>
-                        
                     </div>
-                </div>
-            `;
-        }).join('');
-        container.innerHTML = html;
+                </a>
+            </div>
+        `).join('');
     }
 
     function renderTags() {
         const container = document.getElementById('trendingTags');
-        const html = trendingTagsData.map(tag => {
-            return `<div class="tag" onclick="searchTag('${tag}')">${tag}</div>`;
-        }).join('');
-        container.innerHTML = html;
+        container.innerHTML = trendingTagsData.map(tag => `
+            <div class="tag" onclick="searchTag('${tag}')">${tag}</div>
+        `).join('');
     }
 
-    function renderPhones() {
+    // Renders main search results grid
+    function renderPhones(data) {
         const container = document.getElementById('phonesGrid');
-        const html = phonesData.map((phone, index) => {
-            const badgeHtml = phone.badge 
-                ? `<div class="phone-badge-new" ${phone.badgeColor ? `style="background:${phone.badgeColor}"` : ''}>${phone.badge}</div>` 
-                : '';
-            
-            const specHtml = phone.specs.map(s => `<span class="spec-tag">${s}</span>`).join('');
+        
+        if(data.length === 0) {
+            container.innerHTML = `
+                <div class="col-12 text-center py-5">
+                    <i class="fas fa-search" style="font-size: 48px; color: #ddd; margin-bottom: 15px;"></i>
+                    <h4 style="color: #666;">No phones found matching your criteria.</h4>
+                </div>
+            `;
+            return;
+        }
+
+        container.innerHTML = data.map(phone => {
+            const badgeHtml = phone.badge ? `<div style="position:absolute;top:10px;left:10px;background:${phone.badgeColor || '#ff3b30'};color:#fff;font-size:11px;padding:4px 8px;border-radius:6px;font-weight:600;">${phone.badge}</div>` : "";
+            const specHtml = phone.specs.map(spec => `<span style="font-size:11px;background:#f3f4f6;padding:3px 6px;border-radius:5px;margin-right:4px;">${spec}</span>`).join("");
 
             return `
                 <div class="col-6 col-md-4 col-lg-3">
-                    <div class="phone-card" onclick="selectPhone('${phone.name}')">
-                        <div class="phone-image">
-                            ${badgeHtml}
-                            <div class="phone-img-placeholder" style="color: ${phone.color || '#ccc'}">
-                                <i class="${phone.icon}"></i>
+                    <a href="${phone.url}" style="text-decoration:none;color:inherit;display:block;margin-bottom:10px;">
+                        <div style="background:#fff;border-radius:6px;padding:14px;height:100%;box-shadow:0 4px 12px rgba(0,0,0,0.05);transition:0.2s;display:flex;flex-direction:column;">
+                            <div style="position:relative;text-align:center;margin-bottom:10px;">
+                                ${badgeHtml}
+                                <img src="${phone.img}" alt="${phone.name}" loading="lazy" style="width:100%;height:160px;object-fit:contain;">
                             </div>
-                        </div>
-                        <div class="phone-info">
-                            <div class="phone-name">${phone.name}</div>
-                            <div class="phone-price">${phone.price}</div>
-                            <div class="phone-specs">
-                                ${specHtml}
+                            <div style="flex-grow:1;">
+                                <div style="font-size:14px;font-weight:600;margin-bottom:4px;">${phone.name}</div>
+                                <div style="font-size:13px;color:#16a34a;font-weight:600;margin-bottom:6px;">${phone.price}</div>
+                                <div style="margin-bottom:10px;">${specHtml}</div>
                             </div>
-                            <br>
-                            <button class="compare-btn mt-auto"><i class="far fa-plus-square"></i> Compare</button>
+                            <button style="border:none;background:#f1f5f9;font-size:13px;padding:6px;border-radius:8px;cursor:pointer;">
+                                <i class="far fa-plus-square"></i> Compare
+                            </button>
                         </div>
+                    </a>
+                </div>
+            `;
+        }).join("");
+    }
+
+    // Renders the Slider Sections
+    function renderSliders() {
+        const container = document.getElementById('slidersContainer');
+        
+        const sections = [
+            { title: "Popular Mobiles", filter: () => true },
+            { title: "Samsung Mobiles", filter: (p) => p.name.toLowerCase().includes('samsung') || p.name.toLowerCase().includes('galaxy') },
+            { title: "Apple iPhones", filter: (p) => p.name.toLowerCase().includes('apple') || p.name.toLowerCase().includes('iphone') },
+            { title: "Xiaomi & Redmi", filter: (p) => p.name.toLowerCase().includes('xiaomi') || p.name.toLowerCase().includes('redmi') || p.name.toLowerCase().includes('poco') },
+            { title: "Vivo & Oppo", filter: (p) => p.name.toLowerCase().includes('vivo') || p.name.toLowerCase().includes('oppo') },
+            { title: "Motorola & Realme", filter: (p) => p.name.toLowerCase().includes('moto') || p.name.toLowerCase().includes('motorola') || p.name.toLowerCase().includes('realme') }
+        ];
+
+        container.innerHTML = sections.map(sec => {
+            const filtered = phonesData.filter(sec.filter);
+            if(filtered.length === 0) return '';
+
+            return `
+                <div class="container slider-section">
+                    <div class="slider-header">
+                        <h3 class="slider-title">${sec.title}</h3>
+                        <a href="#" class="view-all-btn" onclick="viewAllInSection('${sec.title}')">View All</a>
+                    </div>
+                    <div class="slider-container">
+                        <button class="slider-nav-btn prev" onclick="slide(this, -1)"><i class="fas fa-chevron-left"></i></button>
+                        <div class="product-slider">
+                            ${filtered.map(phone => `
+                                <a href="${phone.url}" class="slide-card">
+                                    <img src="${phone.img}" alt="${phone.name}">
+                                    <div class="name">${phone.name}</div>
+                                    <div class="price">${phone.price}</div>
+                                    <span class="spec">${phone.specs[0]}</span>
+                                </a>
+                            `).join('')}
+                        </div>
+                        <button class="slider-nav-btn next" onclick="slide(this, 1)"><i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
             `;
         }).join('');
-        container.innerHTML = html;
     }
 
-    // --- Interaction Functions ---
+    function slide(btn, direction) {
+        const slider = btn.parentElement.querySelector('.product-slider');
+        slider.scrollBy({ left: 200 * direction, behavior: 'smooth' });
+    }
 
+    // --- Search Logic ---
+
+    function parsePrice(priceStr) {
+        if (!priceStr) return 0;
+        return parseInt(priceStr.replace(/[^0-9]/g, ''));
+    }
+
+    // Main Search Tool
     function performSearch() {
-        const category = document.getElementById('category').value;
         const brand = document.getElementById('brand').value;
-        const price = document.getElementById('price').value;
-        const features = document.getElementById('features').value;
-        
+        const priceLimit = parseInt(document.getElementById('price').value);
+        const feature = document.getElementById('features').value;
+
         const btn = document.querySelector('.search-btn');
         const originalHTML = btn.innerHTML;
         
         btn.innerHTML = '<span class="spinner"></span> Searching...';
         btn.classList.add('loading');
         
-        console.log('Searching for:', { category, brand, price, features });
-        
+        const filteredPhones = phonesData.filter(phone => {
+            const brandMatch = (brand === 'All') || (phone.name.toLowerCase().includes(brand.toLowerCase()));
+            const phonePrice = parsePrice(phone.price);
+            const priceMatch = phonePrice <= priceLimit;
+            let featureMatch = true;
+            
+            if (feature !== 'Overall') {
+                const specString = phone.specs.join(' ').toLowerCase();
+                if (feature === 'Camera') featureMatch = specString.includes('camera') || specString.includes('mp');
+                else if (feature === 'Battery') featureMatch = specString.includes('battery') || specString.includes('mah');
+                else if (feature === 'Gaming') featureMatch = specString.includes('snapdragon') || specString.includes('dimensity');
+            }
+
+            return brandMatch && priceMatch && featureMatch;
+        });
+
         setTimeout(() => {
             btn.innerHTML = originalHTML;
             btn.classList.remove('loading');
-            document.querySelector('.container.py-5').scrollIntoView({ behavior: 'smooth' });
-        }, 800);
+            
+            document.getElementById('slidersContainer').style.display = 'none';
+            document.getElementById('searchResultsContainer').style.display = 'block';
+            
+            document.getElementById('resultsTitle').textContent = `Search Results (${filteredPhones.length} found)`;
+            renderPhones(filteredPhones);
+            
+            document.getElementById('searchResultsContainer').scrollIntoView({ behavior: 'smooth' });
+        }, 600);
     }
 
-    function searchTag(tagName) {
-        const tags = document.querySelectorAll('.tag');
-        tags.forEach(tag => {
-            tag.classList.remove('active');
-            if (tag.textContent === tagName) {
-                tag.classList.add('active');
-            }
-        });
-        
-        console.log('Searching for tag:', tagName);
+    function resetView() {
+        document.getElementById('slidersContainer').style.display = 'block';
+        document.getElementById('searchResultsContainer').style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function viewAllInSection(title) {
+        const brandMap = {
+            'Samsung Mobiles': 'Samsung',
+            'Apple iPhones': 'Apple',
+            'Xiaomi & Redmi': 'Xiaomi'
+        };
         
         const brandDropdown = document.getElementById('brand');
         const options = brandDropdown.options;
         for (let i = 0; i < options.length; i++) {
-            if (options[i].text === tagName) {
+            if (options[i].value === brandMap[title]) {
                 brandDropdown.selectedIndex = i;
-                break;
             }
         }
         performSearch();
     }
 
-    function selectPhone(phoneName) {
-        console.log('Selected phone:', phoneName);
-        const card = event.currentTarget;
-        const btn = card.querySelector('.compare-btn');
+    // --- Desktop Search Dropdown Logic ---
+    
+    function toggleDesktopSearch() {
+        const input = document.getElementById('desktopSearchInput');
+        const resultsBox = document.getElementById('desktopSearchResults');
         
-        if (btn.textContent.includes('Add')) {
-            btn.innerHTML = '<i class="fas fa-check-square"></i> Added';
-            btn.style.background = '#ff6a00';
-            btn.style.color = 'white';
-            btn.style.borderColor = '#ff6a00';
+        input.classList.toggle('active');
+        
+        if (input.classList.contains('active')) {
+            input.focus();
+            // If already has text, show results immediately
+            if(input.value.length > 0) {
+                handleDesktopSearch(input.value);
+            }
         } else {
-            btn.innerHTML = '<i class="far fa-plus-square"></i> Add to Compare';
-            btn.style.background = 'white';
-            btn.style.color = '#555';
-            btn.style.borderColor = '#e0e0e0';
+            resultsBox.classList.remove('show');
+        }
+    }
+
+    function handleDesktopSearch(query) {
+        const resultsBox = document.getElementById('desktopSearchResults');
+        
+        if (query.length < 2) {
+            resultsBox.classList.remove('show');
+            return;
+        }
+
+        const filtered = phonesData.filter(phone => 
+            phone.name.toLowerCase().includes(query.toLowerCase())
+        );
+
+        if (filtered.length === 0) {
+            resultsBox.innerHTML = `<div class="search-no-result">No phones found.</div>`;
+        } else {
+            resultsBox.innerHTML = filtered.map(phone => `
+                <a href="${phone.url}" class="search-result-item">
+                    <img src="${phone.img}" alt="${phone.name}">
+                    <div class="search-result-info">
+                        <h6>${phone.name}</h6>
+                        <p>${phone.specs.join(' • ')}</p>
+                    </div>
+                </a>
+            `).join('');
+        }
+        resultsBox.classList.add('show');
+    }
+
+    // --- Mobile Search Logic ---
+
+    function handleMobileSearch(query) {
+        const resultsBox = document.getElementById('mobileSearchResults');
+        
+        if (query.length < 2) {
+            resultsBox.classList.remove('show');
+            return;
+        }
+
+        const filtered = phonesData.filter(phone => 
+            phone.name.toLowerCase().includes(query.toLowerCase())
+        );
+
+        if (filtered.length === 0) {
+            resultsBox.innerHTML = `<div class="search-no-result">No phones found.</div>`;
+        } else {
+            resultsBox.innerHTML = filtered.map(phone => `
+                <a href="${phone.url}" class="search-result-item" style="border-bottom:1px solid #eee;">
+                    <img src="${phone.img}" alt="${phone.name}">
+                    <div class="search-result-info">
+                        <h6>${phone.name}</h6>
+                        <p>${phone.specs.join(' • ')}</p>
+                    </div>
+                </a>
+            `).join('');
+        }
+        resultsBox.classList.add('show');
+    }
+
+    // --- Event Listeners ---
+    
+    // Listen for typing in desktop input
+    document.getElementById('desktopSearchInput').addEventListener('input', (e) => {
+        handleDesktopSearch(e.target.value);
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+        // Desktop
+        const desktopContainer = document.querySelector('.desktop-search-container');
+        if (desktopContainer && !desktopContainer.contains(e.target)) {
+            document.getElementById('desktopSearchResults').classList.remove('show');
+            // Optional: close input too
+            // document.getElementById('desktopSearchInput').classList.remove('active');
+        }
+        
+        // Mobile
+        const mobileContainer = document.querySelector('.mobile-search-bar');
+        if (mobileContainer && !mobileContainer.contains(e.target)) {
+            document.getElementById('mobileSearchResults').classList.remove('show');
+        }
+    });
+
+    function searchTag(tagName) {
+        // Sync both inputs
+        const desktopInput = document.getElementById('desktopSearchInput');
+        const mobileInput = document.getElementById('mobileSearchInput');
+        
+        if(desktopInput) desktopInput.value = tagName;
+        if(mobileInput) mobileInput.value = tagName;
+
+        // Try brand match first
+        const brandDropdown = document.getElementById('brand');
+        const options = brandDropdown.options;
+        let found = false;
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].value === tagName || options[i].text === tagName) {
+                brandDropdown.selectedIndex = i;
+                found = true;
+                break;
+            }
+        }
+
+        if(found) {
+            performSearch();
+        } else {
+            // If not a brand name, trigger general search
+            handleDesktopSearch(tagName);
+            handleMobileSearch(tagName);
+            
+            // Force show dropdowns
+            document.getElementById('desktopSearchResults').classList.add('show');
+            document.getElementById('mobileSearchResults').classList.add('show');
         }
     }
 
@@ -868,27 +1222,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         renderBrands();
         renderTags();
-        renderPhones();
-
-        // Observer for animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        // Observe dynamic elements after they are rendered
-        setTimeout(() => {
-            document.querySelectorAll('.phone-card').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'all 0.5s ease-out';
-                observer.observe(card);
-            });
-        }, 100);
+        renderSliders();
     });
 </script>
 
