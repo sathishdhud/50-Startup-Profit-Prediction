@@ -669,11 +669,12 @@
 
     /* TRENDING NEWS STYLES */
     .trending-news-card {
-        background: #fff;
+        background: #000000;
         border: 1px solid #eee;
         border-radius:2px;
         padding: 20px;
         margin-bottom: 30px;
+        color: white;
     }
 
     .trending-title-wrapper {
@@ -700,7 +701,7 @@
     .trending-title {
         font-size: 16px;
         font-weight: 700;
-        color: #000;
+        color: #ffffff;
         margin: 0;
     }
 
@@ -735,7 +736,7 @@
     .trending-item-title {
         font-size: 13px;
         font-weight: 600;
-        color: #111;
+        color: #ffffff;
         line-height: 1.4;
         margin: 0 0 6px 0;
         display: -webkit-box;
@@ -943,7 +944,12 @@ If the problem becomes widespread, Motorola may need to provide <span style="col
 </div>
 
 <!-- SEPARATOR -->
-<hr class="story-separator">
+<div style="display:flex;align-items:center;gap:12px;margin:30px 0;">
+  <span style="font-weight:600;font-size:14px;color:#333;border-left:4px solid #ff3d00;padding-left:8px;">
+    Next Story
+  </span>
+  <hr style="flex:1;border:none;height:2px;background:#242424;margin:0;">
+</div>
 
          <!-- ================= ARTICLE 2: ONEPLUS ================= -->
 <h1 class="main-title" style="font-weight:bold;">
@@ -989,7 +995,12 @@ OnePlus has also teased a launch package that appears to include a smartphone, s
 </div>
 
 <!-- SEPARATOR -->
-<hr class="story-separator">
+<div style="display:flex;align-items:center;gap:12px;margin:30px 0;">
+  <span style="font-weight:600;font-size:14px;color:#333;border-left:4px solid #ff3d00;padding-left:8px;">
+    Next Story
+  </span>
+  <hr style="flex:1;border:none;height:2px;background:#242424;margin:0;">
+</div>
 
          <!-- ================= ARTICLE 3: XIAOMI ================= -->
 <h1 class="main-title" style="font-weight:bold;">
@@ -1035,7 +1046,12 @@ A <span style="color:red;">Leica partnership</span> is expected for the camera. 
 </div>
 
 <!-- SEPARATOR -->
-<hr class="story-separator">
+<div style="display:flex;align-items:center;gap:12px;margin:30px 0;">
+  <span style="font-weight:600;font-size:14px;color:#333;border-left:4px solid #ff3d00;padding-left:8px;">
+    Next Story
+  </span>
+  <hr style="flex:1;border:none;height:2px;background:#242424;margin:0;">
+</div>
 
          <!-- ================= ARTICLE 4: HUAWEI ================= -->
 <h1 class="main-title" style="font-weight:bold;">
@@ -1181,13 +1197,58 @@ Follow the latest updates on Tech News from Maaney Store.
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    const articles = [
-        { id: 1, title: "Motorola Users Report Issues After Android 16 Update", link: "#", date: "2026-03-16" },
-        { id: 2, title: "OnePlus Nord 6 and Nord CE6 Expected to Launch Soon", link: "#", date: "2026-03-15" },
-        { id: 3, title: "Xiaomi May Launch Xiaomi 17T and 17T Pro Soon", link: "#", date: "2026-03-14" },
-        { id: 4, title: "Huawei Tablet Appears on Flipkart, Service Concerns Remain", link: "#", date: "2026-03-13" }
-    ];
-
+     const articles = [
+            {
+  id: 101,
+  img: "https://maaney.store/news/lava/lava-bold-2-5g-launch-hero.webp",
+  category: "Mobile News",
+  title: "Lava Bold 2 5G Launched in India: 120Hz AMOLED, Dimensity 7060 at ₹12,999",
+  excerpt: "Lava launches the Bold 2 5G in India featuring a 120Hz AMOLED display, Dimensity 7060 chipset, and Android 15. The device offers strong performance with an AnTuTu score of over 500,000.",
+  author: "Dhuda Sathish",
+  date: "2026-03-14T12:00:00",
+  link: "https://maaney.store/news/lava/lava-bold-2-5g-launch-price-specifications"
+},
+            {
+  id: 38,
+  img: "https://maaney.store/news/samsung/samsung-galaxy-m17e-price-in-india-tipped-launch-date-specifications.webp",
+  category: "Samsung News",
+  title: "Samsung Galaxy M17e Price in India Tipped Ahead of Launch with 6000mAh Battery",
+  excerpt: "Samsung Galaxy M17e price in India has been tipped ahead of its official launch. The upcoming Galaxy M series smartphone is expected to feature a 6.7-inch 120Hz display.",
+  author: "Dhuda Sathish",
+  date: "2026-03-12T18:20:00",
+  link: "https://maaney.store/news/samsung/samsung-galaxy-m17e-price-in-india-tipped-launch-date-specifications"
+},
+            {
+  id: 37,
+  img: "https://photos5.appleinsider.com/gallery/67002-140750-iPhone-8-xl.jpg",
+  category: "Apple News",
+  title: "Apple Rolls Out iOS 16.7.15 and iOS 15.8.7 Updates with Security Fixes",
+  excerpt: "Apple has released iOS 16.7.15 and iOS 15.8.7 security updates for older iPhone and iPad models, addressing critical vulnerabilities.",
+  author: "Dhuda Sathish",
+  date: "2026-03-12T14:30:00",
+  link: "https://maaney.store/news/apple/apple-ios-15-update-older-iphone-coruna-exploit-fixes"
+},
+            {
+  id: 36,
+  img: "https://cdn.beebom.com/content/2026/03/z11x-leak-price.jpg",
+  category: "Mobile News",
+  title: "iQOO Z11x 5G Launched in India with 7,200mAh Battery and Dimensity 7400 Turbo Processor",
+  excerpt: "iQOO has officially launched the iQOO Z11x 5G in India featuring a massive 7,200mAh battery and the MediaTek Dimensity 7400 Turbo processor.",
+  author: "Dhuda Sathish",
+  date: "2026-03-12T14:00:00",
+  link: "https://maaney.store/news/iqoo/iqoo-z11x-5g-launched-in-india-know-price-specs-details"
+},
+            {
+  id: 35,
+  img: "https://maaney.store/news/oneplus/oneplus-15t-design-revealed-three-colours-ultra-narrow-bezels.webp",
+  category: "Mobile News",
+  title: "OnePlus 15T Design Revealed with Three Colours and Ultra-Narrow Bezels",
+  excerpt: "OnePlus has officially revealed the design of the upcoming OnePlus 15T smartphone, showcasing three colour options and ultra-narrow bezels.",
+  author: "Dhuda Sathish",
+  date: "2026-03-12T13:30:00",
+  link: "https://maaney.store/news/oneplus/oneplus-15t-design-revealed-three-colours-ultra-narrow-bezels"
+}
+        ];
     function getTimeAgo(dateString) {
         const date = new Date(dateString);
         const now = new Date();
