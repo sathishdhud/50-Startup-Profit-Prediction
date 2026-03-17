@@ -964,11 +964,12 @@ TOP 10 MOST<br>VALUABLE BRANDS
 
 <script>
     // --- Data Definitions ---
+    // FIXED: Standardized all keys (name, url, specs, price) so search and render work correctly.
     const brandsData = [
         { rank: 1, name: "Samsung", img: "https://www.freepnglogos.com/uploads/classic-samsung-logo-png-0.png", users: "1.2B+ Users", value: "Galaxy Series Leader", link: "/mobiles/samsung" },
         { rank: 2, name: "Apple", img: "https://cdn-icons-png.flaticon.com/512/0/747.png", users: "1B+ Users", value: "iPhone Market Leader", link: "/mobiles/apple" },
-        { rank: 3, name: "Xiaomi", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Xiaomi_logo_%282021-%29.svg/500px-Xiaomi_logo_%282021-%29.svg.png", users: "700M+ Users", value: "Strong Budget Phones", link: "/mobiles/vivo" },
-        { rank: 4, name: "Vivo", img: "https://crystalpng.com/wp-content/uploads/2025/05/vivo-logo.png", users: "500M+ Users", value: "Popular in Asia", link: "#" },
+        { rank: 3, name: "Xiaomi", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Xiaomi_logo_%282021-%29.svg/500px-Xiaomi_logo_%282021-%29.svg.png", users: "700M+ Users", value: "Strong Budget Phones", link: "#" },
+        { rank: 4, name: "Vivo", img: "https://crystalpng.com/wp-content/uploads/2025/05/vivo-logo.png", users: "500M+ Users", value: "Popular in Asia", link: "/mobiles/vivo" },
         { rank: 5, name: "Oppo", img: "https://crystalpng.com/wp-content/uploads/2025/05/oppo-logo.png", users: "450M+ Users", value: "Camera Focused", link: "#" },
         { rank: 6, name: "Realme", img: "https://upload.wikimedia.org/wikipedia/commons/9/91/Realme_logo.png", users: "200M+ Users", value: "Youth Focus Brand", link: "#" },
         { rank: 7, name: "Motorola", img: "https://1000logos.net/wp-content/uploads/2017/04/Motorola-Logo.png", users: "150M+ Users", value: "Edge Series Phones", link: "#" },
@@ -983,45 +984,34 @@ TOP 10 MOST<br>VALUABLE BRANDS
     ];
 
     const phonesData = [
-         {
- brand: "Vivo",
- title: "Vivo T5x 5G",
- price: "18,999",
- old: "18,999",
- off: "-",
- cat: "Mobile",
- status: "Available",
- date: "March 2026",
- img: "./mobiles/vivo-t5x-5g/image1.png",
- link: "./mobiles/vivo-t5x-5g",
- desc: "6.72-inch IPS LCD 120Hz Display | MediaTek Dimensity 6020 Processor | 50MP Main Camera + 2MP Depth Sensor | 8MP Front Camera | 4GB/6GB/8GB RAM + 128GB Storage | 6000mAh Battery | 44W Fast Charging | Android 13 with Funtouch OS | Side Fingerprint Sensor"
-},
-      {
- brand: "Samsung",
- title: "Samsung Galaxy M17e 5G",
- price: "12,999",
- old: "14,999",
- off: "13%",
- cat: "Mobile",
- status: "Available",
- date: "March 2026",
- img: "./mobiles/samsung-m17e-5g/image1.png",
- link: "./mobiles/samsung-m17e-5g",
- desc: "6.7-inch PLS LCD 120Hz Display | MediaTek Dimensity 6300 Processor | 50MP Main Camera + 2MP Depth Sensor | 13MP Front Camera | 4GB/6GB RAM + 128GB Storage | 6000mAh Battery | 25W Fast Charging | Android 16 with One UI 8 | 6 Years OS & Security Updates"
-},
-      {
- brand: "Lava",
- title: "Lava Bold 2 5G",
- price: "12,999",
- old: "13,999",
- off: "7%",
- cat: "Mobile",
- status: "Available",
- date: "March 2026",
- img: "./mobiles/lava-bold-2-5g/image2.png",
- link: "./mobiles/lava-bold-2-5g",
- desc: "6.67-inch FHD+ AMOLED 120Hz Display | MediaTek Dimensity 7060 Processor | 50MP Sony IMX752 Main Camera + AI Secondary Camera | 8MP Front Camera | 6GB RAM + 128GB Storage | 5000mAh Battery | 33W Fast Charging | IP64 Dust & Water Resistance | Android 15"
-},
+        // Item 1: Fixed structure
+        {
+            name: "Vivo T5x 5G",
+            price: "₹18,999",
+            badge: "Available",
+            img: "./mobiles/vivo-t5x-5g/image1.png",
+            url: "./mobiles/vivo-t5x-5g",
+            specs: ["6.72-inch IPS LCD", "Dimensity 6020", "6000mAh Battery"]
+        },
+        // Item 2: Fixed structure
+        {
+            name: "Samsung Galaxy M17e 5G",
+            price: "₹12,999",
+            badge: "Available",
+            img: "./mobiles/samsung-m17e-5g/image1.png",
+            url: "./mobiles/samsung-m17e-5g",
+            specs: ["6.7-inch PLS LCD", "Dimensity 6300", "6000mAh Battery"]
+        },
+        // Item 3: Fixed structure
+        {
+            name: "Lava Bold 2 5G",
+            price: "₹12,999",
+            badge: "Available",
+            img: "./mobiles/lava-bold-2-5g/image2.png",
+            url: "./mobiles/lava-bold-2-5g",
+            specs: ["6.67-inch AMOLED", "Dimensity 7060", "5000mAh Battery"]
+        },
+        // Rest of items were already mostly correct
         { name: "Xiaomi 17 5G", price: "₹69,999", badge: "Expected", img: "./mobiles/xiaomi-17-5g/image1.png", url: "./mobiles/xiaomi-17-5g", specs: ["6.8\" OLED", "Snapdragon 8 Elite"] },
         { name: "POCO X8 Pro Max 5G", price: "₹57,000", badge: "Coming Soon", img: "./mobiles/poco-x8-pro-max-5g/image1.png", url: "./mobiles/poco-x8-pro-max-5g", specs: ["6.83\" OLED", "Dimensity 9500s"] },
         { name: "Realme C83 5G", price: "₹14,499", badge: "Available", img: "./mobiles/realme-c83-5g/image1.png", url: "./mobiles/realme-c83-5g", specs: ["6.7\" 144Hz", "Dimensity 6300"] },
@@ -1091,8 +1081,12 @@ TOP 10 MOST<br>VALUABLE BRANDS
         }
 
         container.innerHTML = data.map(phone => {
+            // Safety check for badge
             const badgeHtml = phone.badge ? `<div style="position:absolute;top:10px;left:10px;background:${phone.badgeColor || '#ff3b30'};color:#fff;font-size:11px;padding:4px 8px;border-radius:6px;font-weight:600;">${phone.badge}</div>` : "";
-            const specHtml = phone.specs.map(spec => `<span style="font-size:11px;background:#f3f4f6;padding:3px 6px;border-radius:5px;margin-right:4px;">${spec}</span>`).join("");
+            
+            // Safety check for specs array
+            const specs = (phone.specs && phone.specs.length > 0) ? phone.specs : [];
+            const specHtml = specs.map(spec => `<span style="font-size:11px;background:#f3f4f6;padding:3px 6px;border-radius:5px;margin-right:4px;">${spec}</span>`).join("");
 
             return `
                 <div class="col-6 col-md-4 col-lg-3">
@@ -1148,7 +1142,7 @@ TOP 10 MOST<br>VALUABLE BRANDS
                                     <img src="${phone.img}" alt="${phone.name}">
                                     <div class="name">${phone.name}</div>
                                     <div class="price">${phone.price}</div>
-                                    <span class="spec">${phone.specs[0]}</span>
+                                    <span class="spec">${phone.specs ? phone.specs[0] : ''}</span>
                                 </a>
                             `).join('')}
                         </div>
@@ -1184,13 +1178,15 @@ TOP 10 MOST<br>VALUABLE BRANDS
         btn.classList.add('loading');
         
         const filteredPhones = phonesData.filter(phone => {
+            // Fixed: use phone.name consistently
             const brandMatch = (brand === 'All') || (phone.name.toLowerCase().includes(brand.toLowerCase()));
             const phonePrice = parsePrice(phone.price);
             const priceMatch = phonePrice <= priceLimit;
             let featureMatch = true;
             
             if (feature !== 'Overall') {
-                const specString = phone.specs.join(' ').toLowerCase();
+                // Fixed: safety check on specs
+                const specString = (phone.specs && phone.specs.length) ? phone.specs.join(' ').toLowerCase() : '';
                 if (feature === 'Camera') featureMatch = specString.includes('camera') || specString.includes('mp');
                 else if (feature === 'Battery') featureMatch = specString.includes('battery') || specString.includes('mah');
                 else if (feature === 'Gaming') featureMatch = specString.includes('snapdragon') || specString.includes('dimensity');
@@ -1246,7 +1242,6 @@ TOP 10 MOST<br>VALUABLE BRANDS
         
         if (input.classList.contains('active')) {
             input.focus();
-            // If already has text, show results immediately
             if(input.value.length > 0) {
                 handleDesktopSearch(input.value);
             }
@@ -1275,7 +1270,7 @@ TOP 10 MOST<br>VALUABLE BRANDS
                     <img src="${phone.img}" alt="${phone.name}">
                     <div class="search-result-info">
                         <h6>${phone.name}</h6>
-                        <p>${phone.specs.join(' • ')}</p>
+                        <p>${phone.specs ? phone.specs.join(' • ') : ''}</p>
                     </div>
                 </a>
             `).join('');
@@ -1305,7 +1300,7 @@ TOP 10 MOST<br>VALUABLE BRANDS
                     <img src="${phone.img}" alt="${phone.name}">
                     <div class="search-result-info">
                         <h6>${phone.name}</h6>
-                        <p>${phone.specs.join(' • ')}</p>
+                        <p>${phone.specs ? phone.specs.join(' • ') : ''}</p>
                     </div>
                 </a>
             `).join('');
@@ -1315,22 +1310,16 @@ TOP 10 MOST<br>VALUABLE BRANDS
 
     // --- Event Listeners ---
     
-    // Listen for typing in desktop input
     document.getElementById('desktopSearchInput').addEventListener('input', (e) => {
         handleDesktopSearch(e.target.value);
     });
 
-    // Close dropdowns when clicking outside
     document.addEventListener('click', (e) => {
-        // Desktop
         const desktopContainer = document.querySelector('.desktop-search-container');
         if (desktopContainer && !desktopContainer.contains(e.target)) {
             document.getElementById('desktopSearchResults').classList.remove('show');
-            // Optional: close input too
-            // document.getElementById('desktopSearchInput').classList.remove('active');
         }
         
-        // Mobile
         const mobileContainer = document.querySelector('.mobile-search-bar');
         if (mobileContainer && !mobileContainer.contains(e.target)) {
             document.getElementById('mobileSearchResults').classList.remove('show');
@@ -1338,14 +1327,12 @@ TOP 10 MOST<br>VALUABLE BRANDS
     });
 
     function searchTag(tagName) {
-        // Sync both inputs
         const desktopInput = document.getElementById('desktopSearchInput');
         const mobileInput = document.getElementById('mobileSearchInput');
         
         if(desktopInput) desktopInput.value = tagName;
         if(mobileInput) mobileInput.value = tagName;
 
-        // Try brand match first
         const brandDropdown = document.getElementById('brand');
         const options = brandDropdown.options;
         let found = false;
@@ -1360,11 +1347,8 @@ TOP 10 MOST<br>VALUABLE BRANDS
         if(found) {
             performSearch();
         } else {
-            // If not a brand name, trigger general search
             handleDesktopSearch(tagName);
             handleMobileSearch(tagName);
-            
-            // Force show dropdowns
             document.getElementById('desktopSearchResults').classList.add('show');
             document.getElementById('mobileSearchResults').classList.add('show');
         }
