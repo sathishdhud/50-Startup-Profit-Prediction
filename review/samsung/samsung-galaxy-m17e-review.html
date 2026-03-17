@@ -1,517 +1,849 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samsung Galaxy M17e Review: Design, Display, Battery & Camera</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --fk-orange: #ff6f00;
-            --fk-dark: #1a1a1a;
-            --fk-light: #f5f5f5;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #fafafa; color: #333; line-height: 1.6; }
-        .main-page-wrapper { max-width: 1200px; margin: 0 auto; background: #fff; }
-        .blog-nav { background: #fff; padding: 12px 20px; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
-        .brand-logo img { height: 32px; }
-        .nav-links a { color: #555; text-decoration: none; font-weight: 600; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--fk-orange); }
-        .content-layout { display: flex; gap: 30px; padding: 20px; }
-        .article-column { flex: 1; max-width: 800px; }
-        .sidebar-column { width: 320px; }
-        .sticky-sidebar { position: sticky; top: 80px; }
-        .sidebar-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
-        .sidebar-title { font-size: 18px; font-weight: 700; margin-bottom: 15px; color: #000; }
-        .category-label { display: inline-block; background: var(--fk-orange); color: #fff; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-bottom: 10px; }
-        .main-title { font-size: 32px; font-weight: 800; line-height: 1.2; margin-bottom: 15px; color: #000; }
-        .blog-paragraph { font-size: 16px; line-height: 1.7; margin-bottom: 20px; color: #333; }
-        .sub-heading { font-size: 24px; font-weight: 700; margin: 30px 0 15px; color: #000; }
-        .article-section { margin-bottom: 30px; }
-        .read-more-wrapper { position: relative; }
-        .read-more-content { position: relative; overflow: hidden; max-height: 200px; transition: max-height 0.5s ease; }
-        .read-more-blur { position: absolute; bottom: 0; left: 0; right: 0; height: 60px; background: linear-gradient(transparent, #fff); pointer-events: none; }
-        .read-more-toggle { cursor: pointer; color: var(--fk-orange); font-weight: 600; font-size: 14px; text-align: center; padding: 10px; background: #fff; border: none; width: 100%; }
-        .read-more-toggle:hover { text-decoration: underline; }
-        .read-more-wrapper.expanded .read-more-content { max-height: none; }
-        .read-more-wrapper.expanded .read-more-blur { display: none; }
-        .read-more-wrapper.expanded .read-more-toggle { display: none; }
-        .spec-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        .spec-table td { padding: 10px; border-bottom: 1px solid #eee; font-size: 14px; }
-        .spec-table td:first-child { font-weight: 600; color: #555; width: 40%; }
-        .trending-news-card { background: #000; border: 1px solid #eee; border-radius: 2px; padding: 20px; margin-bottom: 30px; }
-        .trending-title-wrapper { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 2px solid #ff8c2b; }
-        .trending-title { font-size: 16px; font-weight: 700; color: #ffffff; margin: 0; }
-        .trending-item { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid #f0f0f0; text-decoration: none; }
-        .trending-item:last-child { border-bottom: none; padding-bottom: 0; }
-        .trending-number { font-size: 18px; font-weight: 800; color: #e0e0e0; min-width: 24px; line-height: 1; padding-top: 2px; }
-        .trending-content { flex: 1; min-width: 0; }
-        .trending-item-title { font-size: 13px; font-weight: 600; color: #ffffff; line-height: 1.4; margin: 0 0 6px 0; }
-        .trending-meta { display: flex; align-items: center; gap: 8px; font-size: 11px; color: #888; }
-        .mobile-menu { position: fixed; top: 0; left: -260px; width: 260px; height: 100%; background: #000; padding: 20px; transition: left 0.3s ease; z-index: 9999; }
-        .mobile-menu.active { left: 0; }
-        .mobile-menu a { display: block; padding: 12px 0; font-size: 15px; font-weight: 600; color: #fff; text-decoration: none; border-bottom: 1px solid #222; }
-        .mobile-menu a:hover { color: #f97316; }
-        .maaney-footer { position: relative; color: #eee; margin-top: 40px; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://img.freepik.com/premium-vector/black-texture-background-abstract-black-background-black-pattern_672416-233.jpg') center/cover no-repeat; border-top-left-radius: 24px; border-top-right-radius: 24px; }
-        .footer-overlay { position: absolute; inset: 0; }
-        .footer-content { position: relative; }
-        .footer-title { color: #fff; font-size: 15px; font-weight: 600; }
-        .footer-text { font-size: 14px; color: #ffffff; }
-        .footer-list { list-style: none; padding: 0; font-size: 14px; line-height: 2; }
-        .footer-list a { color: #bbb; text-decoration: none; }
-        .footer-social { display: flex; gap: 14px; margin-top: 10px; }
-        .footer-social a { color: #fff; font-size: 18px; }
-        .footer-hr { border-color: #333; margin: 20px 0; }
-        .footer-copy { font-size: 13px; color: #aaa; }
-        .meta-link { color: #111; text-decoration: none; font-weight: 600; }
-        .meta-icon { margin-right: 5px; color: #ff9800; font-size: 12px; }
-        .meta-sep { color: #ccc; }
-        .author-profile { padding: 15px; background: #f8f8f8; border-radius: 8px; }
-        .btn { padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
-        .btn-dark { background: #333; color: #fff; }
-        .btn-dark:hover { background: #555; }
-        .d-flex { display: flex; }
-        .d-none { display: none; }
-        .d-md-block { display: block; }
-        .d-md-flex { display: flex; }
-        .align-items-center { align-items: center; }
-        .justify-content-between { justify-content: space-between; }
-        .gap-3 { gap: 12px; }
-        .gap-4 { gap: 16px; }
-        .text-center { text-align: center; }
-        .py-4 { padding-top: 16px; padding-bottom: 16px; }
-        .mb-3 { margin-bottom: 12px; }
-        .mb-4 { margin-bottom: 16px; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        @media (max-width: 768px) {
-            .content-layout { flex-direction: column; }
-            .sidebar-column { width: 100%; }
-            .main-title { font-size: 24px; }
-            .blog-paragraph { font-size: 15px; }
-        }
-    </style>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S60YQL9TZ2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-S60YQL9TZ2');
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samsung Galaxy M17 5G Review: Unboxing, Performance & Camera | Maaney Store</title>
+
+<!-- Primary SEO Meta -->
+<meta name="title" content="Samsung Galaxy M17 5G Review: Unboxing, Performance & Camera">
+<meta name="description" content="Detailed review of the Samsung Galaxy M17 5G. Unboxing, design, Dimensity 6300 performance, camera test, 6000mAh battery life, and comparison with competitors.">
+<meta name="keywords" content="Samsung Galaxy M17 5G Review, Samsung M17 Unboxing, Galaxy M17 Price, Budget Samsung Phone, Samsung M17 Camera">
+<meta name="author" content="Dhuda Sathish">
+<meta name="news_keywords" content="Samsung, Galaxy M17 5G, Review, Unboxing, Budget Smartphone, Dimensity 6300">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-image-preview:large">
+<meta name="bingbot" content="index, follow">
+<meta name="theme-color" content="#0f172a">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://maaney.store/review/samsung/samsung-galaxy-m17e-review">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Samsung Galaxy M17 5G Review: A Monster Budget Phone?">
+<meta property="og:description" content="Is the new Samsung Galaxy M17 5G the best budget phone? Full unboxing, 120Hz display test, gaming review, and camera samples.">
+<meta property="og:url" content="https://maaney.store/review/samsung/samsung-galaxy-m17-5g-review">
+<meta property="og:image" content="https://maaney.store/review/samsung/Samsung%20Galaxy%20M17%205G%20-%201.webp">
+<meta property="og:site_name" content="Maaney Store">
+<meta property="og:locale" content="en_IN">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Samsung Galaxy M17 5G Review: Unboxing & First Impressions">
+<meta name="twitter:description" content="Reviewing the Samsung Galaxy M17 5G with Dimensity 6300 and 6000mAh battery. Is it the budget king?">
+<meta name="twitter:image" content="https://maaney.store/review/samsung/Samsung%20Galaxy%20M17%205G%20-%201.webp">
+<meta name="twitter:site" content="@maaneynews">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<!-- GOOGLE FONT: INTER -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Review",
+ "mainEntityOfPage": {
+   "@type": "WebPage",
+   "@id": "https://maaney.store/review/samsung/samsung-galaxy-m17-5g-review"
+ },
+ "headline": "Samsung Galaxy M17 5G Review: Unboxing and First Impressions",
+ "description": "A detailed Samsung Galaxy M17 5G review covering unboxing, design, display, performance, camera quality, battery life, and first impressions.",
+ "image": [
+   "https://maaney.store/review/samsung/Samsung%20Galaxy%20M17%205G%20-%201.webp"
+ ],
+ "datePublished": "2026-03-19T09:00:00+05:30",
+ "dateModified": "2026-03-19T09:00:00+05:30",
+ "author": {
+   "@type": "Person",
+   "name": "Dhuda Sathish",
+   "url": "https://maaney.store/author/dhuda-sathish"
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Maaney Store",
+   "logo": {
+     "@type": "ImageObject",
+     "url": "https://maaney.store/logo.png",
+     "width": 300,
+     "height": 60
+   }
+ },
+ "itemReviewed": {
+   "@type": "Product",
+   "name": "Samsung Galaxy M17 5G",
+   "image": "https://maaney.store/review/samsung/Samsung%20Galaxy%20M17%205G%20-%201.webp",
+   "description": "Samsung Galaxy M17 5G features a 6.7-inch HD+ 120Hz display, Dimensity 6300 chip, 50MP camera, and 6000mAh battery.",
+   "brand": {
+     "@type": "Brand",
+     "name": "Samsung"
+   },
+   "offers": {
+     "@type": "Offer",
+     "priceCurrency": "INR",
+     "price": "11999",
+     "availability": "https://schema.org/InStock",
+     "url": "https://maaney.store/review/samsung/samsung-galaxy-m17-5g-review"
+   }
+ },
+ "reviewRating": {
+   "@type": "Rating",
+   "ratingValue": "4.2",
+   "bestRating": "5",
+   "worstRating": "1"
+ }
+}
+</script>
+<style>
+    /* STRICT RESET */
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    
+    html, body {
+        width: 100%;
+        overflow-x: hidden; 
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    :root {
+        --fk-orange: #ff8c2b;
+        --fk-orange-dark: #e67300;
+        --fk-orange-light: #fff0e0;
+        --border: #e5e7eb;
+        --text-dark: #212121;
+        --text-gray: #555;
+        --off-white: #f8f9fa;
+        --wa-green: #25D366;
+    }
+
+    body {
+        background-color: #f0f2f5;
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+        line-height: 1.7;
+        color: #1a1a1a;
+    }
+
+    /* MAIN CONTAINER */
+    .main-page-wrapper {
+        width: 100%;
+        max-width: 1200px;
+        margin: 20px auto;
+        background: #ffffff;
+        box-shadow: none;
+        min-height: 100vh;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid #e5e7eb;
+    }
+
+    /* HEADER */
+    .blog-nav {
+        background: #ffffff;
+        padding: 15px 30px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        width: 100%;
+    }
+    
+    .brand-logo img {
+        height: 36px;
+    }
+
+    /* LAYOUT GRID */
+    .content-layout {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 40px;
+        padding: 0;
+        width: 100%;
+    }
+
+    /* ARTICLE COLUMN */
+    .article-column {
+        padding: 40px 60px;
+        width: 100%;
+    }
+
+    .category-label {
+        display: inline-block;
+        background: var(--fk-orange);
+        color: white;
+        padding: 6px 16px;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        letter-spacing: 0.5px;
+    }
+
+    .main-title {
+        font-size: clamp(1.8rem, 4vw, 2.2rem);
+        line-height: 1.2;
+        margin-bottom: 20px;
+        color: #111;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+    }
+
+    .meta-info {
+        font-size: 14px;
+        color: #888;
+        margin-bottom: 30px;
+        display: flex;
+        gap: 20px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 20px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    /* PARAGRAPHS */
+    .blog-paragraph {
+        font-size: 17px;
+        line-height: 1.8;
+        margin-bottom: 25px;
+        color: #000000;
+        text-align: justify;
+        font-weight: 400;
+    }
+
+    /* HEADINGS */
+    .sub-heading {
+        font-family: 'Inter', sans-serif;
+        font-size: 26px;
+        margin: 50px 0 20px;
+        color: #000;
+        font-weight: 700;
+        display: block;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+        letter-spacing: -0.01em;
+    }
+
+    /* IMAGES */
+    .content-image-box {
+        margin: 30px 0;
+        text-align: center;
+        background: #fff;
+        padding: 0;
+        border-radius: 12px;
+        width: 100%;
+    }
+    .content-image-box img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+   
+    .caption {
+        display: block;
+        margin-top: 12px;
+        font-size: 14px;
+        color: #666;
+        font-style: italic;
+        text-align: center;
+    }
+
+    /* SIDEBAR */
+    .sidebar-column {
+        padding: 40px 30px 40px 0;
+    }
+    
+    .sticky-sidebar {
+        position: sticky;
+        top: 100px;
+    }
+
+    .sidebar-card {
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 30px;
+        box-shadow: none;
+    }
+    
+    .sidebar-title {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        border-bottom: 2px solid var(--fk-orange);
+        display: inline-block;
+        padding-bottom: 5px;
+        letter-spacing: -0.01em;
+    }
+    
+    .author-profile img{
+        height: 64px;
+    }
+
+    /* PRICE BOX */
+    .price-box {
+        background: linear-gradient(135deg, #ff8c2b, #ff5f00);
+        color: white;
+        text-align: center;
+    }
+    .price-main { font-size: 32px; font-weight: 800; margin: 10px 0; }
+    .price-old { text-decoration: line-through; opacity: 0.8; font-size: 14px; }
+    
+    /* WHATSAPP BUTTON */
+    .btn-whatsapp-join {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background-color: var(--wa-green);
+        color: white;
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        font-weight: 600;
+        margin-top: 10px;
+        text-decoration: none;
+        transition: 0.3s;
+        font-size: 14px;
+        border: none;
+    }
+    .btn-whatsapp-join:hover {
+        background-color: #1ebc57;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    /* MOBILE OPTIMIZATIONS */
+    @media (max-width: 992px) {
+        .content-layout { display: block; }
+        .sidebar-column { border-left: none; border-top: 1px solid #eee; padding: 30px 20px; }
+        .sticky-sidebar { position: static; }
+        .article-column { padding: 30px 20px; }
+    }
+
+    @media (max-width: 768px) {
+        .main-page-wrapper { width: 100vw; margin: 0; border-radius: 0; box-shadow: none; padding-bottom: 100px; border: none; }
+        .blog-nav { padding: 15px; }
+        .article-column { padding: 20px 15px; }
+        .blog-paragraph { font-size: 16px; text-align: left; }
+        .sub-heading { font-size: 22px; margin-top: 35px; }
+        .nav-links { display: none; }
+        .main-title { font-size: 1.6rem; }
+    }
+
+    p{ color: black; }
+
+    .read-more-wrapper {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .read-more-content {
+        max-height: 420px;
+        overflow: hidden;
+        transition: max-height 0.6s ease;
+    }
+
+    .read-more-blur {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 120px;
+        background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.95));
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+    }
+
+    .read-more-wrapper.expanded .read-more-content { max-height: 5000px; }
+    .read-more-wrapper.expanded .read-more-blur { opacity: 0; }
+
+    .read-more-toggle { text-align: center; margin: 22px 0; }
+
+    .read-more-btn {
+        background: #ff9800;
+        color: #fff;
+        border: none;
+        border-radius: 999px;
+        padding: 12px 28px;
+        font-size: 14px;
+        font-weight: 600;
+        box-shadow: none;
+        transition: all 0.3s ease;
+    }
+
+    .read-more-btn:hover {
+        background: #fb8c00;
+        transform: translateY(-2px);
+    }
+
+    @media (min-width: 768px) {
+        .read-more-content { max-height: none; }
+        .read-more-blur, .read-more-toggle { display: none; }
+    }
+
+    .meta-link { color:#111; text-decoration:none; font-weight:600; }
+    .meta-icon { margin-right:5px; color:#ff9800; font-size:12px; }
+    .meta-sep { color:#ccc; }
+
+    /* TRENDING NEWS STYLES */
+    .trending-news-card {
+        background: #000000;
+        border: 1px solid #eee;
+        border-radius:2px;
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+    .trending-title-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid #ff8c2b;
+    }
+    .trending-title { font-size: 16px; font-weight: 700; color: #ffffff; margin: 0; }
+    .trending-item {
+        display: flex;
+        gap: 12px;
+        padding: 14px 0;
+        border-bottom: 1px solid #f0f0f0;
+        text-decoration: none;
+    }
+    .trending-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .trending-number { font-size: 18px; font-weight: 800; color: #e0e0e0; min-width: 24px; line-height: 1; padding-top: 2px; }
+    .trending-content { flex: 1; min-width: 0; }
+    .trending-item-title { font-size: 13px; font-weight: 600; color: #ffffff; line-height: 1.4; margin: 0 0 6px 0; }
+    .trending-meta { display: flex; align-items: center; gap: 8px; font-size: 11px; color: #888; }
+
+    /* MOBILE SLIDE MENU */
+    .mobile-menu{
+        position: fixed; top: 0; left: -260px; width: 260px; height: 100%;
+        background: #000; padding: 20px; transition: left 0.3s ease; z-index: 9999;
+    }
+    .mobile-menu.active{ left: 0; }
+    .mobile-menu a{ display: block; padding: 12px 0; font-size: 15px; font-weight: 600; color: #fff; text-decoration: none; border-bottom: 1px solid #222; }
+    .mobile-menu a:hover{ color: #f97316; }
+
+    /* FOOTER */
+    .maaney-footer{ position:relative; color:#eee; margin-top:40px; }
+    .footer-overlay{ position:absolute; inset:0; }
+    .footer-content{position:relative}
+    .footer-title{color:#fff;font-size:15px; font-weight:600;}
+    .footer-text{font-size:14px;color:#ffffff}
+    .footer-list{list-style:none;padding:0;font-size:14px;line-height:2}
+    .footer-list a{color:#bbb;text-decoration:none}
+    .footer-social{display:flex;gap:14px;margin-top:10px}
+    .footer-social a{color:#fff;font-size:18px}
+    .footer-hr{border-color:#333;margin:20px 0}
+    .footer-copy{font-size:13px;color:#aaa}
+
+    /* Review Specific Styles */
+    .spec-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    .spec-table td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        font-size: 14px;
+    }
+    .spec-table td:first-child {
+        font-weight: 600;
+        color: #555;
+        width: 40%;
+    }
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S60YQL9TZ2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-S60YQL9TZ2');
+</script>
 </head>
 <body>
-    <div class="main-page-wrapper">
-        <!-- HEADER NAVIGATION -->
-        <header class="blog-nav d-flex align-items-center justify-content-between">
-            <a href="https://maaney.store" class="brand-logo">
-                <img src="https://maaney.store/white_logo.png" alt="Maaney Store – Tech News & Deals" height="36" loading="lazy">
-            </a>
-            <nav class="d-none d-md-flex align-items-center gap-4 nav-links" style="font-size:14px;font-weight:600;">
-                <a href="https://maaney.store" style="color:#555;text-decoration:none;">HOME</a>
-                <a href="https://maaney.store/news" style="color:#555;text-decoration:none;">NEWS</a>
-                <a href="https://maaney.store/review" style="color:var(--fk-orange);text-decoration:none;">REVIEWS</a>
-                <a href="https://maaney.store/news/samsung" style="color:#555;text-decoration:none;">SAMSUNG</a>
-                <a href="https://maaney.store/news/apple" style="color:#555;text-decoration:none;">APPLE</a>
-            </nav>
-            <button class="btn btn-sm btn-dark d-md-none" onclick="toggleMenu()">
-                <i class="fa fa-bars"></i>
-            </button>
-        </header>
 
-        <!-- MOBILE DROPDOWN MENU -->
-        <div id="mobileMenu" class="mobile-menu">
-            <a href="https://maaney.store">Home</a>
-            <a href="https://maaney.store/news">News</a>
-            <a href="https://maaney.store/review">Reviews</a>
-            <a href="https://maaney.store/news/apple">Apple</a>
-        </div>
+    <div class="main-page-wrapper">
+        
+        <!-- HEADER NAVIGATION -->
+       <header class="blog-nav d-flex align-items-center justify-content-between">
+    <a href="https://maaney.store" class="brand-logo">
+        <img src="https://maaney.store/white_logo.png" alt="Maaney Store – Tech News & Deals" height="36" loading="lazy">
+    </a>
+    <nav class="d-none d-md-flex align-items-center gap-4 nav-links" style="font-size:14px;font-weight:600;">
+        <a href="https://maaney.store" style="color:#555;text-decoration:none;">HOME</a>
+        <a href="https://maaney.store/news" style="color:#555;text-decoration:none;">NEWS</a>
+        <a href="https://maaney.store/review" style="color:var(--fk-orange);text-decoration:none;">REVIEWS</a>
+        <a href="https://maaney.store/news/samsung" style="color:#555;text-decoration:none;">SAMSUNG</a>
+        <a href="https://maaney.store/news/apple" style="color:#555;text-decoration:none;">APPLE</a>
+    </nav>
+    <button class="btn btn-sm btn-dark d-md-none" onclick="toggleMenu()">
+        <i class="fa fa-bars"></i>
+    </button>
+</header>
+
+<!-- MOBILE DROPDOWN MENU -->
+<div id="mobileMenu" class="mobile-menu">
+    <a href="https://maaney.store">Home</a>
+    <a href="https://maaney.store/news">News</a>
+    <a href="https://maaney.store/review">Reviews</a>
+    <a href="https://maaney.store/news/samsung">Samsung</a>
+</div>
 
         <!-- BLOG CONTENT LAYOUT -->
         <div class="content-layout">
-            <article class="article-column">
-                <span class="category-label">REVIEW</span>
-                <h1 class="main-title" style="font-weight:bold;">
-                    Samsung Galaxy M17e Review: Design, Display, Battery & Camera
-                </h1>
-                <div id="articleMeta" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:13px;color:#555;margin:14px 0 18px;line-height:1.6;">
-                    <span><i class="fa fa-pen-nib meta-icon"></i> <span>By</span> <a href="/author/dhuda-sathish" class="meta-link" rel="author">Dhuda Sathish</a></span>
-                    <span class="meta-sep">•</span>
-                    <span><i class="fa fa-clock meta-icon"></i> <span>Updated</span> <time datetime="2026-03-16T09:30:00+05:30">March 16, 2026</time></span>
-                </div>
 
-                <!-- KEY HIGHLIGHTS -->
-                <div class="article-section">
-                    <div class="d-none d-md-block" style="padding:18px 22px;margin:22px 0;">
-                        <div style="font-size:16px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#000;margin-bottom:12px;">Highlights</div>
-                        <ul style="margin:0;padding-left:18px;font-size:15px;line-height:1.7;color:#000;list-style:disc;">
-                            <li style="margin-bottom:8px;"><span style="color:#d0021b;">Samsung Galaxy M17e</span> priced at ₹14,999 with 128GB storage</li>
-                            <li style="margin-bottom:8px;">Features <span style="color:#d0021b;">6000mAh battery</span> and 45W fast charging</li>
-                            <li style="margin-bottom:8px;"><span style="color:#d0021b;">6.7-inch 120Hz AMOLED</span> display with Gorilla Glass 5</li>
-                            <li style="margin-bottom:8px;">Powered by <span style="color:#d0021b;">MediaTek Dimensity 7300</span> processor</li>
-                        </ul>
-                    </div>
-                </div>
+         <article class="article-column">
 
-                <!-- INTRO -->
-                <div class="article-section">
-                    <p class="blog-paragraph">
-                        Samsung has launched its latest budget-friendly smartphone, the <span style="color:red;">Galaxy M17e</span>, in the Indian market. This device aims to deliver premium features at an affordable price point, making it an attractive option for budget-conscious consumers.
-                    </p>
+<span class="category-label">REVIEW</span>
+<h1 class="main-title" style="font-weight:bold;">
+Samsung Galaxy M17 5G Review: A Monster Budget Phone?
+</h1>
+    <div id="articleMeta" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:13px;color:#555;margin:14px 0 18px;line-height:1.6;">
+        <span><i class="fa fa-pen-nib meta-icon"></i> <span>By</span> <a href="/author/dhuda-sathish" class="meta-link" rel="author">Dhuda Sathish</a></span>
+        <span class="meta-sep">•</span>
+        <span><i class="fa fa-clock meta-icon"></i> <span>Updated</span> <time datetime="2026-03-19T09:30:00+05:30">March 19, 2026</time></span>
+    </div>
 
-                    <p class="blog-paragraph">
-                        The Galaxy M17e is priced at <span style="color:red;">₹14,999</span> for the base 128GB variant, while the 256GB model costs ₹16,999. This pricing strategy puts it in direct competition with devices from brands like Redmi, Realme, and Poco, but Samsung's brand value and feature set make it a compelling choice.
-                    </p>
+<!-- KEY HIGHLIGHTS -->
+<div class="article-section">
+<div class="d-none d-md-block" style="padding:18px 22px;margin:22px 0;">
+<div style="font-size:16px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#000;margin-bottom:12px;">Highlights</div>
+<ul style="margin:0;padding-left:18px;font-size:15px;line-height:1.7;color:#000;list-style:disc;">
+<li style="margin-bottom:8px;"><span style="color:#d0021b;">Samsung Galaxy M17 5G</span> priced at ₹11,999 with launch offers</li>
+<li style="margin-bottom:8px;">Features <span style="color:#d0021b;">Dimensity 6300</span> and 120Hz Display</li>
+<li style="margin-bottom:8px;"><span style="color:#d0021b;">6000mAh Battery</span> with 25W Charging Support</li>
+<li style="margin-bottom:8px;"><span style="color:#d0021b;">6 Years</span> of OS and Security Updates</li>
+</ul>
+</div>
+</div>
 
-                    <div style="margin:24px 0;text-align:center;width:100%;">
-                        <img src="https://maaney.store/news/samsung/samsung-galaxy-m17e-price-in-india-tipped-launch-date-specifications.webp" alt="Samsung Galaxy M17e Review Hero Image" style="width:100%;max-width:900px;height:auto;border-radius:2px;" loading="lazy">
-                    </div>
+<!-- INTRO -->
+<div class="article-section">
+<p class="blog-paragraph">
+Samsung has launched a monster budget phone in the market, the <span style="color:red;">Samsung Galaxy M17 5G</span>. This phone is the successor to the popular M series and brings some impressive features to the table. It seems like Samsung is offering a lot in this device, which you and many others might like.
+</p>
 
-                    <p class="blog-paragraph">
-                        In this comprehensive review, we'll take a closer look at the Galaxy M17e's design, display performance, battery life, camera capabilities, and overall value proposition. We'll also compare it with its competitors to help you make an informed buying decision.
-                    </p>
-                </div>
+<p class="blog-paragraph">
+The phone is set to go on sale on March 20. The actual price of this phone is <span style="color:red;">₹13,999</span>. However, with card offers and launch discounts, you can get this phone for <span style="color:red;">₹11,999</span>. In this review, we will unbox the device, test its performance, camera, and battery to see if it is truly a value-for-money device.
+</p>
 
-                <!-- UNBOXING -->
-                <h2 class="sub-heading">Unboxing</h2>
-                <div class="article-section">
-                    <p class="blog-paragraph">
-                        The <span style="color:red;">Galaxy M17e</span> comes in Samsung's signature eco-friendly packaging. The box is compact and minimalistic, featuring the device name and a small image of the phone. Samsung has been moving towards sustainable packaging, and the M17e follows this trend.
-                    </p>
+<div style="margin:24px 0;text-align:center;width:100%;">
+<img src="./samsung-galazy-m17e.webp" alt="Samsung Galaxy M17 5G Review Hero Image" style="width:100%;max-width:900px;height:auto;border-radius:2px;" loading="lazy">
+</div>
 
-                    <div style="margin:24px 0;text-align:center;width:100%;">
-                        <img src="https://i.imgur.com/unboxing-m17e.jpg" alt="Samsung Galaxy M17e Unboxing Box and Accessories" style="width:100%;max-width:900px;height:auto;border-radius:2px;" loading="lazy">
-                    </div>
+<p class="blog-paragraph">
+This is a collaboration video with Samsung, meaning they sent us this device for testing and to share our experience. But rest assured, whatever tests we conduct, you will see them transparently right here. Let's get started with the unboxing.
+</p>
+</div>
 
-                    <p class="blog-paragraph">
-                        Inside the box, you'll find the <span style="color:red;">Galaxy M17e smartphone</span>, a 45W fast charger (a pleasant surprise at this price point), a USB Type-C cable, SIM ejector tool, and some basic documentation. Samsung including a fast charger in the box is a big plus, as many competitors have stopped including chargers with their devices.
-                    </p>
+<!-- UNBOXING -->
+<h2 class="sub-heading">Unboxing</h2>
+<div class="article-section">
+<p class="blog-paragraph">
+We received a special box from Samsung for this review. This is a special packaging sent for reviewers, which contains the device. The retail box that you will get in the market will look like a standard Samsung box, and inside it, you will find the phone itself.
+</p>
 
-                    <p class="blog-paragraph">
-                        The device itself feels premium right out of the box, with a glossy finish on the back and solid build quality. Samsung has paid attention to the unboxing experience, making it feel special even for a budget device.
-                    </p>
-                </div>
+<div style="margin:24px 0;text-align:center;width:100%;">
+<img src="./samsung-galazy-m17e-hero.webp" alt="Samsung Galaxy M17 Unboxing Box and Accessories" style="width:100%;max-width:900px;height:auto;border-radius:2px;" loading="lazy">
+</div>
 
-                <!-- SPECIFICATIONS -->
-                <h2 class="sub-heading">Specifications</h2>
-                <div class="article-section">
-                    <p class="blog-paragraph">
-                        Here are the detailed specifications of the Samsung Galaxy M17e. The device features a <span style="color:red;">6.7-inch AMOLED display</span> with a 120Hz refresh rate, powered by the MediaTek Dimensity 7300 processor. It comes with up to 8GB RAM and 256GB storage.
-                    </p>
+<p class="blog-paragraph">
+Upon opening the box, we found a special message inside. The first look of the Samsung Galaxy M17 is quite appealing. Looking at the back, it has a premium vibe, and the front looks clean. For a budget segment phone, it definitely looks premium.
+</p>
+</div>
 
-                    <div style="margin:24px 0;text-align:center;width:100%;">
-                        <img src="https://i.imgur.com/m17e-specs.jpg" alt="Samsung Galaxy M17e Full Specifications" style="width:100%;max-width:900px;height:auto;border-radius:2px;" loading="lazy">
-                    </div>
+<!-- SPECIFICATIONS -->
+<h2 class="sub-heading">Specifications</h2>
+<div class="article-section">
+<p class="blog-paragraph">
+Before diving deep, let's look at the key specifications. The display is a <span style="color:red;">6.7-inch HD+ LCD</span> panel with a 120Hz refresh rate. The processor is the <span style="color:red;">MediaTek Dimensity 6300</span> chipset. On the back, there is a <span style="color:red;">50MP + 2MP</span> dual camera setup, and on the front, there is an 8MP selfie camera.
+</p>
 
-                    <p class="blog-paragraph">
-                        The camera setup includes a <span style="color:red;">50MP main sensor</span> with an 8MP ultra-wide lens and a 2MP macro camera. For selfies, there's a 13MP front camera. The device is backed by a massive 6000mAh battery with 45W fast charging support and runs on Android 15 with One UI 7.0 on top.
-                    </p>
-                </div>
+<div style="margin:24px 0;text-align:center;width:100%;">
+<img src="./samsung-galazy-m17e-sp.webp" alt="Samsung Galaxy M17 Full Specifications" style="width:100%;max-width:900px;height:auto;border-radius:2px;" loading="lazy">
+</div>
 
-                <!-- DESIGN -->
-                <h2 class="sub-heading">Design</h2>
-                <div class="article-section">
-                    <p class="blog-paragraph">
-                        The Galaxy M17e features a modern design language that doesn't scream "budget." The back panel has a <span style="color:red;">glossy finish</span> with a subtle gradient pattern that changes color based on the viewing angle. Samsung is offering the device in three colors: Black, Blue, and Silver.
-                    </p>
+<p class="blog-paragraph">
+The phone runs on <span style="color:red;">One UI 8</span> based on Android 16. The battery is a massive <span style="color:red;">6000mAh</span> with 25W fast charging support. It also comes with IP54 certification for dust and water resistance.
+</p>
+</div>
 
-                    <div style="margin:24px 0;text-align:center;width:100%;">
-                        <img src="https://i.imgur.com/m17e-design.jpg" alt="Samsung Galaxy M17e Design Front and Back" style="width:100%;max-width:900px;height:auto;border-radius:2px;" loading="lazy">
-                    </div>
+<!-- DESIGN -->
+<h2 class="sub-heading">Design and Build</h2>
+<div class="article-section">
+<p class="blog-paragraph">
+In terms of design, the phone looks premium. It has a <span style="color:red;">polycarbonate matte finish</span> on the back with a polycarbonate frame. The thickness is 8.2mm, and it weighs around 198 grams. Despite the large battery, it feels quite light in the hand.
+</p>
 
-                    <p class="blog-paragraph">
-                        The device measures 165.4 x 76.3 x 8.4mm and weighs 191 grams, making it comfortable to hold despite the large battery. The <span style="color:red;">side-mounted fingerprint sensor</span> is integrated into the power button and is both fast and accurate. The USB Type-C port and speaker grille are located at the bottom, while the 3.5mm headphone jack (a rare feature in 2026) sits at the top.
-                    </p>
+<div style="margin:24px 0;text-align:center;width:100%;">
+<img src="./samsung-galazy-m17e-design.png" alt="Samsung Galaxy M17 Design Back and Frame" style="width:100%;max-width:900px;height:auto;border-radius:2px;" loading="lazy">
+</div>
 
-                    <p class="blog-paragraph">
-                        The frame is made of plastic but has a <span style="color:red;">metallic finish</span> that gives it a premium look. The camera module protrudes slightly but not enough to cause wobble on flat surfaces. Overall, the design feels well-thought-out and doesn't compromise on aesthetics despite the budget price tag.
-                    </p>
-                </div>
+<p class="blog-paragraph">
+The phone will be available in two colors: <span style="color:red;">Violet and Blue</span>. The matte finish helps with fingerprints and gives a good grip. On the right side, we have the power button and volume rockers. The left side houses the hybrid SIM tray, which supports a memory card, which is a rare feature in this segment nowadays. On the bottom, we have a 3.5mm headphone jack, a Type-C port, a microphone, and a single speaker grille.
+</p>
+</div>
 
-                <!-- DISPLAY -->
-                <h2 class="sub-heading">Display</h2>
-                <div class="article-section">
-                    <p class="blog-paragraph">
-                        One of the standout features of the Galaxy M17e is its <span style="color:red;">6.7-inch AMOLED display</span> with a 120Hz refresh rate. This is impressive at this price point, as most competitors offer LCD panels or 60Hz refresh rates in this segment.
-                    </p>
+<!-- DISPLAY -->
+<h2 class="sub-heading">Display Quality</h2>
+<div class="article-section">
+<p class="blog-paragraph">
+The front features a <span style="color:red;">6.7-inch HD+ LCD</span> display with a waterdrop notch. The highlight is the <span style="color:red;">120Hz refresh rate</span>, which makes the interface feel very smooth. We tested videos on YouTube, and the display performed well for this price point.
+</p>
 
-                    <p class="blog-paragraph">
-                        The display produces vibrant colors with deep blacks, thanks to the AMOLED technology. The <span style="color:red;">120Hz refresh rate</span> makes scrolling and animations incredibly smooth. The panel also supports HDR10+, enhancing the viewing experience for compatible content on streaming platforms like Netflix and YouTube.
-                    </p>
+<div style="margin:24px 0;text-align:center;width:100%;">
+<img src="./samsung-galazy-m17e-display.webp" alt="Samsung Galaxy M17 Design Back and Frame" style="width:100%;max-width:900px;height:auto;border-radius:2px;" loading="lazy">
+</div>
 
-                    <p class="blog-paragraph">
-                        With a peak brightness of 1000 nits, the display remains visible even under direct sunlight. The <span style="color:red;">Gorilla Glass 5 protection</span> adds durability against scratches and minor drops. The bezels are minimal, giving the device a modern look with a screen-to-body ratio of approximately 89%.
-                    </p>
-                </div>
+<p class="blog-paragraph">
+Since it is an LCD panel, the contrast isn't as deep as AMOLED, but the colors are decent. It supports 1440p playback on YouTube. It also has an <span style="color:red;">800 nits High Brightness Mode</span>, which makes it readable outdoors. Overall, the smoothness of the 120Hz display is the USP here.
+</p>
+</div>
 
-                <!-- PERFORMANCE -->
-                <h2 class="sub-heading">Performance</h2>
-                <div class="article-section">
-                    <p class="blog-paragraph">
-                        Under the hood, the Galaxy M17e is powered by the <span style="color:red;">MediaTek Dimensity 7300</span> processor, built on a 6nm process. This chipset offers excellent performance for its price segment, handling daily tasks with ease and even managing some light gaming.
-                    </p>
+<!-- PERFORMANCE -->
+<h2 class="sub-heading">Performance and Gaming</h2>
+<div class="article-section">
+<p class="blog-paragraph">
+Powering the device is the <span style="color:red;">MediaTek Dimensity 6300</span> chipset. It is a 6nm chipset, which is quite good for a price point of around ₹12,000. We ran AnTuTu, and the score crossed <span style="color:red;">5 Lakhs</span>. The CPU throttle test showed an 84% stability graph, meaning the chipset is well-optimized and stable.
+</p>
 
-                    <p class="blog-paragraph">
-                        In benchmark tests, the device scores around <span style="color:red;">520,000 points in AnTuTu</span>, which is competitive for this price range. Real-world performance is smooth, with no noticeable lag during app switching or multitasking. The 120Hz display contributes to the fluid user experience.
-                    </p>
+<div style="margin:24px 0;text-align:center;width:100%;">
+<img src="./samsung-galazy-m17e-performance.webp" alt="Samsung Galaxy M17 Design Back and Frame" style="width:100%;max-width:900px;height:auto;border-radius:2px;" loading="lazy">
+</div>
 
-                    <p class="blog-paragraph">
-                        Gaming performance is decent for casual games. Titles like <span style="color:red;">BGMI and Call of Duty Mobile</span> run at medium settings with stable frame rates. However, for more demanding games, you might need to lower the graphics settings to maintain smooth performance. The device does not overheat during normal usage, though extended gaming sessions can make it warm to the touch.
-                    </p>
-                </div>
+<p class="blog-paragraph">
+For gaming, we tested <span style="color:red;">BGMI</span>. Surprisingly, the game ran on <span style="color:red;">Extreme Settings (60fps)</span>. Initially, I expected it to be locked at HD or 40fps, but getting 60fps gameplay in this budget is impressive. There were very minor frame drops occasionally, but the overall experience was smooth. This phone is definitely capable of handling gaming well.
+</p>
+</div>
 
-                <!-- CAMERA -->
-                <h2 class="sub-heading">Camera</h2>
-                <div class="article-section">
-                    <p class="blog-paragraph">
-                        The Galaxy M17e features a <span style="color:red;">triple-camera setup</span> on the back, led by a 50MP main sensor with f/1.8 aperture. The main camera captures detailed images in good lighting conditions, with natural color reproduction and good dynamic range.
-                    </p>
+<!-- CAMERA -->
+<h2 class="sub-heading">Camera</h2>
+<div class="article-section">
+<p class="blog-paragraph">
+In terms of camera, we get a <span style="color:red;">50MP primary sensor</span> and a 2MP depth sensor. We tested the camera in various conditions. In daylight, the photos came out crisp with good colors.
+</p>
 
-                    <div style="margin:24px 0;text-align:center;width:100%;">
-                        <img src="https://i.imgur.com/m17e-camera.jpg" alt="Samsung Galaxy M17e Camera Samples" style="width:100%;max-width:900px;height:auto;border-radius:2px;" loading="lazy">
-                    </div>
+<div style="margin:24px 0;text-align:center;width:100%;">
+<img src="./samsung-galazy-m17e-camera.webp" alt="Samsung Galaxy M17 Camera Samples" style="width:100%;max-width:900px;height:auto;border-radius:2px;" loading="lazy">
+</div>
 
-                    <p class="blog-paragraph">
-                        The 8MP ultra-wide lens is decent for capturing landscapes and group shots, though there's some distortion at the edges. The 2MP macro camera is more of a marketing feature, producing average results that are usable only in perfect lighting conditions.
-                    </p>
+<p class="blog-paragraph">
+The <span style="color:red;">Portrait mode</span> is particularly impressive, offering good edge detection and decent background blur. Low-light performance is manageable with the dedicated Night Mode. The 8MP front camera takes decent selfies in daylight. Video recording maxes out at 1080p 30fps, which is standard for this segment.
+</p>
+</div>
 
-                    <p class="blog-paragraph">
-                        The <span style="color:red;">13MP front camera</span> takes good selfies in daylight, with natural skin tones. In low light, both front and rear cameras struggle, producing noisy images, which is expected at this price point. The camera app offers various modes including Night mode, Portrait mode, and Pro mode for more control over settings.
-                    </p>
+<!-- BATTERY -->
+<h2 class="sub-heading">Battery Life</h2>
+<div class="article-section">
+<p class="blog-paragraph">
+This is a strong point of the M series. The phone packs a <span style="color:red;">6000mAh battery</span>. For those who worry about battery drain, this phone will easily last more than a day. The One UI 8 optimization further enhances battery life.
+</p>
 
-                    <p class="blog-paragraph">
-                        Video recording is capped at <span style="color:red;">4K at 30fps</span> from the main camera, while the front camera is limited to 1080p at 30fps. The electronic image stabilization (EIS) helps reduce shakes in videos, but it's not as effective as optical stabilization.
-                    </p>
-                </div>
+<p class="blog-paragraph">
+It supports <span style="color:red;">25W fast charging</span>. Since it is a large battery, it takes some time to charge fully, but the backup you get in return is worth it.
+</p>
 
-                <!-- BATTERY -->
-                <h2 class="sub-heading">Battery</h2>
-                <div class="article-section">
-                    <p class="blog-paragraph">
-                        The Galaxy M17e packs a massive <span style="color:red;">6000mAh battery</span>, which is one of its biggest selling points. In our testing, the device easily lasted a full day of heavy usage, with around 30-40% battery remaining at bedtime.
-                    </p>
+<div style="margin:24px 0;text-align:center;width:100%;">
+<img src="./samsung-galazy-m17e-battery.webp" alt="Samsung Galaxy M17 Battery Performance" style="width:100%;max-width:900px;height:auto;border-radius:2px;" loading="lazy">
+</div>
+</div>
 
-                    <p class="blog-paragraph">
-                        For moderate users, the device can easily last <span style="color:red;">two days</span> on a single charge. Even with continuous video playback, the device managed around 18 hours of screen-on time. Gaming for an hour consumed only about 12-15% of the battery, which is impressive.
-                    </p>
+<!-- SOFTWARE -->
+<h2 class="sub-heading">Software and Features</h2>
+<div class="article-section">
+<p class="blog-paragraph">
+The phone runs on the latest <span style="color:red;">One UI 8</span> based on Android 16. Samsung is offering <span style="color:red;">6 Years of OS Updates and Security Patches</span>, which is unheard of in this price segment. No other brand is offering such long support at this price.
+</p>
 
-                    <div style="margin:24px 0;text-align:center;width:100%;">
-                        <img src="https://i.imgur.com/m17e-battery.jpg" alt="Samsung Galaxy M17e Battery Performance" style="width:100%;max-width:900px;height:auto;border-radius:2px;" loading="lazy">
-                    </div>
+<p class="blog-paragraph">
+It also includes Samsung-exclusive features like Samsung Wallet, Samsung Knox, and Voice Focus. Connectivity-wise, it supports <span style="color:red;">12 5G bands</span>, ensuring good network compatibility. It also features AI capabilities like Circle to Search and Live Translate.
+</p>
+</div>
 
-                    <p class="blog-paragraph">
-                        The <span style="color:red;">45W fast charging</span> is another highlight. The included 45W charger can charge the device from 0 to 100% in approximately 75 minutes. A quick 15-minute charge can give you about 30% battery, which is enough for several hours of use. The device also supports 15W wireless charging, a rare feature at this price point.
-                    </p>
-                </div>
+<!-- FINAL VERDICT -->
+<h2 class="sub-heading">Final Verdict</h2>
+<div class="article-section">
+<p class="blog-paragraph">
+After spending time with the Samsung Galaxy M17 5G, I believe it offers a lot for the price of <span style="color:red;">₹11,999</span>. The rear design looks premium, the display is smooth at 120Hz, the performance is capable of handling games at 60fps, and the battery life is excellent.
+</p>
 
-                <!-- SOFTWARE -->
-                <h2 class="sub-heading">Software</h2>
-                <div class="article-section">
-                    <p class="blog-paragraph">
-                        The Galaxy M17e runs on <span style="color:red;">Android 15</span> with Samsung's One UI 7.0 on top. Samsung has promised 4 years of Android updates and 5 years of security updates, which is excellent for a budget device.
-                    </p>
+<p class="blog-paragraph">
+The biggest selling point is the <span style="color:red;">6-year update promise</span> and Samsung's brand trust. If you are looking for a budget phone under ₹12,000, this is definitely a solid recommendation.
+</p>
+</div>
 
-                    <p class="blog-paragraph">
-                        One UI 7.0 brings several new features and improvements over previous versions. The interface is clean and intuitive, with <span style="color:red;">minimal bloatware</span>. Samsung has included some useful features like Game Booster, Secure Folder, and Samsung Pay.
-                    </p>
+<!-- FOLLOW SECTION -->
+<div style="background:#ffffff;border-radius:4px;padding:20px;margin:24px 0;border:0.8px solid #ccc;text-align:center;font-family:'Inter',sans-serif;">
+<p style="margin:0 0 14px;font-size:14px;color:#444;font-weight:500;">
+Follow the latest updates on <span style="color:#d0021b;">Samsung Galaxy Series</span> and tech reviews.
+</p>
+    <div style="display:flex;justify-content:center;align-items:center;gap:22px;">
+        <a href="https://whatsapp.com/channel/0029Vb7WxXmFXUuZkg9Qz61u/114" target="_blank" rel="noopener" style="display:inline-flex;">
+            <svg width="26" height="26" viewBox="0 0 512 512"><rect width="512" height="512" fill="#ffffff"/><path fill="#25D366" d="M256 48C141.13 48 48 141.13 48 256c0 45.04 14.8 86.63 39.8 120.32L48 464l91.36-38.72C172.13 446.7 212.7 464 256 464c114.87 0 208-93.13 208-208S370.87 48 256 48z"/><path fill="#25D366" d="M343.36 308.48c-4.8-2.4-28.48-14.08-32.96-15.68-4.48-1.6-7.68-2.4-10.88 2.4-3.2 4.8-12.48 15.68-15.36 18.88-2.88 3.2-5.44 3.52-10.24 1.12-28.48-14.24-47.04-25.44-65.92-57.76-4.96-8.48 4.96-7.84 14.24-26.24 1.6-3.2.8-5.92-.4-8.32-1.12-2.4-10.88-26.24-14.88-35.84-3.84-9.28-7.84-8-10.88-8.16-2.88-.16-6.24-.16-9.6-.16-3.2 0-8.32 1.12-12.64 5.92-4.32 4.8-16.64 16.32-16.64 39.84s17.04 46.24 19.36 49.44c2.4 3.2 33.6 51.2 81.44 71.68 11.36 4.88 20.16 7.84 27.04 10.08 11.36 3.52 21.76 3.04 29.92 1.84 9.12-1.36 28.48-11.68 32.48-22.88 4-11.2 4-20.8 2.88-22.88-1.12-2.08-4.32-3.2-9.12-5.6z"/></svg>
+        </a>
+        <a href="https://t.me/maaney_store/24" target="_blank" rel="noopener" style="display:inline-flex;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="#2AABEE"><path d="M9.993 15.17l-.396 5.57c.568 0 .814-.244 1.11-.536l2.664-2.532 5.52 4.032c1.012.56 1.732.268 1.984-.932L23.99 3.77c.314-1.46-.532-2.03-1.52-1.66L1.5 10.02c-1.42.56-1.4 1.36-.24 1.72l5.74 1.79L19.33 6.94c.534-.354 1.02-.158.62.196"/></svg>
+        </a>
+    </div>
+</div>
 
-                    <p class="blog-paragraph">
-                        The software optimization is good, with smooth animations and transitions. The <span style="color:red;">120Hz display</span> is well-utilized by the software, making the overall experience fluid. Samsung has also included some exclusive features like Quick Share, which allows seamless file sharing with other Samsung devices.
-                    </p>
-                </div>
-
-                <!-- COMPARISON -->
-                <h2 class="sub-heading">Galaxy M17e vs Competitors</h2>
-                <div class="article-section">
-                    <p class="blog-paragraph">
-                        When compared to its competitors like the Redmi Note 13 Pro and Realme 12 Pro, the Galaxy M17e holds its own quite well. The <span style="color:red;">AMOLED display with 120Hz refresh rate</span> is a significant advantage over most competitors that offer LCD panels or 60Hz refresh rates.
-                    </p>
-
-                    <div style="margin:24px 0;text-align:center;width:100%;">
-                        <img src="https://i.imgur.com/m17e-comparison.jpg" alt="Samsung Galaxy M17e vs Competitors Comparison" style="width:100%;max-width:900px;height:auto;border-radius:2px;" loading="lazy">
-                    </div>
-
-                    <p class="blog-paragraph">
-                        The <span style="color:red;">6000mAh battery</span> is larger than what most competitors offer at this price point. The inclusion of a 45W fast charger in the box is another advantage, as many competitors either don't include a charger or provide a slower one.
-                    </p>
-
-                    <p class="blog-paragraph">
-                        However, the Dimensity 7300 processor is slightly less powerful than the Snapdragon 7 Gen 3 found in some competitors. The camera performance is comparable, with each device having its strengths and weaknesses. Samsung's brand value and software update policy give the M17e an edge in the long run.
-                    </p>
-                </div>
-
-                <!-- FINAL VERDICT -->
-                <h2 class="sub-heading">Final Verdict</h2>
-                <div class="article-section">
-                    <p class="blog-paragraph">
-                        The Samsung Galaxy M17e is an impressive budget smartphone that offers excellent value for money. With its <span style="color:red;">AMOLED display, massive battery, and decent performance</span>, it stands out in a crowded market.
-                    </p>
-
-                    <p class="blog-paragraph">
-                        The device is particularly suitable for users who prioritize <span style="color:red;">battery life and display quality</span> over raw performance. The inclusion of a fast charger and wireless charging support at this price point is commendable.
-                    </p>
-
-                    <p class="blog-paragraph">
-                        While it may not be the most powerful device in its price segment, the overall package is well-balanced. Samsung's brand value and承诺 of long-term software updates make it a <span style="color:red;">safe investment</span> for those looking for a reliable budget smartphone.
-                    </p>
-
-                    <p class="blog-paragraph">
-                        If you're in the market for a budget smartphone under ₹15,000 and prioritize display quality and battery life, the Galaxy M17e should definitely be on your shortlist. It offers a premium experience that punches above its weight class.
-                    </p>
-                </div>
-
-                <!-- FOLLOW SECTION -->
-                <div style="background:#ffffff;border-radius:4px;padding:20px;margin:24px 0;border:0.8px solid #ccc;text-align:center;font-family:'Inter',sans-serif;">
-                    <p style="margin:0 0 14px;font-size:14px;color:#444;font-weight:500;">
-                        Follow the latest updates on <span style="color:#d0021b;">Samsung Galaxy M Series</span> and tech reviews.
-                    </p>
-                    <div style="display:flex;justify-content:center;align-items:center;gap:22px;">
-                        <a href="https://whatsapp.com/channel/0029Vb7WxXmFXUuZkg9Qz61u/114" target="_blank" rel="noopener" style="display:inline-flex;">
-                            <svg width="26" height="26" viewBox="0 0 512 512"><rect width="512" height="512" fill="#ffffff"/><path fill="#25D366" d="M256 48C141.13 48 48 141.13 48 256c0 45.04 14.8 86.63 39.8 120.32L48 464l91.36-38.72C172.13 446.7 212.7 464 256 464c114.87 0 208-93.13 208-208S370.87 48 256 48z"/><path fill="#25D366" d="M343.36 308.48c-4.8-2.4-28.48-14.08-32.96-15.68-4.48-1.6-7.68-2.4-10.88 2.4-3.2 4.8-12.48 15.68-15.36 18.88-2.88 3.2-5.44 3.52-10.24 1.12-28.48-14.24-47.04-25.44-65.92-57.76-4.96-8.48 4.96-7.84 14.24-26.24 1.6-3.2.8-5.92-.4-8.32-1.12-2.4-10.88-26.24-14.88-35.84-3.84-9.28-7.84-8-10.88-8.16-2.88-.16-6.24-.16-9.6-.16-3.2 0-8.32 1.12-12.64 5.92-4.32 4.8-16.64 16.32-16.64 39.84s17.04 46.24 19.36 49.44c2.4 3.2 33.6 51.2 81.44 71.68 11.36 4.88 20.16 7.84 27.04 10.08 11.36 3.52 21.76 3.04 29.92 1.84 9.12-1.36 28.48-11.68 32.48-22.88 4-11.2 4-20.8 2.88-22.88-1.12-2.08-4.32-3.2-9.12-5.6z"/></svg>
-                        </a>
-                        <a href="https://t.me/maaney_store/24" target="_blank" rel="noopener" style="display:inline-flex;">
-                            <svg width="26" height="26" viewBox="0 0 24 24" fill="#2AABEE"><path d="M9.993 15.17l-.396 5.57c.568 0 .814-.244 1.11-.536l2.664-2.532 5.52 4.032c1.012.56 1.732.268 1.984-.932L23.99 3.77c.314-1.46-.532-2.03-1.52-1.66L1.5 10.02c-1.42.56-1.4 1.36-.24 1.72l5.74 1.79L19.33 6.94c.534-.354 1.02-.158.62.196"/></svg>
-                        </a>
-                    </div>
-                </div>
-            </article>
+</article>
 
             <!-- RIGHT: SIDEBAR -->
-            <aside class="sidebar-column">
-                <div class="sticky-sidebar">
-                    <!-- TRENDING NEWS -->
-                    <div class="trending-news-card" id="trendingNewsSection">
-                        <div class="trending-title-wrapper">
-                            <h3 class="trending-title">Trending Reviews</h3>
-                        </div>
-                        <div id="trendingNewsList">
-                            <!-- Items populated by JS -->
-                        </div>
-                    </div>
+<aside class="sidebar-column">
+    <div class="sticky-sidebar">
+        
+         <!-- TRENDING NEWS -->
+        <div class="trending-news-card" id="trendingNewsSection">
+            <div class="trending-title-wrapper">
+                <h3 class="trending-title">Trending Reviews</h3>
+            </div>
+            <div id="trendingNewsList">
+                <!-- Items populated by JS -->
+            </div>
+        </div>
 
-                    <!-- QUICK FACTS -->
-                    <div class="sidebar-card">
-                        <div class="sidebar-title">Galaxy M17e Specs</div>
-                        <table class="spec-table">
-                            <tr><td>Price</td><td>₹14,999</td></tr>
-                            <tr><td>Display</td><td>6.7" 120Hz AMOLED</td></tr>
-                            <tr><td>Processor</td><td>Dimensity 7300</td></tr>
-                            <tr><td>RAM</td><td>6GB/8GB</td></tr>
-                            <tr><td>Storage</td><td>128GB/256GB</td></tr>
-                            <tr><td>Battery</td><td>6000mAh</td></tr>
-                            <tr><td>Charging</td><td>45W Fast</td></tr>
-                        </table>
-                    </div>
+<!-- QUICK FACTS -->
+<div class="sidebar-card">
+    <div class="sidebar-title">Galaxy M17 5G Specs</div>
+    <table class="spec-table">
+        <tr><td>Price</td><td>₹11,999 (Offer)</td></tr>
+        <tr><td>Chipset</td><td>Dimensity 6300</td></tr>
+        <tr><td>Display</td><td>6.7" HD+ 120Hz</td></tr>
+        <tr><td>Battery</td><td>6000mAh</td></tr>
+        <tr><td>Camera</td><td>50MP + 2MP</td></tr>
+        <tr><td>OS</td><td>Android 16 (One UI 8)</td></tr>
+    </table>
+</div>
 
-                    <!-- AUTHOR PROFILE -->
-                    <div class="sidebar-card">
-                        <div class="sidebar-title">About the Author</div>
-                        <div class="d-flex align-items-center gap-3 mb-3 author-profile">
-                            <img src="https://www.svgrepo.com/show/384670/account-avatar-profile-user.svg" style="border-radius:50%;width:48px;height:48px;" alt="Author">
-                            <div>
-                                <div style="font-weight:700;font-size: 14px;">Dhuda Sathish</div>
-                                <div style="font-size:12px;color:#777;">Tech Reviewer</div>
-                            </div>
-                        </div>
-                        <p style="font-size:13px;color:#555;">
-                            In-depth smartphone reviews and honest buying advice to help you make the right choice.
-                        </p>
-                    </div>
+        <!-- AUTHOR PROFILE -->
+        <div class="sidebar-card">
+            <div class="sidebar-title">About the Author</div>
+            <div class="d-flex align-items-center gap-3 mb-3 author-profile">
+                <img src="https://www.svgrepo.com/show/384670/account-avatar-profile-user.svg" style="border-radius:50%;width:48px;height:48px;" alt="Author">
+                <div>
+                    <div style="font-weight:700;font-size: 14px;">Dhuda Sathish</div>
+                    <div style="font-size:12px;color:#777;">Tech Reviewer</div>
                 </div>
-            </aside>
+            </div>
+            <p style="font-size:13px;color:#555;">
+                In-depth smartphone reviews and honest buying advice to help you make the right choice.
+            </p>
+        </div>
+    </div>
+</aside>
+
         </div>
         <!-- End Content Layout -->
     </div>
 
-    <footer class="maaney-footer" id="bottomFooter">
-        <div class="footer-overlay"></div>
-        <div class="container footer-content py-4">
-            <hr class="footer-hr">
-            <div class="text-center footer-copy">© 2026 Maaney Store. All Rights Reserved.</div>
-        </div>
-    </footer>
+<footer class="maaney-footer" id="bottomFooter" style="background:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://img.freepik.com/premium-vector/black-texture-background-abstract-black-background-black-pattern_672416-233.jpg') center/cover no-repeat; border-top-left-radius:24px; border-top-right-radius:24px;">
+<div class="footer-overlay"></div>
+<div class="container footer-content py-4">
+<hr class="footer-hr">
+<div class="text-center footer-copy">© 2026 Maaney Store. All Rights Reserved.</div>
+</div>
+</footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const articles = [
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+     const articles = [
             {
-                id: 101,
-                img: "https://maaney.store/news/lava/lava-bold-2-5g-launch-hero.webp",
-                category: "Mobile News",
-                title: "Lava Bold 2 5G Launched in India: 120Hz AMOLED, Dimensity 7060 at ₹12,999",
-                excerpt: "Lava launches the Bold 2 5G in India featuring a 120Hz AMOLED display, Dimensity 7060 chipset, and Android 15. The device offers strong performance with an AnTuTu score of over 500,000.",
-                author: "Dhuda Sathish",
-                date: "2026-03-14T12:00:00",
-                link: "https://maaney.store/news/lava/lava-bold-2-5g-launch-price-specifications"
-            },
+  id: 101,
+  img: "https://maaney.store/news/lava/lava-bold-2-5g-launch-hero.webp",
+  category: "Mobile News",
+  title: "Lava Bold 2 5G Launched in India: 120Hz AMOLED, Dimensity 7060 at ₹12,999",
+  excerpt: "Lava launches the Bold 2 5G in India featuring a 120Hz AMOLED display, Dimensity 7060 chipset, and Android 15.",
+  author: "Dhuda Sathish",
+  date: "2026-03-14T12:00:00",
+  link: "https://maaney.store/news/lava/lava-bold-2-5g-launch-price-specifications"
+},
             {
-                id: 38,
-                img: "https://maaney.store/news/samsung/samsung-galaxy-m17e-price-in-india-tipped-launch-date-specifications.webp",
-                category: "Samsung News",
-                title: "Samsung Galaxy M17e Price in India Tipped Ahead of Launch with 6000mAh Battery",
-                excerpt: "Samsung Galaxy M17e price in India has been tipped ahead of its official launch. The upcoming Galaxy M series smartphone is expected to feature a 6.7-inch 120Hz display.",
-                author: "Dhuda Sathish",
-                date: "2026-03-12T18:20:00",
-                link: "https://maaney.store/news/samsung/samsung-galaxy-m17e-price-in-india-tipped-launch-date-specifications"
-            },
+  id: 38,
+  img: "https://maaney.store/news/samsung/samsung-galaxy-m17e-price-in-india-tipped-launch-date-specifications.webp",
+  category: "Samsung News",
+  title: "Samsung Galaxy M17e Price in India Tipped Ahead of Launch with 6000mAh Battery",
+  excerpt: "Samsung Galaxy M17e price in India has been tipped ahead of its official launch. The upcoming Galaxy M series smartphone is expected to feature a 6.7-inch 120Hz display.",
+  author: "Dhuda Sathish",
+  date: "2026-03-12T18:20:00",
+  link: "https://maaney.store/news/samsung/samsung-galaxy-m17e-price-in-india-tipped-launch-date-specifications"
+},
             {
-                id: 37,
-                img: "https://photos5.appleinsider.com/gallery/67002-140750-iPhone-8-xl.jpg",
-                category: "Apple News",
-                title: "Apple Rolls Out iOS 16.7.15 and iOS 15.8.7 Updates with Security Fixes",
-                excerpt: "Apple has released iOS 16.7.15 and iOS 15.8.7 security updates for older iPhone and iPad models, addressing critical vulnerabilities.",
-                author: "Dhuda Sathish",
-                date: "2026-03-12T14:30:00",
-                link: "https://maaney.store/news/apple/apple-ios-15-update-older-iphone-coruna-exploit-fixes"
-            },
+  id: 37,
+  img: "https://photos5.appleinsider.com/gallery/67002-140750-iPhone-8-xl.jpg",
+  category: "Apple News",
+  title: "Apple Rolls Out iOS 16.7.15 and iOS 15.8.7 Updates with Security Fixes",
+  excerpt: "Apple has released iOS 16.7.15 and iOS 15.8.7 security updates for older iPhone and iPad models.",
+  author: "Dhuda Sathish",
+  date: "2026-03-12T14:30:00",
+  link: "https://maaney.store/news/apple/apple-ios-15-update-older-iphone-coruna-exploit-fixes"
+},
             {
-                id: 36,
-                img: "https://cdn.beebom.com/content/2026/03/z11x-leak-price.jpg",
-                category: "Mobile News",
-                title: "iQOO Z11x 5G Launched in India with 7,200mAh Battery and Dimensity 7400 Turbo Processor",
-                excerpt: "iQOO has officially launched the iQOO Z11x 5G in India featuring a massive 7,200mAh battery and the MediaTek Dimensity 7400 Turbo processor.",
-                author: "Dhuda Sathish",
-                date: "2026-03-12T14:00:00",
-                link: "https://maaney.store/news/iqoo/iqoo-z11x-5g-launched-in-india-know-price-specs-details"
-            },
+  id: 36,
+  img: "https://cdn.beebom.com/content/2026/03/z11x-leak-price.jpg",
+  category: "Mobile News",
+  title: "iQOO Z11x 5G Launched in India with 7,200mAh Battery",
+  excerpt: "iQOO has officially launched the iQOO Z11x 5G in India featuring a massive 7,200mAh battery.",
+  author: "Dhuda Sathish",
+  date: "2026-03-12T14:00:00",
+  link: "https://maaney.store/news/iqoo/iqoo-z11x-5g-launched-in-india-know-price-specs-details"
+},
             {
-                id: 35,
-                img: "https://maaney.store/news/oneplus/oneplus-15t-design-revealed-three-colours-ultra-narrow-bezels.webp",
-                category: "Mobile News",
-                title: "OnePlus 15T Design Revealed with Three Colours and Ultra-Narrow Bezels",
-                excerpt: "OnePlus has officially revealed the design of the upcoming OnePlus 15T smartphone, showcasing three colour options and ultra-narrow bezels.",
-                author: "Dhuda Sathish",
-                date: "2026-03-12T13:30:00",
-                link: "https://maaney.store/news/oneplus/oneplus-15t-design-revealed-three-colours-ultra-narrow-bezels"
-            }
+  id: 35,
+  img: "https://maaney.store/news/oneplus/oneplus-15t-design-revealed-three-colours-ultra-narrow-bezels.webp",
+  category: "Mobile News",
+  title: "OnePlus 15T Design Revealed with Three Colours and Ultra-Narrow Bezels",
+  excerpt: "OnePlus has officially revealed the design of the upcoming OnePlus 15T smartphone.",
+  author: "Dhuda Sathish",
+  date: "2026-03-12T13:30:00",
+  link: "https://maaney.store/news/oneplus/oneplus-15t-design-revealed-three-colours-ultra-narrow-bezels"
+}
         ];
 
-        function renderTrendingNews() {
-            const container = document.getElementById('trendingNewsList');
-            if (!container) return;
-            let html = '';
-            articles.forEach((article, index) => {
-                html += `
-                <a href="${article.link}" class="trending-item" style="text-decoration:none;">
-                    <span class="trending-number">${index + 1}</span>
-                    <div class="trending-content">
-                        <h4 class="trending-item-title">${article.title}</h4>
-                    </div>
-                </a>`;
-            });
-            container.innerHTML = html;
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            renderTrendingNews();
+    function renderTrendingNews() {
+        const container = document.getElementById('trendingNewsList');
+        if (!container) return;
+        let html = '';
+        articles.forEach((article, index) => {
+            html += `
+            <a href="${article.link}" class="trending-item" style="text-decoration:none;">
+                <span class="trending-number">${index + 1}</span>
+                <div class="trending-content">
+                    <h4 class="trending-item-title">${article.title}</h4>
+                </div>
+            </a>`;
         });
+        container.innerHTML = html;
+    }
 
-        function toggleMenu(){
-            let menu = document.getElementById("mobileMenu");
-            menu.classList.toggle("active");
-        }
-    </script>
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"5ce440e718ae4522800a0efa9262b2ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+    document.addEventListener('DOMContentLoaded', function() {
+        renderTrendingNews();
+    });
+
+    function toggleMenu(){
+        let menu = document.getElementById("mobileMenu");
+        menu.classList.toggle("active");
+    }
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"5ce440e718ae4522800a0efa9262b2ef","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
