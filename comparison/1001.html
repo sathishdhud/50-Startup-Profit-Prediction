@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Dynamic SEO Meta Tags (Default/Template) -->
+<title>Smartphone Comparison - Full Specs & Price</title>
+<meta name="description" content="Compare detailed specifications, prices, and performance scores of top smartphones.">
+<meta name="keywords" content="Smartphone comparison, mobile specs, phone price, benchmark comparison">
+<meta name="author" content="Maaney Store">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://maaney.store/comparison/1001">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Smartphone Comparison – Full Specs & Price">
+<meta property="og:description" content="Side-by-side comparison of top smartphones. Find the best display, battery, and performance.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Maaney Store">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Smartphone Comparison">
+<meta name="twitter:description" content="Compare specs, prices, and performance.">
+
+<!-- Tech Article Schema (Dynamic via JS) -->
+<script type="application/ld+json" id="schemaTechArticle">
+{
+ "@context": "https://schema.org",
+ "@type": "TechArticle",
+ "headline": "Smartphone Comparison",
+ "description": "Detailed comparison of smartphones.",
+ "author": { "@type": "Organization", "name": "Maaney Store" },
+ "publisher": { "@type": "Organization", "name": "Maaney Store" },
+ "datePublished": "2026-03-20",
+ "dateModified": "2026-03-20"
+}
+</script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { overflow-x: hidden; width: 100%; }
+    body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #333333; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+
+    /* Header */
+    .top-strip { background: #f44f08; color: #fff; font-size: 12px; padding: 6px 0; }
+    .main-header { background-color: #FFFFFF; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+
+    /* Banner */
+    .banner-container { width: 100%; background: #000; }
+    .banner-img { width: 100%; height: auto; display: block; }
+
+    /* Container */
+    .comparison-container { width: 100%; max-width: 100%; padding: 0; }
+    @media (min-width: 992px) { .comparison-container { max-width: 1100px; margin: 0 auto; padding: 0 15px; } }
+
+    /* Navigation */
+    .toc-nav { padding: 12px 5px; background: #FFFFFF; border-bottom: 1px solid #F0F0F0; text-align: center; position: sticky; top: 46px; z-index: 999; white-space: nowrap; overflow-x: auto; -ms-overflow-style: none; scrollbar-width: none; }
+    .toc-nav::-webkit-scrollbar { display: none; }
+    .toc-list { display: inline-flex; list-style: none; padding: 0; margin: 0; }
+    .toc-list li a { display: block; padding: 5px 10px; background: #FFFFFF; border: 1px solid #EEEEEE; border-radius: 20px; color: #444444; text-decoration: none; font-size: 0.7rem; font-weight: 500; margin: 0 3px; }
+
+    /* Table Container */
+    .table-wrapper { width: 100%; overflow-x: auto; -ms-overflow-style: none; scrollbar-width: none; }
+    .table-wrapper::-webkit-scrollbar { display: none; }
+
+    /* Dynamic Layout Classes */
+    /* 3 Phones Layout */
+    .layout-3 .comparison-table { min-width: 800px; }
+    .layout-3 .comparison-table th:first-child, .layout-3 .comparison-table td:first-child { width: 18%; min-width: 110px; }
+    .layout-3 .comparison-table th:nth-child(n+2), .layout-3 .comparison-table td:nth-child(n+2) { width: 27.3%; min-width: 200px; }
+
+    /* 2 Phones Layout (Centered, No Scroll) */
+    .layout-2 .comparison-table { width: 100%; min-width: auto; table-layout: fixed; }
+    .layout-2 .comparison-table th:first-child, .layout-2 .comparison-table td:first-child { width: 25%; }
+    .layout-2 .comparison-table th:nth-child(n+2), .layout-2 .comparison-table td:nth-child(n+2) { width: 37.5%; }
+
+    /* Table Styling */
+    .comparison-table { border-collapse: collapse; background: #FFFFFF; }
+    .comparison-table th, .comparison-table td { padding: 12px 8px; font-size: 0.75rem; color: #555555; text-align: center; border-bottom: 1px solid #F0F0F0; vertical-align: middle; }
+    .comparison-table th:first-child, .comparison-table td:first-child { text-align: left; font-weight: 600; color: #333333; background-color: #FAFAFA; padding-left: 10px; position: sticky; left: 0; z-index: 5; }
+    
+    /* Sticky Header */
+    .comparison-table thead th { position: sticky; top: 90px; background: #FFFFFF; z-index: 10; border-bottom: 2px solid #EEEEEE; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .comparison-table thead tr:first-child th { padding: 15px 10px; background: #FFFFFF; }
+    .comparison-table thead tr:first-child th:first-child { background-color: #FAFAFA; }
+
+    /* Phone Image in Header */
+    .header-img { max-width: 85%; height: auto; max-height: 140px; border-radius: 8px; margin-bottom: 8px; }
+
+    /* Section Headers */
+    .section-row td { background-color: #F5F5F5 !important; color: #333333 !important; font-weight: 700 !important; font-size: 0.7rem !important; text-transform: uppercase; border-bottom: 1px solid #EEEEEE; }
+    .winner-text { text-align: right; font-weight: 600; color: #FF6B35; font-size: 0.7rem; text-transform: none; }
+
+    /* Phone Model Header */
+    .phone-model-name { font-weight: 700; font-size: 0.9rem; color: #222222; margin-bottom: 2px; }
+    .phone-model-price { font-size: 0.8rem; color: #FF6B35; font-weight: 600; margin-bottom: 5px; }
+    
+    /* Buttons & Links */
+    .buy-btn { text-decoration: none; }
+    .buy-now { color: #e54c00; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 6px; display: inline-block; margin-top: 5px; border: 1px solid #e54c00; }
+    .phone-link { text-decoration: none; }
+    .phone-model-name:hover { color: #ff7a00; }
+
+    /* Article Meta */
+    .article-meta { font-size: 13px; color: #666; margin: 10px 0; margin-left: 10px; }
+    .author-link { color: #ff7a00; text-decoration: none; font-weight: 600; }
+    .author-link:hover { text-decoration: underline; }
+
+    /* Footer */
+    .maaney-footer { position: relative; color: #eee; margin-top: 40px; }
+    .footer-overlay { position: absolute; inset: 0; }
+    .footer-content { position: relative; }
+    .footer-title { color: #fff; font-size: 15px; }
+    .footer-text { font-size: 14px; color: #ffffff; }
+    .footer-list { list-style: none; padding: 0; font-size: 14px; line-height: 2; }
+    .footer-list a { color: #bbb; text-decoration: none; }
+    .footer-social { display: flex; gap: 14px; margin-top: 10px; }
+    .footer-social a { color: #fff; font-size: 18px; }
+    .footer-hr { border-color: #333; margin: 20px 0; }
+    .footer-copy { font-size: 13px; color: #aaa; }
+    .mobile-block { border-top: 1px solid #333; padding: 10px 0; }
+    .mobile-block summary { color: #fff; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .mobile-block a { display: block; color: #bbb; font-size: 13px; margin-top: 6px; text-decoration: none; }
+
+    /* Verdict Section */
+    .verdict-box { padding: 20px 15px; background: #FFFFFF; }
+    .verdict-title { font-size: 1rem; font-weight: 700; margin-bottom: 10px; color: #222222; }
+    .verdict-text { font-size: 0.85rem; color: #555555; margin-bottom: 10px; line-height: 1.6; }
+
+    /* Scroll Indicator */
+    .scroll-indicator { display: none; text-align: center; font-size: 0.7rem; color: #888; margin-top: 5px; padding: 5px; background: #f9f9f9; }
+    @media (max-width: 768px) { .show-indicator .scroll-indicator { display: block; } }
+</style>
+</head>
+<body>
+
+<!-- TOP STRIP -->
+<div class="top-strip">
+    <div class="container d-flex justify-content-between align-items-center">
+        <div><i class="fas fa-tag me-2"></i> India's Best Price Comparison Engine</div>
+        <div class="d-none d-md-block">
+            <span class="me-3"><i class="fas fa-download me-1"></i> Download App</span>
+            <span><i class="fas fa-headset me-1"></i> Support</span>
+        </div>
+    </div>
+</div>
+
+<!-- Header -->
+<header class="main-header sticky top-0 z-50 bg-white border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+        <a href="/" style="display:flex;align-items:center;">
+            <img src="../white_logo.png" alt="Maaney Logo" style="height:32px;width:auto;object-fit:contain;margin:6px;">
+        </a>
+        <div class="text-xs text-gray-400 hidden sm:block" id="lastUpdate"></div>
+    </div>
+</header>
+
+<!-- Dynamic Comparison Banner -->
+<div class="banner-container" id="bannerContainer">
+    <!-- JS will inject image here -->
+</div>
+
+<!-- Article Meta -->
+<div class="article-meta" id="articleMeta">
+    <!-- JS will inject meta here -->
+</div>
+
+<!-- Quick Navigation -->
+<div class="toc-nav">
+    <ul class="toc-list">
+        <li><a href="#general">General</a></li>
+        <li><a href="#design">Design</a></li>
+        <li><a href="#display">Display</a></li>
+        <li><a href="#performance">Performance</a></li>
+        <li><a href="#camera">Camera</a></li>
+        <li><a href="#battery">Battery</a></li>
+        <li><a href="#connectivity">Network</a></li>
+        <li><a href="#verdict">Verdict</a></li>
+    </ul>
+</div>
+
+<!-- Main Comparison Table -->
+<section id="comparison">
+    <div class="comparison-container">
+        
+        <!-- Dynamic Scroll Indicator -->
+        <div class="scroll-indicator">Swipe left to see full specs &rarr;</div>
+        
+        <div class="table-wrapper" id="tableWrapper">
+            <table class="comparison-table" id="comparisonTable">
+                <thead id="tableHead">
+                    <!-- JS will inject Header here -->
+                </thead>
+                <tbody id="tableBody">
+                    <!-- JS will inject Body here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- Verdict -->
+<section id="verdict" class="verdict-box">
+    <div class="comparison-container">
+        <h3 class="verdict-title">Final Verdict: Which One Should You Buy?</h3>
+        <div id="verdictContent">
+            <!-- JS will inject verdict here -->
+        </div>
+    </div>
+</section>
+
+<footer class="maaney-footer poppins-regular" id="bottomFooter" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://img.freepik.com/premium-vector/black-texture-background-abstract-black-background-black-pattern_672416-233.jpg') center/cover no-repeat; border-top-left-radius:24px; border-top-right-radius:24px;">
+    <div class="footer-overlay"></div>
+    <div class="container footer-content py-4">
+        <div class="row g-4 d-none d-md-flex">
+            <div class="col-md-3">
+                <img src="https://maaney.store/logo.png" style="height:40px;margin-bottom:10px;">
+                <p class="footer-text">Maaney Store helps you compare smartphones and find the best deals.</p>
+            </div>
+            <div class="col-md-3">
+                <h6 class="footer-title">Quick Links</h6>
+                <ul class="footer-list">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/mobiles/mobileU10k">Mobile Phones</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h6 class="footer-title">Support</h6>
+                <ul class="footer-list">
+                    <li><a href="/policy">Privacy Policy</a></li>
+                    <li><a href="/contact-us">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h6 class="footer-title">Follow Us</h6>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr class="footer-hr">
+        <div class="text-center footer-copy">© 2026 Maaney Store. All Rights Reserved.</div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// ==========================================
+// 1. DATA SOURCE (The "Database")
+// ==========================================
+const phoneData = {
+    "realme-p4-lite-5g": {
+        name: "Realme P4 Lite 5G",
+        price: "₹12,999",
+        image: "../mobiles/realme-p4-lite-5g/image2.png",
+        link: "https://maaney.store/mobiles/realme-p4-lite-5g/",
+        buyLink: "https://www.amazon.in/dp/exampleRealme",
+        specs: {
+            general: { Release: "March 19, 2026", OS: "Android v16", UI: "Realme UI 7.0" },
+            design: { Dimensions: "166.3 x 78.1 x 8.4 mm", Weight: "212 g", Back: "Polycarbonate", IP: "IP64", Military: "MIL-STD-810H" },
+            display: { Size: "6.8 inches", Resolution: "HD+ (720 x 1570 px)", Type: "IPS LCD", Refresh: "144 Hz", Brightness: "900 nits" },
+            performance: { Chipset: "Dimensity 6300 (6 nm)", CPU: "Octa-core (2.4 GHz)", GPU: "Mali-G57 MC2", RAM: "4/6 GB", Antutu: "~500,000" },
+            camera: { Rear: "Dual", Main: "13 MP, f/2.2", Secondary: "2 MP Depth", Front: "5 MP", Video: "1080p@30fps" },
+            battery: { Capacity: "7000 mAh", Charging: "15W", Type: "Li-Po", ChargerInBox: "Yes" },
+            connectivity: { Wifi: "Wi-Fi 5", BT: "v5.3", NFC: "No", USB: "USB 2.0" }
+        },
+        verdict: "Your priority is battery life and budget. It offers a massive 7000mAh battery and 144Hz display at the lowest price."
+    },
+    "samsung-m17e-5g": {
+        name: "Samsung Galaxy M17e 5G",
+        price: "₹14,499",
+        image: "../mobiles/samsung-galaxy-m17e-5g/image2.png",
+        link: "https://maaney.store/mobiles/samsung-galaxy-m17e-5g/",
+        buyLink: "https://www.flipkart.com/dp/exampleSamsung",
+        specs: {
+            general: { Release: "Oct, 2025", OS: "Android v15", UI: "One UI Core 7" },
+            design: { Dimensions: "164.4 x 77.9 x 8.3 mm", Weight: "192 g", Back: "Glasstik", IP: "IP54", Military: "No" },
+            display: { Size: "6.7 inches", Resolution: "FHD+ (1080 x 2340 px)", Type: "Super AMOLED", Refresh: "90 Hz", Brightness: "1100 nits" },
+            performance: { Chipset: "Exynos 1330 (5 nm)", CPU: "Octa-core (2.4 GHz)", GPU: "Mali-G68 MP2", RAM: "4/6/8 GB", Antutu: "~530,000" },
+            camera: { Rear: "Triple", Main: "50 MP (OIS)", Secondary: "5 MP Ultra-wide", Front: "13 MP", Video: "1080p@30fps" },
+            battery: { Capacity: "5000 mAh", Charging: "25W", Type: "Li-Ion", ChargerInBox: "No" },
+            connectivity: { Wifi: "Wi-Fi 5", BT: "v5.3", NFC: "Yes", USB: "USB 2.0" }
+        },
+        verdict: "You want a balanced, media-centric experience. It has the best AMOLED screen and a versatile 50MP camera with OIS."
+    },
+    "vivo-t5x": {
+        name: "Vivo T5x",
+        price: "₹18,999",
+        image: "../mobiles/vivo-t5x/image2.png",
+        link: "https://maaney.store/mobiles/vivo-t5x/",
+        buyLink: "https://www.flipkart.com/dp/exampleVivo",
+        specs: {
+            general: { Release: "March 17, 2026", OS: "Android v16", UI: "OriginOS 6" },
+            design: { Dimensions: "166.1 x 77.9 x 8.2 mm", Weight: "205 g", Back: "Polycarbonate", IP: "IP68/69K", Military: "MIL-STD-810H" },
+            display: { Size: "6.76 inches", Resolution: "FHD+ (1080 x 2344 px)", Type: "IPS LCD", Refresh: "120 Hz", Brightness: "1200 nits" },
+            performance: { Chipset: "Dimensity 7400 Turbo (4 nm)", CPU: "Octa-core (3.0 GHz)", GPU: "Mali-G615 MC2", RAM: "6/8 GB", Antutu: "~820,000" },
+            camera: { Rear: "Dual", Main: "50 MP", Secondary: "2 MP Bokeh", Front: "32 MP", Video: "4K@30fps" },
+            battery: { Capacity: "7200 mAh", Charging: "44W", Type: "Silicon Carbon", ChargerInBox: "Yes" },
+            connectivity: { Wifi: "Wi-Fi 6", BT: "v5.4", NFC: "Yes", USB: "USB 2.0 OTG" }
+        },
+        verdict: "You need the best performance and durability. It features the powerful Dimensity 7400, fastest charging, and waterproof build."
+    }
+};
+
+// ==========================================
+// 2. URL PARSING LOGIC
+// ==========================================
+function getPhoneSlugs() {
+    // Method 1: Try to parse from URL path (e.g., /realme-p4-lite-5g-vs-samsung-m17e-5g.html)
+    let path = window.location.pathname.replace('.html', '').replace('/', '');
+    let slugs = path.split('-vs-');
+    
+    // Filter out empty or invalid slugs
+    slugs = slugs.filter(s => phoneData[s]);
+
+    // Method 2: If path parsing fails, check URL parameters (e.g., ?phones=a-vs-b)
+    if (slugs.length < 2) {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('phones')) {
+            slugs = params.get('phones').split('-vs-').filter(s => phoneData[s]);
+        }
+    }
+    
+    // Method 3: Default fallback for demo/testing if nothing found
+    if (slugs.length < 2) {
+        // Default to all 3 if URL is empty
+        console.log("No phones detected in URL, loading default 3 phones for demo.");
+        slugs = ["realme-p4-lite-5g", "samsung-m17e-5g", "vivo-t5x"];
+    }
+    
+    return slugs;
+}
+
+// ==========================================
+// 3. RENDERING ENGINE
+// ==========================================
+function renderComparison() {
+    const slugs = getPhoneSlugs();
+    const phones = slugs.map(s => phoneData[s]);
+    const count = phones.length;
+
+    // 1. Update Layout CSS
+    const tableWrapper = document.getElementById('tableWrapper');
+    const tableContainer = document.querySelector('.comparison-container');
+    
+    if (count === 2) {
+        tableWrapper.classList.add('layout-2');
+        tableWrapper.parentElement.classList.remove('show-indicator');
+    } else {
+        tableWrapper.classList.add('layout-3');
+        tableWrapper.parentElement.classList.add('show-indicator');
+    }
+
+    // 2. Update SEO Meta Tags
+    const titles = phones.map(p => p.name).join(' vs ');
+    document.title = `${titles}: Full Specs Comparison (2026)`;
+    document.querySelector('meta[name="description"]').setAttribute('content', `Compare ${titles}. Detailed specs, price, and performance analysis.`);
+    document.querySelector('meta[property="og:title"]').setAttribute('content', `${titles} Comparison`);
+    document.querySelector('meta[property="og:description"]').setAttribute('content', `Side-by-side comparison of ${titles}.`);
+
+    // 3. Render Banner
+    document.getElementById('bannerContainer').innerHTML = `
+        <img src="./${slugs.join('-vs-')}.webp" 
+             alt="${titles} comparison banner"
+             class="banner-img"
+             onerror="this.src='https://via.placeholder.com/1200x400?text=${encodeURIComponent(titles)}'">
+    `;
+
+    // 4. Render Meta Info
+    document.getElementById('articleMeta').innerHTML = `
+        Written by <a href="https://maaney.store/author/dhuda-sathish/" class="author-link" rel="author">Dhuda Sathish</a> • 
+        <time datetime="2026-03-20">March 20, 2026</time>
+    `;
+
+    // 5. Render Table Header
+    let headerHTML = `<tr><th>Specs</th>`;
+    phones.forEach(phone => {
+        headerHTML += `
+            <th>
+                <img src="${phone.image}" alt="${phone.name}" class="header-img" onerror="this.src='https://via.placeholder.com/140x140?text=Phone'">
+                <a href="${phone.link}" class="phone-link"><div class="phone-model-name">${phone.name}</div></a>
+                <div class="phone-model-price">${phone.price}</div>
+                <a href="${phone.buyLink}" target="_blank" class="buy-btn"><div class="buy-now">Buy Now</div></a>
+            </th>`;
+    });
+    headerHTML += `</tr>`;
+    document.getElementById('tableHead').innerHTML = headerHTML;
+
+    // 6. Render Table Body
+    const sections = [
+        { key: 'general', title: 'General', props: ['Release', 'OS', 'UI'] },
+        { key: 'design', title: 'Design & Build', props: ['Dimensions', 'Weight', 'Back', 'IP', 'Military'], winner: "Samsung M17e (Design) / Vivo T5x (Rugged)" },
+        { key: 'display', title: 'Display', props: ['Size', 'Resolution', 'Type', 'Refresh', 'Brightness'], winner: "Samsung M17e (Quality) / Realme P4 Lite (Hz)" },
+        { key: 'performance', title: 'Performance', props: ['Chipset', 'CPU', 'GPU', 'RAM', 'Antutu'], winner: "Vivo T5x" },
+        { key: 'camera', title: 'Camera', props: ['Rear', 'Main', 'Secondary', 'Front', 'Video'], winner: "Samsung M17e" },
+        { key: 'battery', title: 'Battery & Charging', props: ['Capacity', 'Charging', 'Type', 'ChargerInBox'], winner: "Vivo T5x" },
+        { key: 'connectivity', title: 'Connectivity', props: ['Wifi', 'BT', 'NFC', 'USB'], winner: "Vivo T5x" }
+    ];
+
+    let bodyHTML = '';
+    
+    // Overall Score Row (Mock calculation for demo)
+    bodyHTML += `<tr><td>Overall Score</td>${phones.map(p => `<td><strong>${Math.floor(Math.random() * 10) + 80} / 100</strong></td>`).join('')}</tr>`;
+
+    sections.forEach(section => {
+        bodyHTML += `<tr class="section-row" id="${section.key}"><td>${section.title}</td><td colspan="${count}" class="winner-text">Winner: ${section.winner || 'Tie'}</td></tr>`;
+        
+        section.props.forEach(prop => {
+            bodyHTML += `<tr><td>${prop}</td>`;
+            phones.forEach(phone => {
+                // Logic to highlight winner spec (simple logic: highest number or specific string)
+                let val = phone.specs[section.key][prop] || '-';
+                bodyHTML += `<td>${val}</td>`;
+            });
+            bodyHTML += `</tr>`;
+        });
+    });
+
+    // Pros & Cons
+    bodyHTML += `<tr class="section-row"><td colspan="${count + 1}">Summary</td></tr>`;
+    bodyHTML += `<tr><td>Best For</td>`;
+    phones.forEach(p => { bodyHTML += `<td>${p.verdict.substring(0, 50)}...</td>`; });
+    bodyHTML += `</tr>`;
+
+    document.getElementById('tableBody').innerHTML = bodyHTML;
+
+    // 7. Render Verdict
+    let verdictHTML = '';
+    phones.forEach(p => {
+        verdictHTML += `<p class="verdict-text"><strong>Buy ${p.name} if:</strong> ${p.verdict}</p>`;
+    });
+    document.getElementById('verdictContent').innerHTML = verdictHTML;
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', renderComparison);
+
+</script>
+
+</body>
+</html>
