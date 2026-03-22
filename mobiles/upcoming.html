@@ -471,6 +471,27 @@ class="fixed top-0 right-0 w-72 h-full bg-black text-white transform translate-x
         // --- 1. Data Definition ---
       const PRODUCTS = [
         {
+  "id": 2,
+  "name": "Redmi 15A 5G",
+  "brand": "Redmi",
+  "img": "https://maaney.store/mobiles/redmi-15a-5g/image1.png",
+  "price": 11999,
+  "originalPrice": 14999,
+  "ram": 6,
+  "processor": "MediaTek Dimensity 6300",
+  "camera": "50MP + 2MP",
+  "battery": "6300 mAh",
+  "rating": 0,
+  "url": "https://maaney.store/mobiles/redmi-15a-5g",
+  "ratingsCount": 0,
+  "store": "Xiaomi",
+  "badge": "Upcoming",
+  "launchDate": "2026-03-27",
+  "displayDate": "27 Mar 2026",
+  "photos": "https://maaney.store/mobiles/redmi-15a-5g#photos",
+  "storeurl": "https://www.mi.com/in/event/redmi-15a-5g/"
+},
+        {
           id: 1,
           name: "Realme P4 Lite 5G",
           brand: "Realme",
@@ -928,26 +949,36 @@ class="fixed top-0 right-0 w-72 h-full bg-black text-white transform translate-x
             document.getElementById('resultsCount').innerHTML = `<span class="font-semibold text-text-dark">${count}</span> upcoming phones found`;
         }
 
-        function renderProductList(data) {
-            const container = document.getElementById('productList');
-            const noResults = document.getElementById('noResults');
-            
-            const start = (currentPage - 1) * itemsPerPage;
-            const end = start + itemsPerPage;
-            const paginatedItems = data.slice(start, end);
+       function renderProductList(data) {
+    const container = document.getElementById('productList');
+    const noResults = document.getElementById('noResults');
+    
+    // 1. Sort by launchDate (Descending - Newest/Upcoming first)
+    // We create a copy with [...data] to avoid mutating the original array
+    const sortedData = [...data].sort((a, b) => {
+        const dateA = a.launchDate ? new Date(a.launchDate) : new Date(0);
+        const dateB = b.launchDate ? new Date(b.launchDate) : new Date(0);
+        // For Descending order (Newest first): dateB - dateA
+        // For Ascending order (Oldest first): dateA - dateB
+        return dateA - dateB; 
+    });
 
-            if (paginatedItems.length === 0) {
-                container.innerHTML = '';
-                noResults.classList.remove('hidden');
-                return;
-            }
+    // 2. Paginate the sorted data
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const paginatedItems = sortedData.slice(start, end);
 
-            noResults.classList.add('hidden');
-            container.innerHTML = paginatedItems.map(product => createProductCard(product)).join('');
-            lucide.createIcons();
-        }
+    if (paginatedItems.length === 0) {
+        container.innerHTML = '';
+        noResults.classList.remove('hidden');
+        return;
+    }
 
-        function createProductCard(p) {
+    noResults.classList.add('hidden');
+    container.innerHTML = paginatedItems.map(product => createProductCard(product)).join('');
+    lucide.createIcons();
+}
+       function createProductCard(p) {
             const discount = p.originalPrice ? Math.round((1 - (p.price / p.originalPrice)) * 100) : 0;
             
             return `
