@@ -935,4 +935,10 @@
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
   </url>
+   <url>
+      <loc>https://maaney.store/news/oneplus/oneplus-nord-6-launch-confirmed</loc>
+      <lastmod>2026-03-23</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+  </url>
 </urlset>
