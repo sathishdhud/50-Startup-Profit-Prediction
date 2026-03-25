@@ -133,10 +133,10 @@
     /* TYPOGRAPHY */
     .poppins { font-family: "Poppins", sans-serif; }
 
-    /* MAIN CONTAINER */
+    /* MAIN CONTAINER - FIXED WIDTH TYPO */
     .main-page-wrapper {
         width: 100%;
-        max-width: 1200px;
+        max-width: 1200px; /* FIXED: Changed from 100px to 1200px */
         margin: 0 auto;
         background: var(--white);
         min-height: 100vh;
@@ -251,6 +251,7 @@
         position: relative;
         width: 110px;
         height: 110px;
+        flex-shrink: 0;
     }
 
     .avatar-img {
@@ -274,14 +275,7 @@
         justify-content: center;
         border: 2px solid #fff;
     }
-@media (max-width: 768px) {
-    .avatar-badge {
-        width: 22px;
-        height: 22px;
-        border: 2px solid #fff;
-        transform: translate(32%, 22%);
-    }
-}
+
     .avatar-badge svg {
         width: 16px;
         height: 16px;
@@ -354,6 +348,7 @@
     .main-content {
         padding: 30px 40px;
         border-right: 1px solid var(--border);
+        width: 100%;
     }
 
     .section-title {
@@ -399,9 +394,9 @@
     }
 
     .article-thumb {
-        width: 140px;
+        width: 120px;
         height: 90px;
-        border-radius: 8px;
+       
         object-fit: cover;
         flex-shrink: 0;
         background: var(--bg-gray);
@@ -426,22 +421,26 @@
     }
 
     .article-title {
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 600;
         color: var(--text-dark);
-        margin-bottom: 8px;
         line-height: 1.4;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
+        padding: 10px;
+        width:320px;
+        height:fit-content;
         transition: color 0.2s ease;
     }
 
     .article-meta {
         display: flex;
+        flex-wrap: wrap;
         gap: 15px;
         font-size: 12px;
+        padding-left: 10px;
         color: var(--text-light);
     }
 
@@ -505,6 +504,7 @@
     /* SIDEBAR */
     .sidebar {
         padding: 30px 25px;
+       
         background: var(--white);
     }
 
@@ -592,6 +592,7 @@
         font-size: 13px;
         color: var(--text-dark);
         font-weight: 500;
+        word-break: break-word;
     }
 
     .contact-value a {
@@ -649,7 +650,7 @@
         z-index: 1000;
     }
 
-    /* MOBILE */
+    /* MOBILE RESPONSIVE */
     @media (max-width: 992px) {
         .content-layout {
             grid-template-columns: 1fr;
@@ -658,7 +659,14 @@
         .main-content {
             border-right: none;
             border-bottom: 1px solid var(--border);
-            padding: 25px 20px;
+            padding: 0px;
+            border-radius: 2px;
+
+            
+        }
+        .main-content image
+        {
+            padding: 0;
         }
 
         .sidebar {
@@ -672,13 +680,14 @@
 
     @media (max-width: 768px) {
         .main-page-wrapper {
-            margin: 0;
+            width: 100%;
+            
         }
 
         .blog-nav {
             padding: 12px 16px;
         }
-
+        
         .nav-links {
             display: none;
         }
@@ -689,6 +698,7 @@
 
         .author-header-content {
             gap: 16px;
+            flex-direction: row; 
         }
 
         .author-name {
@@ -700,13 +710,28 @@
             height: 64px;
         }
 
+        .sidebar-card {
+        padding: auto;
+    }
+
+        .avatar-badge {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #fff;
+            transform: translate(32%, 22%);
+            bottom: auto;
+            right: auto;
+            position: absolute;
+        }
+
         .author-meta {
             flex-wrap: wrap;
             gap: 10px;
         }
 
         .stats-bar {
-            gap: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
             padding: 16px;
         }
 
@@ -721,7 +746,7 @@
 
         .article-thumb {
             width: 100%;
-            height: 140px;
+            height: 180px;
         }
 
         .mobile-sticky {
@@ -995,143 +1020,818 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        document.addEventListener("DOMContentLoaded", async function () {
+        document.addEventListener("DOMContentLoaded", function () {
             
-            const authorId = "062e8be5-8e0a-43be-9dff-4ec9e4760ce2";
             const container = document.getElementById("articleList");
             const paginationWrapper = document.getElementById("paginationWrapper");
             const countEl = document.getElementById("articleCount");
 
-            // 1. Define Static Articles (Preserved from original HTML)
-            const staticArticles = [
+            // 1. Article Data Source
+            const rawArticles = [
                 {
-                    id: 'static-1',
-                    url: 'https://maaney.store/review/samsung-s26/',
-                    img: 'https://maaney.store/mobiles/samsung-s26/image1.png',
-                    title: 'Samsung Galaxy S26 Ultra Review: 200MP Camera, Galaxy AI & Performance Tested',
-                    cat: 'Samsung',
-                    date: '2026-02-28',
-                    views: 3200,
-                    time: 10
+                  "id": 120,
+                  "img": "https://maaney.store/news/samsung/samsung-galaxy-a57-launch-confirmed.webp",
+                  "category": "Samsung News",
+                  "title": "Samsung Galaxy A57 Launch: Flagship Build Meets 6-Year Update Promise",
+                  "excerpt": "Samsung Galaxy A57 launches globally with Exynos 1680, Gorilla Glass Victus+, Metal Frame, IP68, and an unprecedented 6 years of OS updates at ₹56,999.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-25T20:30:00",
+                  "link": "https://maaney.store/news/samsung/samsung-galaxy-a57-launch-confirmed"
                 },
                 {
-                    id: 'static-2',
-                    url: 'https://maaney.store/news/samsung/samsung-s26',
-                    img: 'https://maaney.store/news/samsung/news-samsung-s26-ultra-2.png',
-                    title: 'Samsung Galaxy S26 Launch in India: Price, Specs & Availability',
-                    cat: 'Samsung',
-                    date: '2026-02-25',
-                    views: 2400,
-                    time: 6
+                  "id": 105,
+                  "img": "https://maaney.store/news/techno/tecno-ellaclaw-ai-agent-openclaw.webp",
+                  "category": "Mobile News",
+                  "title": "TECNO EllaClaw: The AI That Doesn’t Just Talk—It Gets Things Done",
+                  "excerpt": "TECNO introduces EllaClaw, an on-device AI agent powered by OpenClaw that can automate tasks, manage apps, and bring true agentic AI to smartphones.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-24T23:15:00",
+                  "link": "https://maaney.store/news/techno/tecno-ellaclaw-ai-agent-openclaw"
                 },
                 {
-                    id: 'static-3',
-                    url: 'https://maaney.store/news/samsung/samsung-date-leaked',
-                    img: 'https://maaney.store/news/samsung/news-samsung-s26-ultra.png',
-                    title: 'Samsung Galaxy S26 Launch Date Leaked: What to Expect',
-                    cat: 'Samsung',
-                    date: '2026-02-24',
-                    views: 1800,
-                    time: 4
+                  "id": 104,
+                  "img": "https://maaney.store/news/realme/realme-16-5g-selfie-mirror-7000mah-battery-1.webp",
+                  "category": "Mobile News",
+                  "title": "Realme 16 5G: Can a Selfie Mirror Actually Improve Your Photos?",
+                  "excerpt": "Realme 16 5G teased as India's first Selfie Mirror Phone with massive 7000mAh battery, Dimensity 6400 Turbo, and IP69K ratings.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-24T21:30:00",
+                  "link": "https://maaney.store/news/realme/realme-16-5g-selfie-mirror-7000mah-battery"
                 },
                 {
-                    id: 'static-4',
-                    url: 'https://maaney.store/news/samsung/samsung-s26-privacy',
-                    img: 'https://maaney.store/news/samsung/news-smasung-s26-privacy-1.png',
-                    title: 'Galaxy S26 Series Teased With Advanced Privacy Display',
-                    cat: 'Samsung',
-                    date: '2026-02-16',
-                    views: 3200,
-                    time: 5
+                  "id": 103,
+                  "img": "https://maaney.store/news/oneplus/oneplus-nord-6-launch-confirmed-1.png",
+                  "category": "Mobile News",
+                  "title": "OnePlus Nord 6 Launch Confirmed: 9000mAh Battery Gaming Powerhouse",
+                  "excerpt": "OnePlus Nord 6 launching April 7 with Snapdragon 8s Gen 4, massive 9000mAh battery, and 165Hz AMOLED display for gaming.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-24T16:20:00",
+                  "link": "https://maaney.store/news/oneplus/oneplus-nord-6-launch-confirmed"
                 },
                 {
-                    id: 'static-5',
-                    url: 'https://maaney.store/news/nothing/news-nothing-4a',
-                    img: 'https://maaney.store/news/nothing/news-nothing-4a.png',
-                    title: 'Nothing Phone (4a) Series Teased Ahead of Official Launch',
-                    cat: 'Nothing',
-                    date: '2026-02-14',
-                    views: 1500,
-                    time: 4
+                  "id": 102,
+                  "img": "https://maaney.store/news/oppo/oppo-k15-turbo-series-power-endurance.webp",
+                  "category": "Mobile News",
+                  "title": "OPPO K15 Turbo Series: 8000mAh Battery Gaming Phone?",
+                  "excerpt": "OPPO K15 Turbo series rumored to feature MediaTek Dimensity 9500s, built-in cooling fan, and massive 8000mAh battery.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-23T20:00:00",
+                  "link": "https://maaney.store/news/oppo/oppo-k15-turbo-series-power-endurance"
                 },
                 {
-                    id: 'static-6',
-                    url: 'https://maaney.store/news/redmi/xiaomi-civi-6-leaks',
-                    img: 'https://maaney.store/news/redmi/news-xiaomi-civi-6-leak-1.png',
-                    title: 'Xiaomi Civi 6 Might Still Launch — Fresh Leaks Surface',
-                    cat: 'Xiaomi',
-                    date: '2026-02-16',
-                    views: 2100,
-                    time: 5
+                  "id": 119,
+                  "img": "https://maaney.store/news/amazon-smartphone-comeback-project-transformer.png",
+                  "category": "Tech News",
+                  "title": "Amazon Smartphone Comeback Tipped with Project Transformer, ZeroOne Team and Alexa AI",
+                  "excerpt": "Amazon is reportedly planning a return to the smartphone market with a new initiative codenamed Project Transformer. Backed by the ZeroOne team, the upcoming device is expected to deeply integrate Alexa AI, signaling a renewed push into mobile hardware.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-20T20:10:00",
+                  "link": "https://maaney.store/news/amazon-smartphone-comeback-alexa-ai"
                 },
                 {
-                    id: 'static-7',
-                    url: 'https://maaney.store/news/realme/realme-p4-lite-launch',
-                    img: 'https://maaney.store/news/realme/news-realme-p4-lite.png',
-                    title: 'Realme P4 Lite 4G Confirmed to Launch in India',
-                    cat: 'Realme',
-                    date: '2026-02-16',
-                    views: 1900,
-                    time: 4
+                  "id": 118,
+                  "img": "https://maaney.store/news/samsung/samsung-galaxy-a57-a37-launch-date-design-tipped.webp",
+                  "category": "Samsung News",
+                  "title": "Samsung Galaxy A37, A57 India Launch Set for March 25; Design Leaked Again",
+                  "excerpt": "Samsung has officially scheduled its next Galaxy A-series launch event in India for March 25. Ahead of the unveiling, the designs of the upcoming Galaxy A37 and Galaxy A57 have surfaced once again, hinting at refined aesthetics and upgraded features.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-20T18:45:00",
+                  "link": "https://maaney.store/news/samsung/samsung-galaxy-a57-a37-launch-date-design-tipped"
                 },
                 {
-                    id: 'static-8',
-                    url: 'https://maaney.store/news/vivo/vivo-x300-fe-launch',
-                    img: 'https://maaney.store/news/vivo/news-vivo-x300-fe-certification-90w-fast-charging.png',
-                    title: 'vivo X300 FE Certified With 90W Fast Charging',
-                    cat: 'vivo',
-                    date: '2026-02-22',
-                    views: 2700,
-                    time: 5
+                  "id": 117,
+                  "img": "https://maaney.store/news/redmi/redmi-15a-5g-launch-date-specifications-teased.webp",
+                  "category": "Redmi News",
+                  "title": "Redmi 15A 5G India Launch Date Announced; Design and Specifications Teased",
+                  "excerpt": "Xiaomi has officially confirmed the launch date for the Redmi 15A 5G in India, scheduled for early next month. Ahead of the event, the company has teased a sleek new design and key specifications, including a 90Hz display and 18W fast charging support.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-20T18:10:00",
+                  "link": "https://maaney.store/news/redmi/redmi-15a-5g-launch-date-specifications-teased"
                 },
-                 {
-                    id: 'static-9',
-                    url: 'https://maaney.store/news/samsung/news-samsung-one-ui-update',
-                    img: 'https://maaney.store/news/samsung/news-samsung-one-ui-update.png',
-                    title: 'Samsung One UI 8.5 Update Introduces Upgraded Bixby',
-                    cat: 'Samsung',
-                    date: '2026-02-20',
-                    views: 3600,
-                    time: 6
+                {
+                  "id": 115,
+                  "img": "https://maaney.store/news/oneplus/oneplus-nord-6-geekbench-scores.webp",
+                  "category": "OnePlus News",
+                  "title": "OnePlus Nord 6 Runs Geekbench: Snapdragon 8s Gen 4, 9000mAh Battery Revealed",
+                  "excerpt": "OnePlus Nord 6 has surfaced on Geekbench with the Snapdragon 8s Gen 4 chipset, scoring 2,040 single-core and 6,520 multi-core points. The upcoming mid-ranger is expected to feature a massive 9,000mAh battery and launch in India around April 2026.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-19T09:30:00",
+                  "link": "https://maaney.store/news/oneplus/oneplus-nord-6-runs-geekbench-snapdragon-8s-gen-4"
+                },
+                {
+                  "id": 114,
+                  "img": "https://maaney.store/news/vivo/vivo-x300-ultra-x300s-launch-og.webp",
+                  "category": "Mobile News",
+                  "title": "Vivo X300 Ultra, X300s Launching March 30 in China: Design Unveiled, Photography Kit Revealed",
+                  "excerpt": "Vivo has confirmed the launch of the X300 Ultra and X300s in China on March 30. The upcoming flagship devices showcase a premium design and introduce a dedicated photography kit aimed at enhancing mobile photography experience.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-19T11:30:00",
+                  "link": "https://maaney.store/news/vivo/vivo-x300-ultra-x300s-launching-march-30-china"
+                },
+                {
+                  "id": 113,
+                  "img": "https://maaney.store/news/iqoo/iqoo-z11-z11x-launching-march-26-china-colors-og.webp",
+                  "category": "Mobile News",
+                  "title": "iQOO Z11 and Z11x Launching March 26 in China: Four Colors, 9,000mAh Battery",
+                  "excerpt": "iQOO has confirmed the launch of the Z11 and Z11x in China on March 26. The smartphones will be available in four color options and are expected to feature a massive 9,000mAh battery for extended usage.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-19T10:44:00",
+                  "link": "https://maaney.store/news/iqoo/iqoo-z11-z11x-launching-march-26-china-colors"
+                },
+                {
+                  "id": 112,
+                  "img": "https://maaney.store/news/oneplus/oneplus-15t-launch-date-specifications-confirmed-1.webp",
+                  "category": "Mobile News",
+                  "title": "OnePlus 15T Launch Confirmed for March 24: Snapdragon 8 Elite Gen 5, 16GB RAM",
+                  "excerpt": "OnePlus has officially confirmed the launch of the OnePlus 15T on March 24, featuring Snapdragon 8 Elite Gen 5 chipset and up to 16GB RAM for flagship-level performance.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-18T21:30:00",
+                  "link": "https://maaney.store/news/oneplus/oneplus-15t-launch-date-specifications-confirmed"
+                },
+                {
+                  "id": 111,
+                  "img": "https://maaney.store/news/tech-news-roundup-1002.webp",
+                  "category": "Mobile News",
+                  "title": "Samsung S27 Ultra Camera, OnePlus 16 Display Leak, Huawei Mate 80 Feature and Apple AirPods Max 2 Launch",
+                  "excerpt": "Several new tech developments have surfaced including Samsung Galaxy S27 Ultra camera technology leaks, OnePlus 16 240Hz display reports, Huawei Mate 80 smart call feature and Apple AirPods Max 2 launch updates.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-17T23:00:00",
+                  "link": "https://maaney.store/news/tech-news-roundup-1002"
+                },
+                {
+                  "id": 110,
+                  "img": "https://maaney.store/news/poco/poco-x8-pro-iron-man-edition-launch-india-6500mah-battery.png",
+                  "category": "Mobile News",
+                  "title": "Poco X8 Pro Iron Man Edition Launches in India: 6500mAh Battery, Marvel Design",
+                  "excerpt": "Poco has launched the Poco X8 Pro Iron Man Edition in India featuring a Marvel-inspired design. The special edition smartphone packs a large 6500mAh battery, powerful performance hardware, and a custom Iron Man themed UI for fans.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-17T22:10:00",
+                  "link": "https://maaney.store/news/poco/poco-x8-pro-iron-man-edition-launch-india-6500mah-battery"
+                },
+                {
+                  "id": 109,
+                  "img": "https://maaney.store/news/vivo/vivo-x300-ultra-x300s-launch-date-leaked.png",
+                  "category": "Mobile News",
+                  "title": "Vivo X300 Ultra, X300s Launch Date Leaked: March 30 Debut, Dual 200MP Cameras",
+                  "excerpt": "Vivo X300 Ultra and Vivo X300s launch date has reportedly leaked, suggesting a March 30 debut. The flagship phones are expected to feature powerful chipsets and advanced cameras including dual 200MP sensors.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-17T02:30:00",
+                  "link": "https://maaney.store/news/vivo/vivo-x300-ultra-x300s-launch-date-leaked"
+                },
+                {
+                  "id": 108,
+                  "img": "https://maaney.store/news/samsung/samsung-galaxy-m17e-5g-launch-india-march-17th-1.jpg",
+                  "category": "Mobile News",
+                  "title": "Samsung Galaxy M17e 5G Launches in India: 6000mAh Battery, 6 Years of OS Updates",
+                  "excerpt": "Samsung has launched the Galaxy M17e 5G in India with a massive 6000mAh battery, Dimensity 6300 processor, 120Hz display and a promise of 6 years of Android and security updates.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-17T12:31:00",
+                  "link": "https://maaney.store/news/samsung/samsung-galaxy-m17e-5g-launch-india-6000mah-battery"
+                },
+                {
+                  "id": 107,
+                  "img": "https://pbs.twimg.com/media/HDB-8y1a4AAhlUi?format=jpg&name=medium",
+                  "category": "Mobile News",
+                  "title": "Vivo T5x Launching Today at 12PM in India with Dimensity Chip and Big Battery",
+                  "excerpt": "Vivo is set to launch the Vivo T5x smartphone in India today at 12 PM, expected to feature a Dimensity processor, large battery and a budget-friendly price.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-17T11:33:00",
+                  "link": "https://maaney.store/news/vivo/vivo-t5x-5g-launch-india-7200mah-battery"
+                },
+                {
+                  "id": 106,
+                  "img": "https://maaney.store/news/tech-news-roundup-1001.webp",
+                  "category": "Mobile News",
+                  "title": "Motorola Android 16 Issues, OnePlus Note 6 Leak, Xiaomi 17T Series and iPhone 18 Details Surface",
+                  "excerpt": "Several new mobile developments have surfaced including Motorola H50 series users reporting issues...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-17T00:30:00",
+                  "link": "https://maaney.store/news/tech-news-roundup-1001"
+                },
+                {
+                  "id": 105,
+                  "img": "https://maaney.store/news/apple/airpods-max-2-launch-price-specifications.webp",
+                  "category": "Audio News",
+                  "title": "Apple Announces AirPods Max 2 with H2 Chip, Stronger ANC and Lossless Audio Support",
+                  "excerpt": "Apple has officially announced the AirPods Max 2 featuring the powerful H2 chip, up to 1.5× stronger Active Noise Cancellation, lossless audio via USB-C, and new intelligent features like Live Translation and Voice Isolation...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-16T23:30:00",
+                  "link": "https://maaney.store/news/apple/airpods-max-2-launch-price-specifications"
+                },
+                {
+                  "id": 104,
+                  "img": "https://maaney.store/news/huawei/huawei-tablet-teased-flipkart-india-return-matepad-11-5.png",
+                  "category": "Tablet News",
+                  "title": "Huawei Tablet Teased on Flipkart, Hinting at India Comeback with MatePad 11.5",
+                  "excerpt": "Huawei has reportedly teased a new tablet launch on Flipkart, hinting at its return to the Indian market with the MatePad 11.5...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-16T18:20:00",
+                  "link": "https://maaney.store/news/huawei/huawei-tablet-teased-flipkart-india-return-matepad-11-5"
+                },
+                {
+                  "id": 103,
+                  "img": "https://maaney.store/hindi/lava/lava-bold-2-5g-launch-price-specifications.webp",
+                  "category": "Mobile News",
+                  "title": "Lava Bold 2 5G Launched in India at ₹12,999 with Dimensity 7060, 120Hz Display and 64MP Camera",
+                  "excerpt": "Lava has launched the new Lava Bold 2 5G in India starting at ₹12,999...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-15T16:00:00",
+                  "link": "https://maaney.store/news/lava/lava-bold-2-5g-launch-price-specifications"
+                },
+                {
+                  "id": 102,
+                  "img": "https://maaney.store/news/poco/poco-x8-pro-max-5g-marketing-material-leak-confirms-almost-every-detail-1.webp",
+                  "category": "Mobile News",
+                  "title": "POCO X8 Pro Series India Launch Expected Soon; Dimensity Processors and 9000mAh Battery Tipped",
+                  "excerpt": "POCO X8 Pro and POCO X8 Pro Max are expected to launch soon in India with powerful MediaTek Dimensity processors, OLED displays and a massive battery up to 9000mAh. The upcoming smartphones could expand POCO’s popular X series lineup.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-14T21:10:00",
+                  "link": "https://maaney.store/news/poco/poco-x8-pro-series-roundup-india-launch-date-specifications-pricing"
+                },
+                {
+                  "id": 101,
+                  "img": "https://maaney.store/news/samsung/samsung-galaxy-z-flip-8-battery-size-expected-features.webp",
+                  "category": "Mobile News",
+                  "title": "Samsung Galaxy Z Flip 8 Battery Details Leaked; May Feature Same 4,300mAh Capacity as Flip 7",
+                  "excerpt": "Samsung Galaxy Z Flip 8 battery specifications have reportedly leaked ahead of launch. The upcoming foldable smartphone could feature a 4,300mAh battery similar to the Galaxy Z Flip 7, with a dual-cell battery setup and improved efficiency expected.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-13T22:40:00",
+                  "link": "https://maaney.store/news/samsung/samsung-galaxy-z-flip-8-battery-size-expected-features"
+                },
+                {
+                  "id": 100,
+                  "img": "https://maaney.store/news/realme/realme-16t-5g-p4r-india-launch-tipped-colourways-storage-specifications-features-1.webp",
+                  "category": "Mobile News",
+                  "title": "Realme 16T 5G, Realme P4R 5G India Launch Tipped With Colour Options and Storage Variants",
+                  "excerpt": "Realme 16T 5G and Realme P4R 5G are reportedly being prepared for launch in India...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-13T18:05:00",
+                  "link": "https://maaney.store/news/realme/realme-16t-5g-p4r-india-launch-tipped-colourways-storage-specifications-features"
+                },
+                {
+                  "id": 99,
+                  "img": "https://maaney.store/news/lava/lava-bold-2-5g-price-in-india-launch-specifications-features-1.webp",
+                  "category": "Mobile News",
+                  "title": "Lava Bold 2 5G Launched in India With 5,000mAh Battery and 50MP Camera",
+                  "excerpt": "Lava Bold 2 5G has launched in India featuring a 6.67-inch AMOLED display with a 120Hz refresh rate, a MediaTek Dimensity processor, and a 50MP primary camera. The smartphone also includes a 5,000mAh battery with 33W fast charging support and 5G connectivity. It is positioned as a value-focused device in the affordable 5G smartphone segment.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-13T15:20:00",
+                  "link": "https://maaney.store/news/lava/lava-bold-2-5g-price-in-india-launch-specifications-features"
+                },
+                {
+                  "id": 98,
+                  "img": "https://maaney.store/news/apple/apple-s-foldable-iphone-to-feature-ipad-like-interface-when-opened.webp",
+                  "category": "Apple News",
+                  "title": "Apple Foldable iPhone Could Bring Side-by-Side Apps and Tablet-Style Layouts",
+                  "excerpt": "The Apple Foldable iPhone is rumored to feature a foldable OLED display with side-by-side app multitasking, tablet-style layouts, and optimized iOS for larger screens. The device could combine iPhone portability with iPad-like functionality, offering enhanced productivity and entertainment experiences. Launch is expected around 2026.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-12T23:30:00",
+                  "link": "https://maaney.store/news/apple/apple-s-foldable-iphone-to-feature-ipad-like-interface-when-opened"
+                },
+                {
+                  "id": 38,
+                  "img": "https://maaney.store/news/samsung/samsung-galaxy-m17e-price-in-india-tipped-launch-date-specifications.webp",
+                  "category": "Samsung News",
+                  "title": "Samsung Galaxy M17e Price in India Tipped Ahead of Launch with 6000mAh Battery",
+                  "excerpt": "Samsung Galaxy M17e price in India has been tipped ahead of its official launch. The upcoming Galaxy M series smartphone is expected to feature a 6.7-inch 120Hz display, MediaTek Dimensity 6300 processor and a large 6000mAh battery. The device is likely to launch in the budget 5G segment and could compete with popular smartphones from Xiaomi, Realme and iQOO...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-12T18:20:00",
+                  "link": "https://maaney.store/news/samsung/samsung-galaxy-m17e-price-in-india-tipped-launch-date-specifications"
+                },
+                {
+                  "id": 37,
+                  "img": "https://photos5.appleinsider.com/gallery/67002-140750-iPhone-8-xl.jpg",
+                  "category": "Apple News",
+                  "title": "Apple Rolls Out iOS 16.7.15 and iOS 15.8.7 Updates with Coruna Exploit Fix for Older iPhones",
+                  "excerpt": "Apple has released iOS 16.7.15 and iOS 15.8.7 security updates for older iPhone and iPad models. The updates fix vulnerabilities linked to the Coruna exploit toolkit and address security issues in WebKit and the iOS kernel, helping protect devices from potential cyber threats...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-12T14:30:00",
+                  "link": "https://maaney.store/news/apple/apple-ios-15-update-older-iphone-coruna-exploit-fixes"
+                },
+                {
+                  "id": 36,
+                  "img": "https://cdn.beebom.com/content/2026/03/z11x-leak-price.jpg",
+                  "category": "Mobile News",
+                  "title": "iQOO Z11x 5G Launched in India with 7,200mAh Battery and Dimensity 7400 Turbo Processor",
+                  "excerpt": "iQOO has officially launched the iQOO Z11x 5G in India featuring a massive 7,200mAh battery and the MediaTek Dimensity 7400 Turbo processor. The smartphone also offers a smooth 120Hz display, 50MP primary camera and modern design aimed at delivering strong performance and long-lasting battery life in the competitive mid-range smartphone segment...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-12T14:00:00",
+                  "link": "https://maaney.store/news/iqoo/iqoo-z11x-5g-launched-in-india-know-price-specs-details"
+                },
+                {
+                  "id": 35,
+                  "img": "https://maaney.store/news/oneplus/oneplus-15t-design-revealed-three-colours-ultra-narrow-bezels.webp",
+                  "category": "Mobile News",
+                  "title": "OnePlus 15T Design Revealed with Three Colours and Ultra-Narrow Bezels",
+                  "excerpt": "OnePlus has officially revealed the design of the upcoming OnePlus 15T smartphone, showcasing three colour options and ultra-narrow bezels. The compact flagship device is expected to feature a 6.32-inch display, premium build quality and powerful hardware aimed at delivering high-end performance in a smaller form factor...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-12T13:30:00",
+                  "link": "https://maaney.store/news/oneplus/oneplus-15t-design-revealed-three-colours-ultra-narrow-bezels"
+                },
+                {
+                  "id": 34,
+                  "img": "https://maaney.store/news/oppo/oppo-a6s-5g-launch-india-this-month-colours-specs-exclusive.webp",
+                  "category": "Mobile News",
+                  "title": "OPPO A6s 5G Launch Expected in India with Dimensity 6300 Processor and 120Hz Display",
+                  "excerpt": "OPPO is expected to launch the OPPO A6s 5G in India soon featuring the MediaTek Dimensity 6300 processor, a smooth 120Hz display and a large battery designed for extended daily usage. The upcoming smartphone aims to deliver reliable performance, modern connectivity features including 5G support and improved camera capabilities in the affordable smartphone segment...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-12T13:00:00",
+                  "link": "https://maaney.store/news/oppo/oppo-a6s-5g-launch-india-this-month-colours-specs-exclusive"
+                },
+                {
+                  "id": 33,
+                  "img": "https://maaney.store/news/vivo/vivo-y51-pro-launched-in-india-price-specifications-sale.png",
+                  "category": "Mobile News",
+                  "title": "Vivo Y51 Pro Launched in India with 7,200mAh Battery and Dimensity 7360 Ultra Processor",
+                  "excerpt": "Vivo has officially launched the Vivo Y51 Pro in India featuring a massive 7,200mAh battery, MediaTek Dimensity 7360 Ultra processor and a smooth 120Hz display. The smartphone is designed to deliver long battery life, reliable performance and modern connectivity features including 5G support, fast charging and improved camera capabilities...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-12T12:20:00",
+                  "link": "https://maaney.store/news/vivo/vivo-y51-pro-launched-in-india-price-specifications-sale"
+                },
+                {
+                  "id": 32,
+                  "img": "https://maaney.store/news/redmi/xiaomi-17-ultra-and-xiaomi-17-launched-in-india-know-specifications-colour-options-prices-here-2.webp",
+                  "category": "Mobile News",
+                  "title": "Xiaomi 17 Ultra and Xiaomi 17 Launched in India with Leica Cameras and Snapdragon 8 Elite Gen 5",
+                  "excerpt": "Xiaomi has officially launched the Xiaomi 17 Ultra and Xiaomi 17 in India featuring Leica-powered camera systems, the flagship Snapdragon 8 Elite Gen 5 processor and high refresh rate AMOLED displays. The Xiaomi 17 Ultra introduces a powerful 200MP telephoto camera designed for advanced zoom photography while both devices offer premium performance, fast charging and modern flagship design...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-11T17:10:00",
+                  "link": "https://maaney.store/news/redmi/xiaomi-17-ultra-and-xiaomi-17-launched-in-india-know-specifications-colour-options-prices-here"
+                },
+                {
+                  "id": 31,
+                  "img": "https://maaney.store/news/poco/poco-x8-pro-series-global-launch.png",
+                  "category": "Mobile News",
+                  "title": "POCO X8 Pro Series Global Launch Confirmed for March 17 with Dimensity Processor and Big Battery",
+                  "excerpt": "POCO has officially confirmed the global launch event for the POCO X8 Pro Series scheduled for March 17, 2026. The upcoming lineup is expected to include the POCO X8 Pro and POCO X8 Pro Max featuring powerful MediaTek Dimensity processors, high refresh rate OLED displays, and large battery capacities designed for performance-focused smartphone users...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-11T16:20:00",
+                  "link": "https://maaney.store/news/poco/poco-x8-pro-series-global-launch"
+                },
+                {
+                  "id": 30,
+                  "img": "https://maaney.store/news/apple/iphone-18-pro-camera-upgrades-leak.webp",
+                  "category": "Mobile News",
+                  "title": "iPhone 18 Pro Leak Reveals 48MP Ultra-Wide Camera, Improved Telephoto and Variable Aperture",
+                  "excerpt": "A new leak suggests Apple may introduce major camera upgrades with the iPhone 18 Pro. The upcoming flagship could feature a 48MP ultra-wide camera, an improved telephoto lens, and a variable aperture main camera designed to enhance low-light performance, exposure control, and overall photography quality...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-11T00:20:00",
+                  "link": "https://maaney.store/news/apple/iphone-18-pro-camera-upgrades-leak"
+                },
+                {
+                  "id": 29,
+                  "img": "https://maaney.store/news/whatsapp/whatsapp-rounded-chat-bubbles-testing-premium-plan-waitlist.png",
+                  "category": "Tech News",
+                  "title": "WhatsApp Testing Rounded Chat Bubbles as Premium Plan Waitlist Appears",
+                  "excerpt": "WhatsApp is testing a new chat interface with rounded message bubbles in its Android beta version. Reports also reveal a Premium plan waitlist, hinting that the platform may introduce optional subscription features and additional customization options...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-10T17:20:00",
+                  "link": "https://maaney.store/news/whatsapp/whatsapp-rounded-chat-bubbles-testing-premium-plan-waitlist"
+                },
+                {
+                  "id": 28,
+                  "img": "https://maaney.store/news/samsung/samsung-galaxy-s26-ultra-magsafe-cases-s-pen-warning.png",
+                  "category": "Mobile News",
+                  "title": "Samsung Galaxy S26 Ultra Warns Users That MagSafe Cases May Interfere With S Pen",
+                  "excerpt": "Samsung Galaxy S26 Ultra shows a warning when MagSafe-style magnetic cases are attached. The device alerts users that magnets inside some accessories may interfere with the S Pen and affect writing accuracy...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-09T21:50:00",
+                  "link": "https://maaney.store/news/samsung/samsung-galaxy-s26-ultra-magsafe-cases-s-pen-warning"
+                },
+                {
+                  "id": 27,
+                  "img": "https://maaney.store/news/vivo/vivo-x300s-launch-confirmed-replacing-x300-max-specifications-teased.jpg",
+                  "category": "Mobile News",
+                  "title": "Vivo X300s Confirmed Instead of X300 Max; 144Hz Display and 200MP ZEISS Camera Teased",
+                  "excerpt": "Vivo has confirmed the upcoming Vivo X300s smartphone which will replace the previously rumored X300 Max. The device is teased with a 144Hz display, a powerful 200MP ZEISS camera system, and flagship gaming-focused features...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-09T16:30:00",
+                  "link": "https://maaney.store/news/vivo/vivo-x300s-launch-confirmed-replacing-x300-max-specifications-teased"
+                },
+                {
+                  "id": 26,
+                  "img": "https://maaney.store/news/samsung/samsung-galaxy-m17e-5g-launch-india-march-17th-1.jpg",
+                  "category": "Mobile News",
+                  "title": "Samsung Galaxy M17e 5G Launching in India on March 17 with 6000mAh Battery",
+                  "excerpt": "Samsung has confirmed the launch of the Galaxy M17e 5G in India on March 17. The smartphone is expected to feature a 6.7-inch 120Hz display, MediaTek Dimensity 6300 processor, 50MP camera, and a large 6000mAh battery...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-09T14:55:00",
+                  "link": "https://maaney.store/news/samsung/samsung-galaxy-m17e-5g-launch-india-march-17th"
+                },
+                {
+                  "id": 25,
+                  "img": "https://maaney.store/news/ryzen/amd-expands-ryzen-ai-400-series-lineup-with-desktop-and-pro-processors-at-mwc-2026-1.webp",
+                  "category": "Tech News",
+                  "title": "AMD Expands Ryzen AI 400 Series with Desktop and PRO Processors at MWC 2026",
+                  "excerpt": "AMD has expanded its Ryzen AI 400 Series lineup at Mobile World Congress 2026, introducing new desktop and Ryzen AI PRO processors designed to power next-generation AI PCs with advanced on-device AI acceleration...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-09T14:30:00",
+                  "link": "https://maaney.store/news/ryzen/amd-expands-ryzen-ai-400-series-lineup-with-desktop-and-pro-processors-at-mwc-2026"
+                },
+                {
+                  "id": 24,
+                  "img": "https://maaney.store/news/poco/poco-x8-pro-max-5g-marketing-material-leak-confirms-almost-every-detail.webp",
+                  "category": "Mobile News",
+                  "title": "Poco X8 Pro Max 5G Marketing Material Leak Confirms 8500mAh Battery, Dimensity 9500s and 120Hz OLED Display",
+                  "excerpt": "Poco X8 Pro Max 5G marketing materials have leaked online revealing key specifications including an 8500mAh battery, Dimensity 9500s chipset and 120Hz OLED display, hinting at a powerful upcoming Poco flagship smartphone...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-09T10:00:00",
+                  "link": "https://maaney.store/news/poco/poco-x8-pro-max-5g-marketing-material-leak-confirms-almost-every-detail"
+                },
+                {
+                  "id": 23,
+                  "img": "https://maaney.store/news/realme/realme-c83-5g-launched-india-price-specifications.png",
+                  "category": "Mobile News",
+                  "title": "Realme C83 5G Launched in India With 7000mAh Battery and 144Hz Display",
+                  "excerpt": "Realme C83 5G has launched in India featuring a massive 7000mAh battery, 144Hz display and MediaTek Dimensity 6300 processor, targeting budget users looking for long battery life and smooth performance...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-07T20:50:00",
+                  "link": "https://maaney.store/news/realme/realme-c83-5g-launched-india-price-specifications"
+                },
+                {
+                  "id": 22,
+                  "img": "https://maaney.store/news/oneplus/oneplus-16-leak-200mp-main-camera-50mp-periscope-telephoto-lens.webp",
+                  "category": "Mobile News",
+                  "title": "OnePlus 16 Leak Suggests 200MP Main Camera and 50MP Periscope Telephoto Lens",
+                  "excerpt": "Fresh leaks suggest the upcoming OnePlus 16 could feature a powerful 200MP main camera and a 50MP periscope telephoto lens, aiming to significantly improve zoom photography...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-07T18:30:00",
+                  "link": "https://maaney.store/news/oneplus/oneplus-16-leak-200mp-main-camera-50mp-periscope-telephoto-lens"
+                },
+                {
+                  "id": 21,
+                  "img": "https://maaney.store/news/iqoo/iqoo-z11x-teased-7200mah-battery-march-12-launch-2.webp",
+                  "category": "Mobile News",
+                  "title": "iQOO Z11x Teased With Massive 7200mAh Battery Ahead of March 12 India Launch",
+                  "excerpt": "iQOO has teased the upcoming Z11x smartphone ahead of its March 12 launch in India, highlighting a massive 7200mAh battery designed for long-lasting usage.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-06T17:40:00",
+                  "link": "https://maaney.store/news/iqoo/iqoo-z11x-teased-7200mah-battery-march-12-launch"
+                },
+                {
+                  "id": 20,
+                  "img": "https://maaney.store/news/samsung/samsung-browser-internet-lost-og.png",
+                  "category": "Tech News",
+                  "title": "Samsung Internet Browser Renamed to Samsung Browser on New Galaxy Devices",
+                  "excerpt": "Samsung appears to be renaming its popular Samsung Internet Browser to simply Samsung Browser on newer Galaxy devices.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-06T17:10:00",
+                  "link": "https://maaney.store/news/samsung/samsung-browser-internet-lost"
+                },
+                {
+                  "id": 19,
+                  "img": "https://maaney.store/news/honor/honor-magic-8-pro-7100mah-battery-100w-fast-charging.png",
+                  "category": "Mobile News",
+                  "title": "HONOR Magic 8 Pro Teased With Massive 7100mAh Battery and 100W Fast Charging",
+                  "excerpt": "HONOR has teased the upcoming Magic 8 Pro smartphone highlighting one of its biggest upgrades",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-06T16:40:00",
+                  "link": "https://maaney.store/news/honor/honor-magic-8-pro-7100mah-battery-100w-fast-charging"
+                },
+                {
+                  "id": 18,
+                  "img": "https://maaney.store/news/poco/poco-c85x-5g-launched-india-price-specifications.png",
+                  "category": "Mobile News",
+                  "title": "POCO C85x 5G India Launch Date Announced, Design Revealed Ahead of Debut",
+                  "excerpt": "POCO has officially teased the upcoming C85x 5G smartphone ahead of its India launch...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-06T16:15:00",
+                  "link": "https://maaney.store/news/poco/poco-c85x-5g-launched-india-price-specifications"
+                },
+                {
+                  "id": 17,
+                  "img": "https://maaney.store/news/motorola/motorola-edge-70-fusion-chipset-software-support-confirmed-1.png",
+                  "category": "Mobile News",
+                  "title": "Motorola Edge 70 Fusion Launched in India with 7000mAh Battery, 144Hz Curved Display and Snapdragon 7s Gen 4",
+                  "excerpt": "Motorola has officially launched the Edge 70 Fusion in India featuring a large 7000mAh battery...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-06T12:00:00",
+                  "link": "https://maaney.store/news/motorola/motorola-edge-70-fusion-launched-india-price-specifications"
+                },
+                {
+                  "id": 16,
+                  "img": "https://maaney.store/news/oneplus/oneplus-15t-rear-camera-battery-bezels-teaser-specifications-executive.png",
+                  "category": "Mobile News",
+                  "title": "OnePlus 15T Tipped to Feature 1.5K 165Hz Display and Snapdragon 8 Elite Gen 5 Ahead of Launch",
+                  "excerpt": "OnePlus 15T has been tipped with several key specifications ahead of its official launch. The upcoming smartphone is expected to feature a 1.5K OLED display with a smooth 165Hz refresh rate, delivering improved visuals and gaming performance. Reports also suggest that the device could be powered by the Snapdragon 8 Elite Gen 5 processor along with a large 7500mAh battery, positioning the OnePlus 15T as a powerful compact flagship smartphone...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-06T10:45:00",
+                  "link": "https://maaney.store/news/oneplus/oneplus-15t-display-specifications-confirmed"
+                },
+                {
+                  "id": 15,
+                  "img": "https://maaney.store/news/poco/poco-x8-pro-dimensity-8500-ultra-9500s-chipsets-confirmed.png",
+                  "category": "Mobile News",
+                  "title": "POCO X8 Pro Series Chipsets Confirmed With Dimensity 8500 Ultra and 9500s",
+                  "excerpt": "POCO has confirmed the chipsets for the upcoming POCO X8 Pro series ahead of its official launch. The standard POCO X8 Pro is expected to feature the MediaTek Dimensity 8500 Ultra processor, while the higher-end Pro Max variant could use the powerful Dimensity 9500s chipset. These next-generation processors are designed to deliver flagship-level performance, improved gaming capabilities, and better efficiency for upcoming POCO smartphones...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-05T16:00:00",
+                  "link": "https://maaney.store/news/poco/poco-x8-pro-dimensity-8500-ultra-9500s-chipsets-confirmed"
+                },
+                {
+                  "id": 14,
+                  "img": "https://maaney.store/news/vivo/vivo-x300-fe-silently-listed-russia-full-specifications.png",
+                  "category": "Mobile News",
+                  "title": "Vivo X300 FE Silently Listed in Russia, Full Specifications Revealed",
+                  "excerpt": "The Vivo X300 FE has appeared on a Russian retailer website, revealing key specifications ahead of its official launch. The compact flagship is expected to feature a 6.31-inch LTPO AMOLED display with a 120Hz refresh rate, Snapdragon flagship chipset, up to 12GB RAM, and a 50MP triple-camera setup. The device may also pack a massive 6500mAh battery with fast charging support...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-05T11:30:00",
+                  "link": "https://maaney.store/news/vivo/vivo-x300-fe-silently-listed-russia-full-specifications"
+                },
+                {
+                  "id": 13,
+                  "img": "https://maaney.store/news/mediatek/mediatek-starlink-emergency-satellite-mobile-devices-extreme-zoom-at-glasses-mwc-2026.png",
+                  "category": "Tech News",
+                  "title": "MediaTek Demonstrates AI Glasses with Starlink-Powered Satellite Emergency Alerts at MWC 2026",
+                  "excerpt": "MediaTek showcased AI-powered smart glasses and demonstrated satellite emergency alerts powered by Starlink Direct-to-Cell technology during MWC 2026. The demo showed how devices using the MediaTek M90 modem can receive critical alerts even when traditional cellular networks are unavailable...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-04T14:20:00",
+                  "link": "https://maaney.store/news/mediatek/mediatek-starlink-emergency-satellite-mobile-devices-extreme-zoom-at-glasses-mwc-2026"
+                },
+                {
+                  "id": 12,
+                  "img": "https://maaney.store/news/apple/apple-macbook-pro-m5-pro-m5-max-macbook-air-m5-launched-1.png",
+                  "category": "Laptop News",
+                  "title": "Apple Launches MacBook Pro with M5 Pro & M5 Max and MacBook Air M5 with Thunderbolt 5",
+                  "excerpt": "Apple has officially introduced the new MacBook Pro models powered by M5 Pro and M5 Max chipsets along with the refreshed MacBook Air featuring the M5 chip. The new lineup brings improved CPU and GPU performance, Thunderbolt 5, Wi-Fi 7 support and higher unified memory options...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-03T22:55:00",
+                  "link": "https://maaney.store/news/apple/apple-macbook-pro-m5-pro-m5-max-macbook-air-m5-launched"
+                },
+                {
+                  "id": 11,
+                  "img": "https://maaney.store/news/redmi/xiaomi-18-pro-max-series-rear-camera-specifications-leak.png",
+                  "category": "Mobile News",
+                  "title": "Xiaomi 18, 18 Pro and 18 Pro Max Early Leak Reveals Major Rear Camera Upgrades",
+                  "excerpt": "Early leaks suggest the Xiaomi 18 series could introduce major rear camera upgrades, including a 200MP primary sensor and dual 200MP setup on Pro models. Improved periscope zoom and enhanced low-light photography are also expected...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-03T22:20:00",
+                  "link": "https://maaney.store/news/redmi/xiaomi-18-pro-max-series-rear-camera-specifications-leak"
+                },
+                {
+                  "id": 10,
+                  "img": "https://maaney.store/news/tcl/mwc-2026-tcl-csot-showcases-super-pixel-inkjet-printed-oled-and-apex-display-innovations.png",
+                  "category": "Tech News",
+                  "title": "MWC 2026: TCL CSOT Showcases Super Pixel, Inkjet-Printed OLED and APEX Display Innovations",
+                  "excerpt": "TCL CSOT unveiled its next-generation Super Pixel display architecture, advanced Inkjet-Printed OLED panels, and APEX innovation framework at MWC 2026 in Barcelona. The showcase highlights improved visual clarity, power efficiency, and future-ready display concepts...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-03T21:45:00",
+                  "link": "https://maaney.store/news/tcl/mwc-2026-tcl-csot-showcases-super-pixel-inkjet-printed-oled-and-apex-display-innovations"
+                },
+                {
+                  "id": 9,
+                  "img": "https://maaney.store/news/oneplus/oneplus-15t-rear-camera-battery-bezels-teaser-specifications-executive.png",
+                  "category": "Mobile News",
+                  "title": "OnePlus 15T Confirmed with LUMO Periscope Telephoto Lens and Ultra-Narrow Bezels Ahead of Launch",
+                  "excerpt": "OnePlus has officially confirmed that the upcoming OnePlus 15T will feature a new LUMO-branded periscope telephoto camera along with ultra-narrow bezels. The compact flagship is expected to offer a 6.32-inch 1.5K AMOLED display...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-03T12:10:00",
+                  "link": "https://maaney.store/news/oneplus/oneplus-15t-rear-camera-battery-bezels-teaser-specifications-executive"
+                },
+                {
+                  "id": 8,
+                  "img": "https://maaney.store/news/nothing/news-nothing-4a-1.png",
+                  "category": "Mobile News",
+                  "title": "Nothing Phone 4a to Go on Sale in Bengaluru at Exclusive Drop Event After India Launch",
+                  "excerpt": "Nothing has announced an exclusive drop event for the Phone 4a in Bengaluru just days after its official India launch. The special in-store sale at the Nothing Store in Indiranagar will allow early buyers to purchase the device before nationwide...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-03T11:30:00",
+                  "link": "https://maaney.store/news/nothing/nothing-phone-4a-india-exclusive-drop-event-sale-specifications-features"
+                },
+                {
+                  "id": 7,
+                  "img": "https://maaney.store/news/apple/ipad-air-launched-m4-chip-upgraded-ram-india-price-features-specifications.png",
+                  "category": "Tablet News",
+                  "title": "Apple iPad Air with M4 Chip Launched in India Starting at ₹64,900 with Upgraded RAM and Wi-Fi 7",
+                  "excerpt": "Apple has officially launched the new iPad Air in India powered by the advanced M4 chip. The tablet starts at ₹64,900 for the 11-inch Wi-Fi model and is also available in a larger 13-inch variant. It features upgraded unified memory...",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-03T11:10:00",
+                  "link": "https://maaney.store/news/apple/ipad-air-launched-m4-chip-upgraded-ram-india-price-features-specifications"
+                },
+                {
+                  "id": 6,
+                  "img": "https://maaney.store/news/redmi/xiaomi-17-ultra-pad-8-launch-india-march-11th.png",
+                  "category": "Mobile News",
+                  "title": "Xiaomi 17, 17 Ultra and Pad 8 India Launch Confirmed for March 11 with Snapdragon 8 Elite Gen 5",
+                  "excerpt": "Xiaomi has confirmed the India launch of the Xiaomi 17, Xiaomi 17 Ultra and Xiaomi Pad 8 on March 11, 2026. The flagship phones feature the Snapdragon 8 Elite Gen 5 chipset, Leica-tuned cameras including a 200MP periscope lens, and up to 6000mAh battery support. The Pad 8 brings an 11.2-inch display and 9200mAh battery.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-02T22:30:00",
+                  "link": "https://maaney.store/news/redmi/xiaomi-17-ultra-pad-8-launch-india-march-11th"
+                },
+                {
+                  "id": 5,
+                  "img": "https://maaney.store/news/apple/iphone-17e-launched-india-price-specifications-sale-date.png",
+                  "category": "Mobile News",
+                  "title": "iPhone 17e Launched in India with A19 Chip, 48MP Camera and MagSafe Support",
+                  "excerpt": "Apple has launched the iPhone 17e in India starting at ₹64,900. The new model features the powerful A19 chipset, 48MP Fusion camera, MagSafe wireless charging and 256GB base storage. Pre-orders begin March 4, with sales starting March 11.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-02T21:30:00",
+                  "link": "https://maaney.store/news/apple/iphone-17e-launched-india-price-specifications-sale-date"
+                },
+                {
+                  "id": 4,
+                  "img": "https://maaney.store/news/whatsapp/whatsapp-messaging-apps-wont-work-without-active-sim.png",
+                  "category": "Telecom News",
+                  "title": "WhatsApp SIM-Binding Rule Now Live in India: Active SIM Mandatory for Messaging Apps",
+                  "excerpt": "India’s new telecom security regulation requires WhatsApp and other messaging apps to function only when the registered SIM card remains active and inserted in the primary device. Web sessions may also require periodic re-verification.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-02T16:00:00",
+                  "link": "https://maaney.store/news/whatsapp/whatsapp-messaging-apps-wont-work-without-active-sim"
+                },
+                {
+                  "id": 3,
+                  "img": "https://maaney.store/news/ai/ai-plus-pulse-2-launched-in-india-price-specifications-availability-1.png",
+                  "category": "Launch News",
+                  "title": "AI+ Pulse 2 Launched in India Under ₹7,000 with 6000mAh Battery and 120Hz Display",
+                  "excerpt": "AI+ introduces the Pulse 2 in India featuring a 6000mAh battery, 50MP AI dual camera, 120Hz HD+ display and Android 16 at an introductory price of ₹5,999.",
+                  "author": "Dhuda Sathish",
+                  "date": "2026-03-02T15:30:00",
+                  "link": "/news/ai/ai-plus-pulse-2-launched-in-india-price-specifications-availability"
+                },
+                { 
+                  "id": 2, 
+                  "img": "https://maaney.store/news/honor/honor-magic-v6-foldable-launched-global-mwc-2026-1.png", 
+                  "category": "Launch News", 
+                  "title": "Honor Magic V6 Foldable Launched Globally at MWC 2026 with Ultra-Slim Design and 6,660mAh Battery", 
+                  "excerpt": "Honor unveils the Magic V6 at MWC 2026 featuring an ultra-thin foldable design, large 6,660mAh battery, IP68/IP69 durability, and flagship Snapdragon performance.", 
+                  "author": "Dhuda Sathish", 
+                  "date": "2026-03-01T23:50:00", 
+                  "link": "https://maaney.store/news/honor/honor-magic-v6-foldable-launched-global-mwc-2026" 
+                },
+                { 
+                  "id": 12, 
+                  "img": "https://maaney.store/news/launchCalendar/march/smartphones-launching-india-next-week-nothing-phone-4a-motorola-edge-70-fusion.png", 
+                  "category": "News", 
+                  "title": "Nothing Phone (4a), Motorola Edge 70 Fusion & More Set to Launch in India Next Week", 
+                  "excerpt": "Several major smartphone brands are preparing new launches in India next week.", 
+                  "author": "Dhuda Sathish", 
+                  "date": "2026-03-01T20:40:00", 
+                  "link": "https://maaney.store/news/launchCalendar/march/smartphones-launching-india-next-week-nothing-phone-4a-motorola-edge-70-fusion" 
+                },
+                { 
+                  "id": 11, 
+                  "img": "https://maaney.store/news/apple/apple-new-products-launch-iphone-17e-affordable-macbook-more.png", 
+                  "category": "News", 
+                  "title": "Apple to Launch iPhone 17e, Affordable MacBook & More Starting March 2, 2026", 
+                  "excerpt": "Apple has teased a multi-day product rollout beginning March 2, 2026.", 
+                  "author": "Maaney Editorial", 
+                  "date": "2026-02-27T12:00:00", 
+                  "link": "https://maaney.store/news/apple/apple-new-products-launch-iphone-17e-affordable-macbook-more" 
+                },
+                { 
+                  "id": 9, 
+                  "img": "https://maaney.store/news/samsung/news-smasung-s26-privacy-1.png", 
+                  "category": "News", 
+                  "title": "Samsung Privacy Display Debuts with Galaxy S26", 
+                  "excerpt": "Samsung has introduced its new Privacy Display technology with the upcoming Galaxy S26 series.", 
+                  "author": "Maaney Editorial", 
+                  "date": "2026-02-23T15:30:00", 
+                  "link": "https://maaney.store/news/samsung/samsung-date-leaked" 
+                },
+                { 
+                  "id": 8, 
+                  "img": "https://maaney.store/news/iqoo/news-iqoo-15r.png", 
+                  "category": "News", 
+                  "title": "iQOO 15R India Launch: Specifications, Expected Price, and Key Details", 
+                  "excerpt": "iQOO is set to launch the iQOO 15R in India with a Snapdragon 8 Gen 5 chipset.", 
+                  "author": "Maaney Editorial", 
+                  "date": "2026-02-22T12:00:00",
+                  "link": "https://maaney.store/news/iqoo/iqoo-15r-india-launch-date-specification-price-design" 
+                },
+                { 
+                  "id": 7, 
+                  "img": "https://maaney.store/news/huawei/huawei-has-two-new-mid-range-kirin-chips-for-2026-smartphones-1.png", 
+                  "category": "News", 
+                  "title": "Huawei to Introduce Two New Mid-Range Kirin Chipsets for 2026 Smartphones", 
+                  "excerpt": "Huawei is reportedly preparing two new mid-range Kirin processors.", 
+                  "author": "Maaney Editorial", 
+                  "date": "2026-02-21T22:30:00", 
+                  "link": "https://maaney.store/news/huawei/huawei-has-two-new-mid-range-kirin-chips-for-2026-smartphones" 
+                },
+                { 
+                  "id": 6, 
+                  "img": "https://maaney.store/news/huawei/future-flagship-huawei-phones-to-get-an-incredible-gpu-upgrade-1.png", 
+                  "category": "News", 
+                  "title": "Future Huawei Flagship Phones to Get an Incredible GPU Performance Upgrade", 
+                  "excerpt": "Huawei has highlighted its focus on delivering major GPU performance improvements.", 
+                  "author": "Maaney Editorial", 
+                  "date": "2026-02-21T15:30:00", 
+                  "link": "https://maaney.store/news/huawei/future-flagship-huawei-phones-to-get-an-incredible-gpu-upgrade" 
+                },
+                { 
+                  "id": 5, 
+                  "img": "https://maaney.store/news/poco/poco-x8-pro-x8-pro-max-design-specs-leak.png", 
+                  "category": "News", 
+                  "title": "POCO X8 Pro and X8 Pro Max Leak Reveals Design and Key Specs", 
+                  "excerpt": "Fresh leaks have revealed the design and core specifications of the upcoming POCO X8 Pro.", 
+                  "author": "Maaney Editorial", 
+                  "date": "2026-02-21T14:00:00",
+                  "link": "https://maaney.store/news/poco/poco-x8-pro-x8-pro-max-design-specs-leak" 
+                },
+                { 
+                  "id": 4, 
+                  "img": "https://maaney.store/news/samsung/news-samsung-one-ui-update.png", 
+                  "category": "News", 
+                  "title": "Samsung Confirms One UI 8.5 Update With Upgraded Bixby", 
+                  "excerpt": "Samsung has officially confirmed a major upgrade to its Bixby voice assistant.", 
+                  "author": "Maaney Editorial", 
+                  "date": "2026-02-20T12:00:00",
+                  "link": "https://maaney.store/news/samsung/news-samsung-one-ui-update" 
+                },
+                { 
+                  "id": 3, 
+                  "img": "https://maaney.store/news/nothing/nothing-4a-community-review.png", 
+                  "category": "News", 
+                  "title": "Nothing Opens Community Review Program for Phone (4a) Series", 
+                  "excerpt": "Nothing has officially announced a Community Review Program for its upcoming Phone (4a).", 
+                  "author": "Maaney Editorial", 
+                  "date": "2026-02-19T12:00:00",
+                  "link": "https://maaney.store/news/nothing/nothing-phone-4a-community-review" 
+                },
+                { 
+                  "id": 1, 
+                  "img": "https://maaney.store/news/android/news-android-17-beta.png", 
+                  "category": "News", 
+                  "title": "Android 17 Beta Released for Google Pixel", 
+                  "excerpt": "Google has officially rolled out the Android 17 Beta for supported Pixel devices.", 
+                  "author": "Maaney Editorial", 
+                  "date": "2026-02-18T12:00:00",
+                  "link": "https://maaney.store/news/android/android-17-beta-pixel" 
+                },
+                { 
+                  "id": 13, 
+                  "img": "https://maaney.store/news/vivo/news-vivo-x300-fe-certification-90w-fast-charging.png", 
+                  "category": "News", 
+                  "title": "Vivo X300 FE Spotted on 3C Certification", 
+                  "excerpt": "Vivo's upcoming X300 FE has been certified by 3C in China.", 
+                  "author": "Maaney Editorial", 
+                  "date": "2026-02-16T12:00:00",
+                  "link": "https://maaney.store/news/vivo/vivo-X300-FE-launch" 
+                },
+                { 
+                  "id": 14, 
+                  "img": "https://maaney.store/news/samsung/news-smasung-s26-privacy-1.png", 
+                  "category": "News", 
+                  "title": "Samsung Galaxy S26 Privacy Features Leak", 
+                  "excerpt": "Leaked details about the Samsung Galaxy S26 reveal a major focus on user privacy.", 
+                  "author": "Maaney Editorial", 
+                  "date": "2026-02-16T10:00:00", 
+                  "link": "https://maaney.store/news/samsung/samsung-privacy-display-galaxy-s26-more-android-phones-leak" 
+                },
+                { 
+                  "id": 15, 
+                  "img": "https://maaney.store/news/redmi/news-xiaomi-civi-6-leak-1.png", 
+                  "category": "News", 
+                  "title": "Xiaomi Civi 6 Spotted in Leaked Renders", 
+                  "excerpt": "Xiaomi's upcoming Civi 6 has been revealed in leaked renders.", 
+                  "author": "Maaney Editorial", 
+                  "date": "2026-02-16T14:00:00", 
+                  "link": "https://maaney.store/news/redmi/xiaomi-civi-6-leaks" 
+                },
+                { 
+                  "id": 16, 
+                  "img": "./launchCalendar/feb/samsung-s26-feb.png", 
+                  "category": "Launch Calendar", 
+                  "title": "Upcoming Smartphones in Feb 2026: The Ultimate Launch Calendar", 
+                  "excerpt": "February 2026 is shaping up to be one of the most exciting months for smartphone enthusiasts.", 
+                  "author": "Maaney Editorial", 
+                  "date": "2026-02-19T12:00:00", 
+                  "link": "./launchCalendar/feb/upcoming-mobiles-feb-2026" 
+                },
+                { 
+                  "id": 17, 
+                  "img": "./google/news-google-pixel-10a.png", 
+                  "category": "Reviews", 
+                  "title": "Google Pixel 10a India Launch Set for February 18", 
+                  "excerpt": "Google is preparing to shake up its affordable Pixel lineup once again.", 
+                  "author": "Arjun Verma", 
+                  "date": "2026-02-18T10:00:00", 
+                  "link": "./google/google-pixel-10a" 
                 }
             ];
 
-            let allArticles = [...staticArticles];
+            // 2. Process Articles (Map fields and sort)
+            const allArticles = rawArticles.map(article => ({
+                id: article.id,
+                url: article.link,
+                img: article.img,
+                title: article.title,
+                cat: article.category,
+                date: article.date, // ISO 8601 format
+                // Generate random views if missing, or use a placeholder
+                views: article.views || Math.floor(Math.random() * 4000) + 500,
+                // Calculate read time or default
+                time: article.time || Math.max(3, Math.ceil((article.excerpt || '').split(' ').length / 100))
+            }));
 
-            // 2. Fetch API Articles
-            try {
-                const response = await fetch(`https://maaney-backend1.onrender.com/api/articles?author_id=${authorId}`);
-                const result = await response.json();
-
-                if (result.success && result.data.length > 0) {
-                    result.data.forEach(article => {
-                        // Avoid duplicates if static articles overlap with API
-                        if (!allArticles.some(a => a.id === article.id || a.title === article.title)) {
-                            allArticles.push({
-                                id: article.id,
-                                url: `${article.link}`,
-                                img: article.img_url,
-                                title: article.title,
-                                cat: article.type,
-                                date: article.date, // Expected YYYY-MM-DD
-                                views: article.views,
-                                time: article.read_time
-                            });
-                        }
-                    });
-                }
-            } catch (error) {
-                console.error("Error fetching articles:", error);
-            }
-
-            // 3. Sort by Date (Newest First)
+            // Sort by Date (Newest First)
             allArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
 
             // Update Count Stat
             if (countEl) countEl.textContent = allArticles.length;
 
-            // 4. Pagination Logic
-            const itemsPerPage = 5;
+            // 3. Pagination Logic
+            const itemsPerPage = 6; // Set to 6 articles per page
             const urlParams = new URLSearchParams(window.location.search);
             let currentPage = parseInt(urlParams.get('page')) || 1;
             
@@ -1145,7 +1845,7 @@
             const endIndex = startIndex + itemsPerPage;
             const paginatedArticles = allArticles.slice(startIndex, endIndex);
 
-            // 5. Render Articles
+            // 4. Render Articles
             container.innerHTML = ''; // Clear existing content
             
             paginatedArticles.forEach((article, index) => {
@@ -1161,7 +1861,8 @@
                     <img src="${article.img}" 
                          alt="${article.title}" 
                          class="article-thumb"
-                         loading="lazy">
+                         loading="lazy"
+                         onerror="this.src='https://via.placeholder.com/140x90/f0f0f0/666666?text=Image'">
                     
                     <div class="article-content">
                         <span class="article-category">${article.cat}</span>
@@ -1180,7 +1881,7 @@
                 container.appendChild(card);
             });
 
-            // 6. Render Pagination
+            // 5. Render Pagination
             renderPagination(currentPage, totalPages);
 
         });
@@ -1220,12 +1921,34 @@
             }
 
             // Page Numbers
-            for (let i = 1; i <= totalPages; i++) {
+            // Logic to show limited pages to prevent overflow
+            let startPage = Math.max(1, currentPage - 2);
+            let endPage = Math.min(totalPages, startPage + 4);
+            
+            if (endPage - startPage < 4 && startPage > 1) {
+                startPage = Math.max(1, endPage - 4);
+            }
+
+            if (startPage > 1) {
+                html += `<li class="page-item"><a href="?page=1">1</a></li>`;
+                if (startPage > 2) {
+                    html += `<li class="page-item disabled"><a href="#">...</a></li>`;
+                }
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
                 if (i === currentPage) {
                     html += `<li class="page-item active"><a href="?page=${i}">${i}</a></li>`;
                 } else {
                     html += `<li class="page-item"><a href="?page=${i}">${i}</a></li>`;
                 }
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                     html += `<li class="page-item disabled"><a href="#">...</a></li>`;
+                }
+                html += `<li class="page-item"><a href="?page=${totalPages}">${totalPages}</a></li>`;
             }
 
             // Next Button
@@ -1240,4 +1963,4 @@
         }
     </script>
 </body>
-</html
+</html>
